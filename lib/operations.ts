@@ -1,4 +1,4 @@
-import { counts, stage, positionNames, type Workspace, type Role, type Session, type Participant, type Position, DEMO_MEMBER } from './model';
+import { counts, stage, positionNames, type Workspace, type Role, type Session, type Participant, type Position, DEMO_MEMBER, courtSlots, reconcileSlots, kstDate, onDate, nextDate } from './model';
 export class AppError extends Error { constructor(message:string,public status=400){super(message)} }
 export type Action = {type:string; sessionId?:string; [key:string]:unknown};
 const admin=(role:Role)=>{if(role==='member')throw new AppError('운영진만 사용할 수 있어요.',403)};
@@ -32,13 +32,36 @@ export function operate(w:Workspace,a:Action,role:Role,now=Date.now()):Workspace
  case 'guest':{admin(role);const s=ses();editable(s);s.participants.push({id:crypto.randomUUID(),guest:true,name:str(a.name,30),response:'yes',category:'regular',source:'guest',at,team:null});break;}
  case 'removeGuest':{admin(role);const s=ses();editable(s);const p=s.participants.find(p=>p.id===a.participantId);if(!p?.guest)throw new AppError('임시 게스트만 제거할 수 있어요.');if(p.team!==null)leader(role);s.participants=s.participants.filter(item=>item.id!==p.id);break;}
  case 'editGuest':{admin(role);const s=ses();editable(s);const p=s.participants.find(p=>p.id===a.participantId);if(!p?.guest)throw new AppError('임시 게스트를 찾을 수 없어요.');p.name=str(a.name,30);break;}
- case 'assign':{admin(role);const s=ses();editable(s);const p=s.participants.find(p=>p.id===a.participantId);if(!p||p.response!=='yes')throw new AppError('회차 참가 인원을 선택해 주세요.');const special=p.guest||next.members.find(m=>m.id===p.memberId)?.kind==='new';if(special)leader(role);p.team=a.team===null?null:num(a.team,0,s.teamCount-1);break;}
+ case 'place':{
+  admin(role);const s=ses();editable(s);const team=num(a.team,0,s.teamCount-1),slot=str(a.slot,20);
+  const seat=s.setterSeats?.[team]??'OP';const target=courtSlots(seat).find(x=>x.id===slot);
+  if(!target&&slot!=='rotation')throw new AppError('배치할 자리를 확인해 주세요.');
+  let p=s.participants.find(p=>p.id===a.participantId);
+  if(!p||p.response!=='yes'){
+   leader(role);const memberId=str(a.memberId);addMember(s,memberId,'proxy','yes');p=s.participants.find(p=>p.memberId===memberId);
+  }
+  if(!p)throw new AppError('참가 인원을 찾을 수 없어요.');
+  if(p.guest||next.members.find(m=>m.id===p.memberId)?.kind==='new')leader(role);
+  if(slot!=='rotation'&&s.participants.some(x=>x.id!==p!.id&&x.response==='yes'&&x.team===team&&x.slot===slot))throw new AppError('이미 배정된 자리예요. 배정을 해제하거나 다른 자리를 선택해 주세요.',409);
+  p.team=team;p.slot=slot;if(target){p.position=target.position;p.setterSeat=target.seat;}break;
+ }
+ case 'formation':{
+  admin(role);const s=ses();editable(s);const team=num(a.team,0,s.teamCount-1);if(a.seat!=='MB'&&a.seat!=='OP')throw new AppError('세터 자리를 선택해 주세요.');
+  if(s.participants.some(p=>p.team===team&&['MB2','OP2'].includes(p.slot??'')))throw new AppError('세터·변경할 자리를 먼저 비운 뒤 구성을 바꿔 주세요.');
+  s.setterSeats??=Array(s.teamCount).fill('OP');s.setterSeats[team]=a.seat;break;
+ }
+ case 'assign':{admin(role);const s=ses();editable(s);const p=s.participants.find(p=>p.id===a.participantId);if(!p||p.response!=='yes')throw new AppError('회차 참가 인원을 선택해 주세요.');const special=p.guest||next.members.find(m=>m.id===p.memberId)?.kind==='new';if(special)leader(role);p.team=a.team===null?null:num(a.team,0,s.teamCount-1);p.slot=undefined;reconcileSlots(s);break;}
  case 'position':{admin(role);const s=ses();editable(s);const p=s.participants.find(p=>p.id===a.participantId);if(!p)throw new AppError('참가 인원을 찾을 수 없어요.');p.position=pos(a.position);p.setterSeat=p.position==='S'?(a.setterSeat==='MB'?'MB':'OP'):undefined;break;}
- case 'template':{admin(role);const s=ses();editable(s);s.teamCount=num(a.teamCount,2,6);s.teamSize=num(a.teamSize,6,7);s.participants.forEach(p=>{if(p.team!==null&&p.team>=s.teamCount)p.team=null});break;}
- case 'publish':{admin(role);const s=ses();editable(s);s.published={at,teams:s.teamCount,teamSize:s.teamSize,people:s.participants.filter(p=>p.response==='yes').map(p=>({id:p.id,name:nameOf(next,p),team:p.team,position:p.position,setterSeat:p.setterSeat})).sort((a,b)=>a.name.localeCompare(b.name,'ko'))};break;}
+ case 'template':{admin(role);const s=ses();editable(s);s.teamCount=num(a.teamCount,2,6);s.teamSize=num(a.teamSize,6,7);s.participants.forEach(p=>{if(p.team!==null&&p.team>=s.teamCount){p.team=null;p.slot=undefined}});break;}
+ case 'publish':{admin(role);const s=ses();editable(s);s.published={at,teams:s.teamCount,teamSize:s.teamSize,people:s.participants.filter(p=>p.response==='yes').map(p=>({id:p.id,name:nameOf(next,p),team:p.team,position:p.position,setterSeat:p.setterSeat,slot:p.slot})).sort((a,b)=>a.name.localeCompare(b.name,'ko'))};break;}
  case 'phase':{admin(role);const s=ses();const phase=str(a.phase);if(!['open','candidates','closed','ended','cancelled'].includes(phase))throw new AppError('상태를 확인해 주세요.');if(['open','candidates'].includes(phase)&&now>=Date.parse(s.start))throw new AppError('운동 시작 전 회차만 신청을 열 수 있어요.');if(phase==='open'&&now>=Date.parse(s.deadline))throw new AppError('다시 열려면 신청 마감 시각을 먼저 변경해 주세요.');s.phase=phase as Session['phase'];break;}
- case 'saveSession':{admin(role);const s=ses();editable(s);const start=str(a.start),end=str(a.end),deadline=str(a.deadline);if(!Number.isFinite(Date.parse(start))||!Number.isFinite(Date.parse(end))||!Number.isFinite(Date.parse(deadline))||Date.parse(start)>=Date.parse(end)||Date.parse(deadline)>=Date.parse(start))throw new AppError('신청 마감 → 운동 시작 → 종료 순서로 입력해 주세요.');Object.assign(s,{title:str(a.title,60),location:str(a.location,100),address:typeof a.address==='string'?a.address.slice(0,200):'',note:typeof a.note==='string'?a.note.slice(0,2000):'',start,end,deadline,cap:a.cap===null?null:num(a.cap,1,200)});break;}
- case 'clone':{admin(role);const s=ses();const shift=(d:string)=>new Date(Date.parse(d)+7*86400000).toISOString();const newSession:Session={...structuredClone(s),id:crypto.randomUUID(),start:shift(s.start),end:shift(s.end),deadline:shift(s.deadline),phase:'draft',participants:[],published:null};next.sessions.push(newSession);break;}
+ case 'saveSession':{admin(role);const s=ses();editable(s);const start=str(a.start),end=str(a.end),deadline=str(a.deadline);if(!Number.isFinite(Date.parse(start))||!Number.isFinite(Date.parse(end))||!Number.isFinite(Date.parse(deadline))||Date.parse(start)>=Date.parse(end)||Date.parse(deadline)>=Date.parse(start))throw new AppError('신청 마감 → 운동 시작 → 종료 순서로 입력해 주세요.');Object.assign(s,{entry:new Date(Date.parse(start)-30*60000).toISOString(),title:str(a.title,60),location:str(a.location,100),address:typeof a.address==='string'?a.address.slice(0,200):'',note:typeof a.note==='string'?a.note.slice(0,2000):'',start,end,deadline,cap:a.cap===null?null:num(a.cap,1,200)});break;}
+ case 'clone':{
+  admin(role);const s=ses();const latest=next.sessions.reduce((last,x)=>Date.parse(x.start)>Date.parse(last.start)?x:last,s);
+  const base=Date.parse(latest.start)>now?new Date(Date.parse(latest.start)+1000):new Date(now);
+  const date=nextDate(next.club.weekday,base);const start=onDate(date,next.club.startTime);
+  const newSession:Session={...structuredClone(s),id:crypto.randomUUID(),title:'정기 운동',entry:onDate(date,next.club.entryTime),start,end:onDate(date,next.club.endTime),deadline:new Date(Date.parse(start)-86400000).toISOString(),location:next.club.location,address:next.club.address,phase:'draft',participants:[],published:null};next.sessions.push(newSession);break;
+ }
  case 'profile':{admin(role);const m=next.members.find(m=>m.id===a.memberId);if(!m)throw new AppError('회원을 찾을 수 없어요.');m.main=pos(a.main);m.sub=pos(a.sub);m.level=a.level===null?null:num(a.level,1,5);break;}
  case 'club':{leader(role);next.club={...next.club,name:str(a.name,40),location:str(a.location,100),address:str(a.address,200),weekday:num(a.weekday,0,6),startTime:str(a.startTime,5),endTime:str(a.endTime,5)};if(!/^\d{2}:\d{2}$/.test(next.club.startTime)||!/^\d{2}:\d{2}$/.test(next.club.endTime)||next.club.startTime>=next.club.endTime)throw new AppError('모임 기본 시간을 확인해 주세요.');break;}
  case 'post':{const category=str(a.category);if(!['notice','event','board'].includes(category))throw new AppError('게시판을 선택해 주세요.');if(role==='member'&&category!=='board')throw new AppError('공지·이벤트는 운영진이 작성해요.',403);next.posts.unshift({id:crypto.randomUUID(),category:category as 'notice',title:str(a.title,100),body:str(a.body,5000),author:role==='member'?next.members.find(m=>m.id===DEMO_MEMBER)!.name:'운영진',at,pinned:role!=='member'&&a.pinned===true,comments:[]});break;}
