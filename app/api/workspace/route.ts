@@ -1,5 +1,5 @@
 import { env } from 'cloudflare:workers';
-import { seedWorkspace, projection, upgradeWorkspace, EXAMPLE_CLUBS, type Workspace, type Role, type Account, DEMO_MEMBER } from '@/lib/model';
+import { seedWorkspace, projection, upgradeWorkspace, EXAMPLE_CLUBS, type Workspace, type Role, type Account, DEMO_MEMBER, seedDirectory, effectiveRole, type DirectoryMember } from '@/lib/model';
 import { operate, AppError } from '@/lib/operations';
 export const dynamic='force-dynamic';
 const json=(value:unknown,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store'}});
@@ -14,10 +14,13 @@ async function readRow<T>(id:string,seed:T){
 async function read(club:string){
  const row=await readRow<Workspace>(`${club}-v1`,seedWorkspace(new Date(),club));
  const account=await readRow<Account>('sideout-demo-account-v1',{name:'김나래',bio:''});
- const workspace=upgradeWorkspace(row.data,club);const me=workspace.members.find(m=>m.id===DEMO_MEMBER);if(me)me.name=account.data.name;
- return {workspace,revision:row.revision,account};
+ const directory=await readRow<DirectoryMember[]>('sideout-members-v1',seedDirectory());
+ const workspace=upgradeWorkspace(row.data,club);
+ for(const person of directory.data){const m=workspace.members.find(m=>m.id===person.id);if(m)Object.assign(m,person);else workspace.members.push({...person,main:'OH',sub:'OP',level:null});}
+ const me=workspace.members.find(m=>m.id===DEMO_MEMBER);if(me)me.name=account.data.name;account.data.homeClubId=me?.homeClubId??null;
+ return {workspace,revision:row.revision,account,directory};
 }
-function view(row:Awaited<ReturnType<typeof read>>,role:Role){return {...projection(row.workspace,role,DEMO_MEMBER,row.revision),account:row.account.data,accountRevision:row.account.revision}}
+function view(row:Awaited<ReturnType<typeof read>>,role:Role){return {...projection(row.workspace,role,DEMO_MEMBER,row.revision),account:row.account.data,accountRevision:row.account.revision,directoryRevision:role==='master'?row.directory.revision:undefined}}
 function fail(error:unknown){if(error instanceof AppError)return json({error:error.message},error.status);console.error('workspace request failed',error);return json({error:'저장소에 연결하지 못했어요. 잠시 후 다시 시도해 주세요.'},503)}
 export async function GET(request:Request){try{const {role,club}=scope(request);return json(view(await read(club),role))}catch(e){return fail(e)}}
 export async function POST(request:Request){try{
@@ -26,14 +29,21 @@ export async function POST(request:Request){try{
  let body;try{body=JSON.parse(text)}catch{throw new AppError('요청 내용을 확인해 주세요.')}
  if(!body||typeof body!=='object'||!body.action||typeof body.action.type!=='string')throw new AppError('요청 내용을 확인해 주세요.');
  const row=await read(club);
+ if(body.action.type==='registerMember'){
+  if(role!=='master')throw new AppError('회원 등록은 마스터만 할 수 있어요.',403);
+  const {name,homeClubId,kind}=body.action;if(typeof name!=='string'||!name.trim()||name.length>30||!(homeClubId===null||EXAMPLE_CLUBS.some(c=>c.id===homeClubId))||!['regular','new'].includes(kind))throw new AppError('회원 이름·소속·분류를 확인해 주세요.');
+  if(body.directoryRevision!==row.directory.revision)throw new AppError('회원 목록이 변경되었어요. 새로고침해 주세요.',409);
+  const members=[...row.directory.data,{id:crypto.randomUUID(),name:name.trim(),homeClubId,kind}];
+  const saved=await env.DB!.prepare('UPDATE workspaces SET payload=?,revision=revision+1 WHERE id=? AND revision=?').bind(JSON.stringify(members),'sideout-members-v1',row.directory.revision).run();if(saved.meta.changes!==1)throw new AppError('회원 목록이 먼저 변경되었어요.',409);return json(view(await read(club),role));
+ }
  if(body.action.type==='account'){
-  const {name,bio}=body.action;if(typeof name!=='string'||!name.trim()||name.length>30||typeof bio!=='string'||bio.length>300)throw new AppError('이름과 소개를 확인해 주세요.');
+  if('homeClubId' in body.action)throw new AppError('소속은 회원이 변경할 수 없어요.',403);const {name,bio}=body.action;if(typeof name!=='string'||!name.trim()||name.length>30||typeof bio!=='string'||bio.length>300)throw new AppError('이름과 소개를 확인해 주세요.');
   if(body.accountRevision!==row.account.revision)throw new AppError('계정 정보가 먼저 변경되었어요. 새로고침 후 다시 시도해 주세요.',409);
   const result=await env.DB!.prepare('UPDATE workspaces SET payload=?,revision=revision+1 WHERE id=? AND revision=?').bind(JSON.stringify({name:name.trim(),bio:bio.trim()}),'sideout-demo-account-v1',row.account.revision).run();
   if(result.meta.changes!==1)throw new AppError('다른 변경이 먼저 저장되었어요.',409);return json(view(await read(club),role));
  }
  if(body.revision!==row.revision)throw new AppError('다른 변경이 먼저 저장되었어요. 새로고침 후 다시 시도해 주세요.',409);
- const updated=operate(row.workspace,body.action,role);
+ const updated=operate(row.workspace,body.action,effectiveRole(row.workspace,role));
  const result=await env.DB!.prepare('UPDATE workspaces SET payload=?, revision=revision+1 WHERE id=? AND revision=?').bind(JSON.stringify(updated),id,row.revision).run();
  if(result.meta.changes!==1)throw new AppError('다른 변경이 먼저 저장되었어요. 새로고침 후 다시 시도해 주세요.',409);
  return json(view({...row,workspace:updated,revision:row.revision+1},role));
