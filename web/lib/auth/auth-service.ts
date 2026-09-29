@@ -12,6 +12,7 @@ export type AuthRepository={
  putSession(row:SessionRow):Promise<void>;
  deleteSession(hash:string):Promise<void>;
  deleteSessionsForMember(memberId:string):Promise<void>;
+ commitPasswordChange(input:{expectedVersion:number;nextAccount:AccountRecord;nextSession:SessionRow}):Promise<'committed'|'conflict'>;
 };
 type ActiveSession={state:'active';account:AccountRecord};
 type RestrictedSession={state:'password_change_required';account:AccountRecord};
@@ -60,9 +61,10 @@ export async function rotateAfterPasswordChange(repo:AuthRepository,token:string
  if(resolved.state==='anonymous')throw new AuthError('UNAUTHENTICATED','로그인이 필요합니다.');
  let next:AccountRecord;
  try{next=await changePassword(resolved.account,currentPassword,newPassword,policy,now)}catch{throw new AuthError('INVALID_INPUT','입력 내용과 계정 상태를 확인해 주세요.')}
- if(!await repo.saveAccount(next,resolved.account.authVersion))throw new AuthError('CONFLICT','계정이 변경되었습니다. 다시 시도해 주세요.');
- await repo.deleteSessionsForMember(next.id);
- return {state:'active',token:await issueSession(repo,next,false,ttlSeconds,now)};
+ const successorToken=createSessionToken();
+ const nextSession:SessionRow={tokenHash:await hashSessionToken(successorToken),memberId:next.id,authVersion:next.authVersion,restricted:false,expiresAt:now+validTtl(ttlSeconds)};
+ if(await repo.commitPasswordChange({expectedVersion:resolved.account.authVersion,nextAccount:next,nextSession})==='conflict')throw new AuthError('CONFLICT','계정이 변경되었습니다. 다시 시도해 주세요.');
+ return {state:'active',token:successorToken};
 }
 
 export async function logout(repo:AuthRepository,token:string|null):Promise<void>{

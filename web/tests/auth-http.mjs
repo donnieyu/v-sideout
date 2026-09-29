@@ -18,7 +18,8 @@ try{
  assert.equal(policy.temporaryCredentialDays,7);
  const account=await prepareAccount({id:'u1',loginId:'나래',displayName:'김나래',homeClubId:'seoul-demo',kind:'regular',isMaster:false,grants:[]},'TempPassword123',policy);
  const accounts=new Map([[account.id,account]]),sessions=new Map();
- const repo={async getByLoginKey(key){return [...accounts.values()].find(a=>a.loginIdKey===key)??null},async getById(id){return accounts.get(id)??null},async saveAccount(a,version){if(accounts.get(a.id)?.authVersion!==version)return false;accounts.set(a.id,a);return true},async getSession(hash){return sessions.get(hash)??null},async putSession(s){sessions.set(s.tokenHash,s)},async deleteSession(hash){sessions.delete(hash)},async deleteSessionsForMember(id){for(const [key,s] of sessions)if(s.memberId===id)sessions.delete(key)}};
+ let rotationMode='normal';
+ const repo={async getByLoginKey(key){return [...accounts.values()].find(a=>a.loginIdKey===key)??null},async getById(id){return accounts.get(id)??null},async saveAccount(){throw new Error('legacy write forbidden')},async commitPasswordChange({expectedVersion,nextAccount,nextSession}){if(rotationMode==='storage')throw new Error('database outage');if(rotationMode==='conflict'||accounts.get(nextAccount.id)?.authVersion!==expectedVersion)return 'conflict';accounts.set(nextAccount.id,nextAccount);for(const [hash,row] of sessions)if(row.memberId===nextAccount.id)sessions.delete(hash);sessions.set(nextSession.tokenHash,nextSession);return 'committed'},async getSession(hash){return sessions.get(hash)??null},async putSession(s){sessions.set(s.tokenHash,s)},async deleteSession(hash){sessions.delete(hash)},async deleteSessionsForMember(id){for(const [key,s] of sessions)if(s.memberId===id)sessions.delete(key)}};
  const url='https://sideout.example/api/auth';
  const request=(path,body,cookie,origin='https://sideout.example')=>new Request(`${url}/${path}`,{method:'POST',headers:{'Content-Type':'application/json','Origin':origin,...(cookie?{Cookie:cookie}:{})},body:JSON.stringify(body)});
  let response=await handleAuthRequest(repo,'session',new Request(`${url}/session`),policy);
@@ -42,5 +43,19 @@ try{
  assert.equal(response.status,200);
  response=await handleAuthRequest(repo,'session',new Request(`${url}/session`,{headers:{Cookie:newCookie}}),policy);
  assert.equal((await response.json()).state,'anonymous');
+ response=await handleAuthRequest(repo,'login',request('login',{loginId:'나래',password:'NewPassword123'}),policy);
+ const activeCookie=response.headers.get('Set-Cookie').split(';')[0];
+ rotationMode='storage';
+ response=await handleAuthRequest(repo,'password',request('password',{currentPassword:'NewPassword123',newPassword:'AnotherPassword123'},activeCookie),policy);
+ assert.equal(response.status,503);
+ assert.equal((await response.json()).error.code,'STORAGE_UNAVAILABLE');
+ assert.equal(response.headers.get('Set-Cookie'),null);
+ rotationMode='conflict';
+ response=await handleAuthRequest(repo,'password',request('password',{currentPassword:'NewPassword123',newPassword:'AnotherPassword123'},activeCookie),policy);
+ assert.equal(response.status,409);
+ assert.equal((await response.json()).error.code,'CONFLICT');
+ rotationMode='normal';
+ response=await handleAuthRequest(repo,'session',new Request(`${url}/session`,{headers:{Cookie:activeCookie}}),policy);
+ assert.equal((await response.json()).state,'active');
  console.log('PASS auth HTTP: CSRF origin, restricted login, rotation, safe session, logout');
 }finally{await rm(dir,{recursive:true,force:true})}

@@ -18,10 +18,19 @@ try{
  const now=Date.parse('2026-09-29T00:00:00Z'),policy={minPasswordLength:12,temporaryCredentialDays:7};
  const account=await prepareAccount({id:'user-1',loginId:'나래',displayName:'김나래',homeClubId:'seoul-demo',kind:'regular',isMaster:false,grants:[]},'TempPassword123',policy,now);
  const members=new Map([[account.id,account]]),sessions=new Map();
+ let rotationFailure=false;
  const repository={
   async getByLoginKey(key){return [...members.values()].find(member=>member.loginIdKey===key)??null},
   async getById(id){return members.get(id)??null},
-  async saveAccount(next,expectedVersion){if(members.get(next.id)?.authVersion!==expectedVersion)return false;members.set(next.id,next);return true},
+  async saveAccount(){throw new Error('legacy non-atomic write forbidden')},
+  async commitPasswordChange({expectedVersion,nextAccount,nextSession}){
+   if(rotationFailure)throw new Error('storage failure');
+   if(members.get(nextAccount.id)?.authVersion!==expectedVersion)return 'conflict';
+   members.set(nextAccount.id,nextAccount);
+   for(const [hash,row] of sessions)if(row.memberId===nextAccount.id)sessions.delete(hash);
+   sessions.set(nextSession.tokenHash,nextSession);
+   return 'committed';
+  },
   async getSession(hash){return sessions.get(hash)??null},
   async putSession(row){sessions.set(row.tokenHash,row)},
   async deleteSession(hash){sessions.delete(hash)},
@@ -36,6 +45,14 @@ try{
  assert.equal(changed.state,'active');
  assert.equal((await resolveSession(repository,signedIn.token,now)).state,'anonymous');
  assert.equal((await resolveSession(repository,changed.token,now)).state,'active');
+ rotationFailure=true;
+ await assert.rejects(()=>rotateAfterPasswordChange(repository,changed.token,'NewPassword123','AnotherPassword123',policy,3600,now),/storage failure/);
+ assert.equal((await resolveSession(repository,changed.token,now)).state,'active');
+ assert.equal(members.get(account.id).authVersion,2);
+ rotationFailure=false;
+ await rotateAfterPasswordChange(repository,changed.token,'NewPassword123','AnotherPassword123',policy,3600,now);
+ const afterLostResponse=await login(repository,'나래','AnotherPassword123',3600,now);
+ assert.equal(afterLostResponse.state,'active','new password must work if rotation response was lost');
  await logout(repository,changed.token);
  assert.equal((await resolveSession(repository,changed.token,now)).state,'anonymous');
  console.log('PASS login, restricted session, password rotation and logout');
