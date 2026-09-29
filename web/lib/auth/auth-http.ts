@@ -3,6 +3,7 @@ import {login,logout,resolveSession,rotateAfterPasswordChange,type AuthRepositor
 import {clearSessionCookie,parseSessionCookie,sessionCookie} from './session-token';
 import {AUTH_POLICY,SESSION_SECONDS} from './policy';
 import {AuthError,type AuthErrorCode} from './errors';
+import {toSessionView} from './identity';
 
 export {AUTH_POLICY} from './policy';
 type AuthAction='session'|'login'|'password'|'logout';
@@ -42,11 +43,7 @@ export async function handleAuthRequest(repo:AuthRepository,action:AuthAction,re
  const token=parseSessionCookie(request.headers.get('Cookie'));
  if(action==='session'){
   try{
-   const result=await resolveSession(repo,token);
-   if(result.state==='anonymous')return json({state:'anonymous'});
-   if(result.state==='password_change_required')return json({state:'password_change_required',expiresAt:result.account.temporaryExpiresAt});
-   const a=result.account;
-   return json({state:'active',me:{memberId:a.id,displayName:a.displayName,homeClubId:a.homeClubId,kind:a.kind,isMaster:a.isMaster,homeRole:a.homeRole,grants:a.grants},authorizationVersion:a.authVersion});
+   return json(toSessionView(await resolveSession(repo,token)));
   }catch(error){return errorResponse(error)}
  }
  if(request.method!=='POST')return json({error:{code:'INVALID_INPUT',message:'허용되지 않는 요청입니다.'}},405);

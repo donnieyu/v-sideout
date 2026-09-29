@@ -7,10 +7,10 @@ import {pathToFileURL} from 'node:url';
 
 const dir=await mkdtemp(join(tmpdir(),'sideout-auth-failures-'));
 try{
- for(const name of ['credentials','accounts','session-token','errors','policy','auth-service','auth-http']){
+ for(const name of ['credentials','accounts','session-token','errors','policy','auth-service','contracts','identity','auth-http']){
   const source=await readFile(new URL(`../lib/auth/${name}.ts`,import.meta.url),'utf8').catch(()=> 'export {}');
   const code=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText
-   .replaceAll(/from '\.\/(credentials|accounts|session-token|errors|policy|auth-service)'/g,"from './$1.mjs'");
+   .replaceAll(/from '\.\/(credentials|accounts|session-token|errors|policy|auth-service|contracts|identity)'/g,"from './$1.mjs'");
   await writeFile(join(dir,`${name}.mjs`),code);
  }
  const {AUTH_POLICY}=await import(pathToFileURL(join(dir,'policy.mjs')));

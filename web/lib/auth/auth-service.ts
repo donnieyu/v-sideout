@@ -14,8 +14,8 @@ export type AuthRepository={
  deleteSessionsForMember(memberId:string):Promise<void>;
  commitPasswordChange(input:{expectedVersion:number;nextAccount:AccountRecord;nextSession:SessionRow}):Promise<'committed'|'conflict'>;
 };
-type ActiveSession={state:'active';account:AccountRecord};
-type RestrictedSession={state:'password_change_required';account:AccountRecord};
+type ActiveSession={state:'active';account:AccountRecord;expiresAt:number};
+type RestrictedSession={state:'password_change_required';account:AccountRecord;expiresAt:number};
 type AnonymousSession={state:'anonymous'};
 export type ResolvedSession=ActiveSession|RestrictedSession|AnonymousSession;
 
@@ -50,10 +50,12 @@ export async function resolveSession(repo:AuthRepository,token:string|null,now=D
  const account=await repo.getById(session.memberId);
  if(!account||!account.active||account.authVersion!==session.authVersion)return {state:'anonymous'};
  if(account.mustChangePassword||session.restricted){
-  if(!account.mustChangePassword||!session.restricted||account.temporaryExpiresAt&&Date.parse(account.temporaryExpiresAt)<=now)return {state:'anonymous'};
-  return {state:'password_change_required',account};
+  if(!account.mustChangePassword||!session.restricted||!account.temporaryExpiresAt)return {state:'anonymous'};
+  const temporaryExpiry=Date.parse(account.temporaryExpiresAt);
+  if(!Number.isFinite(temporaryExpiry)||temporaryExpiry<=now)return {state:'anonymous'};
+  return {state:'password_change_required',account,expiresAt:Math.min(session.expiresAt,temporaryExpiry)};
  }
- return {state:'active',account};
+ return {state:'active',account,expiresAt:session.expiresAt};
 }
 
 export async function rotateAfterPasswordChange(repo:AuthRepository,token:string,currentPassword:string,newPassword:string,policy:AuthPolicy,ttlSeconds:number,now=Date.now()):Promise<{state:'active';token:string}>{
