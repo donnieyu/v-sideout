@@ -7,9 +7,9 @@ import {pathToFileURL} from 'node:url';
 
 const dir=await mkdtemp(join(tmpdir(),'sideout-auth-http-'));
 try{
- for(const name of ['credentials','accounts','session-token','auth-service','policy','auth-http']){
+ for(const name of ['credentials','accounts','session-token','errors','auth-service','policy','auth-http']){
   const source=await readFile(new URL(`../lib/auth/${name}.ts`,import.meta.url),'utf8').catch(()=> 'export {}');
-  const code=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText.replaceAll(/from '\.\/(credentials|accounts|session-token|auth-service|policy)'/g,"from './$1.mjs'");
+  const code=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText.replaceAll(/from '\.\/(credentials|accounts|session-token|errors|auth-service|policy)'/g,"from './$1.mjs'");
   await writeFile(join(dir,`${name}.mjs`),code);
  }
  const {prepareAccount}=await import(pathToFileURL(join(dir,'accounts.mjs')));

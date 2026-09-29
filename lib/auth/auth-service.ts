@@ -1,6 +1,7 @@
 import {authenticateAccount,changePassword, type AccountRecord, type AuthPolicy} from './accounts';
 import {normalizeLoginId} from './credentials';
 import {createSessionToken,hashSessionToken} from './session-token';
+import {AuthError} from './errors';
 
 export type SessionRow={tokenHash:string;memberId:string;authVersion:number;restricted:boolean;expiresAt:number};
 export type AuthRepository={
@@ -29,10 +30,12 @@ async function issueSession(repo:AuthRepository,account:AccountRecord,restricted
 }
 
 export async function login(repo:AuthRepository,loginId:string,password:string,ttlSeconds:number,now=Date.now()):Promise<{state:'active'|'password_change_required';token:string}>{
- const account=await repo.getByLoginKey(normalizeLoginId(loginId));
- if(!account)throw new Error('아이디 또는 비밀번호를 확인해 주세요.');
+ let key:string;
+ try{key=normalizeLoginId(loginId)}catch{throw new AuthError('INVALID_INPUT','로그인 아이디를 확인해 주세요.')}
+ const account=await repo.getByLoginKey(key);
+ if(!account)throw new AuthError('INVALID_CREDENTIALS','아이디 또는 비밀번호를 확인해 주세요.');
  const result=await authenticateAccount(account,password,now);
- if(result==='invalid'||result==='inactive'||result==='expired')throw new Error('아이디 또는 비밀번호를 확인해 주세요.');
+ if(result==='invalid'||result==='inactive'||result==='expired')throw new AuthError('INVALID_CREDENTIALS','아이디 또는 비밀번호를 확인해 주세요.');
  const restricted=result==='change_required';
  return {state:restricted?'password_change_required':'active',token:await issueSession(repo,account,restricted,ttlSeconds,now)};
 }
@@ -54,14 +57,17 @@ export async function resolveSession(repo:AuthRepository,token:string|null,now=D
 
 export async function rotateAfterPasswordChange(repo:AuthRepository,token:string,currentPassword:string,newPassword:string,policy:AuthPolicy,ttlSeconds:number,now=Date.now()):Promise<{state:'active';token:string}>{
  const resolved=await resolveSession(repo,token,now);
- if(resolved.state==='anonymous')throw new Error('로그인이 필요합니다.');
- const next=await changePassword(resolved.account,currentPassword,newPassword,policy,now);
- if(!await repo.saveAccount(next,resolved.account.authVersion))throw new Error('계정이 변경되었습니다. 다시 시도해 주세요.');
+ if(resolved.state==='anonymous')throw new AuthError('UNAUTHENTICATED','로그인이 필요합니다.');
+ let next:AccountRecord;
+ try{next=await changePassword(resolved.account,currentPassword,newPassword,policy,now)}catch{throw new AuthError('INVALID_INPUT','입력 내용과 계정 상태를 확인해 주세요.')}
+ if(!await repo.saveAccount(next,resolved.account.authVersion))throw new AuthError('CONFLICT','계정이 변경되었습니다. 다시 시도해 주세요.');
  await repo.deleteSessionsForMember(next.id);
  return {state:'active',token:await issueSession(repo,next,false,ttlSeconds,now)};
 }
 
 export async function logout(repo:AuthRepository,token:string|null):Promise<void>{
  if(!token)return;
- try{await repo.deleteSession(await hashSessionToken(token))}catch{/* malformed cookie */}
+ let hash:string;
+ try{hash=await hashSessionToken(token)}catch{return}
+ await repo.deleteSession(hash);
 }

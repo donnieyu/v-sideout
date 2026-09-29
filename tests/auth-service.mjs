@@ -7,10 +7,10 @@ import {pathToFileURL} from 'node:url';
 
 const dir=await mkdtemp(join(tmpdir(),'sideout-auth-service-'));
 try{
- for(const name of ['credentials','accounts','session-token','auth-service']){
+ for(const name of ['credentials','accounts','session-token','errors','auth-service']){
   const source=await readFile(new URL(`../lib/auth/${name}.ts`,import.meta.url),'utf8').catch(()=> 'export {}');
   const code=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText
-   .replaceAll("'./credentials'","'./credentials.mjs'").replaceAll("'./accounts'","'./accounts.mjs'").replaceAll("'./session-token'","'./session-token.mjs'");
+   .replaceAll("'./credentials'","'./credentials.mjs'").replaceAll("'./accounts'","'./accounts.mjs'").replaceAll("'./session-token'","'./session-token.mjs'").replaceAll("'./errors'","'./errors.mjs'");
   await writeFile(join(dir,`${name}.mjs`),code);
  }
  const {prepareAccount}=await import(pathToFileURL(join(dir,'accounts.mjs')));
