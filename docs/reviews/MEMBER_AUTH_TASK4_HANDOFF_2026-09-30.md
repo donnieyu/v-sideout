@@ -5,6 +5,8 @@
 
 **범위:** `feat/auth-rotation`의 `011297e`에서 브라우저 세션 응답과 서버 전용 검증 신원을 분리했다. 통합 담당 I가 C01–C04 필드와 유효 권한 의미에 동의했다. `requireBusinessPrincipal`과 업무 API는 I 소유이며 아직 연결하지 않았다.
 
+I는 문서 커밋 `a9755a4`와 `contracts.ts`·`identity.ts`·`auth-http.ts`를 읽고 최종 인계를 수락했다. I의 `requireBusinessPrincipal`은 `active`만 허용하고 A의 `grants`를 재합산하지 않는다. I는 이번 Node24 검사 결과를 인계 보고로 기록했으며 직접 재실행하지 않았다.
+
 ## 계약
 
 - C01 `GET /api/auth/session`은 `anonymous`, `password_change_required {expiresAt}`, `active {me:{memberId,loginId,displayName,homeClubId},authorizationVersion}` 중 하나를 반환한다. `expiresAt`은 ISO 문자열이며 제한 세션 만료와 임시 자격 만료 중 이른 시각이다. 브라우저 응답에 비밀번호 해시·원본 토큰·이메일·마스터 여부·역할·grant 원본은 없다.
@@ -17,6 +19,7 @@
 
 - Node **24.16.0**에서 신규 `auth-contract.mjs`를 먼저 실패시킨 뒤 구현해 통과시켰다. 이 검사는 정확한 DTO 키·비밀정보 비노출, 무소속·마스터·동일 모임 명시 권한, 제한/정상 세션, 만료 정각, 비활성·버전 회수, 저장소 장애 전파, 비활성 회원 신원 조회를 포함한다.
 - 기존 `auth-http.mjs`는 C01의 정확한 키와 제한 세션 만료를 검사하도록 보강했다. 전체 **13개** `web/tests/*.mjs` 스크립트, `tsc --noEmit --incremental false`, `npm run build`, `git diff --check`가 Node 24.16.0에서 통과했다. 빌드는 기존 vinext의 동적 API 분류 안내를 출력했다.
+- 독립 코드 검토에서 `a110043..a9755a4` 범위의 수정 필요 결함은 Critical·Important·Minor 모두 0건이었다. 검토자는 Node24.16.0에서 계약·HTTP·원자 회전·정책·저장 장애 검사 5개를 별도로 재실행했다.
 - 이번 작업은 스키마·migration·쿠키 정책·로그인/변경/로그아웃 오류 코드·의존성을 변경하지 않았다. 비밀번호 변경 성공 후 응답이 유실되면 새 비밀번호로 재로그인하는 기존 복구 경계가 유지된다.
 - 원격 D1의 동시 요청·CPU·장애 복구, 실제 브라우저/업무 API 통합, 실회원 자료·발송·공개 배포는 검증하지 않았다. C03의 업무 저장 직전 권한 변경 경합은 I의 저장 경계와 함께 검증해야 한다. M2 회원 관리에서 권한 변경 시 인증 버전을 갱신하는 명령을 구현해야 한다.
 
