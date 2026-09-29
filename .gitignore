@@ -1,0 +1,63 @@
+# Dependencies and generated output (web/build contains SOURCE; do not ignore it)
+**/node_modules/
+**/.next/
+**/.vinext/
+**/dist/
+**/out/
+**/coverage/
+**/*.tsbuildinfo
+**/next-env.d.ts
+**/.vite/
+**/.cache/
+**/test-results/
+**/playwright-report/
+
+# Vite prototype output: keep sibling hand-written mockups
+/docs/design-review/ideation-2026-09-23/weekend/a-shadcn/
+/docs/design-review/ideation-2026-09-23/weekend/allocation-ab/
+/docs/design-review/ideation-2026-09-23/weekend/position-slots/
+
+# Local runtime and databases
+**/.wrangler/
+**/.sites-runtime/
+**/.vercel/
+**/*.sqlite
+**/*.sqlite-*
+**/*.db
+**/*.db-*
+**/dumps/
+**/backups/
+
+# Credentials and local configuration; examples must contain placeholders only
+**/.env*
+!**/.env.example
+!**/.env.*.example
+**/.dev.vars
+**/.dev.vars.*
+!**/.dev.vars.example
+**/*.pem
+**/*.key
+**/credentials.json
+**/service-account*.json
+/private-data/
+
+# Worktrees and local agent state
+/work/
+/worktrees/
+/.worktrees/
+/web/work/
+**/.codex/
+**/.agents/
+**/.impeccable/
+**/.superpowers/
+
+# OS/editor/transient files
+.DS_Store
+Thumbs.db
+*.log
+*.pid
+*.swp
+*.swo
+*~
+__pycache__/
+*.pyc

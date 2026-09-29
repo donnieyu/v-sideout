@@ -1,0 +1,5 @@
+# Markdown uses two trailing spaces for an intentional hard line break.
+*.md whitespace=-blank-at-eol
+
+# Frozen A comparison bundle: preserve original bytes, do not rebuild or reformat.
+docs/design-review/ideation-2026-09-23/weekend/allocation-reference-a/assets/** linguist-generated=true whitespace=-blank-at-eol

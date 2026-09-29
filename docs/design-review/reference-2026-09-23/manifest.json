@@ -1,0 +1,53 @@
+{
+  "captured_at": "2026-09-22T23:46:57.413793+00:00",
+  "working_thread": {
+    "id": "01a0c686-ac70-7ca0-84b9-fddd9c11af09",
+    "title": "Plan Seoul volleyball club site"
+  },
+  "web_head": "07e4f8e55ad4a4981f4d4e6d333696d63bf0af5d",
+  "web_sources": {
+    "app/court-app.tsx": "33b0419899f92b3bcdc615d0841f3ca63235186e9fb04206e627305b47b6436d",
+    "app/team-board.tsx": "f41c3455c515380c0ab273aa796a8270a8a9c711d4e4c9e036fdaf78354514fa",
+    "app/globals.css": "557d0166ba61f8f44149fb8f0577a3f99b17715ff364a462830b10bd877b519e",
+    "lib/model.ts": "b06160f7fd2d4a7f5a0c67299bc8d2f0c19582f6616f8870cec33e0131b71c37",
+    "lib/operations.ts": "08195d8a30c722885d17aa686c41aacccda9a2c06e88af39af8cd6dd3f0059b4",
+    "app/api/workspace/route.ts": "67a76e7730a980087f673fd9ee87af5e4eb1223128e298ff9c269febe201118e",
+    "tests/domain.mjs": "be632d5ff9ba415725d95d7ba5a4680f5e1033b3b164a413338f6928b2f24917",
+    "package.json": "c50061b85f29c133bc93bf5c20b8918a1496be635b44018ef8b2cdb33afd9357"
+  },
+  "mockups": [
+    {
+      "source": "/Users/donnieyu/.codex/visualizations/2026/09/22/01a0c686-ac70-7ca0-84b9-fddd9c11af09/sideout-refined.html",
+      "snapshot": "docs/design-review/reference-2026-09-23/sideout-refined.html",
+      "sha256": "3e983df64271c145e7e0eb3365251cf8cf68534df34872ef461b1c3ba3b30d9a"
+    },
+    {
+      "source": "/Users/donnieyu/.codex/visualizations/2026/09/22/01a0c686-ac70-7ca0-84b9-fddd9c11af09/sideout-court-desk.html",
+      "snapshot": "docs/design-review/reference-2026-09-23/sideout-court-desk.html",
+      "sha256": "1c49a04a354278f039be45667a74390b30aef6841d9a958bb2c1154a9f7d867e"
+    },
+    {
+      "source": "/Users/donnieyu/.codex/visualizations/2026/09/22/01a0c686-ac70-7ca0-84b9-fddd9c11af09/sideout-night-court.html",
+      "snapshot": "docs/design-review/reference-2026-09-23/sideout-night-court.html",
+      "sha256": "9a22b11d3c3527d2e947100d6ffd8055bf8ee49e66b9f6eb03448bf6a32b0a26"
+    }
+  ],
+  "notes": [
+    "HTML files are unchanged snapshots of visualization fragments, not deployed UI. Original visualization runtime may be needed.",
+    "No visual browser audit was performed during preparation."
+  ],
+  "impeccable": {
+    "source_repo": "https://github.com/pbakaus/impeccable",
+    "commit": "e0881d2de397d5e9761d7b35ff5017d8f5ebf69b",
+    "source_path": ".agents/skills/impeccable",
+    "installed_path": "/Users/donnieyu/.codex/skills/impeccable",
+    "skill_version": "4.3.1",
+    "engine_version": "0.1.5",
+    "engine_probe": "passed",
+    "project_hooks_installed": false,
+    "live_mode_verified": false,
+    "verified_source_files": 57,
+    "context_target": "web/app/court-app.tsx",
+    "context_result": "existing project resolved; PRODUCT.md and DESIGN.md absent; hooks inactive"
+  }
+}

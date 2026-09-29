@@ -1,0 +1,40 @@
+{
+  "captured_at": "2026-09-23T00:25:58.816092+00:00",
+  "web_head": "bdf36ded5db2da1858484c85c97fea9143dd14cf",
+  "web_status": "clean",
+  "working_thread": {
+    "id": "01a0c686-ac70-7ca0-84b9-fddd9c11af09",
+    "title": "Plan Seoul volleyball club site"
+  },
+  "approval_user_message": "01a0cb98-7f0a-75c1-b617-09855c4092ae",
+  "latest_design_review_user_message": "01a0cb8c-96ac-7312-9c7f-814b168f77ee",
+  "web_sources": {
+    "app/enrollment.tsx": "a6da2d6f18e979fe8c5c3277b8fbe492c34c84e0d1da587b66afa88154042e61",
+    "app/court-app.tsx": "d4a6c3d2ff06850c11b03c496282dab37160a5525b8926d9daa2fb1ee2cc3b43",
+    "app/team-board.tsx": "afa79c170f572d66b91f9db94a31004ff3327ca055b926ca50d0d2990b76c389",
+    "app/globals.css": "396e651ed6003c957732e6959ca8645e2cdf8d2d8b4c1f4a859f74c56e9d2742",
+    "lib/model.ts": "5c48f23a6dd539cb76e5034023b36cc369c440132882d265f07bf5f79ada81dc",
+    "lib/operations.ts": "7b618e7e3b49ef72df7ba4ac9fad2d76428b2168bd2d07cdba62c7e61281b414",
+    "app/api/workspace/route.ts": "d732dc6098c1d24584a06c389dbbe773f033da3cf40eca93482a7e9d60ca9132",
+    "tests/domain.mjs": "d81131bc7c575d6bab0b5d678a1f4192ed1f10b488327fa44828d9b62c268694",
+    "package.json": "c50061b85f29c133bc93bf5c20b8918a1496be635b44018ef8b2cdb33afd9357",
+    "README.md": "d61f78186d6e8a1feee3903aa45ccba1762cf19e3a8ec10d84ea5ccc49f9f281"
+  },
+  "mockup": {
+    "source": "/Users/donnieyu/.codex/visualizations/2026/09/22/01a0c686-ac70-7ca0-84b9-fddd9c11af09/sideout-refined.html",
+    "snapshot": "docs/design-review/reference-2026-09-23-applied/sideout-refined.html",
+    "sha256": "f930b5a59d59cb45c76ef55070f87235b7c6a4e70e1bfe5bc05cc2fea32fec48"
+  },
+  "verification": {
+    "domain_checks_this_refresh": "35 passed",
+    "source_and_latest_thread_review": "completed",
+    "type_api_build": "passed per working-session report; not rerun this refresh",
+    "deployment": "reported completed by working session; hosted UI not independently inspected",
+    "browser_visual_qa": "not performed; next task"
+  },
+  "supersedes_for_current_state": "reference-2026-09-23/manifest.json",
+  "notes": [
+    "Previous reference folder remains historical evidence.",
+    "Snapshot is a visualization fragment, not a verified standalone page."
+  ]
+}

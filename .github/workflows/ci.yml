@@ -1,0 +1,45 @@
+name: Project checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Domain and authentication tests
+        run: for test in tests/*.mjs; do node "$test" || exit 1; done
+      - run: ./node_modules/.bin/tsc --noEmit --incremental false
+      - run: npm run build
+      # Existing source lint debt is recorded in docs/reviews/REPOSITORY_SETUP_2026-09-29.md.
+      # Add a required lint step after that debt has been resolved by its owner.
+  prototype:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs/design-review/shadcn-prototype
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: docs/design-review/shadcn-prototype/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm run check:allocation
+      - run: npm run build
+      - run: npm run build:allocation
+      - run: npm run build:positions
