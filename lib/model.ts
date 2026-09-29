@@ -16,6 +16,7 @@ export type Session={id:string;title:string;entry?:string;start:string;end:strin
 export type Post={id:string;category:'notice'|'event'|'board';title:string;body:string;author:string;at:string;pinned:boolean;comments:{id:string;body:string;author:string;at:string}[]};
 export type Workspace={schemaVersion?:number;club:Club;members:Member[];sessions:Session[];posts:Post[];audit:{at:string;actor:string;action:string;sessionId?:string}[]};
 export type View={revision:number;role:Role;memberId:string;club:Club;clubs:Club[];sessions:Session[];members:Member[];posts:Post[];myName:string;account?:Account;accountRevision?:number;directoryRevision?:number;homeClubId?:string|null;myKind?:Member['kind']};
+export type BusinessActor={memberId:string;role:Role};
 export function onDate(date:string,time:string){return new Date(`${date}T${time}:00+09:00`).toISOString()}
 export function kstDate(date:string){return new Date(Date.parse(date)+9*3600000).toISOString().slice(0,10)}
 export function nextDate(weekday:number,now=new Date()){
@@ -82,11 +83,18 @@ export function counts(s:Session){const yes=s.participants.filter(p=>p.response=
 export function priorityActive(s:Session,now=Date.now()){return stage(s,now)==='open'&&!!s.priorityUntil&&now<Date.parse(s.priorityUntil)}
 export function effectiveRole(w:Workspace,role:Role,memberId=DEMO_MEMBER):Role {return role==='master'||w.members.find(m=>m.id===memberId)?.homeClubId===w.club.id?role:'member'}
 export function projection(w:Workspace,requestedRole:Role,memberId:string,revision:number):View{
- const role=effectiveRole(w,requestedRole,memberId),admin=role!=='member',me=w.members.find(m=>m.id===memberId),own=me?.homeClubId===w.club.id;
+ return projectionForActor(w,{memberId,role:effectiveRole(w,requestedRole,memberId)},revision);
+}
+export function projectionForActor(w:Workspace,actor:BusinessActor,revision:number):View{
+ const {role,memberId}=actor;
+ if(!memberId||!w.members.some(member=>member.id===memberId)&&role!=='master')throw new Error('Unknown member');
+ const admin=role!=='member',me=w.members.find(m=>m.id===memberId),own=me?.homeClubId===w.club.id;
  return {revision,role,memberId,homeClubId:me?.homeClubId??null,myKind:me?.kind,club:w.club,clubs:EXAMPLE_CLUBS.map(c=>c.id===w.club.id?w.club:c),myName:me?.name??'회원',members:admin?w.members:[],posts:w.posts,sessions:w.sessions.filter(s=>admin||s.phase!=='draft').map(s=>{
  if(admin)return s;
  const roster=own?s.participants.filter(p=>p.response==='yes'&&!p.guest&&w.members.find(m=>m.id===p.memberId)?.homeClubId===w.club.id).map(p=>({id:p.id,name:w.members.find(m=>m.id===p.memberId)!.name})).sort((a,b)=>a.name.localeCompare(b.name,'ko')):undefined;
- return {...s,roster,setterSeats:undefined,participants:s.participants.filter(p=>p.memberId===memberId).map(p=>({id:p.id,memberId:p.memberId,response:p.response,category:p.category,at:'',source:'self',team:null})),counts:{regular:counts(s).regular,candidate:counts(s).candidate,total:counts(s).total}} as Session;
+ const ownEntry=s.participants.find(p=>p.memberId===memberId&&p.response==='yes');
+ const maySeePublished=!!ownEntry&&(ownEntry.category==='regular'||ownEntry.team!==null||s.published?.people.some(p=>p.id===memberId&&p.team!==null));
+ return {...s,roster,setterSeats:undefined,published:maySeePublished&&s.published?{...s.published,people:s.published.people.filter(p=>p.team!==null)}:null,participants:s.participants.filter(p=>p.memberId===memberId).map(p=>({id:p.id,memberId:p.memberId,response:p.response,category:p.category,at:'',source:'self',team:null})),counts:{regular:counts(s).regular,candidate:counts(s).candidate,total:counts(s).total}} as Session;
  })};
 }
 export function publicCounts(s:Session){return (s as Session&{counts?:ReturnType<typeof counts>}).counts??counts(s)}
