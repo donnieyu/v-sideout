@@ -8,9 +8,9 @@
 
 **Tech Stack:** 기존 TypeScript, Web Crypto, vinext/React, Cloudflare D1/Drizzle, Node `.mjs` 검사와 로컬 SQLite. 이번 단계는 UI/새 의존성을 추가하지 않는다.
 
-**Spec:** [회원 SSOT v0.4](../../ACCESS_AND_DEPLOYMENT_SSOT.md), [회원 개발 로드맵 M1](../../MEMBER_ACCESS_IMPLEMENTATION_ROADMAP.md), [재사용 검토 F01/F02](../../reviews/MEMBER_AUTH_REUSE_REVIEW_2026-09-29.md), [Task 1·2 인계](../../reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md).
+**Spec:** [회원 SSOT v0.5](../../ACCESS_AND_DEPLOYMENT_SSOT.md), [회원 개발 로드맵 M1](../../MEMBER_ACCESS_IMPLEMENTATION_ROADMAP.md), [재사용 검토 F01/F02](../../reviews/MEMBER_AUTH_REUSE_REVIEW_2026-09-29.md), [Task 1·2 인계](../../reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md), [Task 3 인계](../../reviews/MEMBER_AUTH_TASK3_HANDOFF_2026-09-30.md).
 
-상태: **M0 인계·Task 1·2 완료 / Task 3·4 미실행**. A 작업 트리는 `/Users/donnieyu/DevSource/Personal/v-team-builder/web/work/member-auth-foundation` (`feat/member-auth-foundation`)이다. 원본 검토 W는 `/Users/donnieyu/DevSource/Personal/v-team-builder/web/work/member-roster-integration`이며 A가 수정하지 않았다. 실행 증거는 [인계](../../reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md)에 기록했다.
+상태: **M0 인계·Task 1~3 완료 / Task 4 미실행**. 현재 기준 저장소는 `/Users/donnieyu/DevSource/Personal/v-sideout`, Task 3 작업 트리는 `.worktrees/auth-rotation` (`feat/auth-rotation`)이다. 이전 `v-team-builder` 작업 트리들은 보존용이며 A가 변경하지 않았다. 실행 증거는 [Task 1·2](../../reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md)와 [Task 3](../../reviews/MEMBER_AUTH_TASK3_HANDOFF_2026-09-30.md) 인계에 기록했다.
 
 ## Global Constraints
 
@@ -19,7 +19,7 @@
 - 미활성 계정도 만료만으로 로그인 아이디를 자동 반환하지 않는다. 비활성 계정의 내부 ID·로그인 ID 매핑과 전체 고유성 유지.
 - 아이디 내부 공백 거절. 기존 NFC/소문자 비교키·앞뒤 공백 정리는 구현 제안으로 재사용하며 비밀번호에는 적용하지 않는다.
 - 무소속은 `homeClubId=null`. 일반 회원 무소속을 오류로 취급하지 않는다. 이 단계는 회원 소속 변경 정책을 바꾸지 않는다.
-- 실제 회원·비밀값·운영 DB를 사용하지 않는다. root/docs와 R/I 소유 소스를 수정하지 않는다(진척 기록은 A 소유 문서에 한함).
+- 실제 회원·비밀값·운영 DB를 사용하지 않는다. 현재 `v-sideout/docs/`의 A 소유 진척 문서와 인증 소스만 수정하고 R/I 소유 소스를 변경하지 않는다.
 - 기본 세션 수명은 기존 12시간을 설정값으로 분리해 유지하는 구현 제안. 제한 세션 유효기간은 임시 자격 만료를 넘지 않는다.
 - 요청 제한·회원 관리·신청·메일·화면·배포는 로드맵의 후속 단계다. 이 단계 통과만으로 공개하지 않는다.
 
@@ -104,7 +104,7 @@ assert.equal(sessionLookupDuringOutage.status, 503);
 
 **Interfaces:** `AuthRepository`에 `commitPasswordChange(input:{expectedVersion:number;nextAccount:AccountRecord;nextSession:SessionRow}):Promise<'committed'|'conflict'>` 추가. 서비스는 새 토큰/해시를 준비한 뒤 이 명령 **한 번**으로 CAS·회원의 이전 세션 폐기·신규 세션 저장을 확정한다. 저장 오류는 reject하며 부분 성공을 반환하지 않는다.
 
-- [ ] 실제 SQL을 실행하는 로컬 저장소 검사에 각 저장 단계 실패·동시 같은 버전 변경·비활성화 선행을 추가한다. 합성 repository 테스트만으로 원자성을 입증하지 않는다.
+- [x] 실제 SQL을 실행하는 로컬 저장소 검사에 각 저장 단계 실패·동시 같은 버전 변경·비활성화 선행을 추가했다. `tests/auth-rotation.mjs`는 Node SQLite 트랜잭션을 실행한다.
 
 ```ts
 // 각 SQL 단계에 실패를 주입한 뒤 모두 검사한다.
@@ -118,11 +118,11 @@ assert.equal(oldSessionStillValid, false);
 // 먼저 비활성화되어 버전이 바뀌었다면 변경은 conflict, 비활성 상태 유지.
 ```
 
-- [ ] `node tests/auth-rotation.mjs` 실행, 새 명령 부재/기존 중간 상태로 FAIL 확인.
-- [ ] 현재 설치된 D1 타입/공식 API에서 지원하는 원자적 실행 수단을 확인해 저장소에 구현한다. 조건부 CAS가 0행일 때 다른 계정/세션 변경도 일어나지 않도록 명령 전체를 조건화한다. 단순 순차 `run()`이나 프로세스 내부 mutex로 대체하지 않는다. 로컬 SQLite 트랜잭션만 있는 기능에 의존하면 목표 런타임 구현을 완료로 표시하지 않는다.
-- [ ] 서비스에서 새 명령을 사용하고 conflict→409, 저장 장애→503으로 연결한다. 계정 상태 검증 후 CAS 사이의 비활성화/재발급도 expectedVersion으로 거절한다. 커밋 후 네트워크 응답 유실 시 새 비밀번호 재로그인이 가능함을 별도 검사한다.
-- [ ] `node tests/auth-rotation.mjs`, `node tests/auth-repository.mjs`, `node tests/auth-service.mjs`, `node tests/auth-http.mjs`를 각각 실행하여 PASS 확인. 목표 D1 동작을 로컬 Wrangler 또는 별도 합성 시험 DB에서 확인한 명령·결과를 인계에 기록한다. 실제 D1 미검증이면 그 제한을 명시한다.
-- [ ] 해당 파일만 커밋: `fix: commit password and session rotation atomically`.
+- [x] `node tests/auth-rotation.mjs` 실행, 새 명령 부재로 FAIL 확인.
+- [x] 설치된 D1 타입·공식 문서의 `batch()` 트랜잭션을 확인해 저장소에 구현했다. `changes()`로 CAS 실패 때 후속 세션 명령을 0행으로 만든다. 로컬 Wrangler D1 바인딩에서도 정상·충돌 동작을 확인했다.
+- [x] 서비스에서 새 명령을 사용하고 conflict→409, 저장 장애→503으로 연결했다. 계정 상태 검증 후 CAS 사이의 비활성화/재발급은 expectedVersion으로 거절한다. 커밋 후 응답 유실을 가정한 새 비밀번호 재로그인 검사도 추가했다.
+- [x] `auth-rotation`, `auth-repository`, `auth-service`, `auth-http` 등 전체 12개 `.mjs` 검사를 통과했다. 로컬 Wrangler D1의 migration→seed→rotate→inspect→충돌 재호출 결과와 원격 D1 미검증 범위는 [인계](../../reviews/MEMBER_AUTH_TASK3_HANDOFF_2026-09-30.md)에 기록했다.
+- [x] 검토 후 관련 파일만 `b13ceb4` (`fix: commit password and session rotation atomically`)로 커밋했다.
 
 ## Task 4: 브라우저와 업무 서버의 신원 계약 분리
 
