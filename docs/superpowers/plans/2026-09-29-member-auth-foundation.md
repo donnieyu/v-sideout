@@ -8,9 +8,9 @@
 
 **Tech Stack:** 기존 TypeScript, Web Crypto, vinext/React, Cloudflare D1/Drizzle, Node `.mjs` 검사와 로컬 SQLite. 이번 단계는 UI/새 의존성을 추가하지 않는다.
 
-**Spec:** [회원 SSOT v0.5](../../ACCESS_AND_DEPLOYMENT_SSOT.md), [회원 개발 로드맵 M1](../../MEMBER_ACCESS_IMPLEMENTATION_ROADMAP.md), [재사용 검토 F01/F02](../../reviews/MEMBER_AUTH_REUSE_REVIEW_2026-09-29.md), [Task 1·2 인계](../../reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md), [Task 3 인계](../../reviews/MEMBER_AUTH_TASK3_HANDOFF_2026-09-30.md).
+**Spec:** [회원 SSOT v0.6](../../ACCESS_AND_DEPLOYMENT_SSOT.md), [회원 개발 로드맵 M1](../../MEMBER_ACCESS_IMPLEMENTATION_ROADMAP.md), [재사용 검토 F01/F02](../../reviews/MEMBER_AUTH_REUSE_REVIEW_2026-09-29.md), [Task 1·2 인계](../../reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md), [Task 3 인계](../../reviews/MEMBER_AUTH_TASK3_HANDOFF_2026-09-30.md), [Task 4 인계](../../reviews/MEMBER_AUTH_TASK4_HANDOFF_2026-09-30.md).
 
-상태: **M0 인계·Task 1~3 완료 / Task 4 미실행**. 현재 기준 저장소는 `/Users/donnieyu/DevSource/Personal/v-sideout`, Task 3 작업 트리는 `.worktrees/auth-rotation` (`feat/auth-rotation`)이다. 이전 `v-team-builder` 작업 트리들은 보존용이며 A가 변경하지 않았다. 실행 증거는 [Task 1·2](../../reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md)와 [Task 3](../../reviews/MEMBER_AUTH_TASK3_HANDOFF_2026-09-30.md) 인계에 기록했다.
+상태: **M0 인계·M1 Task 1~4 구현/로컬 검증 완료 / 운영·업무 통합 미검증**. 현재 기준 저장소는 `/Users/donnieyu/DevSource/Personal/v-sideout`, 작업 트리는 `.worktrees/auth-rotation` (`feat/auth-rotation`)이다. 이전 `v-team-builder` 작업 트리들은 보존용이며 A가 변경하지 않았다. 실행 증거는 [Task 1·2](../../reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md), [Task 3](../../reviews/MEMBER_AUTH_TASK3_HANDOFF_2026-09-30.md), [Task 4](../../reviews/MEMBER_AUTH_TASK4_HANDOFF_2026-09-30.md) 인계에 기록했다.
 
 ## Global Constraints
 
@@ -47,7 +47,7 @@
 
 - [x] R의 인증 파일 편집 중단과 A 인수를 기록하고 기준 해시를 다시 대조한다. 원본 W의 인증 파일 20개를 A 격리 트리로 복사하고 기준 해시와 대조했다. 첫 정책 커밋에 원본 보존과 정책 보완을 함께 담아 [인계](../../reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md)에서 귀속을 구분한다.
 - [x] 스키마·migration 단독 작성자를 A로 I와 확인했다. 합성 로컬 SQLite 기반 검사 경로를 사용했으며 실제 Workers/D1 시험은 미실행이다.
-- [ ] I에 Task 4 계약을 제공해 C01–C04의 필드/유효 grant 의미를 확정한다. A의 원본 계정과 I의 `requireBusinessPrincipal` 소유권은 유지한다.
+- [x] I에 Task 4 계약을 제공해 C01–C04의 필드/유효 grant 의미를 확정했다. I는 추가 필수 필드가 없다고 확인했고, A의 원본 계정과 I의 `requireBusinessPrincipal` 소유권을 유지한다.
 
 ## Task 1: 확정 정책을 단일 모듈로 연결
 
@@ -158,7 +158,7 @@ function getMemberIdentity(
 
 `ClubGrant`는 기존 accounts 타입을 재사용한다. `getMemberIdentity`는 인증·열람권한을 대체하지 않는 서버 내부 조회이며 공개 라우트를 만들지 않는다. 비활성 회원도 역사 참조에 필요한 최소 신원 조회는 가능하지만 `resolveVerifiedIdentity`에서는 anonymous다. 유효 grants는 소속 기본 역할에 명시적 추가 역할을 합치며 같은 모임이면 명시 역할 우선이라는 기존 `clubRole()` 동작을 따른다. master는 `isMaster`로 표현하며 모든 모임 목록을 가짜 grant로 생성하지 않는다.
 
-- [ ] `auth-contract.mjs`에 DTO 정확한 키, 권한 합성, 제한/활성/무소속/비활성/만료 경계를 검사한다.
+- [x] `auth-contract.mjs`에 DTO 정확한 키, 권한 합성, 제한/활성/무소속/비활성/만료 경계와 저장 장애 전파를 검사한다.
 
 ```ts
 assert.deepEqual(Object.keys(view.me).sort(),
@@ -174,18 +174,18 @@ assert.deepEqual(effectiveClubGrants(homeChairWithOtherStaff),
 // Serialized SessionView/VerifiedIdentity에 passwordHash, token, email 없음.
 ```
 
-- [ ] `node tests/auth-contract.mjs` 실행, 새 계약 부재/기존 DTO 차이로 FAIL 확인.
-- [ ] 순수 투영 함수와 서버 검증 진입점을 구현한다. 원본 계정을 JSON으로 보내지 않는다. 유효 만료를 `min`으로 계산하고 만료 정각부터 anonymous 처리한다. 권한 합성은 A 한 곳에서만 수행한다.
-- [ ] `node tests/auth-contract.mjs`, `node tests/auth-http.mjs`, `node tests/auth-service.mjs`를 각각 실행하여 PASS 확인.
-- [ ] 해당 파일만 커밋: `feat: expose verified member identity contracts`.
+- [x] Node 24.16.0에서 `auth-contract.mjs` 실행, `resolveVerifiedIdentity is not a function`으로 FAIL 확인.
+- [x] 순수 투영 함수와 서버 검증 진입점을 구현했다. 원본 계정을 JSON으로 보내지 않고, 유효 만료를 `min`으로 계산하며 만료 정각부터 anonymous 처리한다. 권한 합성은 A 한 곳에서만 수행한다.
+- [x] Node 24.16.0에서 `auth-contract.mjs`, `auth-http.mjs`, `auth-service.mjs` 및 전체 13개 검사 스크립트 PASS 확인.
+- [x] 해당 파일만 `011297e` (`feat: expose verified member identity contracts`)로 커밋했다. `auth-failures.mjs`는 새 HTTP 내부 import에 맞춰 검사 harness만 갱신했다.
 
 ## 최종 검증과 인계
 
-- [ ] 신규 4개 스크립트와 기존 9개 스크립트를 실행한다. 명령 목록은 재사용 검토 문서와 각 Task를 기준으로 하고 성공/실패를 파일별 기록한다.
-- [ ] `./node_modules/.bin/tsc --noEmit --incremental false` 실행, 종료 코드 0 확인.
-- [ ] `git diff --check` 및 파일별 diff를 확인한다. 다른 담당의 참가 모델/셸/API 수정이 없는지 확인한다.
-- [ ] A 문서에 커밋·변경 파일·검사 결과·실제 D1 검증 유무를 기록하고 I가 읽을 인계를 작성한다. 스키마/쿠키/HTTP 계약과 응답 유실 복구 한계를 포함한다.
-- [ ] M1 완료를 기록하고 M2(사전 등록·회원 관리) 상세 계획으로 이동한다. 이 단계에 없는 요청 제한/화면/메일/공개 배포를 완료로 보고하지 않는다.
+- [x] 신규 4개 스크립트와 기존 9개 스크립트를 Node 24.16.0에서 실행했다. 전체 13개 통과 결과는 [Task 4 인계](../../reviews/MEMBER_AUTH_TASK4_HANDOFF_2026-09-30.md)에 기록했다.
+- [x] Node 24.16.0에서 `./node_modules/.bin/tsc --noEmit --incremental false` 실행, 종료 코드 0 확인.
+- [x] `git diff --check`와 파일별 diff를 확인했다. R/I 소유 참가 모델·셸·업무 API는 수정하지 않았다.
+- [x] A 문서에 커밋·변경 파일·검사 결과·로컬/원격 D1 검증 경계를 기록하고 I가 읽을 인계를 작성했다. 스키마/쿠키/HTTP 계약과 응답 유실 복구 한계를 포함한다.
+- [x] M1 구현과 로컬 검증 완료를 기록했다. 다음 A 작업은 M2(사전 등록·회원 관리) 상세 계획이다. 요청 제한/화면/메일/공개 배포는 완료로 보고하지 않는다.
 
 ## 계획 자체 검토
 
