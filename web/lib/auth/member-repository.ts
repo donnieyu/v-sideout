@@ -59,7 +59,7 @@ export function makeMemberRepository(db:D1Like){
    const {actor,expectedVersion,nextAccount:a,action,protectLastMaster,at}=input;
    if(a.authVersion!==expectedVersion+1)throw new Error('Invalid member version');
    const results=await db.batch([
-    db.prepare(`UPDATE auth_members SET display_name=?,home_club_id=?,kind=?,is_master=?,home_role=?,grants_json=?,active=?,password_hash=?,must_change_password=?,temporary_expires_at=?,auth_version=?,updated_at=? WHERE id=? AND auth_version=? AND ${actorGuard} AND (?=0 OR EXISTS (SELECT 1 FROM auth_members other WHERE other.id<>? AND other.active=1 AND other.is_master=1))`)
+    db.prepare(`UPDATE auth_members SET display_name=?,home_club_id=?,kind=?,is_master=?,home_role=?,grants_json=?,active=?,password_hash=?,must_change_password=?,temporary_expires_at=?,auth_version=?,updated_at=? WHERE id=? AND auth_version=? AND ${actorGuard} AND (?=0 OR EXISTS (SELECT 1 FROM auth_members other WHERE other.id<>? AND other.active=1 AND other.is_master=1 AND other.must_change_password=0))`)
      .bind(a.displayName,a.homeClubId,a.kind,Number(a.isMaster),a.homeRole,JSON.stringify(a.grants),Number(a.active),a.passwordHash,
       Number(a.mustChangePassword),a.temporaryExpiresAt,a.authVersion,at,a.id,expectedVersion,actor.memberId,actor.authorizationVersion,Number(protectLastMaster),a.id),
     db.prepare('INSERT INTO auth_member_audit (id,actor_member_id,target_member_id,action,target_auth_version,created_at) SELECT ?,?,?,?,?,? WHERE changes()=1')

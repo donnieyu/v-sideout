@@ -104,8 +104,16 @@ try{
  assert.equal(reactivated.member.loginId,'나래');
  assert.equal(reactivated.member.active,true);
  assert.notEqual(reactivated.temporaryPassword,reissued.temporaryPassword);
+ const beforeSelfReissue=db.prepare('SELECT password_hash,auth_version,must_change_password FROM auth_members WHERE id=?').get(master.id);
+ response=await call('reissue',request('POST','/master-1/reissue',{}),master.id);
+ assert.equal(response.status,409,'the sole established master cannot replace its own credential with a temporary one');
+ assert.equal('temporaryPassword' in await response.json(),false);
+ assert.deepEqual(db.prepare('SELECT password_hash,auth_version,must_change_password FROM auth_members WHERE id=?').get(master.id),beforeSelfReissue);
+ assert.equal((await call('list',request('GET'))).status,200,'rejected reissue preserves the master session');
+ response=await call('create',request('POST','',{...draft,loginId:'대체마스터',homeClubId:null,homeRole:null,grants:[],isMaster:true}));
+ assert.equal(response.status,201);
  response=await call('deactivate',request('POST','/master-1/deactivate',{}),master.id);
- assert.equal(response.status,409,'last master cannot be disabled');
+ assert.equal(response.status,409,'an unrotated replacement cannot authorize removal of the established master');
  response=await call('create',request('POST','',{...draft,loginId:'새회원',homeClubId:'missing'}));
  assert.equal(response.status,400);
  response=await call('create',request('POST','',{...draft,loginId:'무소속',homeClubId:null,homeRole:null},masterToken));

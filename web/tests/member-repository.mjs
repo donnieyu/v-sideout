@@ -51,7 +51,7 @@ const master={id:'master-1',loginId:'마스터',loginIdKey:'마스터',displayNa
    },
   };
   const repo=makeMemberRepository(d1);
-  const state=id=>({member:db.prepare('SELECT id,login_key,active,is_master,password_hash,auth_version FROM auth_members WHERE id=?').get(id)??null,
+  const state=id=>({member:db.prepare('SELECT id,login_key,active,is_master,password_hash,must_change_password,temporary_expires_at,auth_version FROM auth_members WHERE id=?').get(id)??null,
    sessions:db.prepare('SELECT token_hash FROM auth_sessions WHERE member_id=?').all(id).length,
    audit:db.prepare('SELECT action,target_member_id,actor_member_id FROM auth_member_audit ORDER BY rowid').all().map(row=>({...row}))});
   return {db,repo,state,failAt(value){failAt=value}};
@@ -72,6 +72,20 @@ const master={id:'master-1',loginId:'마스터',loginIdKey:'마스터',displayNa
 
  const secondMaster={...master,id:'master-2',loginId:'둘째',loginIdKey:'둘째',passwordHash:'second-hash'};
  assert.equal(await f.repo.createManagedMember(actor,secondMaster,at),'committed');
+ f.db.prepare('UPDATE auth_members SET temporary_expires_at=? WHERE id=?').run('2026-09-29T23:59:59.999Z',secondMaster.id);
+ f.db.prepare('INSERT INTO auth_sessions(token_hash,member_id,auth_version,restricted,expires_at,created_at) VALUES(?,?,?,?,?,?)')
+  .run('b'.repeat(64),master.id,2,0,1e13,at);
+ const beforeLastMaster=f.state(master.id);
+ const deactivateLast={actor,expectedVersion:2,nextAccount:{...master,active:false,mustChangePassword:false,temporaryExpiresAt:null,authVersion:3},
+  action:'member_deactivated',protectLastMaster:true,at};
+ assert.equal(await f.repo.commitManagedUpdate(deactivateLast),'conflict','expired temporary master cannot replace the last usable master');
+ assert.deepEqual(f.state(master.id),beforeLastMaster,'rejected deactivation leaves account, audit, and session intact');
+ assert.equal(await f.repo.commitManagedUpdate({...deactivateLast,nextAccount:{...master,isMaster:false,mustChangePassword:false,temporaryExpiresAt:null,authVersion:3},action:'member_updated'}),'conflict',
+  'expired temporary master cannot replace a demoted master');
+ assert.deepEqual(f.state(master.id),beforeLastMaster,'rejected demotion leaves account, audit, and session intact');
+ f.db.prepare('UPDATE auth_members SET temporary_expires_at=? WHERE id=?').run('2026-10-07T00:00:00.000Z',secondMaster.id);
+ assert.equal(await f.repo.commitManagedUpdate(deactivateLast),'conflict','an unrotated master can expire after the last usable master leaves');
+ assert.deepEqual(f.state(master.id),beforeLastMaster);
  f.db.prepare('UPDATE auth_members SET must_change_password=0,temporary_expires_at=NULL,auth_version=2 WHERE id=?').run(secondMaster.id);
  f.db.prepare('INSERT INTO auth_sessions(token_hash,member_id,auth_version,restricted,expires_at,created_at) VALUES(?,?,?,?,?,?)')
   .run('a'.repeat(64),member.id,1,1,1e13,at);
@@ -87,6 +101,7 @@ const master={id:'master-1',loginId:'마스터',loginIdKey:'마스터',displayNa
  assert.equal(f.state(member.id).audit.at(-1).action,'password_reissued');
  assert.equal(await f.repo.commitManagedUpdate({actor,expectedVersion:1,nextAccount:reissue,action:'password_reissued',protectLastMaster:false,at}),'conflict');
  assert.equal(await f.repo.commitManagedUpdate({actor,expectedVersion:2,nextAccount:{...master,active:false,mustChangePassword:false,temporaryExpiresAt:null,authVersion:3},action:'member_deactivated',protectLastMaster:true,at}),'committed');
+ assert.equal(f.state(master.id).sessions,0,'committed deactivation revokes the old master session');
  assert.equal(await f.repo.commitManagedUpdate({actor:{memberId:'master-2',authorizationVersion:2},expectedVersion:2,nextAccount:{...secondMaster,active:false,mustChangePassword:false,temporaryExpiresAt:null,authVersion:3},action:'member_deactivated',protectLastMaster:true,at}),'conflict');
  assert.equal(await f.repo.createManagedMember(actor,{...member,id:'late',loginId:'새회원',loginIdKey:'새회원'},at),'conflict','revoked actor cannot write');
  assert.deepEqual(await f.repo.listManagedMembers(actor),[],'revoked actor cannot read list');
@@ -102,12 +117,22 @@ const master={id:'master-1',loginId:'마스터',loginIdKey:'마스터',displayNa
  assert.equal(race.db.prepare("SELECT COUNT(*) AS count FROM auth_member_audit WHERE action='member_created'").get().count,1);
  assert.equal(await race.repo.createManagedMember(actor,secondMaster,at),'committed');
  race.db.prepare('UPDATE auth_members SET must_change_password=0,temporary_expires_at=NULL,auth_version=2 WHERE id=?').run(secondMaster.id);
+ for(const [id,hash] of [[master.id,'c'.repeat(64)],[secondMaster.id,'d'.repeat(64)]]){
+  race.db.prepare('INSERT INTO auth_sessions(token_hash,member_id,auth_version,restricted,expires_at,created_at) VALUES(?,?,?,?,?,?)')
+   .run(hash,id,2,0,1e13,at);
+ }
  const disableMaster=(who,target)=>race.repo.commitManagedUpdate({actor:{memberId:who,authorizationVersion:2},expectedVersion:2,
   nextAccount:{...(target===master.id?master:secondMaster),active:false,mustChangePassword:false,temporaryExpiresAt:null,authVersion:3},
   action:'member_deactivated',protectLastMaster:true,at});
  assert.deepEqual((await Promise.all([disableMaster(master.id,secondMaster.id),disableMaster(secondMaster.id,master.id)])).sort(),
   ['committed','conflict'],'concurrent cross-deactivation leaves an active master');
  assert.equal(race.db.prepare('SELECT COUNT(*) AS count FROM auth_members WHERE active=1 AND is_master=1').get().count,1);
+ const survivingMaster=race.state(master.id).member.active?master.id:secondMaster.id;
+ const disabledMaster=survivingMaster===master.id?secondMaster.id:master.id;
+ assert.equal(race.state(survivingMaster).sessions,1,'the rejected cross-deactivation preserves its session');
+ assert.equal(race.state(disabledMaster).sessions,0,'the committed cross-deactivation revokes its session');
+ assert.equal(race.state(master.id).audit.filter(row=>row.action==='member_deactivated').length,1,
+  'cross-deactivation writes only the committed audit record');
  race.db.close();
  console.log('PASS member repository: one master bootstrap, unique IDs, atomic audit/session and last-master protection');
 }finally{await rm(dir,{recursive:true,force:true})}

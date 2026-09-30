@@ -42,7 +42,9 @@ function failure(error:unknown){
 }
 function atTime(now:number){return new Date(now).toISOString()}
 function mustBeUpdated(result:'committed'|'conflict'){if(result==='conflict')conflict()}
-function protectLastMaster(previous:AccountRecord,next:AccountRecord){return previous.active&&previous.isMaster&&(!next.active||!next.isMaster)}
+function protectLastMaster(previous:AccountRecord,next:AccountRecord){
+ return previous.active&&previous.isMaster&&!previous.mustChangePassword&&(!next.active||!next.isMaster||next.mustChangePassword);
+}
 
 export async function handleMemberRequest(dependencies:MemberDependencies|(()=>MemberDependencies),action:MemberAction,request:Request,id?:string,now=Date.now()):Promise<Response>{
  try{
