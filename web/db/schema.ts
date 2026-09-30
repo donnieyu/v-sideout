@@ -33,6 +33,15 @@ export const authSessions=sqliteTable('auth_sessions',{
  createdAt:text('created_at').notNull(),
 });
 
+export const authMemberAudit=sqliteTable('auth_member_audit',{
+ id:text('id').primaryKey(),
+ actorMemberId:text('actor_member_id').references(()=>authMembers.id),
+ targetMemberId:text('target_member_id').notNull().references(()=>authMembers.id),
+ action:text('action').notNull(),
+ targetAuthVersion:integer('target_auth_version').notNull(),
+ createdAt:text('created_at').notNull(),
+});
+
 export const joinRequests=sqliteTable('join_requests',{
  id:text('id').primaryKey(),
  requestedName:text('requested_name').notNull(),

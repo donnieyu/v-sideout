@@ -1,0 +1,59 @@
+.accessStage{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:32px 18px;background:#f5f7fa;color:#172535;word-break:keep-all}
+.accessPanel{width:min(100%,460px);background:#fff;border:1px solid #d9e1e9;border-radius:16px;padding:34px;box-shadow:0 14px 38px -24px rgba(23,37,53,.26)}
+.brandRow{display:flex;align-items:center;gap:10px;color:#1e3e64;font-size:15px;font-weight:800;letter-spacing:.035em}
+.brandMark{width:29px;height:29px;border-radius:9px;background:#1e3e64;position:relative;display:inline-block;flex:none}
+.brandMark:before{content:"";position:absolute;inset:6px 8px;border:1.5px solid #fff;border-radius:2px}
+.brandMark:after{content:"";position:absolute;left:14px;top:6px;bottom:6px;border-left:1.5px solid #fff}
+.panelIntro{margin:34px 0 26px}
+.panelIntro h1,.accessPanel>h1{font-size:27px;font-weight:700;letter-spacing:-.035em;line-height:1.3;margin:0 0 10px;color:#172535}
+.panelIntro p,.accessPanel>p{font-size:14px;line-height:1.65;color:#607080;margin:0}
+.formStack{display:grid;gap:19px}
+.field{display:grid;gap:8px;font-size:14px;font-weight:650;color:#263a4f}
+.field small{font-size:12px;line-height:1.5;color:#607080;font-weight:400}
+.textInput{height:46px!important;font-size:16px!important;border-color:#c7d3de!important;background:#fff!important;color:#172535!important}
+.textInput:focus-visible,.selectInput:focus-visible,.searchInput:focus-visible{outline:3px solid #98b8d8;outline-offset:1px;border-color:#1e3e64!important}
+.passwordRow{position:relative;display:block}
+.passwordRow .textInput{padding-right:72px}
+.passwordRow>button{position:absolute;right:4px;top:2px;min-width:60px;height:42px;border-radius:7px;color:#1e3e64;font-size:13px;font-weight:600}
+.passwordRow>button:hover,.textLink:hover{background:#edf3f9}
+.primaryButton{min-height:46px!important;width:100%;background:#1e3e64!important;color:#fff!important;font-size:15px!important;font-weight:650!important}
+.primaryButton:hover{background:#173251!important}
+.primaryButton:focus-visible,.actionRow button:focus-visible,.textLink:focus-visible{outline:3px solid #98b8d8;outline-offset:2px}
+.formFooter{border-top:1px solid #e6ebf0;margin-top:26px;padding-top:19px;display:grid;gap:12px}
+.formFooter p{margin:0;font-size:13px;line-height:1.6;color:#607080}
+.textLink{justify-self:start;min-height:44px;border-radius:6px;color:#1e3e64;text-decoration:underline;text-underline-offset:3px;font-size:13px;font-weight:650;padding:0 5px}
+.inlineChoice{display:flex;align-items:center;gap:9px;min-height:34px;font-size:13px;color:#40576f}
+.inlineChoice input{width:17px;height:17px;accent-color:#1e3e64}
+.error{margin:0;border:1px solid #e8c4c0;background:#fff3f1;color:#862f2a;padding:11px 13px;font-size:13px;line-height:1.55;border-radius:6px}
+.expiry{background:#edf3f9;color:#355270;border-radius:8px;padding:11px 13px;font-size:13px;margin:0 0 23px;line-height:1.55}
+.loading{padding:24px 0;text-align:center}
+.floatingError{position:fixed;bottom:16px;left:16px;right:16px;max-width:460px;margin:auto;border:1px solid #e8c4c0;background:#fff3f1;color:#862f2a;padding:12px;border-radius:6px}
+.accountSummary{display:grid;grid-template-columns:100px 1fr;gap:10px 18px;padding:18px 0;border-block:1px solid #e6ebf0;font-size:14px}
+.accountSummary span{color:#607080}.accountSummary strong{font-weight:650;overflow-wrap:anywhere}
+.actionRow{display:flex;gap:10px;margin-top:24px}.actionRow button{min-height:44px;flex:1}
+@media(max-width:420px){.accessStage{align-items:flex-start;padding:18px 12px}.accessPanel{padding:27px 20px;border-radius:12px}.panelIntro{margin:28px 0 22px}.panelIntro h1{font-size:25px}.formStack{gap:17px}}
+.adminStage{min-height:100dvh;background:#f5f7fa;color:#172535;padding:34px clamp(16px,3vw,48px) 64px;word-break:keep-all}
+.adminHeader{max-width:1280px;margin:0 auto 27px;display:flex;justify-content:space-between;align-items:end;gap:20px}.adminHeader h1{font-size:28px;letter-spacing:-.035em;font-weight:700;line-height:1.25;margin:0 0 5px}.adminHeader p{font-size:14px;color:#607080;margin:0}
+.adminLayout{max-width:1280px;margin:auto;display:grid;grid-template-columns:minmax(285px,390px) minmax(0,1fr);gap:22px;align-items:start}
+.adminError{max-width:1280px;margin:0 auto 18px;display:flex;align-items:center;gap:12px}.adminError .error{flex:1}.adminError button{min-height:44px}
+.leaveGuard{max-width:1280px;margin:0 auto 18px;padding:15px 18px;background:#fff8ec;border:1px solid #e6cc9a;border-radius:9px;display:flex;align-items:center;justify-content:space-between;gap:14px}.leaveGuard strong{font-size:14px;color:#5b421f}.leaveGuard p{margin:4px 0 0;font-size:13px;color:#6b583e}.leaveGuard .actionRow{margin:0;flex-wrap:wrap}.leaveGuard button{min-height:44px}
+.retryButton{min-height:44px;margin-top:18px}
+.memberListPanel,.memberDetailPanel{background:#fff;border:1px solid #d9e1e9;border-radius:13px;min-width:0;box-shadow:0 10px 24px -22px rgba(23,37,53,.22)}
+.memberListPanel{padding:20px}.memberDetailPanel{padding:27px;min-height:440px}
+.listHeading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}.listHeading>div{display:flex;align-items:baseline;gap:8px}.listHeading h2,.detailHeading h2{font-size:20px;letter-spacing:-.02em;font-weight:700;margin:0}.listHeading span{font-size:13px;color:#607080}.listHeading button{min-height:44px;background:#1e3e64;color:#fff}
+.searchField{display:block}.searchInput{height:44px!important;font-size:16px!important;border-color:#c7d3de!important}
+.filterRow{display:flex;gap:6px;overflow-x:auto;margin:14px 0 12px;padding-bottom:3px}.filterRow button{white-space:nowrap;min-height:38px;padding:0 11px;border-radius:7px;color:#526679;font-size:13px}.filterRow button[aria-pressed=true]{background:#e8f0f8;color:#1e3e64;font-weight:700}.filterRow button:focus-visible,.memberRow:focus-visible{outline:3px solid #98b8d8;outline-offset:2px}
+.memberRows{max-height:650px;overflow:auto;scrollbar-color:#b6c5d4 transparent}.memberRow{width:100%;min-height:72px;display:flex;align-items:center;gap:11px;text-align:left;border-bottom:1px solid #e9eef2;padding:11px 5px;border-radius:5px}.memberRow:hover,.memberRow[data-selected=true]{background:#f0f5fa}.memberRow:last-child{border-bottom:0}
+.memberInitial{width:37px;height:37px;border-radius:11px;background:#e3edf7;color:#244968;display:grid;place-items:center;font-size:15px;font-weight:700;flex:none}.memberRowText{min-width:0;flex:1}.memberRowText strong,.memberRowText small{display:block;overflow-wrap:anywhere}.memberRowText strong{font-size:14px;font-weight:700}.memberRowText small{font-size:12px;color:#607080;margin-top:3px}.memberState,.statePill{color:#416c52;background:#eaf3ed;padding:5px 7px;border-radius:5px;font-size:12px;white-space:nowrap}.memberState[data-active=false],.statePill[data-active=false]{color:#7b5752;background:#f5eeec}
+.memberRow:disabled{cursor:default;opacity:.62}
+.listMessage{margin:16px 0;padding:26px 8px;color:#607080;font-size:14px;text-align:center;line-height:1.6}
+.detailHeading{display:flex;justify-content:space-between;align-items:start;gap:14px;padding-bottom:19px;border-bottom:1px solid #e6ebf0;margin-bottom:24px}.detailHeading p{margin:7px 0 0;font-size:13px;line-height:1.55;color:#607080}.detailEmpty{display:grid;align-content:center;min-height:370px;text-align:center}.detailEmpty h2{font-size:19px;margin:0 0 8px}.detailEmpty p{font-size:14px;color:#607080;margin:0}
+.adminForm{display:grid;gap:19px;max-width:590px}.readOnlyField{display:grid;gap:5px;font-size:14px}.readOnlyField span{color:#607080}.readOnlyField strong{font-size:16px}.readOnlyField small{font-size:12px;color:#607080}
+.selectInput{height:46px;border:1px solid #c7d3de;border-radius:7px;padding:0 12px;background:#fff;color:#172535;font-size:16px;width:100%;max-width:100%}.selectInput:disabled{cursor:not-allowed;opacity:.62}.grantFieldset{border:1px solid #d9e1e9;border-radius:9px;padding:15px;display:grid;gap:14px}.grantFieldset legend{font-size:14px;font-weight:650;padding:0 5px}.grantFieldset label{display:grid;grid-template-columns:minmax(0,1fr) minmax(130px,180px);align-items:center;gap:12px;font-size:14px}.grantFieldset .selectInput{height:42px}
+.note{margin:0;background:#edf3f9;border-radius:7px;padding:11px 13px;color:#355270;font-size:13px;line-height:1.6}
+.dangerZone{border-top:1px solid #e6ebf0;margin-top:34px;padding-top:23px}.dangerZone h3{margin:0 0 5px;font-size:16px;font-weight:700}.dangerZone>p{margin:0;color:#607080;font-size:13px;line-height:1.55}.dangerZone .actionRow{flex-wrap:wrap}.dangerZone .actionRow button{flex:0 1 auto;min-height:44px;color:#1e3e64}
+.confirmBox{background:#f5f7fa;border:1px solid #d9e1e9;border-radius:9px;padding:17px;margin-top:18px}.confirmBox strong{font-size:14px}.confirmBox p{font-size:13px;color:#607080;line-height:1.55;margin:6px 0 0}.confirmBox .actionRow{margin-top:12px}.confirmBox .actionRow button{min-width:95px}
+.credential{border:1px solid #b5cada;background:#f4f8fc;border-radius:10px;padding:23px}.credentialHeading{display:flex;justify-content:space-between;gap:16px;align-items:start}.credentialHeading h3{font-size:19px;line-height:1.4;margin:0}.credentialHeading button{min-height:44px;min-width:44px;color:#1e3e64;font-size:13px}.credential>p{margin:10px 0 22px;font-size:13px;color:#40576f;line-height:1.6}.credential dl{display:grid;grid-template-columns:115px minmax(0,1fr);gap:13px 12px;padding:19px 0;margin:0;border-block:1px solid #d5e2ed;font-size:14px}.credential dt{color:#607080}.credential dd{margin:0;font-weight:650;overflow-wrap:anywhere}.credential .secret{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;letter-spacing:.025em}.credential .actionRow{flex-wrap:wrap}.credential .actionRow button{min-height:44px;flex:1}.copyStatus{font-size:13px;color:#355270;margin:14px 0 0}
+.srOnly{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:780px){.adminStage{padding:22px 14px 48px}.adminHeader{display:block;margin-bottom:20px}.adminHeader .brandRow{margin-bottom:22px}.adminLayout{grid-template-columns:1fr;gap:14px}.memberRows{max-height:315px}.memberDetailPanel{padding:21px}.adminError{display:block}.adminError button{margin-top:8px}.leaveGuard{display:block}.leaveGuard .actionRow{margin-top:12px}}
+@media(max-width:390px){.memberListPanel{padding:15px}.memberDetailPanel{padding:18px}.listHeading h2{font-size:18px}.listHeading button{padding-inline:11px}.memberState{font-size:11px}.grantFieldset label{grid-template-columns:1fr}.credential{padding:17px}.credential dl{grid-template-columns:1fr;gap:4px}.credential dd{margin-bottom:8px}}

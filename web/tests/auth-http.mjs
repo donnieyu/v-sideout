@@ -7,9 +7,9 @@ import {pathToFileURL} from 'node:url';
 
 const dir=await mkdtemp(join(tmpdir(),'sideout-auth-http-'));
 try{
- for(const name of ['credentials','accounts','session-token','errors','auth-service','policy','auth-http']){
+ for(const name of ['credentials','accounts','session-token','errors','auth-service','contracts','identity','policy','auth-http']){
   const source=await readFile(new URL(`../lib/auth/${name}.ts`,import.meta.url),'utf8').catch(()=> 'export {}');
-  const code=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText.replaceAll(/from '\.\/(credentials|accounts|session-token|errors|auth-service|policy)'/g,"from './$1.mjs'");
+  const code=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText.replaceAll(/from '\.\/(credentials|accounts|session-token|errors|auth-service|contracts|identity|policy)'/g,"from './$1.mjs'");
   await writeFile(join(dir,`${name}.mjs`),code);
  }
  const {prepareAccount}=await import(pathToFileURL(join(dir,'accounts.mjs')));
@@ -18,18 +18,25 @@ try{
  assert.equal(policy.temporaryCredentialDays,7);
  const account=await prepareAccount({id:'u1',loginId:'나래',displayName:'김나래',homeClubId:'seoul-demo',kind:'regular',isMaster:false,grants:[]},'TempPassword123',policy);
  const accounts=new Map([[account.id,account]]),sessions=new Map();
- const repo={async getByLoginKey(key){return [...accounts.values()].find(a=>a.loginIdKey===key)??null},async getById(id){return accounts.get(id)??null},async saveAccount(a,version){if(accounts.get(a.id)?.authVersion!==version)return false;accounts.set(a.id,a);return true},async getSession(hash){return sessions.get(hash)??null},async putSession(s){sessions.set(s.tokenHash,s)},async deleteSession(hash){sessions.delete(hash)},async deleteSessionsForMember(id){for(const [key,s] of sessions)if(s.memberId===id)sessions.delete(key)}};
+ let rotationMode='normal';
+ const repo={async getByLoginKey(key){return [...accounts.values()].find(a=>a.loginIdKey===key)??null},async getById(id){return accounts.get(id)??null},async saveAccount(){throw new Error('legacy write forbidden')},async commitPasswordChange({expectedVersion,nextAccount,nextSession}){if(rotationMode==='storage')throw new Error('database outage');if(rotationMode==='conflict'||accounts.get(nextAccount.id)?.authVersion!==expectedVersion)return 'conflict';accounts.set(nextAccount.id,nextAccount);for(const [hash,row] of sessions)if(row.memberId===nextAccount.id)sessions.delete(hash);sessions.set(nextSession.tokenHash,nextSession);return 'committed'},async getSession(hash){return sessions.get(hash)??null},async putSession(s){sessions.set(s.tokenHash,s)},async deleteSession(hash){sessions.delete(hash)},async deleteSessionsForMember(id){for(const [key,s] of sessions)if(s.memberId===id)sessions.delete(key)}};
  const url='https://sideout.example/api/auth';
  const request=(path,body,cookie,origin='https://sideout.example')=>new Request(`${url}/${path}`,{method:'POST',headers:{'Content-Type':'application/json','Origin':origin,...(cookie?{Cookie:cookie}:{})},body:JSON.stringify(body)});
  let response=await handleAuthRequest(repo,'session',new Request(`${url}/session`),policy);
  assert.equal((await response.json()).state,'anonymous');
  response=await handleAuthRequest(repo,'login',request('login',{loginId:'나래',password:'TempPassword123'},null,'https://attacker.example'),policy);
  assert.equal(response.status,403);
+ assert.equal((await response.json()).error.code,'FORBIDDEN');
  response=await handleAuthRequest(repo,'login',request('login',{loginId:'나래',password:'TempPassword123'}),policy);
  assert.equal(response.status,200);
  assert.equal((await response.json()).state,'password_change_required');
  const oldCookie=response.headers.get('Set-Cookie').split(';')[0];
  assert.ok(response.headers.get('Set-Cookie').includes('HttpOnly'));
+ response=await handleAuthRequest(repo,'session',new Request(`${url}/session`,{headers:{Cookie:oldCookie}}),policy);
+ const restricted=await response.json();
+ assert.deepEqual(Object.keys(restricted).sort(),['expiresAt','state']);
+ assert.ok(Date.parse(restricted.expiresAt)>Date.now());
+ assert.ok(Date.parse(restricted.expiresAt)<Date.parse(account.temporaryExpiresAt));
  response=await handleAuthRequest(repo,'password',request('password',{currentPassword:'TempPassword123',newPassword:'NewPassword123'},oldCookie),policy);
  assert.equal(response.status,200);
  assert.equal((await response.json()).state,'active');
@@ -37,10 +44,28 @@ try{
  response=await handleAuthRequest(repo,'session',new Request(`${url}/session`,{headers:{Cookie:oldCookie}}),policy);
  assert.equal((await response.json()).state,'anonymous');
  response=await handleAuthRequest(repo,'session',new Request(`${url}/session`,{headers:{Cookie:newCookie}}),policy);
- const active=await response.json();assert.equal(active.state,'active');assert.equal(active.me.memberId,'u1');assert.equal(JSON.stringify(active).includes('passwordHash'),false);
+ const active=await response.json();assert.equal(active.state,'active');
+ assert.deepEqual(Object.keys(active).sort(),['authorizationVersion','me','state']);
+ assert.deepEqual(Object.keys(active.me).sort(),['displayName','homeClubId','loginId','memberId']);
+ assert.deepEqual(active.me,{memberId:'u1',loginId:'나래',displayName:'김나래',homeClubId:'seoul-demo'});
+ assert.equal(JSON.stringify(active).includes('passwordHash'),false);
  response=await handleAuthRequest(repo,'logout',request('logout',{},newCookie),policy);
  assert.equal(response.status,200);
  response=await handleAuthRequest(repo,'session',new Request(`${url}/session`,{headers:{Cookie:newCookie}}),policy);
  assert.equal((await response.json()).state,'anonymous');
+ response=await handleAuthRequest(repo,'login',request('login',{loginId:'나래',password:'NewPassword123'}),policy);
+ const activeCookie=response.headers.get('Set-Cookie').split(';')[0];
+ rotationMode='storage';
+ response=await handleAuthRequest(repo,'password',request('password',{currentPassword:'NewPassword123',newPassword:'AnotherPassword123'},activeCookie),policy);
+ assert.equal(response.status,503);
+ assert.equal((await response.json()).error.code,'STORAGE_UNAVAILABLE');
+ assert.equal(response.headers.get('Set-Cookie'),null);
+ rotationMode='conflict';
+ response=await handleAuthRequest(repo,'password',request('password',{currentPassword:'NewPassword123',newPassword:'AnotherPassword123'},activeCookie),policy);
+ assert.equal(response.status,409);
+ assert.equal((await response.json()).error.code,'CONFLICT');
+ rotationMode='normal';
+ response=await handleAuthRequest(repo,'session',new Request(`${url}/session`,{headers:{Cookie:activeCookie}}),policy);
+ assert.equal((await response.json()).state,'active');
  console.log('PASS auth HTTP: CSRF origin, restricted login, rotation, safe session, logout');
 }finally{await rm(dir,{recursive:true,force:true})}

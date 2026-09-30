@@ -12,9 +12,10 @@ export type AuthRepository={
  putSession(row:SessionRow):Promise<void>;
  deleteSession(hash:string):Promise<void>;
  deleteSessionsForMember(memberId:string):Promise<void>;
+ commitPasswordChange(input:{expectedVersion:number;nextAccount:AccountRecord;nextSession:SessionRow}):Promise<'committed'|'conflict'>;
 };
-type ActiveSession={state:'active';account:AccountRecord};
-type RestrictedSession={state:'password_change_required';account:AccountRecord};
+type ActiveSession={state:'active';account:AccountRecord;expiresAt:number};
+type RestrictedSession={state:'password_change_required';account:AccountRecord;expiresAt:number};
 type AnonymousSession={state:'anonymous'};
 export type ResolvedSession=ActiveSession|RestrictedSession|AnonymousSession;
 
@@ -49,10 +50,12 @@ export async function resolveSession(repo:AuthRepository,token:string|null,now=D
  const account=await repo.getById(session.memberId);
  if(!account||!account.active||account.authVersion!==session.authVersion)return {state:'anonymous'};
  if(account.mustChangePassword||session.restricted){
-  if(!account.mustChangePassword||!session.restricted||account.temporaryExpiresAt&&Date.parse(account.temporaryExpiresAt)<=now)return {state:'anonymous'};
-  return {state:'password_change_required',account};
+  if(!account.mustChangePassword||!session.restricted||!account.temporaryExpiresAt)return {state:'anonymous'};
+  const temporaryExpiry=Date.parse(account.temporaryExpiresAt);
+  if(!Number.isFinite(temporaryExpiry)||temporaryExpiry<=now)return {state:'anonymous'};
+  return {state:'password_change_required',account,expiresAt:Math.min(session.expiresAt,temporaryExpiry)};
  }
- return {state:'active',account};
+ return {state:'active',account,expiresAt:session.expiresAt};
 }
 
 export async function rotateAfterPasswordChange(repo:AuthRepository,token:string,currentPassword:string,newPassword:string,policy:AuthPolicy,ttlSeconds:number,now=Date.now()):Promise<{state:'active';token:string}>{
@@ -60,9 +63,10 @@ export async function rotateAfterPasswordChange(repo:AuthRepository,token:string
  if(resolved.state==='anonymous')throw new AuthError('UNAUTHENTICATED','로그인이 필요합니다.');
  let next:AccountRecord;
  try{next=await changePassword(resolved.account,currentPassword,newPassword,policy,now)}catch{throw new AuthError('INVALID_INPUT','입력 내용과 계정 상태를 확인해 주세요.')}
- if(!await repo.saveAccount(next,resolved.account.authVersion))throw new AuthError('CONFLICT','계정이 변경되었습니다. 다시 시도해 주세요.');
- await repo.deleteSessionsForMember(next.id);
- return {state:'active',token:await issueSession(repo,next,false,ttlSeconds,now)};
+ const successorToken=createSessionToken();
+ const nextSession:SessionRow={tokenHash:await hashSessionToken(successorToken),memberId:next.id,authVersion:next.authVersion,restricted:false,expiresAt:now+validTtl(ttlSeconds)};
+ if(await repo.commitPasswordChange({expectedVersion:resolved.account.authVersion,nextAccount:next,nextSession})==='conflict')throw new AuthError('CONFLICT','계정이 변경되었습니다. 다시 시도해 주세요.');
+ return {state:'active',token:successorToken};
 }
 
 export async function logout(repo:AuthRepository,token:string|null):Promise<void>{

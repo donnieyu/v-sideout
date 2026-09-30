@@ -2,14 +2,25 @@
 
 ## 새 checkout의 로컬 DB
 
-`web/`에서 `npm ci`와 `npm run build`를 실행하면 `dist/server/wrangler.json`이 생성됩니다. 저장소의 `vite.config.ts`에 있는 로컬 `DB` 바인딩이 이 설정에 포함됩니다. **새 로컬 DB에 한 번만** 다음 두 SQL을 순서대로 적용합니다.
+`web/`에서 `npm ci`와 `npm run build`를 실행하면 `dist/server/wrangler.json`이 생성됩니다. 저장소의 `vite.config.ts`에 있는 로컬 `DB` 바인딩이 이 설정에 포함됩니다. **새 로컬 DB에 한 번만** 다음 세 SQL을 순서대로 적용합니다.
 
 ```sh
 ./node_modules/.bin/wrangler d1 execute DB --config dist/server/wrangler.json --local --persist-to .wrangler/state --file drizzle/0000_windy_omega_red.sql
 ./node_modules/.bin/wrangler d1 execute DB --config dist/server/wrangler.json --local --persist-to .wrangler/state --file drizzle/0001_glamorous_iron_lad.sql
+./node_modules/.bin/wrangler d1 execute DB --config dist/server/wrangler.json --local --persist-to .wrangler/state --file drizzle/0002_modern_triathlon.sql
 ```
 
 `--local`을 유지하고 운영 D1에는 실행하지 않습니다. `.wrangler/`는 Git에서 제외됩니다. 기존 원본 DB·실회원·계정은 복사하지 않았으며, 이 SQL은 스키마만 생성합니다. 이후 `npm run dev`(개발) 또는 `npm run start`(빌드 기반 로컬 Worker)를 사용합니다. 소스가 변경되면 다시 빌드한 후 start를 실행합니다.
+
+### 합성 로컬 DB의 최초 마스터 설정
+
+위 세 migration을 적용한 **빈 로컬 DB**에서만 다음 명령을 한 번 실행합니다. `--state-path`는 Wrangler의 `--persist-to`와 같은 경로입니다.
+
+```sh
+node scripts/bootstrap-first-master-local.mjs --login-id 테스트마스터 --display-name 테스트마스터 --state-path .wrangler/state
+```
+
+이 명령은 내부 `bootstrapFirstMaster`를 로컬 D1에 호출하며 공개 HTTP 경로를 만들지 않습니다. 이미 회원이 있으면 생성이 거절되고 새 임시 비밀번호를 표시하지 않습니다. 생성에 성공하면 아이디·임시 비밀번호·7일 만료 시각을 터미널에 **한 번만** 표시합니다. 임시 비밀번호를 저장소·공유 문서·일반 로그에 복사하지 마세요. 출력 실패가 발생하면 **계정은 이미 생성됐을 수 있고** 이전 비밀번호를 조회할 수 없습니다. 합성 데이터만 있는 로컬 DB는 새 빈 상태 경로를 정해 migration부터 다시 적용하세요. 기존 경로에서 같은 명령을 재시도하면 충돌합니다. 현재 명령은 `remoteBindings:false`로 로컬 DB만 열고, 운영 D1 설정·실회원 생성·자격 전달·공개 배포는 수행하지 않습니다.
 
 ---
 
