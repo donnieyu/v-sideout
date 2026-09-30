@@ -1,0 +1,47 @@
+[
+  {
+    "width": 320,
+    "status": "pass",
+    "checks": [
+      "login",
+      "home",
+      "detail",
+      "no horizontal overflow",
+      "reload",
+      "history",
+      "account",
+      "password entry",
+      "logout"
+    ]
+  },
+  {
+    "width": 390,
+    "status": "pass",
+    "checks": [
+      "login",
+      "home",
+      "detail",
+      "no horizontal overflow",
+      "reload",
+      "history",
+      "account",
+      "password entry",
+      "logout"
+    ]
+  },
+  {
+    "width": 1280,
+    "status": "pass",
+    "checks": [
+      "login",
+      "home",
+      "detail",
+      "no horizontal overflow",
+      "reload",
+      "history",
+      "account",
+      "password entry",
+      "logout"
+    ]
+  }
+]

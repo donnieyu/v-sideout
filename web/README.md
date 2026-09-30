@@ -1,4 +1,44 @@
-> **2026-09-29 저장소 이전 안내:** 현재 Git 루트는 상위 `v-sideout/`입니다. 아래 기존 기능 설명은 역사 기록이며, 이 checkout에는 인증 기반 Task 1·2도 포함됩니다. 현재 상태·실행·담당은 [루트 README](../README.md), [준비 기록](../docs/reviews/REPOSITORY_SETUP_2026-09-29.md)을 우선 확인하세요. 최초 변경 원자성·최종 신원 계약·로그인/회원관리 UI는 미완료입니다.
+# SIDEOUT web — P1 인증·조회 통합
+
+현재 기본 진입점은 실제 로컬 인증과 D1 조회를 사용하는 승인 UI입니다. 이전 역할 전환 데모는 기본 화면에서 분리했고 `/api/workspace`는 410으로 폐쇄했습니다. 이 브랜치는 읽기 통합 단계이며 신청·편성·경기 순서 수정 기능은 아직 연결하지 않았습니다.
+
+자세한 범위, 검증, 인수 기준은 [P1 인계 기록](../docs/reviews/PROMOTION_P1_HANDOFF.md)을 확인하세요. 인증은 `a1ed430`(M1–M3)에 고정했고 진행 중인 가입·승인 작업은 포함하지 않았습니다.
+
+## 격리된 P1 합성 시험
+
+저장소 `.nvmrc`의 Node 24.16.0을 사용합니다. 아래 명령은 `web/`에서 실행합니다. 이 seed는 새 `.wrangler/sideout-p1`에만 migration과 합성 자료를 만들며 기존 비어 있지 않은 경로는 거부합니다. 개발 서버는 데이터를 자동 생성하지 않습니다.
+
+```sh
+npm ci --no-audit --no-fund
+npm run build
+node scripts/seed-sideout-p1-local.mjs --state-path .wrangler/sideout-p1
+node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/sideout-p1 --ip 0.0.0.0 --port 4180 --inspector-port 0
+```
+
+`http://127.0.0.1:4180/home`으로 접속합니다. 다른 기기에서는 같은 Wi-Fi의 Mac LAN 주소와 포트 4180을 사용합니다. 합성 자격은 ignored 파일 `.wrangler/sideout-p1/credentials.json`(권한 0600)에만 보관합니다. `시험outsider`는 최초 변경용, `시험applicant`는 공개 편성 참석자, `시험master`는 전체 모임 조회용입니다. 비밀번호를 문서나 로그에 복사하지 마세요. 빌드 변경 후 Worker를 다시 시작하세요.
+
+## 검증
+
+```sh
+npm run build
+for test in tests/*.mjs; do node "$test" || exit 1; done
+npm run test:member-ui
+npm run test:sideout
+./node_modules/.bin/tsc --noEmit --incremental false
+```
+
+최초 마스터 통합 테스트가 빌드의 로컬 Worker 바인딩 설정을 읽으므로 빌드를 먼저 수행합니다. CI도 같은 순서를 사용합니다. 기존 전체 lint 부채는 별도이며 이번 검사의 통과로 lint가 해결됐다고 보지 않습니다.
+
+별도 Playwright 설치와 Chrome이 있으면 저장소 루트에서 아래 명령을 실행합니다. `PLAYWRIGHT_MODULE`에는 해당 설치의 `playwright/index.mjs` 절대 경로를 지정할 수 있습니다. 4180의 합성 로컬 서버가 필요합니다. boundary 검사의 첫 실행은 합성 outsider 비밀번호를 실제로 변경하고 ignored 자격 파일만 갱신합니다.
+
+```sh
+node web/scripts/verify-sideout-browser.mjs
+node web/scripts/verify-sideout-boundaries.mjs
+```
+
+이하 최초 마스터 절차는 빈 스키마를 직접 준비할 때 사용하는 별도 방법입니다. P1 seed를 사용했다면 반복하지 않습니다. 하단 시제품 설명은 과거 구현 기록으로, 현재 P1에서 쓰기 기능이 운영 가능하다는 뜻이 아닙니다.
+
+---
 
 ## 새 checkout의 로컬 DB
 

@@ -1,11 +1,65 @@
-# P1 승격 인계
+# P1 인증·조회 승격 인계 — 2026-09-30
 
-상태: 구현 중. 시작 d976116, 인증 인수 a1ed430. 작업 브랜치 feat/promotion-p1.
-기존 목업 및 진행 중 auth-rotation 작업 공간은 수정하지 않는다.
+상태: **로컬 구현·자동 인수 완료, 독립 검토 진행 예정. 실제 iPhone 인수 미확인.** 배포·main 병합·실회원 반입은 하지 않았다. 실제 인증을 연결한 조회 단계이며 전체 서비스 승격 완료가 아니다.
 
-## 인증 인수
-- 고정 커밋 병합, 충돌 없음. M4 후속 커밋 미포함.
-- Node 24.16.0, npm ci, 기존 tests/*.mjs 전체, member UI, tsc, build 통과.
-- bootstrap 테스트는 build의 Wrangler config를 필요로 하므로 새 checkout에서는 build를 먼저 수행한다.
-- migration: 0000_windy_omega_red, 0001_glamorous_iron_lad, 0002_modern_triathlon.
-- 제품 연결·실기기 검증·독립 검토는 아직 진행 전.
+## 소스와 작업 경계
+
+- 정본 `/Users/donnieyu/DevSource/Personal/v-sideout`, 작업 트리 `.worktrees/promotion-p1`, 브랜치 `feat/promotion-p1`.
+- 시작 `d9761165de01f15d15ff663839420b2c26d8990d`, 인증 고정점 `a1ed4300efb10df54cafc2a98587a9da6eafda5e`, 인수 merge `117dc9d`. 이후 진행 중 M4는 제외.
+- 조회 계약 `38c5443`, D1 원본 `6e1be5f`, 서버 조회 `ba2d471`, 화면 연결 `07d34b7`. 최종 제출 SHA는 이 문서 이후 브랜치 HEAD와 Git 로그로 확인한다.
+- [승인 UI 보존본](../design-review/baselines/2026-09-30-approved-ui/README.md)의 archive SHA와 **72개 파일 해시 일치** 확인. 실행 중인 4174 목업과 `.worktrees/auth-rotation`은 변경하지 않았다.
+- 인증 통합 I 채팅에 사용자 승인으로 경계 전달 완료: 앱 셸·홈/상세 조회·모임 원본·ClubDirectory는 P1 담당. 가입/승인·발송·요청 제한기는 제외.
+
+## 이번에 연결한 흐름
+
+실제 로그인 → 제한 세션의 최초 비밀번호 변경 → 홈의 주/모임/즐겨찾기 조회 → 일정 상세·신청 인원·허용된 명단·공개 팀/경기 순서 → 계정 정보/비밀번호 변경/로그아웃. P1에서 즐겨찾기는 조회만 제공한다.
+
+실제 검증된 신원만 업무 API에 접근한다. 마스터는 전체, 운영자는 최종 유효 권한 모임의 준비 일정을 조회한다. 일반 회원에게 운영 초안·전체 후보·대기자 이름을 보내지 않는다. 공개 편성은 운영진·신청자·공개 편성 배정자만 열람한다. 동명이인·이름 변경·비활성 과거 회원은 ID로 참조한다. 401/403/404/503과 재시도, 늦게 도착한 이전 계정 응답의 차단을 구현했다.
+
+`/api/workspace`는 410으로 폐쇄했다. 새 `/api/clubs`, `/api/sessions`, `/api/sessions/:id`, `/api/me/preferences`는 읽기 전용이며 응답은 no-store다. 쓰기 capability는 모두 false다.
+
+## 재현 환경
+
+[web 실행 문서](../../web/README.md)에 순서와 명령이 있다. Node 24.16.0, 기존 lockfile 사용. 새 패키지 업그레이드 없음.
+
+- Worker `http://127.0.0.1:4180/home`, 같은 Wi-Fi 시험 시 `http://192.168.0.43:4180/home` (Mac IP는 바뀔 수 있음).
+- 로컬 D1 `.worktrees/promotion-p1/web/.wrangler/sideout-p1`. 0000~0002 migration 인수. 새 migration 없음.
+- 합성 8계정·2모임·3일정. 자격은 같은 ignored 경로의 `credentials.json`(0600)에만 보관. 본 문서에는 비밀번호/토큰을 싣지 않는다.
+- seed는 실행 시 KST 현재 주를 사용한다. 이미 존재하는 비어 있지 않은 상태 경로는 거부하며 조회 중 자동 seed하지 않는다.
+- `시험outsider`의 최초 변경은 실제 브라우저에서 성공했고 로컬 자격 파일의 비밀번호도 갱신했다. 새 최초 변경 검사는 별도 새 worktree의 빈 seed 상태에서 재현한다.
+- 공개 팀 fixture는 ID·권한 검증을 위한 최소 1팀/2명이다. 실제 1팀 공개 허용 정책을 확정한 자료가 아니다. 경기 목록 fixture는 비어 있으며, 경기 표시 순서·20분·신입 팀명은 별도 UI 테스트에서 확인했다.
+
+## 검증 근거
+
+| 대상 | 결과/근거 |
+| --- | --- |
+| build → 기존 `tests/*.mjs` 19파일 → 회원 UI → P1 → tsc → diff | 모두 종료 0. 회원 UI 4개, P1 58개 통과. [전체 로그](p1-evidence/verification.log) |
+| 실제 Chromium + 로컬 Worker/D1 | 320/390/1280px 로그인·상세·새로고침·뒤로/앞으로·계정·비밀번호 진입·로그아웃, 가로 넘침 없음. [결과](p1-evidence/browser-results.json) |
+| 실제 인증 경계 | 최초 변경 전 403→변경 후 홈, 미신청 공개본 차단, 준비 일정 일반회원404/마스터200, 세션 취소 후 focus 재검증, malformed ID400. [결과](p1-evidence/boundary-results.json) |
+| 오류 UI | 실제 브라우저에서 503 응답 주입 후 다시 시도하면 실제 D1 결과로 복구. DB 자체 장애를 발생시킨 시험은 아님 |
+| 경쟁/날짜/ID | 느린 계정A 응답 후 B전환, 자정/연말, 직접 URL/잘못된 입력, 동명이인·이름 변경·비활성 참조 테스트 |
+| CI | 빌드 선행 + 기존 도메인/인증 + 새 회원/P1 UI 검사 연결. 원격 CI는 아직 실행하지 않음 |
+| 보존본 | archive `6ba35e860b71f20e144558c7c11d2dc9b1d9c0b7c99ba89f45ad86d51b07c730` 및 72파일 SHA256 일치 |
+
+[모바일 홈](p1-evidence/home-320.png) · [모바일 상세](p1-evidence/detail-390.png) · [데스크톱 홈](p1-evidence/home-1280.png). 실제 화면을 열어 확인했다. 합성 데이터만 포함한다.
+
+브라우저 재현 스크립트: [기본 흐름](../../web/scripts/verify-sideout-browser.mjs), [오류·권한](../../web/scripts/verify-sideout-boundaries.mjs). Playwright+Chrome과 실행 중인 로컬 서버가 필요하며 CI 기본 스위트와 별도다. 첫 변경 검사는 합성 비밀번호를 변경하므로 재실행 시 already activated로 기록한다.
+
+## 구현 중 판단과 비용
+
+1. 네이티브 worktree 도구가 역사 경로를 Git으로 찾지 못해 정본 아래 ignored worktree를 수동 생성했다. 앱 아티팩트로 자동 연결되지 않는 비용이 있다.
+2. 기존 최초 마스터 통합 검사가 빌드 산출물의 Worker 설정을 요구해 CI/검증 순서를 build-first로 바꿨다. 검사 시작 비용이 늘어난다.
+3. 비밀번호 입력의 접근성 이름에 ‘보기’ 버튼이 섞이는 실제 브라우저 실패를 고쳐 명시적 aria-label을 넣었다. 인증 정책 변화 없음.
+4. 고정된 vinext에서 next/link의 lazy `navigateClientSide` 호출이 실제 빌드에서 TypeError로 실패했다. 패키지 업그레이드 대신 P1은 네이티브 문서 이동을 사용한다. URL·history·계정별 홈 스크롤을 유지하고 BFCache/focus 복귀를 재검증한다. 페이지 이동마다 문서·인증 요청이 발생한다.
+5. 실제 iPhone은 도구로 확인할 수 없어 사용자에게 비동기 확인을 요청했다. 자동 모바일 시험 통과와 실기기 인수를 구분하며 Safari 고유 문제는 미확인이다.
+
+전체 [실행 ledger](p1-evidence/execution-ledger.md).
+
+## 남은 인수와 다음 단계
+
+- 실제 iPhone Safari의 같은 Wi-Fi 접속, 로그인 쿠키, 최초 변경, 새로고침, 뒤로/앞으로, 키보드 표시 시 입력 영역 확인. 이번 통합은 기존 목업 모바일 수용과 별개다.
+- P2: 일정 생성/수정·신청/대기/취소·운영진 일괄 명단·즐겨찾기 쓰기를 원자적 명령으로 연결.
+- P3: 승인된 팀편성 편집·초안 저장·공개·경기 순서 편집과 경쟁 처리. P1 조회 fixture가 이 명령 정책을 대신하지 않는다.
+- M4: 별도 가입·승인·전달 작업은 해당 채팅 결과를 고정 커밋으로 인수할 계획을 따로 검토. 현재 전체 브랜치를 무조건 병합하지 않는다.
+- P4/P5: 동시 사용자·실기기 통합 회귀, 백업/복구, 운영 환경·실회원 반입·배포. 공개 URL 제공만으로 완료 판정하지 않는다.
+- 기존 전체 lint 부채는 미해결. 원격 CI·실기기·배포는 로컬 테스트 통과와 별도다.

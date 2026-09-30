@@ -1,0 +1,30 @@
+[
+  {
+    "check": "first-password-change and restricted API",
+    "status": "pass"
+  },
+  {
+    "check": "outsider published lineup withheld",
+    "status": "pass"
+  },
+  {
+    "check": "member hidden prepared direct URL",
+    "status": "pass"
+  },
+  {
+    "check": "503 retry returns live D1 data",
+    "status": "pass"
+  },
+  {
+    "check": "revoked session hidden on focus",
+    "status": "pass"
+  },
+  {
+    "check": "manager prepared direct URL",
+    "status": "pass"
+  },
+  {
+    "check": "malformed encoded API ID",
+    "status": 400
+  }
+]

@@ -5,6 +5,7 @@ import {render,screen,fireEvent,waitFor,cleanup,act} from '@testing-library/reac
 import {MemberAccessGate} from '../components/member-access/access-gate';
 import {SideoutAccess} from '../components/sideout/access';
 import {HomeScreen} from '../components/sideout/home';
+import {MatchList} from '../components/sideout/match-list';
 import {createMemberAccessClient} from '../lib/member-access-client';
 import {createSideoutClient} from '../lib/sideout-client';
 import type {SessionView} from '../lib/auth/contracts';
@@ -13,6 +14,10 @@ vi.mock('next/navigation',()=>({useRouter:()=>({push:vi.fn(),replace:vi.fn()}),u
 vi.mock('next/link',()=>({default:({children,...props}:React.ComponentProps<'a'>)=> <a {...props}>{children}</a>}));
 beforeEach(()=>vi.spyOn(window,'scrollTo').mockImplementation(()=>{}));
 afterEach(()=>{cleanup();vi.restoreAllMocks()});
+it('renders stored match order and IDs, including rookies, at twenty minute intervals',()=>{
+ render(<MatchList start="08:30" teams={[{id:'opaque-b',title:'B팀',players:[]},{id:'opaque-a',title:'A팀',players:[]}]} plan={{teamCount:2,rookieTeamCount:2,matches:[{id:'first',kind:'rookie',home:'R1',away:'R2'},{id:'second',kind:'regular',home:'opaque-a',away:'opaque-b'}]}}/>);
+ const rows=screen.getAllByRole('row');expect(rows[1].textContent).toContain('08:30 – 08:50');expect(rows[1].textContent).toContain('신입 1팀 vs 신입 2팀');expect(rows[2].textContent).toContain('08:50 – 09:10');expect(rows[2].textContent).toContain('A팀 vs B팀');
+});
 const active=(name:string,id=ids.applicant):SessionView=>({state:'active',me:{memberId:id,displayName:name,loginId:'시험',homeClubId:clubs[0].id},authorizationVersion:1});
 it('login and first password change gate business content',async()=>{
  let session:SessionView={state:'anonymous'};
