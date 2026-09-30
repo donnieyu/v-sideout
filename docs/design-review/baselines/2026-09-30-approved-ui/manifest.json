@@ -1,0 +1,403 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-30T06:37:26.544968+00:00",
+  "repository": "/Users/donnieyu/DevSource/Personal/v-sideout",
+  "prototype": "docs/design-review/shadcn-prototype",
+  "baseCommit": "a110043ec537a33ed0a7a966d238eabd73d53183",
+  "authReferenceCommit": "1563f39d1b7f773b1397b1510f6e69a87ef42a55",
+  "scope": "UI source, tests, scripts, public assets, entrypoints, package lock and build configuration; historical markdown and screenshots excluded",
+  "notes": [
+    "Includes working-tree changes and untracked source; not a clean-HEAD snapshot.",
+    "No live credentials, DB, dependencies, generated builds or browser session state included.",
+    "Source snapshot is not proof that every existing behavior is an approved production policy."
+  ],
+  "archiveSha256": "6ba35e860b71f20e144558c7c11d2dc9b1d9c0b7c99ba89f45ad86d51b07c730",
+  "files": [
+    {
+      "path": "allocation-preview/index.html",
+      "bytes": 302,
+      "sha256": "24ff8062f0f7e903bdcfdfb140dcdb133b27ee25799a8517ff68cd1c1ce0a2e4"
+    },
+    {
+      "path": "components.json",
+      "bytes": 279,
+      "sha256": "6a6aaf19fd3cd7816fc77e481933ce1fe03c82df6ef6b43e97607c24a2591dc7"
+    },
+    {
+      "path": "index.html",
+      "bytes": 275,
+      "sha256": "41b26466e37813ef07ee44815aa216448cfb28031b19ccc2d6182f1211fad969"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 158093,
+      "sha256": "c3d5d0b0f7ff7b25701351951ea68a7ee51fa0a44fa870dd373d71921ce54ba6"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1102,
+      "sha256": "0510ac77821393354a30a92b22b92586d0fe12918d3e4bd23b780bcd496b57a3"
+    },
+    {
+      "path": "position-preview/index.html",
+      "bytes": 291,
+      "sha256": "0f4438ece35db5708d7721997ceee8f307ddf7fcd2e4d9c6439a3cc267cf0e8e"
+    },
+    {
+      "path": "postcss.config.js",
+      "bytes": 53,
+      "sha256": "f6cbc884c909ca5527809d4ef83badc707e59244c83e64973deb1d53a9cdf59f"
+    },
+    {
+      "path": "public/reviews/name-overflow.html",
+      "bytes": 7054,
+      "sha256": "77eeeedcdf117c4e171cd0477a16cf62db6d09921f4e9f9e1be8ddb6c579d869"
+    },
+    {
+      "path": "scripts/check-allocation-ab.mjs",
+      "bytes": 7649,
+      "sha256": "3e973ec62d9ae8190c215346f26fef6f9234821289be4fb44a1cc581b9fe3329"
+    },
+    {
+      "path": "scripts/check-position-board.mjs",
+      "bytes": 4678,
+      "sha256": "936bf83e64565b972c475089fea61de392c7442a416ebcb569ce24b87de650a4"
+    },
+    {
+      "path": "scripts/check-registration.mjs",
+      "bytes": 6058,
+      "sha256": "0fd398ec0c92840c94a43e7ac23d607af470c452930d454d4fc6784037bfab8e"
+    },
+    {
+      "path": "scripts/check-teams.mjs",
+      "bytes": 3842,
+      "sha256": "f293d8ffcf9bd4a7a00c69d18d18ac4400af2f6580180ec57b005159bbdfa7fc"
+    },
+    {
+      "path": "src/allocation-ab-model.ts",
+      "bytes": 6698,
+      "sha256": "fa55914f5151d638c4ee52e83101477ecbe748d29ea5fb3c1523c4a7ec74876b"
+    },
+    {
+      "path": "src/allocation-ab.css",
+      "bytes": 3082,
+      "sha256": "8981f679d5e5c45878a52a6aef108f5bd58d28d80c442cd99a9b2f1102d377f0"
+    },
+    {
+      "path": "src/allocation-ab.test.tsx",
+      "bytes": 41576,
+      "sha256": "8de2d2389e9cc35cc855c0fe90ad848d162a1087db4da6beb26fd9093ee0c0db"
+    },
+    {
+      "path": "src/allocation-ab.tsx",
+      "bytes": 15809,
+      "sha256": "cd3828e395c411678d54d31f34e9b993a33ba537ba98b836f4de2190d1e2b7bd"
+    },
+    {
+      "path": "src/allocation-layout.css",
+      "bytes": 25504,
+      "sha256": "759219921c11e88d8b2d0577daefec5329e3897f94847ac56afbb42b289f2be1"
+    },
+    {
+      "path": "src/components/ui/avatar.tsx",
+      "bytes": 2916,
+      "sha256": "58a846bf1617b94b9681921db9b8461d0145f311424663d11678a06b6153cb34"
+    },
+    {
+      "path": "src/components/ui/badge.tsx",
+      "bytes": 1776,
+      "sha256": "46a0de5224f6a5d5d63d45246534288518dce888f031064bff925bbc7fe6ad97"
+    },
+    {
+      "path": "src/components/ui/breadcrumb.tsx",
+      "bytes": 2350,
+      "sha256": "d4c0831bba2212e778248f54a6ace6ef378df8bba4616d1abf27787a31eabae5"
+    },
+    {
+      "path": "src/components/ui/button.tsx",
+      "bytes": 2473,
+      "sha256": "4b63850ee9f9fcd77929f81da15ec0527765655ab33dbf54d626b6213149534e"
+    },
+    {
+      "path": "src/components/ui/card.tsx",
+      "bytes": 1987,
+      "sha256": "c48dd3b96be90a7066f1aebf294f0af9d00ebcdc367d5d4aca55429ade570c1c"
+    },
+    {
+      "path": "src/components/ui/checkbox.tsx",
+      "bytes": 1214,
+      "sha256": "b23ab9d4deeedf2ac8f512c368361ede681aa383437ef48563a6f9b7dbe95f27"
+    },
+    {
+      "path": "src/components/ui/dialog.tsx",
+      "bytes": 5198,
+      "sha256": "526268df03465c09e462639e1012f18b74523c857848afb8ca1673f09ec776ab"
+    },
+    {
+      "path": "src/components/ui/dropdown-menu.tsx",
+      "bytes": 8418,
+      "sha256": "98f0dcdae38225b73734aceeb9213dd751fea2c72ea520df31003cd133deac8a"
+    },
+    {
+      "path": "src/components/ui/input.tsx",
+      "bytes": 962,
+      "sha256": "8c4612a7c41319ac5049daa3b34b080f9784b6245c17780eb87c127e58e473db"
+    },
+    {
+      "path": "src/components/ui/progress.tsx",
+      "bytes": 755,
+      "sha256": "c8c26e8f5f041c3cdf4915347dc1d9c022f9448f149990fadcaf303e952fa57d"
+    },
+    {
+      "path": "src/components/ui/scroll-area.tsx",
+      "bytes": 1639,
+      "sha256": "8bd9d986b2844c9a87de825c6de4787b6739b36c3dc9a05ccf3eb107160e4043"
+    },
+    {
+      "path": "src/components/ui/select.tsx",
+      "bytes": 6353,
+      "sha256": "0b796a108a4eb5ba52d9ad938b7aea36dc56ae66c703a6d0a23dbc24f96daff3"
+    },
+    {
+      "path": "src/components/ui/separator.tsx",
+      "bytes": 694,
+      "sha256": "6da346505c8629a4668420d2a5ca48891383bbe0b0ceb14163537c671879427e"
+    },
+    {
+      "path": "src/components/ui/sheet.tsx",
+      "bytes": 4188,
+      "sha256": "63863cf2df8f8973e52b3459ac9bdbf81be1262dbc70eb53d5271ffb03488e16"
+    },
+    {
+      "path": "src/components/ui/switch.tsx",
+      "bytes": 875,
+      "sha256": "755bf8e4b7840db4ec64fa28b9af5d69d6328f6a51f9836b98a98208d399cff0"
+    },
+    {
+      "path": "src/components/ui/table.tsx",
+      "bytes": 2478,
+      "sha256": "20e5a7f224959c6b75802995706a97e9da171f693d4b6b1b436388fcd9df96f3"
+    },
+    {
+      "path": "src/components/ui/tabs.tsx",
+      "bytes": 3782,
+      "sha256": "865d0194331b9b2be36723fa79d3575dc83078b4cb941cafee87cb72fc2cff46"
+    },
+    {
+      "path": "src/components/ui/textarea.tsx",
+      "bytes": 759,
+      "sha256": "253cdeb487c73beaaccdf47fc163e36e7d5b7ae6ddf09a4f64998a109a112979"
+    },
+    {
+      "path": "src/continuous-allocation.tsx",
+      "bytes": 12730,
+      "sha256": "f6e26d1f191f2845d469639c4f385a8066ab713d127c3b7b9339fc803b7b41df"
+    },
+    {
+      "path": "src/inline-teams.tsx",
+      "bytes": 12050,
+      "sha256": "5117962a1543c9a38c7b4336fccf9e9e9c62de5a03f49f21f4f18faee37721bc"
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "bytes": 177,
+      "sha256": "53f3d3d070f0a9082934da25b875f9499855c2b0693868dd28be8c23d8730f68"
+    },
+    {
+      "path": "src/main.tsx",
+      "bytes": 38776,
+      "sha256": "63de2d6155e899d74d7a30fa0536fb4dd1727b64d45397e736bf05d3f0b56972"
+    },
+    {
+      "path": "src/match-order-model.test.ts",
+      "bytes": 2853,
+      "sha256": "8f5dbf5e427aaf27db1b2f308e424b7e7df8b40660d3a6db7d43d9e2bd360c3a"
+    },
+    {
+      "path": "src/match-order-model.ts",
+      "bytes": 5394,
+      "sha256": "6004edff3ffeb9580e1d4b0ce1952449373ee53220279ef2c0d6aec6bd74d2cb"
+    },
+    {
+      "path": "src/match-order.css",
+      "bytes": 4393,
+      "sha256": "ada3b76b3d7558f82dc6e8eb3a14062ca65ecf39fe5f18c279d16c7f015cef2e"
+    },
+    {
+      "path": "src/match-order.test.tsx",
+      "bytes": 3791,
+      "sha256": "9c4f5e360787b51f6d15455c1ee3eba365d37ebce9762eb6518c3a1ed2042bca"
+    },
+    {
+      "path": "src/match-order.tsx",
+      "bytes": 9138,
+      "sha256": "6e1e9fa1442c87d2896e32e7a7ec159bf5c6ecac89a998b3b5f4731b5cb0d805"
+    },
+    {
+      "path": "src/model.ts",
+      "bytes": 3994,
+      "sha256": "52f0f35e0ad87340fd05ce3239c8b531680ce566acd2782564ce3330bc66233e"
+    },
+    {
+      "path": "src/navigation.test.ts",
+      "bytes": 703,
+      "sha256": "f44be7dd5f5e3996dd13285610cb96c9e88e4f0683297d1f0d7673b296cc4e17"
+    },
+    {
+      "path": "src/navigation.ts",
+      "bytes": 1496,
+      "sha256": "a5975b4dcb4df15015b00cda89a854dda2526bfcc1dbeddbfedac8abfe9ae2dd"
+    },
+    {
+      "path": "src/position-board-model.ts",
+      "bytes": 5197,
+      "sha256": "fa8eae7cfbcf621440bac9047c901cc443619215a775472d23b8a59cd6a59e20"
+    },
+    {
+      "path": "src/position-board.css",
+      "bytes": 11341,
+      "sha256": "2b8489ac0e795634fc0588fcc91b613dde141c8ce9ea824b93a3d825a60ffa69"
+    },
+    {
+      "path": "src/position-board.tsx",
+      "bytes": 10505,
+      "sha256": "0d53df5b8751cd9ea521cbe55a8db8a4a5c7d1dbd409d71b1d5a75186fa6b196"
+    },
+    {
+      "path": "src/registration-model.ts",
+      "bytes": 6289,
+      "sha256": "8ce20f50f0f073515464149297c024a152843385791a5bdc9fcefb3dea0a5840"
+    },
+    {
+      "path": "src/registration.tsx",
+      "bytes": 11225,
+      "sha256": "0da9668ef3d432ddca35ee46a6772992e211112be5415869157c362e8f8a4ef6"
+    },
+    {
+      "path": "src/roster-dialog.tsx",
+      "bytes": 6455,
+      "sha256": "95df7f6e4016e0c871b7c7108ee7c941e595cd738b49793885be8ef1cc80c5ce"
+    },
+    {
+      "path": "src/roster-fixtures.test.ts",
+      "bytes": 1760,
+      "sha256": "a8cbb71aca302480e57665db11745b853534fc6e609381702c4fc37fcc81e9b1"
+    },
+    {
+      "path": "src/roster-fixtures.ts",
+      "bytes": 1669,
+      "sha256": "2b48651ce113df95d88a74b059442cf94f1697cfe10ea2f1008e913516aca820"
+    },
+    {
+      "path": "src/roster-ssot.integration.test.tsx",
+      "bytes": 9952,
+      "sha256": "f36c29db985858dc7e01e034cb5c02394cd130561fde868308d11bec2b95b1d0"
+    },
+    {
+      "path": "src/roster-state.test.ts",
+      "bytes": 11049,
+      "sha256": "252af5bd0ea003d70c8fabda3f366ee86390dd23babfe4bc5d75a41ab2d85877"
+    },
+    {
+      "path": "src/roster-state.ts",
+      "bytes": 10635,
+      "sha256": "cb2f8ed844ae1d58d55ece30837575b30f7366cf2da6b883e08ea65809cf76a8"
+    },
+    {
+      "path": "src/roster-transitions.test.tsx",
+      "bytes": 3817,
+      "sha256": "c16470023c190b4e14271c1a36ad286ad042086ee1e0eb22c26fb8e98859cdd9"
+    },
+    {
+      "path": "src/roster.test.tsx",
+      "bytes": 7408,
+      "sha256": "f7ce9cafc76c0bc7c7ef2244ee9a49d6847b8827544b0fa4fff57b0400278b93"
+    },
+    {
+      "path": "src/session-allocation-model.ts",
+      "bytes": 1716,
+      "sha256": "b485a0a0a54a9eb8a380ff8475a141e417fdfad6744953551c00469e84c9eac2"
+    },
+    {
+      "path": "src/session-allocation.css",
+      "bytes": 15149,
+      "sha256": "cf4607d96a786d63c56bd514ae7e115dc502226d44fa7564645f4bba9074e88d"
+    },
+    {
+      "path": "src/session-allocation.tsx",
+      "bytes": 13047,
+      "sha256": "509e169292c202095d22b3504826bcbe1149b1b4cca9278822ae36049ba1db98"
+    },
+    {
+      "path": "src/session-editor.test.tsx",
+      "bytes": 4500,
+      "sha256": "65998f083087eff87652c0b3a2235bd8c2a80a0cb349e7df7aa178f33f14e64e"
+    },
+    {
+      "path": "src/session-editor.tsx",
+      "bytes": 5646,
+      "sha256": "1295ead053dc4bfcbb4f597281590a7665cd50dd71d000fc224940216fb8ec4f"
+    },
+    {
+      "path": "src/styles.css",
+      "bytes": 50126,
+      "sha256": "490c22211c52754289804abc09e229bb81dd1f46cee7cacd69b08644c0b91373"
+    },
+    {
+      "path": "src/team-model.ts",
+      "bytes": 3098,
+      "sha256": "cf324f3cc8468e72b0c4171d1ffb1228a59388d7b042348f59205646fea577dc"
+    },
+    {
+      "path": "tsconfig.json",
+      "bytes": 306,
+      "sha256": "20e035165f42b95686456d99ebaa242a19e0928001bd73aa0499eecf977f4dec"
+    },
+    {
+      "path": "vite.allocation.config.ts",
+      "bytes": 398,
+      "sha256": "58b0a9e9e3d86ac32f01104363125c6aa0f3355b11a047a7cc4c4f6e2e2f2a8e"
+    },
+    {
+      "path": "vite.config.ts",
+      "bytes": 301,
+      "sha256": "57bf78ebb0fbd0503c91208d373c6f6a7117c1f520f146ac86dbaaec41bb1975"
+    },
+    {
+      "path": "vite.positions.config.ts",
+      "bytes": 397,
+      "sha256": "26481477e67f851815dd7d9dede3cfdc49e3d4f041d04918a63a50bff3ac5398"
+    },
+    {
+      "path": "vitest.allocation.config.ts",
+      "bytes": 565,
+      "sha256": "079c4c81deaa5d3b6538e4655679f4d68bc2572927589bc48c9b9e8db9a1cc69"
+    }
+  ],
+  "gitStatus": [
+    " M docs/design-review/shadcn-prototype/src/allocation-ab-model.ts",
+    " M docs/design-review/shadcn-prototype/src/allocation-ab.test.tsx",
+    " M docs/design-review/shadcn-prototype/src/allocation-layout.css",
+    " M docs/design-review/shadcn-prototype/src/continuous-allocation.tsx",
+    " M docs/design-review/shadcn-prototype/src/inline-teams.tsx",
+    " M docs/design-review/shadcn-prototype/src/main.tsx",
+    " M docs/design-review/shadcn-prototype/src/match-order.tsx",
+    " M docs/design-review/shadcn-prototype/src/navigation.test.ts",
+    " M docs/design-review/shadcn-prototype/src/navigation.ts",
+    " M docs/design-review/shadcn-prototype/src/position-board-model.ts",
+    " M docs/design-review/shadcn-prototype/src/roster-fixtures.ts",
+    " M docs/design-review/shadcn-prototype/src/roster-ssot.integration.test.tsx",
+    " M docs/design-review/shadcn-prototype/src/roster-state.test.ts",
+    " M docs/design-review/shadcn-prototype/src/roster-state.ts",
+    " M docs/design-review/shadcn-prototype/src/roster.test.tsx",
+    " M docs/design-review/shadcn-prototype/src/session-allocation.css",
+    " M docs/design-review/shadcn-prototype/src/session-allocation.tsx",
+    " M docs/design-review/shadcn-prototype/vitest.allocation.config.ts",
+    "?? docs/design-review/shadcn-prototype/public/reviews/name-overflow.html",
+    "?? docs/design-review/shadcn-prototype/src/components/ui/switch.tsx",
+    "?? docs/design-review/shadcn-prototype/src/match-order-model.test.ts",
+    "?? docs/design-review/shadcn-prototype/src/match-order-model.ts",
+    "?? docs/design-review/shadcn-prototype/src/match-order.css",
+    "?? docs/design-review/shadcn-prototype/src/match-order.test.tsx"
+  ]
+}
