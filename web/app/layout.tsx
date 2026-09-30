@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import {SideoutAccess} from "@/components/sideout/access";
 
 export const metadata: Metadata = {
   title: "사이드아웃 · 배구 모임",
@@ -20,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased"><SideoutAccess>{children}</SideoutAccess></body>
     </html>
   );
 }

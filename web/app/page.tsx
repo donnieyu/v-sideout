@@ -1,2 +1,2 @@
-import CourtApp from './court-app';
-export default function Page() {return <CourtApp />}
+import {SideoutEntry} from '@/components/sideout/entry';
+export default function Page(){return <SideoutEntry/>}

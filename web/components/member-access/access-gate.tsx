@@ -1,6 +1,6 @@
 'use client';
 
-import {useCallback,useEffect,useState,type ReactNode} from 'react';
+import {useCallback,useEffect,useState,useRef,type ReactNode} from 'react';
 import {Button} from '@/components/ui/button';
 import {MemberAccessError,memberAccessClient,type MemberAccessClient} from '@/lib/member-access-client';
 import type {SessionView} from '@/lib/auth/contracts';
@@ -9,32 +9,35 @@ import {PasswordChangeForm} from './password-change-form';
 import styles from './member-access.module.css';
 
 type ActiveSession=Extract<SessionView,{state:'active'}>;
-type ActiveActions={changePassword:()=>void;logout:()=>Promise<void>};
-type Props={client?:MemberAccessClient;onJoinRequest?:()=>void;renderActive?:(session:ActiveSession,actions:ActiveActions)=>ReactNode};
+type ActiveActions={changePassword:()=>void;logout:()=>Promise<void>;refresh:()=>Promise<void>};
+type Props={revalidateOnFocus?:boolean;client?:MemberAccessClient;onJoinRequest?:()=>void;renderActive?:(session:ActiveSession,actions:ActiveActions)=>ReactNode};
 
-export function MemberAccessGate({client=memberAccessClient,onJoinRequest,renderActive}:Props){
+export function MemberAccessGate({client=memberAccessClient,onJoinRequest,renderActive,revalidateOnFocus=false}:Props){
  const [session,setSession]=useState<SessionView|null>(null);
  const [checking,setChecking]=useState(true);
  const [error,setError]=useState('');
  const [changing,setChanging]=useState(false);
+ const generation=useRef(0);
  const refresh=useCallback(async()=>{
-  setChecking(true);setError('');
-  try{setSession(await client.session())}
-  catch(caught){setError(caught instanceof MemberAccessError?caught.message:'접속 상태를 확인하지 못했습니다.');setSession(null)}
-  finally{setChecking(false)}
+  const turn=++generation.current;
+  setChecking(true);setError('');setChanging(false);
+  try{const next=await client.session();if(turn===generation.current)setSession(next)}
+  catch(caught){if(turn===generation.current){setError(caught instanceof MemberAccessError?caught.message:'접속 상태를 확인하지 못했습니다.');setSession(null)}}
+  finally{if(turn===generation.current)setChecking(false)}
  },[client]);
+ useEffect(()=>{void refresh();return()=>{generation.current++}},[refresh]);
  useEffect(()=>{
-  let current=true;
-  void client.session().then(value=>{if(current)setSession(value)})
-   .catch(caught=>{if(current)setError(caught instanceof MemberAccessError?caught.message:'접속 상태를 확인하지 못했습니다.')})
-   .finally(()=>{if(current)setChecking(false)});
-  return()=>{current=false};
- },[client]);
-
+  if(!revalidateOnFocus)return;
+  const check=()=>{if(document.visibilityState!=='hidden')void refresh()};
+  const shown=(event:PageTransitionEvent)=>{if(event.persisted)check()};
+  window.addEventListener('pageshow',shown);window.addEventListener('focus',check);document.addEventListener('visibilitychange',check);
+  return()=>{window.removeEventListener('pageshow',shown);window.removeEventListener('focus',check);document.removeEventListener('visibilitychange',check)};
+ },[revalidateOnFocus,refresh]);
  async function logout(){
-  setError('');
-  try{await client.logout();setChanging(false);setSession({state:'anonymous'})}
-  catch(caught){setError(caught instanceof MemberAccessError?caught.message:'로그아웃하지 못했습니다. 다시 시도해 주세요.')}
+  const turn=++generation.current;setChecking(true);setError('');
+  try{await client.logout();if(turn===generation.current){setChanging(false);setSession({state:'anonymous'})}}
+  catch(caught){if(turn===generation.current)setError(caught instanceof MemberAccessError?caught.message:'로그아웃하지 못했습니다. 다시 시도해 주세요.')}
+  finally{if(turn===generation.current)setChecking(false)}
  }
 
  if(checking)return <main className={styles.accessStage}><div className={styles.accessPanel}><p role="status" className={styles.loading}>접속 상태를 확인하고 있습니다…</p></div></main>;
@@ -42,7 +45,7 @@ export function MemberAccessGate({client=memberAccessClient,onJoinRequest,render
  if(!session||session.state==='anonymous')return <main className={styles.accessStage}><LoginForm client={client} onSession={setSession} onJoinRequest={onJoinRequest}/></main>;
  if(session.state==='password_change_required')return <main className={styles.accessStage}><PasswordChangeForm client={client} firstLogin expiresAt={session.expiresAt} onChanged={()=>void refresh()} onLogout={()=>void logout()}/>{error&&<p role="alert" className={styles.floatingError}>{error}</p>}</main>;
  if(changing)return <main className={styles.accessStage}><PasswordChangeForm client={client} firstLogin={false} onChanged={()=>{setChanging(false);void refresh()}} onCancel={()=>setChanging(false)}/></main>;
- if(renderActive)return <>{renderActive(session,{changePassword:()=>setChanging(true),logout})}{error&&<p role="alert" className={styles.floatingError}>{error}</p>}</>;
+ if(renderActive)return <>{renderActive(session,{changePassword:()=>setChanging(true),logout,refresh})}{error&&<p role="alert" className={styles.floatingError}>{error}</p>}</>;
  return <main className={styles.accessStage}><div className={styles.accessPanel}>
   <div className={styles.brandRow}><span className={styles.brandMark} aria-hidden="true"/><span>SIDEOUT</span></div>
   <div className={styles.panelIntro}><h1>{session.me.displayName}님, 반갑습니다</h1><p>로그인이 완료되었습니다. 모임으로 이동할 준비가 되었습니다.</p></div>
