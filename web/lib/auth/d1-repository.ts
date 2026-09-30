@@ -3,10 +3,10 @@ import type {AuthRepository,SessionRow} from './auth-service';
 
 type D1Statement={first<T=Record<string,unknown>>():Promise<T|null>;run():Promise<{meta:{changes?:number}}>};
 type D1Like={prepare(sql:string):{bind(...values:unknown[]):D1Statement};batch(statements:D1Statement[]):Promise<{meta:{changes?:number}}[]>};
-type MemberRow={id:string;login_id:string;login_key:string;display_name:string;home_club_id:string|null;kind:'regular'|'new';is_master:number;home_role:'chair'|'staff'|null;grants_json:string;active:number;password_hash:string;must_change_password:number;temporary_expires_at:string|null;auth_version:number};
+export type MemberRow={id:string;login_id:string;login_key:string;display_name:string;home_club_id:string|null;kind:'regular'|'new';is_master:number;home_role:'chair'|'staff'|null;grants_json:string;active:number;password_hash:string;must_change_password:number;temporary_expires_at:string|null;auth_version:number};
 type SessionDbRow={token_hash:string;member_id:string;auth_version:number;restricted:number;expires_at:number};
 
-function accountFromRow(row:MemberRow|null):AccountRecord|null{
+export function accountFromRow(row:MemberRow|null):AccountRecord|null{
  if(!row)return null;
  return {id:row.id,loginId:row.login_id,loginIdKey:row.login_key,displayName:row.display_name,homeClubId:row.home_club_id,kind:row.kind,isMaster:!!row.is_master,homeRole:row.home_role,grants:JSON.parse(row.grants_json),active:!!row.active,passwordHash:row.password_hash,mustChangePassword:!!row.must_change_password,temporaryExpiresAt:row.temporary_expires_at,authVersion:row.auth_version};
 }

@@ -3,6 +3,7 @@ export type AuthErrorCode=
  | 'INVALID_CREDENTIALS'
  | 'UNAUTHENTICATED'
  | 'FORBIDDEN'
+ | 'NOT_FOUND'
  | 'CONFLICT'
  | 'STORAGE_UNAVAILABLE';
 

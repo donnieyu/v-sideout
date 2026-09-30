@@ -15,6 +15,13 @@
       "when": 1790642201256,
       "tag": "0001_glamorous_iron_lad",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1790726600950,
+      "tag": "0002_modern_triathlon",
+      "breakpoints": true
     }
   ]
 }
