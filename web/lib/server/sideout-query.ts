@@ -48,6 +48,7 @@ export async function getSessionView(p:VerifiedPrincipal,id:string,deps:SideoutD
    if(summary.canManage||m.homeClubId===s.value.clubId)visibleApplicants.push(await label(memberId));
   }
  }
+ const visibleWaiters=summary.canManage?await Promise.all(Object.entries(r.value.participants).filter(([,p])=>p.status==='waiting').map(([id])=>label(id))):undefined;
  const publishedTeams=summary.canViewPublishedTeams&&r.value.published?await Promise.all(r.value.published.teams.map(async t=>({id:t.id,title:t.title,players:await Promise.all(t.players.map(async m=>({...await label(m.memberId),slotId:m.slotId,assignedPosition:m.assignedPosition})))}))):null;
- return {...summary,rosterRevision:r.revision,visibleApplicants,guestCount,publishedTeams,publishedMatches:summary.canViewPublishedTeams?r.value.publishedMatches:null,capabilities:{canEditSchedule:false,canManageRoster:false,canEditTeams:false,canEditMatches:false,canPublish:false,canCancelSelf:false}};
+ return {...summary,rosterRevision:r.revision,visibleApplicants,...(visibleWaiters?{visibleWaiters}:{}),guestCount,publishedTeams,publishedMatches:summary.canViewPublishedTeams?r.value.publishedMatches:null,capabilities:{canEditSchedule:false,canManageRoster:false,canEditTeams:false,canEditMatches:false,canPublish:false,canCancelSelf:false}};
 }

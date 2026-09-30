@@ -1,0 +1,13 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+
+ Test Files  8 passed (8)
+      Tests  74 passed (74)
+   Start at  18:41:31
+   Duration  1.02s (tests 41%, environment 23%, transform 20%, import 14%, worker 1%)
+

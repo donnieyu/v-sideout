@@ -1,0 +1,54 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-pages.test.tsx (12 tests | 1 failed) 1262ms
+   × keeps explicit logout authoritative when focus revalidation occurs while the request is pending 1007ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-pages.test.tsx > keeps explicit logout authoritative when focus revalidation occurs while the request is pending
+TestingLibraryElementError: Unable to find role="button" and name "로그인"
+
+Ignored nodes: comments, script, style
+[36m<body[39m
+  [33mstyle[39m=[32m""[39m
+[36m>[39m
+  [36m<div>[39m
+    [36m<button>[39m
+      [0m로그아웃[0m
+    [36m</button>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body[39m
+  [33mstyle[39m=[32m""[39m
+[36m>[39m
+  [36m<div>[39m
+    [36m<button>[39m
+      [0m로그아웃[0m
+    [36m</button>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ tests/sideout-pages.test.tsx:92:46
+     90|  render(<MemberAccessGate client={client} onSignedOut={signedOut} reva…
+     91|  fireEvent.click(await screen.findByText('로그아웃'));fireEvent.focus(wind…
+     92|  await act(async()=>{finish()});await screen.findByRole('button',{name…
+       |                                              ^
+     93| });
+     94|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 73 passed (74)
+   Start at  18:39:06
+   Duration  2.08s (tests 61%, environment 15%, transform 14%, import 10%, worker 1%)
+

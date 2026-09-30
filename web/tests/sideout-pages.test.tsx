@@ -7,11 +7,11 @@ import {SideoutAccess} from '../components/sideout/access';
 import {HomeScreen} from '../components/sideout/home';
 import {MatchList} from '../components/sideout/match-list';
 import {PublishedTeams} from '../components/sideout/published-teams';
-import styles from '../components/sideout/sideout.module.css';
+import {SessionDetailScreen} from '../components/sideout/session-detail';
 import {createMemberAccessClient} from '../lib/member-access-client';
 import {createSideoutClient} from '../lib/sideout-client';
 import type {SessionView} from '../lib/auth/contracts';
-import {clubs,ids} from './fixtures/sideout';
+import {clubs,ids,session as fixtureSession} from './fixtures/sideout';
 vi.mock('next/navigation',()=>({useRouter:()=>({push:vi.fn(),replace:vi.fn()}),usePathname:()=>'/home',useSearchParams:()=>new URLSearchParams()}));
 vi.mock('next/link',()=>({default:({children,...props}:React.ComponentProps<'a'>)=> <a {...props}>{children}</a>}));
 beforeEach(()=>vi.spyOn(window,'scrollTo').mockImplementation(()=>{}));
@@ -33,12 +33,28 @@ it.each(['anonymous','password_change_required','active'] as const)('preserves %
  expect((screen.getByLabelText(state==='anonymous'?'비밀번호':state==='active'?'현재 비밀번호':'현재 임시 비밀번호',{exact:true}) as HTMLInputElement).value).toBe('Remembered123');
  if(state==='active'){who=active('계정 B',ids.guest);fireEvent.click(screen.getByText('돌아가기'));expect(screen.queryByText('계정 A')).toBeNull();await screen.findByText('계정 B')}
 });
-it('keeps rear and additional placements in their stored slots regardless of array order',()=>{
- const member=(memberId:string,slotId:string)=>({memberId,slotId,assignedPosition:'OH' as const,displayName:memberId,clubName:'시험 모임'});
- const {container}=render(<PublishedTeams memberId="viewer" teams={[{id:'a',title:'A팀',players:[member('추가 선수','bench-1'),member('후위 선수','oh2')]}]}/>);
- const slots=container.querySelector(`.${styles.courtSlots}`)!.children;expect(slots).toHaveLength(6);
- expect(slots[0].textContent).toContain('미배정');expect(slots[3].textContent).toContain('후위 선수');
- expect(container.querySelector(`.${styles.additional}`)?.textContent).toContain('추가 선수');
+it('shows the approved detail roster with name, club and position instead of editor preview controls',()=>{
+ const player={memberId:'viewer',slotId:'s',assignedPosition:'S' as const,displayName:'시험회원',clubName:'시험 모임'};
+ render(<PublishedTeams memberId="viewer" teams={[{id:'a',title:'A팀',players:[player]}]}/>);
+ expect(screen.getByRole('columnheader',{name:'이름'})).toBeTruthy();expect(screen.getByRole('columnheader',{name:'소속'})).toBeTruthy();expect(screen.getByRole('columnheader',{name:'포지션'})).toBeTruthy();
+ expect(screen.getByRole('cell',{name:'세터'})).toBeTruthy();expect(screen.getByText('나')).toBeTruthy();expect(screen.queryByRole('button',{name:'코트'})).toBeNull();
+});
+it('leaves the old route only after a successful explicit logout',async()=>{
+ let fail=true;const signedOut=vi.fn();
+ const client={...createMemberAccessClient(),session:async()=>active('계정 A'),logout:async()=>{if(fail)throw Error('offline');return {state:'anonymous' as const}}};
+ render(<MemberAccessGate client={client} onSignedOut={signedOut} renderActive={(s,a)=><button onClick={()=>void a.logout()}>로그아웃</button>}/>);
+ fireEvent.click(await screen.findByText('로그아웃'));await screen.findByRole('alert');expect(signedOut).not.toHaveBeenCalled();
+ fail=false;fireEvent.click(screen.getByText('로그아웃'));await screen.findByRole('button',{name:'로그인'});expect(signedOut).toHaveBeenCalledTimes(1);
+});
+it('opens the shared roster overlay from detail and restores focus on closing',async()=>{
+  const member=(memberId:string,clubName:string)=>({memberId,displayName:memberId,clubName});
+  const data={session:fixtureSession,club:clubs[0],sessionRevision:1,rosterRevision:1,counts:{applicants:2,waiting:1},selfStatus:null,teamPublished:false,canViewPublishedTeams:false,canManage:true,visibleApplicants:[member('소속선수',clubs[0].name),member('게스트선수',clubs[1].name)],visibleWaiters:[member('대기선수',clubs[1].name)],guestCount:1,publishedTeams:null,publishedMatches:null,capabilities:{canEditSchedule:false,canManageRoster:false,canEditTeams:false,canEditMatches:false,canPublish:false,canCancelSelf:false}};
+  const auth=createMemberAccessClient(async()=>Response.json(active('시험마스터',ids.master)));
+  const client=createSideoutClient(async path=>Response.json({ok:true,data:String(path).startsWith('/api/clubs')?{serverNow:'2026-09-30T00:00:00Z',clubs,capabilities:{canManageMembers:true}}:data}));
+  render(<SideoutAccess authClient={auth} client={client}><SessionDetailScreen id="session-test-open"/></SideoutAccess>);
+  const button=await screen.findByRole('button',{name:'명단 확인'});button.focus();fireEvent.click(button);
+  await screen.findByRole('dialog',{name:'함께하는 회원'});expect(screen.getByRole('heading',{name:'소속 회원'})).toBeTruthy();expect(screen.getByRole('heading',{name:'게스트'})).toBeTruthy();expect(screen.getByRole('heading',{name:'대기자'})).toBeTruthy();
+  fireEvent.click(screen.getByRole('button',{name:'확인'}));await waitFor(()=>expect(screen.queryByRole('dialog')).toBeNull());expect(document.activeElement).toBe(button);
 });
 it('login and first password change gate business content',async()=>{
  let session:SessionView={state:'anonymous'};
@@ -67,4 +83,11 @@ it('an account switch cannot display a delayed prior account home response',asyn
  const auth=createMemberAccessClient(async()=>Response.json(who));
  const data=createSideoutClient(async path=>String(path).startsWith('/api/clubs')?Response.json({ok:true,data:{serverNow:'2026-09-30T00:00:00Z',clubs,capabilities:{canManageMembers:false}}}):++homes===1?new Promise<Response>(r=>{resolveA=r}):Response.json({ok:true,data:{serverNow:'2026-09-30T00:00:00Z',weekStart:'2026-09-28',cards:[],registrationOpportunities:[]}}));
  render(<SideoutAccess authClient={auth} client={data}><HomeScreen/></SideoutAccess>);await waitFor(()=>expect(homes).toBe(1));who=active('계정 B',ids.guest);fireEvent.focus(window);await screen.findByText('이 주에는 등록된 운동이 없어요.');await act(async()=>resolveA?.(Response.json({ok:true,data:{serverNow:'2026-09-30T00:00:00Z',weekStart:'2026-09-28',cards:[],registrationOpportunities:[{clubId:clubs[0].id,date:'2026-10-04'}]}})));expect(screen.queryByText('모임 등록')).toBeNull();
+});
+it('keeps explicit logout authoritative when focus revalidation occurs while the request is pending',async()=>{
+ let finish!:()=>void;const signedOut=vi.fn(),read=vi.fn(async()=>active('계정 A'));
+ const client={...createMemberAccessClient(),session:read,logout:()=>new Promise<{state:'anonymous'}>(resolve=>{finish=()=>resolve({state:'anonymous'})})};
+ render(<MemberAccessGate client={client} onSignedOut={signedOut} revalidateOnFocus renderActive={(s,a)=><button onClick={()=>void a.logout()}>로그아웃</button>}/>);
+ fireEvent.click(await screen.findByText('로그아웃'));fireEvent.focus(window);fireEvent(document,new Event('visibilitychange'));
+ await act(async()=>{finish()});await screen.findByRole('button',{name:'로그인'});expect(signedOut).toHaveBeenCalledTimes(1);expect(read).toHaveBeenCalledTimes(1);
 });

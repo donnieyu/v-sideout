@@ -10,17 +10,19 @@ import styles from './member-access.module.css';
 
 type ActiveSession=Extract<SessionView,{state:'active'}>;
 type ActiveActions={changePassword:()=>void;logout:()=>Promise<void>;refresh:()=>Promise<void>};
-type Props={revalidateOnFocus?:boolean;client?:MemberAccessClient;onJoinRequest?:()=>void;renderActive?:(session:ActiveSession,actions:ActiveActions)=>ReactNode};
+type Props={revalidateOnFocus?:boolean;client?:MemberAccessClient;onJoinRequest?:()=>void;onSignedOut?:()=>void;renderActive?:(session:ActiveSession,actions:ActiveActions)=>ReactNode};
 const sessionKey=(s:SessionView|null)=>!s?'unknown':s.state==='active'?`${s.me.memberId}:${s.authorizationVersion}`:s.state==='password_change_required'?`restricted:${s.expiresAt}`:'anonymous';
 
-export function MemberAccessGate({client=memberAccessClient,onJoinRequest,renderActive,revalidateOnFocus=false}:Props){
+export function MemberAccessGate({client=memberAccessClient,onJoinRequest,onSignedOut,renderActive,revalidateOnFocus=false}:Props){
  const [session,setSession]=useState<SessionView|null>(null);
  const [checking,setChecking]=useState(true);
  const [error,setError]=useState('');
  const [changing,setChanging]=useState(false);
  const generation=useRef(0);
+ const logoutInFlight=useRef(false);
  const current=useRef({session,changing});current.current={session,changing};
  const refresh=useCallback(async(preserveForm=false)=>{
+  if(logoutInFlight.current)return;
   const turn=++generation.current;
   const background=preserveForm&&(current.current.session?.state!=='active'||current.current.changing);
   const priorKey=sessionKey(current.current.session);
@@ -38,10 +40,12 @@ export function MemberAccessGate({client=memberAccessClient,onJoinRequest,render
   return()=>{window.removeEventListener('pageshow',shown);window.removeEventListener('focus',check);document.removeEventListener('visibilitychange',check)};
  },[revalidateOnFocus,refresh]);
  async function logout(){
+  if(logoutInFlight.current)return;
+  logoutInFlight.current=true;
   const turn=++generation.current;setChecking(true);setError('');
-  try{await client.logout();if(turn===generation.current){setChanging(false);setSession({state:'anonymous'})}}
+  try{await client.logout();if(turn===generation.current){setChanging(false);setSession({state:'anonymous'});onSignedOut?.()}}
   catch(caught){if(turn===generation.current)setError(caught instanceof MemberAccessError?caught.message:'로그아웃하지 못했습니다. 다시 시도해 주세요.')}
-  finally{if(turn===generation.current)setChecking(false)}
+  finally{logoutInFlight.current=false;if(turn===generation.current)setChecking(false)}
  }
 
  if(checking)return <main className={styles.accessStage}><div className={styles.accessPanel}><p role="status" className={styles.loading}>접속 상태를 확인하고 있습니다…</p></div></main>;

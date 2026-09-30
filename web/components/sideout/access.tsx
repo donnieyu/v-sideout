@@ -33,5 +33,5 @@ function ActiveAccess({session,actions,client,children}:{session:Active;actions:
  return <div className={styles.app}>{data?<AccessContext.Provider value={{session,actions,client,directory:data,scroll:scroll.current}}>{children}</AccessContext.Provider>:<ReadState error={error} retry={retry}/>}</div>;
 }
 export function SideoutAccess({children,authClient,client=sideoutClient}:{children:ReactNode;authClient?:MemberAccessClient;client?:SideoutClient}){
- return <MemberAccessGate client={authClient} revalidateOnFocus renderActive={(session,actions)=><ActiveAccess key={`${session.me.memberId}:${session.authorizationVersion}`} session={session} actions={actions} client={client}>{children}</ActiveAccess>}/>;
+ return <MemberAccessGate client={authClient} revalidateOnFocus onSignedOut={()=>window.location.replace('/home')} renderActive={(session,actions)=><ActiveAccess key={`${session.me.memberId}:${session.authorizationVersion}`} session={session} actions={actions} client={client}>{children}</ActiveAccess>}/>;
 }
