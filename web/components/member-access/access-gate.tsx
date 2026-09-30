@@ -42,7 +42,7 @@ export function MemberAccessGate({client=memberAccessClient,onJoinRequest,render
  if(!session||session.state==='anonymous')return <main className={styles.accessStage}><LoginForm client={client} onSession={setSession} onJoinRequest={onJoinRequest}/></main>;
  if(session.state==='password_change_required')return <main className={styles.accessStage}><PasswordChangeForm client={client} firstLogin expiresAt={session.expiresAt} onChanged={()=>void refresh()} onLogout={()=>void logout()}/>{error&&<p role="alert" className={styles.floatingError}>{error}</p>}</main>;
  if(changing)return <main className={styles.accessStage}><PasswordChangeForm client={client} firstLogin={false} onChanged={()=>{setChanging(false);void refresh()}} onCancel={()=>setChanging(false)}/></main>;
- if(renderActive)return <>{renderActive(session,{changePassword:()=>setChanging(true),logout})}</>;
+ if(renderActive)return <>{renderActive(session,{changePassword:()=>setChanging(true),logout})}{error&&<p role="alert" className={styles.floatingError}>{error}</p>}</>;
  return <main className={styles.accessStage}><div className={styles.accessPanel}>
   <div className={styles.brandRow}><span className={styles.brandMark} aria-hidden="true"/><span>SIDEOUT</span></div>
   <div className={styles.panelIntro}><h1>{session.me.displayName}님, 반갑습니다</h1><p>로그인이 완료되었습니다. 모임으로 이동할 준비가 되었습니다.</p></div>
