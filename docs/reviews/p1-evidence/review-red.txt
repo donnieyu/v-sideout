@@ -1,0 +1,26 @@
+Observed before implementation fix: 12 failed, 58 passed.
+⎯⎯⎯⎯⎯⎯ Failed Tests 12 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  tests/sideout-pages.test.tsx > preserves anonymous form input when returning from another app, and rechecks before leaving password edit
+ FAIL  tests/sideout-pages.test.tsx > preserves password_change_required form input when returning from another app, and rechecks before leaving password edit
+AssertionError: expected '' to be 'Remembered123' // Object.is equality
+ FAIL  tests/sideout-pages.test.tsx > preserves active form input when returning from another app, and rechecks before leaving password edit
+TestingLibraryElementError: Unable to find a label with the text of: 현재 비밀번호
+ FAIL  tests/sideout-pages.test.tsx > keeps rear and additional placements in their stored slots regardless of array order
+AssertionError: expected '레프트추가 선수시험 모임' to contain '미배정'
+ FAIL  tests/sideout-store.test.ts > rejects structurally inconsistent roster missing-team
+AssertionError: promise resolved "{ value: { …(7) }, revision: 1 }" instead of rejecting
+ FAIL  tests/sideout-store.test.ts > rejects structurally inconsistent roster wrong-count
+AssertionError: promise resolved "{ value: { …(7) }, revision: 1 }" instead of rejecting
+ FAIL  tests/sideout-store.test.ts > rejects structurally inconsistent roster self-match
+AssertionError: promise resolved "{ value: { …(7) }, revision: 1 }" instead of rejecting
+ FAIL  tests/sideout-store.test.ts > rejects structurally inconsistent roster invalid-rookie
+AssertionError: promise resolved "{ value: { …(7) }, revision: 1 }" instead of rejecting
+ FAIL  tests/sideout-store.test.ts > rejects structurally inconsistent roster duplicate-slot
+AssertionError: promise resolved "{ value: { …(7) }, revision: 1 }" instead of rejecting
+ FAIL  tests/sideout-store.test.ts > rejects structurally inconsistent roster duplicate-player
+AssertionError: promise resolved "{ value: { …(7) }, revision: 1 }" instead of rejecting
+ FAIL  tests/sideout-store.test.ts > rejects structurally inconsistent roster duplicate-team
+AssertionError: promise resolved "{ value: { …(7) }, revision: 1 }" instead of rejecting
+ FAIL  tests/sideout-store.test.ts > rejects structurally inconsistent roster missing-published
+AssertionError: promise resolved "{ value: { …(7) }, revision: 1 }" instead of rejecting
+      Tests  12 failed | 58 passed (70)

@@ -6,6 +6,8 @@ import {MemberAccessGate} from '../components/member-access/access-gate';
 import {SideoutAccess} from '../components/sideout/access';
 import {HomeScreen} from '../components/sideout/home';
 import {MatchList} from '../components/sideout/match-list';
+import {PublishedTeams} from '../components/sideout/published-teams';
+import styles from '../components/sideout/sideout.module.css';
 import {createMemberAccessClient} from '../lib/member-access-client';
 import {createSideoutClient} from '../lib/sideout-client';
 import type {SessionView} from '../lib/auth/contracts';
@@ -19,6 +21,25 @@ it('renders stored match order and IDs, including rookies, at twenty minute inte
  const rows=screen.getAllByRole('row');expect(rows[1].textContent).toContain('08:30 – 08:50');expect(rows[1].textContent).toContain('신입 1팀 vs 신입 2팀');expect(rows[2].textContent).toContain('08:50 – 09:10');expect(rows[2].textContent).toContain('A팀 vs B팀');
 });
 const active=(name:string,id=ids.applicant):SessionView=>({state:'active',me:{memberId:id,displayName:name,loginId:'시험',homeClubId:clubs[0].id},authorizationVersion:1});
+it.each(['anonymous','password_change_required','active'] as const)('preserves %s form input when returning from another app, and rechecks before leaving password edit',async state=>{
+ let who:SessionView=state==='active'?active('계정 A'):state==='anonymous'?{state}:{state,expiresAt:'2026-10-07T00:00:00Z'};
+ const client=createMemberAccessClient(async()=>Response.json(who));
+ render(<MemberAccessGate client={client} revalidateOnFocus renderActive={(s,a)=><><p>{s.me.displayName}</p><button onClick={a.changePassword}>변경 열기</button></>}/>);
+ if(state==='active')fireEvent.click(await screen.findByText('변경 열기'));
+ const input=await screen.findByLabelText(state==='anonymous'?'비밀번호':state==='active'?'현재 비밀번호':'현재 임시 비밀번호',{exact:true});
+ fireEvent.change(input,{target:{value:'Remembered123'}});
+ fireEvent.focus(window);fireEvent(document,new Event('visibilitychange'));
+ await act(async()=>{});
+ expect((screen.getByLabelText(state==='anonymous'?'비밀번호':state==='active'?'현재 비밀번호':'현재 임시 비밀번호',{exact:true}) as HTMLInputElement).value).toBe('Remembered123');
+ if(state==='active'){who=active('계정 B',ids.guest);fireEvent.click(screen.getByText('돌아가기'));expect(screen.queryByText('계정 A')).toBeNull();await screen.findByText('계정 B')}
+});
+it('keeps rear and additional placements in their stored slots regardless of array order',()=>{
+ const member=(memberId:string,slotId:string)=>({memberId,slotId,assignedPosition:'OH' as const,displayName:memberId,clubName:'시험 모임'});
+ const {container}=render(<PublishedTeams memberId="viewer" teams={[{id:'a',title:'A팀',players:[member('추가 선수','bench-1'),member('후위 선수','oh2')]}]}/>);
+ const slots=container.querySelector(`.${styles.courtSlots}`)!.children;expect(slots).toHaveLength(6);
+ expect(slots[0].textContent).toContain('미배정');expect(slots[3].textContent).toContain('후위 선수');
+ expect(container.querySelector(`.${styles.additional}`)?.textContent).toContain('추가 선수');
+});
 it('login and first password change gate business content',async()=>{
  let session:SessionView={state:'anonymous'};
  const client=createMemberAccessClient(async(path)=>{if(String(path).endsWith('/login'))session={state:'password_change_required',expiresAt:'2026-10-07T00:00:00Z'};if(String(path).endsWith('/password'))session=active('시험회원');return Response.json(session)});

@@ -10,3 +10,15 @@ it('uses the same club directory and isolated favorites',async()=>{const f=fixtu
 it.each(['bad-json','{"schemaVersion":2,"data":{}}','{"schemaVersion":1,"data":{"id":"wrong"}}'])('fails closed on corrupt payload %s',async payload=>{const f=fixture();f.sqlite.prepare('UPDATE workspaces SET payload=? WHERE id=?').run(payload,`sideout:session:${session.id}`);await expect(f.store.getSession(session.id)).rejects.toMatchObject({code:'STORAGE_UNAVAILABLE'})});
 it('does not fall back to a demo workspace',async()=>{const f=fixture();f.sqlite.exec('DELETE FROM workspaces');f.sqlite.prepare('INSERT INTO workspaces VALUES(?,?,?)').run('demo-v1',JSON.stringify(session),1);expect(await f.store.listSessions('2026-09-28','2026-10-05')).toEqual([])});
 it('rejects mismatched valid IDs and orphan club references',async()=>{const f=fixture();f.put('session',session.id,{...session,id:'other'});await expect(f.store.getSession(session.id)).rejects.toMatchObject({code:'STORAGE_UNAVAILABLE'});f.put('session',session.id,{...session,clubId:'absent'});await expect(f.store.getSession(session.id)).rejects.toMatchObject({code:'STORAGE_UNAVAILABLE'})});
+it.each(['missing-team','wrong-count','self-match','invalid-rookie','duplicate-slot','duplicate-player','duplicate-team','missing-published'] as const)('rejects structurally inconsistent roster %s',async mode=>{
+ const f=fixture(),r=structuredClone(roster);
+ if(mode==='missing-team')r.publishedMatches!.matches=[{id:'match',kind:'regular',home:'team-a',away:'missing'}];
+ if(mode==='wrong-count')r.publishedMatches!.teamCount=3;
+ if(mode==='self-match')r.publishedMatches!.matches=[{id:'match',kind:'regular',home:'team-a',away:'team-a'}];
+ if(mode==='invalid-rookie')r.publishedMatches!.matches=[{id:'match',kind:'rookie',home:'R1',away:'R4'}];
+ if(mode==='duplicate-slot')r.published!.teams[0].players[1].slotId='s';
+ if(mode==='duplicate-player')r.published!.teams[0].players[1].memberId=ids.applicant;
+ if(mode==='duplicate-team')r.published!.teams.push({...r.published!.teams[0],players:[]});
+ if(mode==='missing-published')r.published=null;
+ f.put('roster',session.id,r);await expect(f.store.getRoster(session.id)).rejects.toMatchObject({code:'STORAGE_UNAVAILABLE'});
+});

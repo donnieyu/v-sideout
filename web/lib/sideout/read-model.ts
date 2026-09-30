@@ -1,4 +1,8 @@
 export type Position='OH'|'OP'|'MB'|'S';
+// Schema v1 uses explicit semantic slot IDs, independent of array order.
+// Other IDs are additional places outside the six-player court (including op2).
+// Prototype numeric 0..6 IDs must be explicitly converted by a future importer.
+export const COURT_SLOTS=[{id:'oh1',position:'OH'},{id:'mb1',position:'MB'},{id:'s',position:'S'},{id:'oh2',position:'OH'},{id:'mb2',position:'MB'},{id:'op1',position:'OP'}] as const;
 export type ClubRecord={id:string;name:string;mark:string;weekday:number;entry:string;start:string;end:string;place:string};
 export type SessionRecord={id:string;clubId:string;date:string;entry:string;start:string;end:string;place:string;notice:string;phase:'draft'|'open';deadline:string;priorityUntil:string|null;cap:number|null};
 export type Placement={memberId:string;slotId:string;assignedPosition:Position};

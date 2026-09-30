@@ -1,0 +1,6 @@
+{
+  "browser": "Chromium",
+  "width": 390,
+  "check": "same identity focus revalidation preserves current password input and screen",
+  "status": "pass"
+}

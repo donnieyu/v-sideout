@@ -7,32 +7,32 @@
 
 [1/5] analyze client references...
 [2K
-transforming...✓ 277 modules transformed.
+transforming...✓ 278 modules transformed.
 rendering chunks...
-✓ built in 424ms
+✓ built in 411ms
 [2/5] analyze server references...
 [2K
-transforming...✓ 219 modules transformed.
+transforming...✓ 220 modules transformed.
 rendering chunks...
-✓ built in 197ms
+✓ built in 182ms
 [3/5] build rsc environment...
 [2K
-transforming...✓ 274 modules transformed.
+transforming...✓ 275 modules transformed.
 rendering chunks...
 computing gzip size...
-✓ built in 302ms
+✓ built in 294ms
 [4/5] build client environment...
 [2K
-transforming...✓ 2063 modules transformed.
+transforming...✓ 2064 modules transformed.
 rendering chunks...
 computing gzip size...
-✓ built in 738ms
+✓ built in 753ms
 [5/5] build ssr environment...
 [2K
-transforming...✓ 224 modules transformed.
+transforming...✓ 225 modules transformed.
 rendering chunks...
 computing gzip size...
-✓ built in 291ms
+✓ built in 293ms
 [0m
   Route (app)
   ┌ ? /                          
@@ -137,8 +137,8 @@ PASS opaque session token, hashing and scoped cookie
 
  Test Files  1 passed (1)
       Tests  4 passed (4)
-   Start at  16:38:13
-   Duration  1.07s (environment 46%, tests 33%, import 14%, transform 7%)
+   Start at  16:47:45
+   Duration  992ms (environment 43%, tests 34%, import 15%, transform 8%)
 
 
 > site-creator-vinext-starter@0.1.0 test:sideout
@@ -149,7 +149,7 @@ PASS opaque session token, hashing and scoped cookie
 
 
  Test Files  8 passed (8)
-      Tests  58 passed (58)
-   Start at  16:38:14
-   Duration  830ms (tests 42%, transform 23%, environment 18%, import 15%, worker 1%)
+      Tests  70 passed (70)
+   Start at  16:47:46
+   Duration  809ms (tests 43%, transform 23%, environment 18%, import 15%, worker 1%)
 
