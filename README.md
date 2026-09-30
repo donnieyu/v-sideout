@@ -60,6 +60,7 @@ D1을 쓰는 화면/API에는 로컬 DB 준비가 필요합니다. 원본 DB 파
 npm run build
 ./node_modules/.bin/wrangler d1 execute DB --config dist/server/wrangler.json --local --persist-to .wrangler/state --file drizzle/0000_windy_omega_red.sql
 ./node_modules/.bin/wrangler d1 execute DB --config dist/server/wrangler.json --local --persist-to .wrangler/state --file drizzle/0001_glamorous_iron_lad.sql
+./node_modules/.bin/wrangler d1 execute DB --config dist/server/wrangler.json --local --persist-to .wrangler/state --file drizzle/0002_modern_triathlon.sql
 ```
 
 위 명령에 필요한 Wrangler 구성은 [web 실행 안내](web/README.md#새-checkout의-로컬-db)에 설명합니다. 기존 DB에 SQL을 재적용하거나 `--remote`로 실행하지 않습니다. `.openai/hosting.json`은 기존 Sites 바인딩 메타데이터이며, GitHub 저장소 생성이 배포 플랫폼 전환을 뜻하지 않습니다.
