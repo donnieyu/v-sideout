@@ -1,7 +1,7 @@
 # 회원 접근·관리 개발 로드맵
 
 갱신: 2026-09-30 · 담당 A(회원·인증)  
-기준: [회원 SSOT v0.6](ACCESS_AND_DEPLOYMENT_SSOT.md), [기존 인증 검토](reviews/MEMBER_AUTH_REUSE_REVIEW_2026-09-29.md), [Task 1·2 인계](reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md), [Task 3 인계](reviews/MEMBER_AUTH_TASK3_HANDOFF_2026-09-30.md), [Task 4 인계](reviews/MEMBER_AUTH_TASK4_HANDOFF_2026-09-30.md), [통합 계획](INTEGRATION_PLAN.md) 9절.
+기준: [회원 SSOT v0.7](ACCESS_AND_DEPLOYMENT_SSOT.md), [기존 인증 검토](reviews/MEMBER_AUTH_REUSE_REVIEW_2026-09-29.md), [Task 1·2 인계](reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md), [Task 3 인계](reviews/MEMBER_AUTH_TASK3_HANDOFF_2026-09-30.md), [Task 4 인계](reviews/MEMBER_AUTH_TASK4_HANDOFF_2026-09-30.md), [M2 인계](reviews/MEMBER_MANAGEMENT_M2_HANDOFF_2026-09-30.md), [통합 계획](INTEGRATION_PLAN.md) 9절.
 
 **기존 회원의 사전 등록 → 임시 로그인 → 첫 비밀번호 변경을 먼저 완성한다.** 그다음 신규 신청·승인·메일을 연결한다. 두 경로가 완성되고 통합/운영 검증을 통과한 뒤 공개 URL을 제공한다. 아래 단계 구분은 신규 가입 요구를 출시 범위에서 제외한다는 뜻이 아니다.
 
@@ -20,13 +20,13 @@
 | --- | --- | --- | --- |
 | M0 | 기존 코드 인수 · A/R/I | R 편집 중단, A 인수, 파일별 HEAD/해시, DB 단일 작성자·시험 DB 확정. 참가 actor 파일은 I/R에 남김 | 완료: R·I 인계 확인, 26개 해시 재대조, A 격리 작업 트리·합성 SQLite 검사 경로 확보. [인계](reviews/MEMBER_AUTH_TASK1_2_HANDOFF_2026-09-29.md) |
 | M1 | 인증 기반 보완 · A | 8자/7일 정책, 로그아웃 실패 처리, 원자적 비밀번호 회전, 최소 세션 응답과 서버 전용 신원 계약, 장애/경합 회귀 검사 | 구현·로컬 검증 완료: [실행 계획](superpowers/plans/2026-09-29-member-auth-foundation.md) Task 1~4 및 Node24.16.0 전체 13개 스크립트·타입·빌드 통과. 원격 D1·업무 통합은 M5 전까지 별도 검증 |
-| M2 | 기존 회원 사전 등록·관리 API · A | 최초 마스터를 공개 API 밖에서 설정, 등록/조회/수정/재발급/비활성·재활성, 전체 ID 유일성, 마지막 마스터 보호, 행위 감사 기록 | 후속 상세 계획 필요 |
+| M2 | 기존 회원 사전 등록·관리 API · A | 최초 마스터를 공개 API 밖에서 설정, 등록/조회/수정/재발급/비활성·재활성, 전체 ID 유일성, 마지막 마스터 보호, 행위 감사 기록 | 서버 구현 `3558044`·로컬 검증 완료. [계획](superpowers/plans/2026-09-30-member-management.md)·[인계](reviews/MEMBER_MANAGEMENT_M2_HANDOFF_2026-09-30.md). 운영 모임 ID 제공자(I)·최초 마스터 설정 명령·원격 D1·화면 미연결 |
 | M3 | 기존 회원 화면 · A, 업무 연결 I | 로그인·최초/일반 비밀번호 변경·마스터 회원 관리. 무소속 선택, 임시 자격 개별 전달, 오류 재시도, 모바일 검토 | 후속 상세 계획 필요 |
 | M4 | 신규 가입 신청·승인·전달 · A | 신청/승인/거절, 최종 ID 선택, 원자적 신청-계정-발급-발송 등록, 메일 실패 재시도, 오래된 자격 발송 차단 | 후속 상세 계획 필요 |
 | M5 | 공개 접근 준비 · A/I | 요청 제한·Origin/쿠키·해시 런타임 검사, 저장 실패/재시도, 제한 세션 업무 접근 거절, 권한 회수 경합, 실제 D1·모바일 통합 | 미실행 |
 | M6 | 제한 시험·운영 전환 · I 조율, A 인증 지원 | 합성 시험→실회원 매핑 검토→선택한 호스팅/URL/발신 설정, 백업·복구, 운영 사용량 측정 | 미실행 |
 
-M1은 독립 검증 가능한 첫 구현 단위다. M2–M6는 범위·인수 기준이며 실행 명령까지 확정한 구현 계획으로 간주하지 않는다. 각 단계 직전에 상세 계획을 작성하고 이 로드맵에 연결한다.
+M1과 M2의 서버 작업은 독립 로컬 검증을 마쳤다. M2의 운영 연결과 M3–M6는 범위·인수 기준이며 완료로 간주하지 않는다. 각 단계 직전에 상세 계획을 작성하고 이 로드맵에 연결한다.
 
 ## M2–M4 상세 계획에서 유지할 데이터 경계
 
@@ -71,4 +71,4 @@ M1은 독립 검증 가능한 첫 구현 단위다. M2–M6는 범위·인수 �
 | U14 채택 ID 점유·중복 자격 방지 | M2/M4 |
 | U15 비활성 ID와 전체 고유성 | M1 회귀, M2/M4 저장 명령 |
 
-현재 결과는 M0 인수와 M1 Task 1~4의 격리 브랜치 코드·로컬 검증이다. [Task 3 인계](reviews/MEMBER_AUTH_TASK3_HANDOFF_2026-09-30.md)에 원자적 회전과 로컬 D1 시험을, [Task 4 인계](reviews/MEMBER_AUTH_TASK4_HANDOFF_2026-09-30.md)에 최소 신원 계약과 Node24 검사를 기록했다. 원격 D1·계정 발급·외부 발송·배포는 수행하지 않았다.
+현재 결과는 M0 인수, M1 Task 1~4, M2 회원 관리 서버의 격리 브랜치 코드·로컬 검증이다. [M2 인계](reviews/MEMBER_MANAGEMENT_M2_HANDOFF_2026-09-30.md)에 제한 사항과 검증을 기록했다. 원격 D1·실회원 계정 발급·외부 발송·배포는 수행하지 않았다.
