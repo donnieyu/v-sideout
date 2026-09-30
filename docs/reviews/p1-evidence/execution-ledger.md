@@ -17,3 +17,4 @@ Task 5: Ruling: built vinext Link throws TypeError because lazy navigateClientSi
 Task 5: complete (commits ba2d471..07d34b7, tests: sh -c 'cd web && fnm exec --using=24.16.0 npm run test:sideout && fnm exec --using=24.16.0 npm run test:member-ui' →    Duration  769ms (tests 43%, environment 37%, import 11%, transform 9%))
 
 Task 6: Ruling: real iPhone is not tool-accessible — automated mobile/browser acceptance complete, leave device acceptance explicitly pending and ask the user asynchronously — cost if wrong: Safari-specific issue remains undiscovered; no production-readiness claim.
+Task 6: complete (commits 07d34b7..eb001fe, tests: sh -c 'cd web && fnm exec --using=24.16.0 npm run test:sideout && fnm exec --using=24.16.0 npm run test:member-ui' →    Duration  772ms (tests 43%, environment 35%, import 12%, transform 9%))

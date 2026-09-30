@@ -33,7 +33,7 @@
 
 | 대상 | 결과/근거 |
 | --- | --- |
-| build → 기존 `tests/*.mjs` 19파일 → 회원 UI → P1 → tsc → diff | 모두 종료 0. 회원 UI 4개, P1 58개 통과. [전체 로그](p1-evidence/verification.log) |
+| build → 기존 `tests/*.mjs` 19파일 → 회원 UI → P1 → tsc → diff | 모두 종료 0. 회원 UI 4개, P1 58개 통과. [전체 로그](p1-evidence/verification.txt) |
 | 실제 Chromium + 로컬 Worker/D1 | 320/390/1280px 로그인·상세·새로고침·뒤로/앞으로·계정·비밀번호 진입·로그아웃, 가로 넘침 없음. [결과](p1-evidence/browser-results.json) |
 | 실제 인증 경계 | 최초 변경 전 403→변경 후 홈, 미신청 공개본 차단, 준비 일정 일반회원404/마스터200, 세션 취소 후 focus 재검증, malformed ID400. [결과](p1-evidence/boundary-results.json) |
 | 오류 UI | 실제 브라우저에서 503 응답 주입 후 다시 시도하면 실제 D1 결과로 복구. DB 자체 장애를 발생시킨 시험은 아님 |
