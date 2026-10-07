@@ -1,0 +1,164 @@
+
+> site-creator-vinext-starter@0.1.0 build
+> vinext build
+
+
+  vinext build  (Vite 8.0.13)
+
+[1/5] analyze client references...
+
+transforming...✓ 301 modules transformed.
+rendering chunks...
+✓ built in 686ms
+[2/5] analyze server references...
+
+transforming...✓ 274 modules transformed.
+rendering chunks...
+✓ built in 309ms
+[3/5] build rsc environment...
+
+transforming...✓ 298 modules transformed.
+rendering chunks...
+computing gzip size...
+✓ built in 337ms
+[4/5] build client environment...
+
+transforming...✓ 2095 modules transformed.
+rendering chunks...
+computing gzip size...
+✓ built in 773ms
+[5/5] build ssr environment...
+
+transforming...✓ 279 modules transformed.
+rendering chunks...
+computing gzip size...
+✓ built in 385ms
+
+  Route (app)
+  ┌ ? /
+  ├ ? /account
+  ├ λ /api/auth/login
+  ├ λ /api/auth/logout
+  ├ λ /api/auth/password
+  ├ λ /api/auth/session
+  ├ λ /api/clubs
+  ├ λ /api/me/preferences
+  ├ λ /api/members
+  ├ λ /api/members/:id
+  ├ λ /api/members/:id/deactivate
+  ├ λ /api/members/:id/reactivate
+  ├ λ /api/members/:id/reissue
+  ├ λ /api/sessions
+  ├ λ /api/sessions/:id
+  ├ λ /api/sessions/:id/matches
+  ├ λ /api/sessions/:id/participants
+  ├ λ /api/sessions/:id/teams
+  ├ λ /api/workspace
+  ├ ? /home
+  ├ ƒ /session/:id
+  ├ ƒ /session/:id/matches/edit
+  ├ ƒ /session/:id/schedule/edit
+  ├ ƒ /session/:id/teams/edit
+  └ ? /session/new
+
+  λ API  ƒ Dynamic  ? Unknown
+
+  ? Some routes could not be classified. vinext currently uses static analysis
+    and cannot detect dynamic API usage (headers(), cookies(), etc.) at build time.
+    Automatic classification will be improved in a future release.
+
+  Build complete. Run `vinext start` to start the production server.
+
+PASS account first-change, expiry, club grant, deactivation and stable ID
+PASS auth contract: minimal DTO, effective grants, restricted expiry, revocation and identity lookup
+PASS auth HTTP storage failure, logout revocation, invalid cookie, credential privacy and typed errors
+PASS auth HTTP: CSRF origin, restricted login, rotation, safe session, logout
+PASS approved password length, composition, seven-day temporary policy, session setting
+PASS D1 repository: unique login, CAS account, sessions
+PASS atomic password rotation: rollback, CAS conflict, session replacement
+PASS auth migration and inactive login ID uniqueness
+PASS login, restricted session, password rotation and logout
+bootstrap-first-master-local: pass
+bootstrap-first-master-output: pass
+PASS Korean login ID has one stable NFC key while display spelling remains separate
+PASS password rule uses the supplied length and requires letters and digits only
+PASS salted password hashing and verification
+3 credential checks passed
+PASS upper limit sends a new response to candidate
+PASS deadline blocks absence but accepts candidate
+PASS candidate stops at exact exercise start
+PASS staff cannot proxy while chair and master can
+PASS proxy plus self response cannot duplicate membership
+PASS new member exception requires leader and retains type
+PASS member projection hides roster, evaluation, draft assignment
+PASS published names and positions contain no evaluation or times for an applicant
+PASS draft changes do not alter the last published snapshot
+PASS guest removal removes exactly one record
+PASS next week does not copy people or published results
+PASS setter role and seat persist independently of profile
+PASS member and staff cannot edit club defaults
+PASS seven-player team permits repeated positions
+PASS session date validation and member write restrictions
+PASS both clubs keep entry, warm-up and play times separate
+PASS new club week uses its own Saturday time and does not copy participants
+PASS legacy upgrade keeps responses, post content and public snapshot
+PASS placing a player fills one slot and moving frees the original
+PASS occupied slots reject replacement without dropping anyone
+PASS full member picker performs proxy and placement atomically for leaders
+PASS special participant placement remains leader-only
+PASS setter court template has six distinct slots in both variants
+PASS formation changes cannot silently reassign occupied slots
+PASS deadline D-day uses Korea calendar dates and exact cutoff
+PASS member sees only same-club names and no profile or signup order
+PASS external and unaffiliated members see totals but not applicant names
+PASS chair and staff have no admin permissions in another club
+PASS priority gives home regular member a persistent guarantee even over cap
+PASS external member may sign up during priority but receives no guarantee
+PASS priority closes at exact boundary and cancellation revokes guarantee
+PASS new members keep their explicit regular-team exception
+PASS legacy migration never grants retroactive guarantees or drops applicants
+PASS attendance milestones show only the next shortfall
+PASS priority end cannot be after application deadline
+35 domain checks passed
+PASS self registration uses the verified member ID even when names match
+PASS trusted additional-club chair can add a member outside their home club
+PASS unregistered member and unassigned late candidate cannot fetch published teams
+PASS registration after publication is waiting and cannot reveal the published lineup
+PASS publication prevents a member from cancelling their participation
+PASS publication exposes assigned people only and promotes an assigned waiter
+PASS manager cancellation before publication removes a draft assignment and locks after publication
+PASS public member view includes only their participation and allowed same-club names
+8 identity-roster checks passed
+PASS member access client: auth states, member commands, safe transport and errors
+PASS member HTTP: master only, one-time credentials, CRUD, origin, conflicts and storage failure
+PASS member management: draft validation, one-time credentials, safe views and updates
+PASS member repository: one master bootstrap, unique IDs, atomic audit/session and last-master protection
+PASS opaque session token, hashing and scoped cookie
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/web
+
+
+ Test Files  30 passed (30)
+      Tests  333 passed (333)
+   Start at  23:56:23
+   Duration  4.31s (tests 53%, environment 20%, import 14%, transform 12%)
+
+    Isolate  30 workers spawned · ~278ms startup each (spawn + environment, per file)
+             at least ~556ms faster with isolate: false — reuses workers across files instead of one per file
+
+
+> site-creator-vinext-starter@0.1.0 test:member-ui
+> vitest run --config vitest.member.config.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/web
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  23:56:28
+   Duration  751ms (tests 43%, environment 35%, import 13%, transform 9%)

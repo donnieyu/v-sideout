@@ -2,7 +2,11 @@
 
 ## 통합 범위
 
-사용자의 “지금까지 승인된 내역들을 메인으로” 요청에 따라 `feat/promotion-p1`의 승인된 실제 앱 변경을 main으로 통합한다. 출발 main은 `d976116`, 기존 promotion HEAD는 `3faaf54`다. 이 기록은 앱 코드 통합과 운영 배포를 구분한다.
+사용자의 “지금까지 승인된 내역들을 메인으로” 요청에 따라 `feat/promotion-p1`의 승인된 실제 앱 변경을 main으로 통합했다. 출발 main은 `d976116`, 기존 promotion HEAD는 `3faaf54`다. 이 기록은 앱 코드 통합과 운영 배포를 구분한다.
+
+**반영 완료:** 앱/검증 `028a6c3`, 승인 계획 `9cab690`. 로컬 main fast-forward와 GitHub origin/main push 완료. 병합된 main checkout에서 Node 24.16.0 의존성 재설치 후 build·인증/도메인·SIDEOUT 333·회원 UI 4·TypeScript 재검증도 통과했다. [병합 후 검사](merged-main-ci.txt). main의 별도 목업 24파일 해시가 병합 전과 모두 동일하다. GitHub에서도 앱 통합 커밋의 [web/prototype CI](https://github.com/donnieyu/v-sideout/actions/runs/37640879804)가 모두 통과했다.
+
+4180 서버는 동일 커밋의 promotion worktree와 기존 시험 DB로 유지한다. 원격 코드 반영은 운영 서비스 배포/운영 D1 migration을 실행하지 않는다.
 
 - 홈·일정 상세·일정 편집·즐겨찾기와 실제 인증/조회 경로.
 - 명단 모달의 복수 참가자 추가, 연속 취소, 공개 취소 후 명단 수정, 참가 취소 시 초안 배정 자동 해제.
@@ -36,6 +40,8 @@
 - 최신 320/390px 코트·행 내부 스크롤 및 고정 도구 위치/가로 넘침 검사 통과. [측정](browser.jsonl). 첫 시도는 재빌드 전 서버의 구 청크로 로그인 화면 로딩 실패; 같은 자료 경로로 서버 재시작 후 통과했다.
 - 현재 소스/문서의 diff whitespace 검사 통과. 과거 원시 build/test 로그와 patch 파일은 출력 바이트를 보존하여 말미 공백 경고가 남는다. 이번 검증 로그는 ANSI와 말미 공백만 정리했다.
 - 기존 전체 lint 부채, 실제 iPhone의 최신 통합 화면 전체 인수, 운영 DB 업그레이드/복구는 이 자동 검증에 포함되지 않는다.
+
+390px 현재 화면: [홈](home-390.png), [공개 팀편성 상세](published-detail-390.png). 실제 로컬 서버에서 읽기만 수행했으며 일정/배정 자료를 변경하지 않았다.
 
 ## 보존 및 제외
 
