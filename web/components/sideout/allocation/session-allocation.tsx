@@ -6,6 +6,7 @@ import {Dialog,DialogContent,DialogHeader,DialogTitle,DialogDescription} from '@
 import {TeamNameDialog} from './team-name-dialog'
 import {BoardAllocation} from './board-allocation'
 import {allocationReducer,withApplicantCapacity,type ReviewState,type Target} from './allocation-ab-model'
+import {explainUnassignedApplicants} from './auto-allocation-result'
 import {createTeam,addBenchRow,alignBenchRows,removeBenchRow,placeOnBoard,locatePlayer,type BoardTeam,type Candidate,type Slot} from './position-board-model'
 import {fromBoard as boardToLineup,toBoard as lineupToBoard} from '@/lib/sideout/allocation-adapter'
 import {canRetainInactivePlacement} from '@/lib/sideout/retained-placement'
@@ -33,6 +34,8 @@ export function SessionAllocation({readOnly=false,wasPublished=false,hasSavedCha
  const [teamToDelete,setTeamToDelete]=useState<string|null>(null)
  const [rowToDelete,setRowToDelete]=useState<number|null>(null)
  const [resetRequested,setResetRequested]=useState(false)
+ const [autoResultSignature,setAutoResultSignature]=useState<string|null>(null)
+ const [reasonOpen,setReasonOpen]=useState(false)
  const [pickerTarget,setPickerTarget]=useState<Target|null>(readOnly?null:initial?.pickerTarget??initial?.boardEntryTarget??null)
  const [recentAssignment,setRecentAssignment]=useState<(Target&{playerId:string})|null>(null)
  const pickerOrigin=useRef<HTMLElement|null>(null)
@@ -52,7 +55,16 @@ export function SessionAllocation({readOnly=false,wasPublished=false,hasSavedCha
   window.scrollTo(0,0)
   if(body.current){body.current.scrollTop=0;body.current.querySelectorAll<HTMLElement>('.allocation-overview, .real-board, .real-board-scroll').forEach(element=>{element.scrollTop=0;element.scrollLeft=0})}
  },[view])
- function dispatchAuto(){if(readOnly)return;setRecentAssignment(null);setState(prev=>allocationReducer(prev,{type:'auto-fill'},people));setError('')}
+ function dispatchAuto(){
+  if(readOnly)return
+  setRecentAssignment(null)
+  const next=fitCapacity(allocationReducer(state,{type:'auto-fill'},people))
+  if(next===state){setError('자동 배치를 완료하지 못했습니다. 선택 상태를 닫고 다시 시도해 주세요.');return}
+  setState(()=>next)
+  setAutoResultSignature(JSON.stringify([next.board,people]))
+  const result=explainUnassignedApplicants(next.board,people)
+  setError(result.unfilledDespiteVacancy.length?'빈자리가 있는데 일부 신청자가 배정되지 않았습니다. 다시 시도하거나 편성을 확인해 주세요.':'')
+ }
  function clearAssignments(){if(readOnly)return;setRecentAssignment(null);setState(prev=>allocationReducer(prev,{type:'clear-assignments'},people));setPickerTarget(null);setResetRequested(false);setError('')}
  function changePickerTarget(target:Target|null,origin?:HTMLElement){if(target){lastPickerTarget.current=target;pickerOrigin.current=origin??null}setPickerTarget(target)}
  function returnPickerFocus(){if(pickerOrigin.current?.isConnected&&!pickerOrigin.current.hasAttribute('disabled')){pickerOrigin.current.focus();return}const target=lastPickerTarget.current;if(!target)return;const slot=[...body.current?.querySelectorAll<HTMLElement>('[data-team-id][data-slot-id]')??[]].find(element=>element.dataset.teamId===target.teamId&&element.dataset.slotId===target.slotId);slot?.focus()}
@@ -63,7 +75,7 @@ export function SessionAllocation({readOnly=false,wasPublished=false,hasSavedCha
  function assignBoard(target:Target,personId:string){if(readOnly||!state.board.some(team=>team.id===target.teamId&&team.slots.some(slot=>slot.id===target.slotId))||!people.some(person=>person.id===personId&&person.active!==false)||locatePlayer(state.board,personId))return;setState(prev=>{if(locatePlayer(prev.board,personId))return prev;const board=placeOnBoard(prev.board,target.teamId,target.slotId,personId);return {...prev,board,target,pendingId:personId,reviewed:false}});setRecentAssignment({...target,playerId:personId});setError('')}
  function releaseBoard(target:Target,personId:string){if(readOnly)return;if(recentAssignment?.teamId===target.teamId&&recentAssignment.slotId===target.slotId)setRecentAssignment(null);setState(prev=>allocationReducer(prev,{type:'release',target,playerId:personId},people));setError('')}
  function requestTeamDeletion(teamId:string){if(readOnly||state.board.length<=3||!state.board.some(team=>team.id===teamId))return;setTeamToDelete(teamId)}
- function confirmTeamDeletion(){if(!teamToDelete||readOnly)return;setState(prev=>prev.board.length<=3?prev:{...prev,board:prev.board.filter(item=>item.id!==teamToDelete),target:prev.target?.teamId===teamToDelete?null:prev.target,pendingId:null,reviewed:false});setPickerTarget(null);setTeamToDelete(null);setError('')}
+ function confirmTeamDeletion(){if(!teamToDelete||readOnly)return;setState(prev=>prev.board.length<=3?prev:{...prev,board:prev.board.filter(item=>item.id!==teamToDelete),target:null,pendingId:null,reviewed:false});setPickerTarget(null);setTeamToDelete(null);setError('')}
  function addTeam(){if(readOnly)return;setState(prev=>{const id=['A','B','C','D'].find(value=>!prev.board.some(team=>team.id===value));return id?{...prev,board:[...prev.board,createTeam(id)]}:prev})}
  async function commit(publish:boolean){
   if(saving.current||readOnly)return;
@@ -88,6 +100,7 @@ export function SessionAllocation({readOnly=false,wasPublished=false,hasSavedCha
  const inactiveAssignedCount=state.board.reduce((count,team)=>count+team.slots.filter(slot=>slot.playerId&&people.find(person=>person.id===slot.playerId)?.active===false).length,0)
  const unregistered=people.filter(person=>person.status==='미신청 회원'&&placedIds.has(person.id))
  const unassignedApplicants=people.filter(p=>p.status==='신청자'&&p.active!==false&&!placedIds.has(p.id)).length
+ const autoResult=autoResultSignature===JSON.stringify([state.board,people])?explainUnassignedApplicants(state.board,people):null
  const canRepairExtras=state.board.some(team=>team.slots.slice(0,6).some(slot=>!slot.playerId))&&state.board.some(team=>team.slots.slice(6).some(slot=>people.some(person=>person.id===slot.playerId&&person.active!==false&&person.position!=='미등록'&&(person.status==='신청자'||person.status==='대기자'))))
  const inactivePlaced=lineup.teams.some(t=>t.players.some(p=>people.find(person=>person.id===p.memberId)?.active===false&&!canRetainInactivePlacement(baseline,publishedLineup,t.id,p)))
  const retainedApplicants=people.filter(p=>p.status==='신청자'&&p.active===false&&placedIds.has(p.id)).length
@@ -104,7 +117,7 @@ export function SessionAllocation({readOnly=false,wasPublished=false,hasSavedCha
  const statusText=readOnly?'공개 중 · 수정하려면 공개를 취소하세요':`${progress}${ready?' · 공개 가능':''}`
  return <fieldset disabled={busy} className="session-allocation" aria-label="팀편성 편집" data-session={title}>
   <header className={controls.header} data-allocation-actions><div><h2 id="allocation-title">팀편성 수정</h2><span className="allocation-save-feedback" role="status">{readOnly?'공개된 편성 · 읽기 전용':saveFeedback||(dirty?'저장하지 않은 변경':saved?'저장된 편성':'아직 저장하지 않음')}</span></div><EditorActions busy={busy} saveDisabled={readOnly} cancelLabel={readOnly?'돌아가기':'취소'} onCancel={onCancel} onSave={()=>unregistered.length?setConfirm('save-unregistered'):commit(false)}/></header>
-  <div id="allocation-summary" className={`allocation-progress ${ready?'ready':''}`} role="status"><div><strong>{statusText}</strong>{!readOnly&&!unassignedApplicants&&publishProblem&&<small>{publishProblem}</small>}{!readOnly&&publishedLineup&&!samePublic&&<small>미공개 변경 있음</small>}{additional>0&&<small>추가 배정 {additional}명</small>}</div></div>
+  <div id="allocation-summary" className={`allocation-progress ${ready?'ready':''}`} role="status"><div><strong>{statusText}</strong>{!readOnly&&!unassignedApplicants&&publishProblem&&<small>{publishProblem}</small>}{!readOnly&&publishedLineup&&!samePublic&&<small>미공개 변경 있음</small>}{additional>0&&<small>추가 배정 {additional}명</small>}</div>{!readOnly&&autoResult&&autoResult.remaining>0&&<Button variant="ghost" size="sm" onClick={()=>setReasonOpen(true)}>이유 보기</Button>}</div>
   {error&&<p role="alert" className="allocation-error">{error}</p>}
   {unregistered.length>0&&<p className="allocation-error" role="status">미신청 회원 {unregistered.length}명은 저장 시 참석자로 등록됩니다.</p>}
   {!readOnly&&inactivePlaced&&<p className="allocation-error" role="alert">비활성 회원은 기존 공개 배정만 유지할 수 있습니다. 새로 배정된 자리는 해제해 주세요.</p>}
@@ -129,6 +142,13 @@ export function SessionAllocation({readOnly=false,wasPublished=false,hasSavedCha
   <Dialog open={!!deletingTeam} onOpenChange={open=>!open&&setTeamToDelete(null)}><DialogContent><DialogHeader><DialogTitle>{deletingTeam?.title}을 삭제할까요?</DialogTitle><DialogDescription>{deletingPlayerCount?`배정된 선수 ${deletingPlayerCount}명의 배정이 모두 해제되고 각 후보 목록으로 돌아갑니다.`:'빈 팀이 삭제됩니다.'} 저장 전까지 이 변경은 확정되지 않습니다.</DialogDescription></DialogHeader><div className="ab-confirm-actions"><Button variant="outline" onClick={()=>setTeamToDelete(null)}>취소</Button><Button variant="destructive" onClick={confirmTeamDeletion}>팀 삭제</Button></div></DialogContent></Dialog>
   <Dialog open={rowToDelete!==null} onOpenChange={open=>!open&&setRowToDelete(null)}><DialogContent><DialogHeader><DialogTitle>추가 선수 {(rowToDelete??0)+1}줄을 삭제할까요?</DialogTitle><DialogDescription>모든 팀에서 이 줄이 삭제됩니다. {deletingRowPlayerCount?`배정된 선수 ${deletingRowPlayerCount}명의 배정이 모두 해제되고 각 후보 목록으로 돌아갑니다.`:'빈 추가 선수 줄입니다.'} 저장 전까지 이 변경은 확정되지 않습니다.</DialogDescription></DialogHeader><div className="ab-confirm-actions"><Button variant="outline" onClick={()=>setRowToDelete(null)}>취소</Button><Button variant="destructive" onClick={confirmRowDeletion}>줄 삭제</Button></div></DialogContent></Dialog>
   <Dialog open={resetRequested} onOpenChange={open=>!open&&setResetRequested(false)}><DialogContent><DialogHeader><DialogTitle>선수 배정을 모두 초기화할까요?</DialogTitle><DialogDescription>배정된 선수 {assignedCount}명의 배정을 모두 해제합니다. 팀 이름·순서·추가 선수 줄과 신청 명단은 유지됩니다. 저장 전까지 실제 편성에 반영되지 않습니다.{inactiveAssignedCount>0&&` 비활성 회원 ${inactiveAssignedCount}명은 해제 후 다시 배정할 수 없습니다.`}</DialogDescription></DialogHeader><div className="ab-confirm-actions"><Button variant="outline" onClick={()=>setResetRequested(false)}>취소</Button><Button variant="destructive" onClick={clearAssignments}>배정 {assignedCount}명 해제</Button></div></DialogContent></Dialog>
+  <Dialog open={reasonOpen&&!!autoResult?.remaining} onOpenChange={open=>setReasonOpen(open)}><DialogContent className="allocation-reason-dialog"><DialogHeader><DialogTitle>미배정 신청자 이유</DialogTitle><DialogDescription>자동 배치 후 남은 신청자 {autoResult?.remaining??0}명입니다. 신청자마다 한 가지 대표 사유로 분류했습니다.</DialogDescription></DialogHeader>
+   {autoResult&&<div className="allocation-reason-list">
+    {autoResult.missingProfile.length>0&&<section><h3>주포지션 미등록 {autoResult.missingProfile.length}명</h3><p>회원의 주포지션을 등록한 뒤 다시 자동 배치하거나, 기본 자리에서 직접 선수를 선택해 주세요.</p><ul>{autoResult.missingProfile.map(person=><li key={person.id}>{person.name}<small>{person.club}</small></li>)}</ul></section>}
+    {autoResult.noCapacity.length>0&&<section><h3>빈자리 부족 {autoResult.noCapacity.length}명</h3><p>추가 선수 줄을 만들거나 기존 배정을 조정해 주세요.{autoResult.occupiedByOthers>0&&` 기존에 배정된 대기자·미신청 회원 등 ${autoResult.occupiedByOthers}명이 자리를 사용하고 있습니다.`}</p><ul>{autoResult.noCapacity.map(person=><li key={person.id}>{person.name}<small>{person.club}</small></li>)}</ul></section>}
+    {autoResult.unfilledDespiteVacancy.length>0&&<section><h3>배치 확인 필요 {autoResult.unfilledDespiteVacancy.length}명</h3><p>빈자리가 있는데도 배정되지 않았습니다. 다시 시도하거나 편성을 확인해 주세요.</p><ul>{autoResult.unfilledDespiteVacancy.map(person=><li key={person.id}>{person.name}<small>{person.club}</small></li>)}</ul></section>}
+   </div>}<div className="ab-confirm-actions"><Button onClick={()=>setReasonOpen(false)}>닫기</Button></div>
+  </DialogContent></Dialog>
   {onUnpublish&&<PublicationWithdrawDialog open={confirm==='unpublish'} onClose={()=>setConfirm(null)} onConfirm={onUnpublish} hasSavedChanges={hasSavedChanges}/>}
   <Dialog open={!!confirm&&confirm!=='unpublish'} onOpenChange={value=>!busy&&!value&&setConfirm(null)}><DialogContent onEscapeKeyDown={e=>{if(busy)e.preventDefault()}} onPointerDownOutside={e=>{if(busy)e.preventDefault()}}><DialogHeader><DialogTitle>{confirm==='publish'?'팀편성을 공개할까요?':confirm==='save-unregistered'?'미신청 회원을 참가자로 추가할까요?':confirm==='auto-complete'?'신청자를 모두 배정했어요':'빈자리를 자동 배치할까요?'}</DialogTitle><DialogDescription>{confirm==='publish'?`공개하면 참석 회원에게 팀편성과 경기 순서가 함께 노출됩니다.${unregistered.length?` 미신청 회원 ${unregistered.length}명은 참석자로 등록됩니다.`:''}`:confirm==='save-unregistered'?`미신청 회원 ${unregistered.length}명을 참석자로 추가하고 팀편성을 저장합니다. 저장 전 편집을 취소하면 등록되지 않습니다.`:confirm==='auto-complete'?'자동 배치할 신청자가 없습니다. 현재 편성은 그대로 유지됩니다. 추가 선수 줄은 코트·행 보기에서 관리할 수 있습니다.':'기존 기본 자리 배정은 유지하고, 신청자·대기자로 기본 자리를 먼저 채웁니다. 필요한 경우 추가 자리 선수를 빈 기본 자리로 옮기고 남은 선수만 추가 자리에 배치합니다.'}</DialogDescription></DialogHeader>
    {confirm==='auto-complete'?<div className="ab-confirm-actions"><Button onClick={()=>setConfirm(null)}>확인</Button></div>:<div className="ab-confirm-actions"><Button disabled={busy} variant="outline" onClick={()=>setConfirm(null)}>{confirm==='publish'?'취소':'돌아가기'}</Button><Button disabled={busy} onClick={()=>{if(confirm==='publish')commit(true);else if(confirm==='save-unregistered')commit(false);else{dispatchAuto();setConfirm(null)}}}>{confirm==='publish'?'확인':confirm==='save-unregistered'?'추가하고 저장':'자동 배치'}</Button></div>}</DialogContent></Dialog>

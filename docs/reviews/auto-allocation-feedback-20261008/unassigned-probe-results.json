@@ -1,0 +1,90 @@
+{
+  "cases": [
+    {
+      "name": "18 all OH",
+      "applicants": 18,
+      "assigned": 18,
+      "remaining": 0,
+      "empty": 0
+    },
+    {
+      "name": "18 only setters",
+      "applicants": 18,
+      "assigned": 18,
+      "remaining": 0,
+      "empty": 0
+    },
+    {
+      "name": "18 primary registered / secondary missing",
+      "applicants": 18,
+      "assigned": 18,
+      "remaining": 0,
+      "empty": 0
+    },
+    {
+      "name": "18 with 4 missing profiles",
+      "applicants": 18,
+      "assigned": 14,
+      "remaining": 4,
+      "empty": 4
+    },
+    {
+      "name": "21 / manual 18 seats",
+      "applicants": 21,
+      "assigned": 18,
+      "remaining": 3,
+      "empty": 0
+    },
+    {
+      "name": "28 / auto 30 seats",
+      "applicants": 28,
+      "assigned": 28,
+      "remaining": 0,
+      "empty": 2
+    },
+    {
+      "name": "18 / 3 existing 대기자",
+      "applicants": 18,
+      "assigned": 15,
+      "remaining": 3,
+      "empty": 0
+    },
+    {
+      "name": "18 / 3 existing 미신청 회원",
+      "applicants": 18,
+      "assigned": 15,
+      "remaining": 3,
+      "empty": 0
+    },
+    {
+      "name": "18 active / 3 retained inactive occupied",
+      "applicants": 18,
+      "assigned": 15,
+      "remaining": 3,
+      "empty": 0
+    },
+    {
+      "name": "18 includes 4 newly inactive",
+      "applicants": 14,
+      "assigned": 14,
+      "remaining": 0,
+      "empty": 4
+    },
+    {
+      "name": "14 registered + 4 missing, 4 waiting",
+      "applicants": 18,
+      "assigned": 14,
+      "remaining": 4,
+      "empty": 0
+    },
+    {
+      "name": "18 eligible + unregistered outside pool",
+      "applicants": 18,
+      "assigned": 18,
+      "remaining": 0,
+      "empty": 0
+    }
+  ],
+  "generatedCases": 2000,
+  "invariant": "No active profile-registered unassigned applicant coexists with a valid empty seat after autoFillBoard"
+}

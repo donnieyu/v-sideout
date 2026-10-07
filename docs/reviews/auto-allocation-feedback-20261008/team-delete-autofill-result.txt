@@ -1,0 +1,38 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-unassigned-audit.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+(node:79871) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ tests/sideout-unassigned-audit.test.tsx (1 test | 1 failed) 262ms
+   × still auto fills after manually assigning in A and then deleting another team 262ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-unassigned-audit.test.tsx > still auto fills after manually assigning in A and then deleting another team
+AssertionError: expected 1 to be 2 // Object.is equality
+
+- Expected
++ Received
+
+- 2
++ 1
+
+ ❯ tests/sideout-unassigned-audit.test.tsx:17:85
+     15|  fireEvent.click(screen.getByRole('button',{name:'자동 배치'}));
+     16|  fireEvent.click(within(screen.getByRole('dialog')).getByRole('button'…
+     17|  expect(document.querySelectorAll('.real-board-slot[data-assigned="tru…
+       |                                                                                     ^
+     18| });
+     19|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  00:26:17
+   Duration  1.24s (environment 47%, tests 23%, import 20%, transform 10%)

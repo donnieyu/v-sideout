@@ -1,0 +1,18 @@
+// @vitest-environment jsdom
+import React from 'react';
+import {it,expect,vi} from 'vitest';
+import {render,screen,within,fireEvent} from '@testing-library/react';
+import {SessionAllocation} from '../components/sideout/allocation/session-allocation';
+vi.spyOn(window,'scrollTo').mockImplementation(()=>{});
+it('still auto fills after manually assigning in A and then deleting another team',()=>{
+ const people=[{id:'a',name:'가선수',club:'시험',position:'세터' as const,secondary:'라이트' as const,status:'신청자' as const},{id:'b',name:'나선수',club:'시험',position:'센터' as const,secondary:'라이트' as const,status:'신청자' as const}];
+ render(<SessionAllocation title="시험" baseline={{teams:['A','B','C'].map(id=>({id,title:id+'팀',players:[]}))}} people={people} saved={true} onSave={async()=>{}} onCancel={()=>{}} onDirty={()=>{}}/>);
+ fireEvent.click(screen.getByRole('button',{name:'A팀 세터 선수 배정'}));
+ fireEvent.click(within(screen.getByRole('dialog')).getByRole('button',{name:'가선수 배정'}));
+ fireEvent.click(screen.getByRole('button',{name:'팀 추가'}));
+ fireEvent.click(screen.getByRole('button',{name:'D팀 삭제'}));
+ fireEvent.click(within(screen.getByRole('dialog')).getByRole('button',{name:'팀 삭제'}));
+ fireEvent.click(screen.getByRole('button',{name:'자동 배치'}));
+ fireEvent.click(within(screen.getByRole('dialog')).getByRole('button',{name:'자동 배치'}));
+ expect(document.querySelectorAll('.real-board-slot[data-assigned="true"]').length).toBe(2);
+});
