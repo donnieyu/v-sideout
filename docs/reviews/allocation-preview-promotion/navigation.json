@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checks": [
+    "native Back cancellation preserves dirty assignment",
+    "confirmed header exit discards cached edits",
+    "re-entry loads saved allocation"
+  ],
+  "physicalIPhone": false
+}

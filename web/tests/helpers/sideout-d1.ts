@@ -2,7 +2,7 @@ import {DatabaseSync} from 'node:sqlite';
 import {readFileSync} from 'node:fs';
 export function testDatabase(){
  const sqlite=new DatabaseSync(':memory:');
- for(const name of ['0000_windy_omega_red','0001_glamorous_iron_lad','0002_modern_triathlon'])sqlite.exec(readFileSync(new URL(`../../drizzle/${name}.sql`,import.meta.url),'utf8').replaceAll('--> statement-breakpoint',''));
+ for(const name of ['0000_windy_omega_red','0001_glamorous_iron_lad','0002_modern_triathlon','0003_milky_night_thrasher'])sqlite.exec(readFileSync(new URL(`../../drizzle/${name}.sql`,import.meta.url),'utf8').replaceAll('--> statement-breakpoint',''));
  const statements:string[]=[];
  const prepare=(sql:string,args:unknown[]=[]):unknown=>({
   bind:(...values:unknown[])=>prepare(sql,values),

@@ -1,0 +1,14 @@
+{
+  results: [
+    {
+      check: 'D1 publish, waiter promotion, retry, 2-team rejection, post-publication registration and cancellation blocked',
+      id: '29eed784-2e35-4ef6-b613-76cf2a1d9002',
+      date: '2026-12-27'
+    },
+    { check: '시험waiter publication visibility and draft prohibition' },
+    {
+      check: '시험outsider publication visibility and draft prohibition'
+    }
+  ],
+  errors: []
+}

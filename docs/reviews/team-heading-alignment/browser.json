@@ -1,0 +1,27 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "countXFixed": true,
+      "countTopFixed": true,
+      "nameWraps": true,
+      "iconHeight": 44
+    },
+    {
+      "width": 390,
+      "countXFixed": true,
+      "countTopFixed": true,
+      "nameWraps": true,
+      "iconHeight": 44
+    },
+    {
+      "width": 1024,
+      "countXFixed": true,
+      "countTopFixed": true,
+      "nameWraps": true,
+      "iconHeight": 44
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false
+}

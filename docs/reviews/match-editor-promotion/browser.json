@@ -1,0 +1,47 @@
+{
+  "verifiedAt": "2026-10-05T23:58:30.884Z",
+  "id": "30e24320-0faa-4437-9dee-88778dd02d67",
+  "results": [
+    {
+      "check": "CDP native touch drag moves row",
+      "passed": true
+    },
+    {
+      "check": "touch cancel and drag save lock",
+      "passed": true
+    },
+    {
+      "check": "save stays editor; matches published immediately; draft/public players unchanged",
+      "passed": true
+    },
+    {
+      "check": "responsive",
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "check": "responsive",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "check": "responsive",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "check": "real conflict preserves local edits until explicit reload",
+      "passed": true
+    },
+    {
+      "check": "different team IDs save draft only",
+      "passed": true
+    },
+    {
+      "check": "three-team defaults, rookie round intervals, overflow save",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false
+}

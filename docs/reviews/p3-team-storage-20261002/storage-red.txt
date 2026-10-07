@@ -1,0 +1,25 @@
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-team-storage.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-team-storage.test.ts [ tests/sideout-team-storage.test.ts ]
+Error: Cannot find module '../lib/server/sideout-teams' imported from /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web/tests/sideout-team-storage.test.ts
+ ❯ tests/sideout-team-storage.test.ts:3:1
+      1| import {it,expect} from 'vitest';
+      2| import {queryFixture} from './helpers/sideout-fixture';
+      3| import {handleTeamDraft} from '../lib/server/sideout-teams';
+       | ^
+      4| import {makeSideoutWriteStore} from '../lib/server/sideout-write-store…
+      5| import {session,roster,ids} from './fixtures/sideout';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  23:50:11
+   Duration  143ms (worker 98%, environment 2%)
+

@@ -1,0 +1,6 @@
+import {expect,it} from 'vitest';
+import {filterUnregisteredMembers} from '../components/sideout/allocation/member-filters';
+import type {Candidate} from '../components/sideout/allocation/position-board-model';
+const members:Candidate[]=[{id:'1',name:'김선수',club:'가모임',position:'세터',secondary:'라이트',status:'미신청 회원'},{id:'2',name:'이선수',club:'나모임',position:'센터',secondary:'레프트',status:'미신청 회원'},{id:'3',name:'박선수',club:'가모임',position:'센터',secondary:'레프트',status:'미신청 회원'},{id:'4',name:'신청자',club:'가모임',position:'세터',secondary:'라이트',status:'신청자'},{id:'5',name:'비활성',club:'가모임',position:'세터',secondary:'라이트',status:'미신청 회원',active:false}];
+it('shows every active nonapplicant without filters, including every position and club',()=>{expect(filterUnregisteredMembers(members,'',{clubs:[],positions:[]}).map(p=>p.id)).toEqual(['1','2','3'])});
+it('combines search AND clubs AND positions, with OR within each multiselect',()=>{expect(filterUnregisteredMembers(members,'선수',{clubs:['가모임','나모임'],positions:['레프트','세터']}).map(p=>p.id)).toEqual(['1','2','3']);expect(filterUnregisteredMembers(members,'김',{clubs:['가모임'],positions:['라이트']}).map(p=>p.id)).toEqual(['1']);expect(filterUnregisteredMembers(members,'김',{clubs:['나모임'],positions:[]}).length).toBe(0)});

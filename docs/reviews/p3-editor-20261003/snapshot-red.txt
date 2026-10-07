@@ -1,0 +1,32 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-team-storage.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-team-storage.test.ts (13 tests | 1 failed) 38ms
+   × rechecks session permission after settling editor GET before returning candidate identities 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-team-storage.test.ts > rechecks session permission after settling editor GET before returning candidate identities
+AssertionError: expected 200 to be 403 // Object.is equality
+
+- Expected
++ Received
+
+- 403
++ 200
+
+ ❯ tests/sideout-team-storage.test.ts:85:274
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+   Start at  15:43:20
+   Duration  205ms (transform 54%, tests 29%, import 15%, worker 2%)
+

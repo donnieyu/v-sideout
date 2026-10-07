@@ -1,0 +1,68 @@
+{
+  width: 390,
+  rect: {
+    x: 16,
+    y: 97,
+    width: 358,
+    height: 650,
+    top: 97,
+    right: 374,
+    bottom: 747,
+    left: 16
+  },
+  translate: '-50% -50%',
+  transform: 'none',
+  transition: '0.2s',
+  scroll: 0
+}
+{
+  width: 320,
+  rect: {
+    x: 16,
+    y: 97,
+    width: 288,
+    height: 650,
+    top: 97,
+    right: 304,
+    bottom: 747,
+    left: 16
+  },
+  translate: '-50% -50%',
+  transform: 'none',
+  transition: '0.2s',
+  scroll: 0
+}
+{
+  width: 1280,
+  rect: {
+    x: 400,
+    y: 97,
+    width: 480,
+    height: 650,
+    top: 97,
+    right: 880,
+    bottom: 747,
+    left: 400
+  },
+  translate: '-50% -50%',
+  transform: 'none',
+  transition: '0.2s',
+  scroll: 0
+}
+{
+  width: 390,
+  rect: {
+    x: 16,
+    y: 97,
+    width: 358,
+    height: 650,
+    top: 97,
+    right: 374,
+    bottom: 747,
+    left: 16
+  },
+  translate: '-50% -50%',
+  transform: 'none',
+  transition: '0.2s',
+  scroll: 0
+}

@@ -1,0 +1,14 @@
+import {chromium} from '/Users/donnieyu/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import {readFile,writeFile} from 'node:fs/promises';import assert from 'node:assert/strict';import {randomUUID} from 'node:crypto';
+const root='/Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1',out=root+'/docs/reviews/match-editor-promotion',origin='http://127.0.0.1:4180';
+const creds=JSON.parse(await readFile(root+'/web/.wrangler/sideout-p1/credentials.json','utf8')),prior=JSON.parse(await readFile(root+'/docs/reviews/allocation-preview-promotion/browser.json','utf8')),id=prior.results[0].id,path='/api/sessions/'+id;
+const browser=await chromium.launch({channel:'chrome'}),context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true}),page=await context.newPage(),results=[],errors=[];page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(e.message));
+const get=async p=>{const r=await page.request.get(origin+p);assert.equal(r.status(),200,await r.text());return (await r.json()).data};
+const post=async(p,payload,revision)=>{const r=await page.request.post(origin+p,{headers:{Origin:origin},data:{commandId:randomUUID(),expectedRevision:revision,payload}});assert.equal(r.status(),200,await r.text());return(await r.json()).data};
+const order=()=>page.locator('[data-match-id]').evaluateAll(rows=>rows.map(r=>r.dataset.matchId));
+try{
+ const master=creds.find(c=>c.loginId==='시험master');await page.goto(origin+'/home');await page.getByLabel('로그인 아이디',{exact:true}).fill(master.loginId);await page.getByLabel('비밀번호',{exact:true}).fill(master.password);await page.getByRole('button',{name:'로그인',exact:true}).click();await page.getByRole('button',{name:'즐겨찾기 관리'}).waitFor();
+ await page.goto(origin+'/session/'+id+'/matches/edit');await page.getByRole('switch',{name:'신입 경기 포함'}).waitFor();
+ await page.locator('h1').click();const initial=await order(),first=page.getByRole('button',{name:'1번째 경기 순서 이동',exact:true}),second=page.getByRole('button',{name:'2번째 경기 순서 이동',exact:true});
+ const a=await first.boundingBox(),b=await second.boundingBox();await page.mouse.move(a.x+a.width/2,a.y+a.height/2);await page.mouse.down();await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:5});await page.keyboard.press('Escape');await page.mouse.up();assert.deepEqual(await order(),initial,'Escape must cancel without changing order');results.push({check:'mouse drag Escape cancels without changing order',passed:true});console.log('PASS mouse Escape cancels');
+}catch(e){await page.screenshot({path:out+'/failure.png'});console.error(await page.locator('body').innerText());throw e}finally{await writeFile(out+'/escape.json',JSON.stringify({verifiedAt:new Date().toISOString(),id,results,errors,physicalIPhone:false},null,2));await browser.close();console.log(JSON.stringify(results,null,2))}

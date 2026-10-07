@@ -1,0 +1,463 @@
+--- before/web/lib/sideout-client.ts
++++ after/web/lib/sideout-client.ts
+@@ -1,3 +1,4 @@
++import type {MatchEditorView,MatchSaveInput} from './sideout/match-editor';
+ import type {TeamEditorView} from './sideout/team-editor';
+ import type {TeamDraftInput} from './sideout/team-draft';
+ import type {ParticipantCommand} from './server/sideout-participation';
+@@ -15,7 +16,7 @@
+   if(body.ok!==true||!body.data||typeof body.data!=='object')throw new SideoutClientError('STORAGE_UNAVAILABLE',503,'서비스 응답을 확인할 수 없습니다.');
+   return body.data;
+  }
+- return {teamEditor:(id:string,signal?:AbortSignal)=>get<TeamEditorView>('/api/sessions/'+encodeURIComponent(id)+'/teams',signal),saveTeams:(id:string,body:WriteEnvelope<Omit<TeamDraftInput,'action'>&({action:'save'}|{action:'publish';confirmed:true})>)=>get<WriteResult>('/api/sessions/'+encodeURIComponent(id)+'/teams',undefined,body),candidates:(id:string,signal?:AbortSignal)=>get<{members:MemberLabel[];sessionRevision:number;rosterRevision:number}>('/api/sessions/'+encodeURIComponent(id)+'/participants',signal),participate:(id:string,body:WriteEnvelope<ParticipantCommand>)=>get<WriteResult>('/api/sessions/'+encodeURIComponent(id)+'/participants',undefined,body),saveSchedule:(body:WriteEnvelope<ScheduleInput>,id?:string)=>get<WriteResult>('/api/sessions'+(id?'/'+encodeURIComponent(id):''),undefined,body),savePreferences:(body:WriteEnvelope<Preferences>)=>get<WriteResult>('/api/me/preferences',undefined,body),clubs:(signal?:AbortSignal)=>get<ClubsView>('/api/clubs',signal),preferences:(signal?:AbortSignal)=>get<Versioned<Preferences>>('/api/me/preferences',signal),home:(selection:ReadSelection,signal?:AbortSignal)=>get<HomeView>('/api/sessions?'+new URLSearchParams(selection),signal),session:(id:string,signal?:AbortSignal)=>get<SessionDetailView>('/api/sessions/'+encodeURIComponent(id),signal)};
++ return {matchEditor:(id:string,signal?:AbortSignal)=>get<MatchEditorView>('/api/sessions/'+encodeURIComponent(id)+'/matches',signal),saveMatches:(id:string,body:WriteEnvelope<MatchSaveInput>)=>get<WriteResult>('/api/sessions/'+encodeURIComponent(id)+'/matches',undefined,body),teamEditor:(id:string,signal?:AbortSignal)=>get<TeamEditorView>('/api/sessions/'+encodeURIComponent(id)+'/teams',signal),saveTeams:(id:string,body:WriteEnvelope<Omit<TeamDraftInput,'action'>&({action:'save'}|{action:'publish';confirmed:true})>)=>get<WriteResult>('/api/sessions/'+encodeURIComponent(id)+'/teams',undefined,body),candidates:(id:string,signal?:AbortSignal)=>get<{members:MemberLabel[];sessionRevision:number;rosterRevision:number}>('/api/sessions/'+encodeURIComponent(id)+'/participants',signal),participate:(id:string,body:WriteEnvelope<ParticipantCommand>)=>get<WriteResult>('/api/sessions/'+encodeURIComponent(id)+'/participants',undefined,body),saveSchedule:(body:WriteEnvelope<ScheduleInput>,id?:string)=>get<WriteResult>('/api/sessions'+(id?'/'+encodeURIComponent(id):''),undefined,body),savePreferences:(body:WriteEnvelope<Preferences>)=>get<WriteResult>('/api/me/preferences',undefined,body),clubs:(signal?:AbortSignal)=>get<ClubsView>('/api/clubs',signal),preferences:(signal?:AbortSignal)=>get<Versioned<Preferences>>('/api/me/preferences',signal),home:(selection:ReadSelection,signal?:AbortSignal)=>get<HomeView>('/api/sessions?'+new URLSearchParams(selection),signal),session:(id:string,signal?:AbortSignal)=>get<SessionDetailView>('/api/sessions/'+encodeURIComponent(id),signal)};
+ }
+ export type SideoutClient=ReturnType<typeof createSideoutClient>;
+ export const sideoutClient=createSideoutClient();
+--- before/web/lib/server/sideout-query.ts
++++ after/web/lib/server/sideout-query.ts
+@@ -60,5 +60,5 @@
+  const visibleWaiters=summary.canManage?await Promise.all(Object.entries(r.value.participants).filter(([,p])=>p.status==='waiting').map(([id])=>label(id))):undefined;
+  const publishedTeams=summary.canViewPublishedTeams&&r.value.published?await Promise.all(r.value.published.teams.map(async t=>({id:t.id,title:t.title,players:await Promise.all(t.players.map(async m=>({...await label(m.memberId),slotId:m.slotId,assignedPosition:m.assignedPosition})))}))):null;
+  const managerTeamPreview=showSaved?{teams:await Promise.all(r.value.draft.teams.map(async t=>({id:t.id,title:t.title,players:await Promise.all(t.players.map(async m=>({...await label(m.memberId),slotId:m.slotId,assignedPosition:m.assignedPosition})))}))),matches:r.value.draftMatches,unpublishedChanges:JSON.stringify(r.value.draft)!==JSON.stringify(r.value.published)||JSON.stringify(r.value.draftMatches)!==JSON.stringify(r.value.publishedMatches)}:undefined;
+- return {...summary,...(managerTeamPreview?{managerTeamPreview}:{}),rosterRevision:r.revision,visibleApplicants,...(visibleWaiters?{visibleWaiters}:{}),guestCount,publishedTeams,publishedMatches:summary.canViewPublishedTeams?r.value.publishedMatches:null,capabilities:{canEditSchedule:summary.canManage&&Date.parse(`${s.value.date}T${s.value.start}:00+09:00`)>deps.now().getTime(),canManageRoster:summary.canManage&&canRegister(s.value,r.value,deps.now()),canEditTeams:summary.canManage&&s.value.phase==='open'&&Date.parse(`${s.value.date}T${s.value.start}:00+09:00`)>deps.now().getTime(),canEditMatches:false,canPublish:false,canCancelSelf:summary.participation?.canCancel??false}};
++ return {...summary,...(managerTeamPreview?{managerTeamPreview}:{}),rosterRevision:r.revision,visibleApplicants,...(visibleWaiters?{visibleWaiters}:{}),guestCount,publishedTeams,publishedMatches:summary.canViewPublishedTeams?r.value.publishedMatches:null,capabilities:{canEditSchedule:summary.canManage&&Date.parse(`${s.value.date}T${s.value.start}:00+09:00`)>deps.now().getTime(),canManageRoster:summary.canManage&&canRegister(s.value,r.value,deps.now()),canEditTeams:summary.canManage&&s.value.phase==='open'&&Date.parse(`${s.value.date}T${s.value.start}:00+09:00`)>deps.now().getTime(),canEditMatches:summary.canManage&&s.value.phase==='open'&&Date.parse(`${s.value.date}T${s.value.start}:00+09:00`)>deps.now().getTime()&&[3,4].includes((r.value.draft.teams.length?r.value.draft:r.value.published)?.teams.length??0),canPublish:false,canCancelSelf:summary.participation?.canCancel??false}};
+ }
+--- before/web/lib/server/sideout-dependencies.ts
++++ after/web/lib/server/sideout-dependencies.ts
+@@ -18,3 +18,6 @@
+ 
+ import {handleTeamDraft} from './sideout-teams';
+ export async function sideoutTeamDraftRoute(request:Request,id:string){try{if(!env.DB)throw unavailable();return await handleTeamDraft(request,id,{authRepo:makeAuthRepository(env.DB),store:makeSideoutStore(env.DB),writeStore:makeSideoutWriteStore(env.DB),now:()=>new Date()})}catch(e){return errorResponse(e)}}
++
++import {handleMatchOrder} from './sideout-matches';
++export async function sideoutMatchRoute(request:Request,id:string){try{if(!env.DB)throw unavailable();return await handleMatchOrder(request,id,{authRepo:makeAuthRepository(env.DB),store:makeSideoutStore(env.DB),writeStore:makeSideoutWriteStore(env.DB),now:()=>new Date()})}catch(e){return errorResponse(e)}}
+--- before/web/lib/sideout/navigation.ts
++++ after/web/lib/sideout/navigation.ts
+@@ -3,7 +3,7 @@
+  try{
+   if(!raw.startsWith('/')||raw.startsWith('//')||raw.includes('\\'))return '/home';
+   const path=raw.split('?')[0];
+-  const match=path.match(/^\/session\/([^/]+)(?:\/(?:schedule|teams)\/edit)?$/);
++  const match=path.match(/^\/session\/([^/]+)(?:\/(?:schedule|teams|matches)\/edit)?$/);
+   if(path!=='/home'&&path!=='/account'&&!match)return '/home';
+   if(match){const id=decodeURIComponent(match[1]);if(!id||id.length>128||/[\/\\?#\x00-\x1f]/.test(id)||id==='.'||id==='..')return '/home'}
+   const url=new URL(raw,'http://internal');
+--- before/web/lib/sideout/match-plan.ts
++++ after/web/lib/sideout/match-plan.ts
+@@ -14,3 +14,97 @@
+  if(teamIds.length===4)rookie(2);
+  return {teamCount:teamIds.length,rookieTeamCount:2,matches};
+ }
++
++export function toggleRookieMatches(plan:MatchPlanRecord,enabled:boolean):MatchPlanRecord{
++ const regular=plan.matches.filter(match=>match.kind==='regular')
++ if(!enabled)return {...plan,matches:regular}
++ if(plan.matches.some(match=>match.kind==='rookie'))return plan
++ const pairs=rookiePairs(plan.rookieTeamCount)
++ if(plan.teamCount===4&&regular.length){
++  const [home,away]=pairs[0], [lastHome,lastAway]=pairs[1%pairs.length]
++  return {...plan,matches:[{id:'rookie-1',kind:'rookie',home,away},...regular,{id:'rookie-2',kind:'rookie',home:lastHome,away:lastAway}]}
++ }
++ const roundSize=plan.teamCount===3?3:regular.length
++ const matches:MatchPlanRecord['matches']=[]
++ for(let index=0;index<regular.length;index++){
++  matches.push(regular[index])
++  if((index+1)%roundSize===0&&index<regular.length-1){
++   const rookieIndex=matches.filter(match=>match.kind==='rookie').length
++   const [home,away]=pairs[rookieIndex%pairs.length]
++   matches.push({id:`rookie-${rookieIndex+1}`,kind:'rookie',home,away})
++  }
++ }
++ return {...plan,matches}
++}
++
++const rookiePairs=(count:number):[string,string][]=>{
++ const patterns:Record<number,[number,number][]>={2:[[1,2]],3:[[1,2],[2,3],[1,3]],4:[[1,2],[3,4],[1,3],[2,4],[1,4],[2,3]]}
++ return (patterns[count]??[]).map(([home,away])=>[`R${home}`,`R${away}`])
++}
++export const rookiePairOptions=(count:number)=>rookiePairs(count)
++
++export function setRookieTeamCount(plan:MatchPlanRecord,count:number):MatchPlanRecord{
++ if(!Number.isInteger(count)||count<2||count>4)return plan
++ const pairs=rookiePairs(count)
++ let index=0
++ return {...plan,rookieTeamCount:count,matches:plan.matches.map(match=>{
++  if(match.kind!=='rookie')return match
++  const [home,away]=pairs[index++%pairs.length]
++  return {...match,home,away}
++ })}
++}
++
++export function addRookieMatch(plan:MatchPlanRecord):MatchPlanRecord{
++ if(plan.matches.length>=100)return plan
++ const pairs=rookiePairs(plan.rookieTeamCount)
++ const count=plan.matches.filter(match=>match.kind==='rookie').length
++ const next=1+Math.max(0,...plan.matches.filter(match=>match.id.startsWith('rookie-')).map(match=>Number(match.id.slice(7))||0))
++ const [home,away]=pairs[count%pairs.length]
++ return {...plan,matches:[...plan.matches,{id:`rookie-${next}`,kind:'rookie',home,away}]}
++}
++
++export function setRookieMatchPair(plan:MatchPlanRecord,id:string,home:string,away:string):MatchPlanRecord{
++ if(home===away||!rookiePairs(plan.rookieTeamCount).some(pair=>pair.includes(home)&&pair.includes(away)))return plan
++ return {...plan,matches:plan.matches.map(match=>match.id===id&&match.kind==='rookie'?{...match,home,away}:match)}
++}
++
++export function moveMatch(plan:MatchPlanRecord,id:string,direction:-1|1):MatchPlanRecord{
++ const index=plan.matches.findIndex(match=>match.id===id),other=index+direction
++ if(index<0||other<0||other>=plan.matches.length)return plan
++ const matches=[...plan.matches]
++ ;[matches[index],matches[other]]=[matches[other],matches[index]]
++ return {...plan,matches}
++}
++
++export function moveMatchTo(plan:MatchPlanRecord,id:string,toIndex:number):MatchPlanRecord{
++ const from=plan.matches.findIndex(match=>match.id===id)
++ if(from<0||!Number.isInteger(toIndex)||toIndex<0||toIndex>=plan.matches.length||from===toIndex)return plan
++ const matches=[...plan.matches]
++ const [moved]=matches.splice(from,1)
++ matches.splice(toIndex,0,moved)
++ return {...plan,matches}
++}
++
++export function removeRookieMatch(plan:MatchPlanRecord,id:string):MatchPlanRecord{
++ return {...plan,matches:plan.matches.filter(match=>match.id!==id||match.kind!=='rookie')}
++}
++
++export function matchTimes(plan:MatchPlanRecord,start:string,duration=20){
++ const [hour,minute]=start.split(':').map(Number)
++ const format=(minutes:number)=>`${minutes>=1440?'다음날 ':''}${String(Math.floor(minutes/60)%24).padStart(2,'0')}:${String(minutes%60).padStart(2,'0')}`
++ return plan.matches.map((_,index)=>({start:format(hour*60+minute+index*duration),end:format(hour*60+minute+(index+1)*duration)}))
++}
++
++
++/** Check team identity and the full regular round-robin multiset, not just lengths. */
++export function validateMatchPlan(plan:MatchPlanRecord,teamIds:string[]):string{
++ const base=generateTeamMatches(teamIds);
++ if(!base||new Set(teamIds).size!==teamIds.length||plan.teamCount!==teamIds.length)return '저장된 3~4팀에 맞는 경기 순서를 다시 불러와 주세요.';
++ if(!Number.isInteger(plan.rookieTeamCount)||plan.rookieTeamCount<2||plan.rookieTeamCount>4)return '신입팀 수는 2~4팀입니다.';
++ if(!plan.matches.length||plan.matches.length>100||new Set(plan.matches.map(m=>m.id)).size!==plan.matches.length)return '경기는 1~100개이며 중복된 경기 번호가 없어야 합니다.';
++ const rookies=new Set(Array.from({length:plan.rookieTeamCount},(_,i)=>`R${i+1}`)),regular=new Set(teamIds);
++ if(plan.matches.some(m=>m.home===m.away||!['regular','rookie'].includes(m.kind)||!(m.kind==='regular'?regular:rookies).has(m.home)||!(m.kind==='regular'?regular:rookies).has(m.away)))return '대진의 팀을 확인해 주세요.';
++ const pairs=(p:MatchPlanRecord)=>p.matches.filter(m=>m.kind==='regular').map(m=>JSON.stringify([m.home,m.away].sort())).sort();
++ if(JSON.stringify(pairs(base))!==JSON.stringify(pairs(plan)))return '일반 경기의 대진이나 경기 수가 변경되었습니다. 최신 순서를 불러와 주세요.';
++ return '';
++}
+--- before/web/components/sideout/session-detail.tsx
++++ after/web/components/sideout/session-detail.tsx
+@@ -20,5 +20,5 @@
+  if(!data)return <SideoutShell title="일정 상세"><ReadState error={error} retry={retry}/></SideoutShell>;
+  const {session,club}=data,past=session.date<kstWeekStart(new Date(directory.serverNow)),started=Date.parse(`${session.date}T${session.start}:00+09:00`)<=Date.parse(directory.serverNow),canEdit=data.canManage&&!started;
+  const preview=data.canManage&&!started?data.managerTeamPreview:undefined,shownTeams=preview?.teams??data.publishedTeams,shownMatches=preview?preview.matches:data.publishedMatches;
+- return <SideoutShell title={club.name} subtitle={dateLabel(session.date)+' · 일정 상세'}>{error&&<ReadWarning retry={retry}/>}<header className={styles.detailHeader}><Link className={styles.breadcrumb} href={'/home?'+query}>모임 홈 <span>› 일정 상세</span></Link><div><span className={styles.mark}>{club.mark}</span><div><h1>{club.name}</h1><p>{dateLabel(session.date)}</p></div></div></header><div className={styles.sectionHeading}><h2>일정 정보</h2>{data.capabilities.canEditSchedule&&<Button asChild variant="outline"><Link href={'/session/'+encodeURIComponent(id)+'/schedule/edit?'+query}>일정 수정</Link></Button>}</div><div className={styles.detailLayout}><article className={styles.infoCard}><div className={styles.tabs} role="tablist" aria-label="일정 정보"><button role="tab" aria-selected={tab==='info'} onClick={()=>setTab('info')}>정보</button><button role="tab" aria-selected={tab==='notice'} onClick={()=>setTab('notice')}>공지</button></div><div className={styles.infoContent} role="tabpanel">{tab==='info'?<><h2>운동 일정</h2><div className={styles.timeline}>{[[session.entry,'입장 · 몸풀기'],[session.start,'운동 시작'],[session.end,'종료']].map(([time,label])=><div key={label}><b>{time}</b><span>{label}</span></div>)}</div><dl><div><dt>장소</dt><dd>{session.place}</dd></div><div><dt>정기 운동</dt><dd>매주 {['','월','화','수','목','금','토','일'][club.weekday]}요일</dd></div>{!past&&<div><dt>신청 마감</dt><dd>{new Intl.DateTimeFormat('ko-KR',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Seoul'}).format(new Date(session.deadline))}</dd></div>}</dl></>:<><h2>이번 운동 안내</h2><p>{session.notice||'등록된 공지가 없습니다.'}</p></>}</div></article><article className={styles.joinCard}><h2>함께할 인원</h2><div className={styles.count}><strong>{data.counts.applicants}<small>명</small></strong><RosterButton card={data} detail={data}/></div><div className={styles.progress}><span style={{width:`${Math.min(100,data.counts.applicants/(session.cap??24)*100)}%`}}/></div><>{!past&&<p className={styles.muted}>{new Intl.DateTimeFormat('ko-KR',{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Asia/Seoul'}).format(new Date(session.deadline))} 마감{data.counts.waiting>0&&` · 대기 ${data.counts.waiting}명`}</p>}{!past&&<ParticipationButton card={data}/>}</></article></div>{shownTeams?<><PublishedTeams teams={shownTeams} savedState={preview?(preview.unpublishedChanges?'changed':'published'):undefined} memberId={viewer.me.memberId} manager={canEdit} past={past} editHref={data.capabilities.canEditTeams?'/session/'+encodeURIComponent(id)+'/teams/edit?'+query:undefined}/>{shownMatches&&<MatchList plan={shownMatches} teams={shownTeams} start={session.start} manager={canEdit} past={past}/>}</>:<section className={styles.teamSection} id="teams"><div className={styles.sectionHeading}><h2>{past?'당시 공개된 팀편성':'팀편성'}</h2>{canEdit&&<Button variant="outline" disabled={!data.capabilities.canEditTeams} asChild={data.capabilities.canEditTeams}>{data.capabilities.canEditTeams?<Link href={'/session/'+encodeURIComponent(id)+'/teams/edit?'+query}>팀편성 수정</Link>:<span>팀편성 수정</span>}</Button>}</div><div className={styles.pending}><p>{data.teamPublished?'참석 회원만 팀편성과 경기 순서를 확인할 수 있어요.':past?'당시 공개된 팀편성이 없습니다.':'아직 팀편성이 공개되지 않았어요. 공개되면 이곳에서 팀과 경기 순서를 확인할 수 있어요.'}</p></div>{!past&&!data.teamPublished&&(data.canManage||data.selfStatus==='applied')&&<><p className={styles.previewNote}>화면 구성 예시</p><div className={styles.publishedTeamGrid} aria-label="공개 전 팀편성 화면 구성 예시">{['A','B','C'].map(team=><article className={styles.teamSkeleton} key={team}><h3>팀 이름</h3>{['세터','레프트','레프트','센터','센터','라이트','라이트'].map((pos,i)=><div key={i}><span aria-hidden="true"/><small>{pos}</small></div>)}</article>)}</div></>}</section>}</SideoutShell>;
++ return <SideoutShell title={club.name} subtitle={dateLabel(session.date)+' · 일정 상세'}>{error&&<ReadWarning retry={retry}/>}<header className={styles.detailHeader}><Link className={styles.breadcrumb} href={'/home?'+query}>모임 홈 <span>› 일정 상세</span></Link><div><span className={styles.mark}>{club.mark}</span><div><h1>{club.name}</h1><p>{dateLabel(session.date)}</p></div></div></header><div className={styles.sectionHeading}><h2>일정 정보</h2>{data.capabilities.canEditSchedule&&<Button asChild variant="outline"><Link href={'/session/'+encodeURIComponent(id)+'/schedule/edit?'+query}>일정 수정</Link></Button>}</div><div className={styles.detailLayout}><article className={styles.infoCard}><div className={styles.tabs} role="tablist" aria-label="일정 정보"><button role="tab" aria-selected={tab==='info'} onClick={()=>setTab('info')}>정보</button><button role="tab" aria-selected={tab==='notice'} onClick={()=>setTab('notice')}>공지</button></div><div className={styles.infoContent} role="tabpanel">{tab==='info'?<><h2>운동 일정</h2><div className={styles.timeline}>{[[session.entry,'입장 · 몸풀기'],[session.start,'운동 시작'],[session.end,'종료']].map(([time,label])=><div key={label}><b>{time}</b><span>{label}</span></div>)}</div><dl><div><dt>장소</dt><dd>{session.place}</dd></div><div><dt>정기 운동</dt><dd>매주 {['','월','화','수','목','금','토','일'][club.weekday]}요일</dd></div>{!past&&<div><dt>신청 마감</dt><dd>{new Intl.DateTimeFormat('ko-KR',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Seoul'}).format(new Date(session.deadline))}</dd></div>}</dl></>:<><h2>이번 운동 안내</h2><p>{session.notice||'등록된 공지가 없습니다.'}</p></>}</div></article><article className={styles.joinCard}><h2>함께할 인원</h2><div className={styles.count}><strong>{data.counts.applicants}<small>명</small></strong><RosterButton card={data} detail={data}/></div><div className={styles.progress}><span style={{width:`${Math.min(100,data.counts.applicants/(session.cap??24)*100)}%`}}/></div><>{!past&&<p className={styles.muted}>{new Intl.DateTimeFormat('ko-KR',{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',timeZone:'Asia/Seoul'}).format(new Date(session.deadline))} 마감{data.counts.waiting>0&&` · 대기 ${data.counts.waiting}명`}</p>}{!past&&<ParticipationButton card={data}/>}</></article></div>{shownTeams?<><PublishedTeams teams={shownTeams} savedState={preview?(preview.unpublishedChanges?'changed':'published'):undefined} memberId={viewer.me.memberId} manager={canEdit} past={past} editHref={data.capabilities.canEditTeams?'/session/'+encodeURIComponent(id)+'/teams/edit?'+query:undefined}/>{shownMatches&&<MatchList plan={shownMatches} teams={shownTeams} start={session.start} manager={canEdit} past={past} editHref={data.capabilities.canEditMatches?'/session/'+encodeURIComponent(id)+'/matches/edit?'+query:undefined}/>}</>:<section className={styles.teamSection} id="teams"><div className={styles.sectionHeading}><h2>{past?'당시 공개된 팀편성':'팀편성'}</h2>{canEdit&&<Button variant="outline" disabled={!data.capabilities.canEditTeams} asChild={data.capabilities.canEditTeams}>{data.capabilities.canEditTeams?<Link href={'/session/'+encodeURIComponent(id)+'/teams/edit?'+query}>팀편성 수정</Link>:<span>팀편성 수정</span>}</Button>}</div><div className={styles.pending}><p>{data.teamPublished?'참석 회원만 팀편성과 경기 순서를 확인할 수 있어요.':past?'당시 공개된 팀편성이 없습니다.':'아직 팀편성이 공개되지 않았어요. 공개되면 이곳에서 팀과 경기 순서를 확인할 수 있어요.'}</p></div>{!past&&!data.teamPublished&&(data.canManage||data.selfStatus==='applied')&&<><p className={styles.previewNote}>화면 구성 예시</p><div className={styles.publishedTeamGrid} aria-label="공개 전 팀편성 화면 구성 예시">{['A','B','C'].map(team=><article className={styles.teamSkeleton} key={team}><h3>팀 이름</h3>{['세터','레프트','레프트','센터','센터','라이트','라이트'].map((pos,i)=><div key={i}><span aria-hidden="true"/><small>{pos}</small></div>)}</article>)}</div></>}</section>}</SideoutShell>;
+ }
+--- before/web/components/sideout/match-list.tsx
++++ after/web/components/sideout/match-list.tsx
+@@ -1,8 +1,10 @@
+ import type {MatchPlanRecord,PublishedTeam} from '@/lib/sideout/read-model';
++import {SideoutLink as Link} from './link';
++import {matchTimes} from '@/lib/sideout/match-plan';
+ import {Button} from '../ui/button';
+ import styles from './sideout.module.css';
+-export function MatchList({plan,teams,start,manager=false,past=false}:{plan:MatchPlanRecord;teams:PublishedTeam[];start:string;manager?:boolean;past?:boolean}){
+- const [h,m]=start.split(':').map(Number),at=(i:number)=>{const n=h*60+m+i*20;return `${String(Math.floor(n/60)%24).padStart(2,'0')}:${String(n%60).padStart(2,'0')}`};
++export function MatchList({plan,teams,start,manager=false,past=false,editHref}:{plan:MatchPlanRecord;teams:PublishedTeam[];start:string;manager?:boolean;past?:boolean;editHref?:string}){
++ const times=matchTimes(plan,start);
+  const label=(id:string,rookie:boolean)=>rookie?`신입 ${id.replace(/^R/,'')}팀`:teams.find(t=>t.id===id)?.title??'팀 확인 필요';
+- return <section className={styles.teamSection}><div className={styles.sectionHeading}><div><h2>경기 순서</h2><p className={styles.muted}>{plan.teamCount}팀 · 한 경기 20분</p></div>{manager&&!past&&<Button variant="outline" disabled>경기 순서 수정</Button>}</div>{plan.matches.length?<div className={styles.matchTable}><table><thead><tr><th>순서</th><th>시간</th><th>경기</th></tr></thead><tbody>{plan.matches.map((game,i)=><tr key={game.id} className={game.kind==='rookie'?styles.rookie:''}><td>{i+1}</td><td><time>{at(i)}</time> – {at(i+1)}</td><td><strong>{label(game.home,game.kind==='rookie')}</strong><span> vs </span><strong>{label(game.away,game.kind==='rookie')}</strong></td></tr>)}</tbody></table></div>:<p className={styles.empty}>등록된 경기 순서가 없습니다.</p>}</section>;
++ return <section className={styles.teamSection}><div className={styles.sectionHeading}><div><h2>경기 순서</h2><p className={styles.muted}>{plan.teamCount}팀 · 한 경기 20분</p></div>{manager&&!past&&<Button variant="outline" disabled={!editHref} asChild={!!editHref}>{editHref?<Link href={editHref}>경기 순서 수정</Link>:<span>경기 순서 수정</span>}</Button>}</div>{plan.matches.length?<div className={styles.matchTable}><table><thead><tr><th>순서</th><th>시간</th><th>경기</th></tr></thead><tbody>{plan.matches.map((game,i)=><tr key={game.id} className={game.kind==='rookie'?styles.rookie:''}><td>{i+1}</td><td><time>{times[i].start}</time> – {times[i].end}</td><td><strong>{label(game.home,game.kind==='rookie')}</strong><span> vs </span><strong>{label(game.away,game.kind==='rookie')}</strong></td></tr>)}</tbody></table></div>:<p className={styles.empty}>등록된 경기 순서가 없습니다.</p>}</section>;
+ }
+--- before/web/lib/sideout/match-editor.ts
++++ after/web/lib/sideout/match-editor.ts
+@@ -0,0 +1,13 @@
++import {z} from 'zod';
++import type {ClubRecord,SessionRecord,MatchPlanRecord,RosterRecord} from './read-model';
++export type MatchEditorView={session:SessionRecord;club:ClubRecord;sessionRevision:number;rosterRevision:number;teams:{id:string;title:string}[];plan:MatchPlanRecord;saveVisibility:'attendees'|'draft'};
++const id=z.string().min(1).max(128);
++export const matchPlanSchema=z.object({teamCount:z.number().int().min(3).max(4),rookieTeamCount:z.number().int().min(2).max(4),matches:z.array(z.object({id,kind:z.enum(['regular','rookie']),home:id,away:id}).strict()).min(1).max(100)}).strict();
++export const matchSaveInput=z.object({action:z.literal('save'),sessionRevision:z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER),plan:matchPlanSchema}).strict();
++export type MatchSaveInput=z.infer<typeof matchSaveInput>;
++export function matchSource(roster:RosterRecord){return roster.draft.teams.length?roster.draft:roster.published}
++export function matchSaveVisibility(roster:RosterRecord):MatchEditorView['saveVisibility']{
++ const source=matchSource(roster),published=roster.published;
++ // Team identity, not player assignments: a match-only save must never publish draft players.
++ return source&&published&&source.teams.length===published.teams.length&&source.teams.every(t=>published.teams.some(p=>p.id===t.id))?'attendees':'draft';
++}
+--- before/web/lib/server/sideout-matches.ts
++++ after/web/lib/server/sideout-matches.ts
+@@ -0,0 +1,53 @@
++import {requireBusinessPrincipal} from './business-principal';
++import {canManage} from './sideout-query';
++import {errorResponse} from './sideout-http';
++import {conflict} from './sideout-write-store';
++import type {WriteDependencies} from './sideout-write';
++import {SideoutError,unavailable} from '../sideout/errors';
++import {started} from '../sideout/participation';
++import {matchSaveInput,matchSaveVisibility,matchSource,type MatchEditorView} from '../sideout/match-editor';
++import {generateTeamMatches,validateMatchPlan} from '../sideout/match-plan';
++import {writeEnvelope} from '../sideout/write-model';
++import {hashSessionToken,parseSessionCookie} from '../auth/session-token';
++const denied=()=>new SideoutError('FORBIDDEN',403,'경기 순서를 수정할 권한이 없습니다.');
++const bad=(message='경기 순서 입력을 확인해 주세요.')=>new SideoutError('INVALID_INPUT',400,message);
++export async function handleMatchOrder(request:Request,id:string,deps:WriteDependencies):Promise<Response>{
++ try{
++  const actor=await requireBusinessPrincipal(request,deps.authRepo,deps.now()),session=await deps.store.getSession(id);
++  if(!session)throw new SideoutError('NOT_FOUND',404,'일정을 찾을 수 없습니다.');
++  if(!canManage(actor,session.value.clubId))throw denied();
++  const respond=async(data:unknown)=>{const current=await requireBusinessPrincipal(request,deps.authRepo,deps.now());if(current.memberId!==actor.memberId||current.authorizationVersion!==actor.authorizationVersion)throw denied();return Response.json({ok:true,data},{headers:{'Cache-Control':'private, no-store','Vary':'Cookie'}})};
++  let command:ReturnType<typeof writeEnvelope.parse>|undefined,payload:ReturnType<typeof matchSaveInput.parse>|undefined,hash='';
++  if(request.method==='POST'){
++   if(request.headers.get('origin')!==new URL(request.url).origin)throw denied();
++   if(request.headers.get('content-type')?.split(';')[0]!=='application/json')throw bad();
++   const raw=await request.text();if(raw.length>65536)throw bad();
++   try{command=writeEnvelope.parse(JSON.parse(raw));payload=matchSaveInput.parse(command.payload)}catch{throw bad()}
++   const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify({resource:'match-order',id,...command,payload})));
++   hash=[...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,'0')).join('');
++   const previous=await deps.writeStore.receipt(actor.memberId,command.commandId);if(previous){if(previous.hash!==hash)throw conflict();return await respond(previous.result)}
++  }else if(request.method!=='GET')throw bad();
++  if(session.value.phase!=='open'||started(session.value,deps.now()))throw bad('운동 시작 전 공개 모집 일정에서만 경기 순서를 수정할 수 있습니다.');
++  const roster=await deps.store.getRoster(id);if(!roster)throw unavailable();
++  const source=matchSource(roster.value),teamIds=source?.teams.map(t=>t.id)??[],generated=generateTeamMatches(teamIds);
++  if(!generated)throw bad('팀편성을 3~4팀으로 먼저 저장해 주세요.');
++  const visibility=matchSaveVisibility(roster.value);
++  if(request.method==='GET'){
++   const club=await deps.store.getClub(session.value.clubId);if(!club)throw unavailable();
++   const saved=roster.value.draft.teams.length?roster.value.draftMatches:roster.value.publishedMatches;
++   const plan=saved&&!validateMatchPlan(saved,teamIds)?saved:generated;
++   // Do not return a mixed snapshot if team/schedule changed during the read.
++   const latest=await deps.store.getSession(id);if(!latest||latest.revision!==session.revision)throw conflict();
++   if(!canManage(actor,latest.value.clubId))throw denied();
++   const view:MatchEditorView={session:session.value,club,sessionRevision:session.revision,rosterRevision:roster.revision,teams:source!.teams.map(({id,title})=>({id,title})),plan,saveVisibility:visibility};
++   return await respond(view);
++  }
++  if(!command||!payload)throw bad();
++  if(command.expectedRevision!==roster.revision||payload.sessionRevision!==session.revision)throw conflict();
++  const error=validateMatchPlan(payload.plan,teamIds);if(error)throw bad(error);
++  const next=structuredClone(roster.value);next.draftMatches=structuredClone(payload.plan);
++  if(visibility==='attendees')next.publishedMatches=structuredClone(payload.plan);
++  const result=await deps.writeStore.commit({actor,tokenHash:await hashSessionToken(parseSessionCookie(request.headers.get('cookie'))!),now:deps.now(),commandId:command.commandId,hash,guards:[{key:`sideout:session:${id}`,revision:session.revision},{key:`sideout:roster:${id}`,revision:roster.revision}],writes:[{key:`sideout:roster:${id}`,data:next,revision:roster.revision+1}],result:{resourceId:id,revision:roster.revision+1}});
++  return await respond(result);
++ }catch(error){return errorResponse(error)}
++}
+--- before/web/app/api/sessions/[id]/matches/route.ts
++++ after/web/app/api/sessions/[id]/matches/route.ts
+@@ -0,0 +1,3 @@
++import {sideoutMatchRoute} from '@/lib/server/sideout-dependencies';
++export async function GET(request:Request,{params}:{params:Promise<{id:string}>}){return sideoutMatchRoute(request,(await params).id)}
++export async function POST(request:Request,{params}:{params:Promise<{id:string}>}){return sideoutMatchRoute(request,(await params).id)}
+--- before/web/app/session/[id]/matches/edit/page.tsx
++++ after/web/app/session/[id]/matches/edit/page.tsx
+@@ -0,0 +1,2 @@
++import {MatchEditorScreen} from '@/components/sideout/match-editor';
++export default async function Page({params}:{params:Promise<{id:string}>}){return <MatchEditorScreen id={(await params).id}/>}
+--- before/web/components/sideout/match-editor.tsx
++++ after/web/components/sideout/match-editor.tsx
+@@ -0,0 +1,71 @@
++'use client';
++import {useCallback,useEffect,useRef,useState,type PointerEvent as ReactPointerEvent} from 'react';
++import {useSearchParams} from 'next/navigation';
++import {GripVertical,Plus,Save,Trash2} from 'lucide-react';
++import {Button} from '../ui/button';
++import {SideoutShell} from './shell';
++import {ReadState,useRead,useSideout} from './access';
++import {useEditGuard} from './use-edit-guard';
++import {dateLabel} from './home';
++import {createCommandId} from '@/lib/sideout/command-id';
++import {SideoutClientError} from '@/lib/sideout-client';
++import type {MatchEditorView} from '@/lib/sideout/match-editor';
++import type {MatchPlanRecord} from '@/lib/sideout/read-model';
++import {toggleRookieMatches,setRookieTeamCount,addRookieMatch,removeRookieMatch,rookiePairOptions,setRookieMatchPair,moveMatchTo,matchTimes} from '@/lib/sideout/match-plan';
++import styles from './match-editor.module.css';
++type Cached={data:MatchEditorView;plan:MatchPlanRecord;command?:{id:string;signature:string};stale?:boolean};
++type Drag={id:string;pointerId:number;x:number;y:number;overId:string};
++function Editor({data,suffix}:{data:MatchEditorView;suffix:string}){
++ const {client,drafts,actions}=useSideout(),key='matches:'+data.session.id;
++ const [cache,setCache]=useState<Cached>(()=>drafts.get(key) as Cached??{data,plan:structuredClone(data.plan)}),current=useRef(cache);
++ const [busy,setBusy]=useState(false),operation=useRef(false),[error,setError]=useState(''),[notice,setNotice]=useState(''),[announcement,setAnnouncement]=useState('');
++ const [drag,setDrag]=useState<Drag|null>(null),pointer=useRef<Drag|null>(null),frame=useRef<number|null>(null);
++ const dirty=JSON.stringify(cache.plan)!==JSON.stringify(cache.data.plan),guard=useEditGuard(dirty||busy,{onLeave:()=>drafts.delete(key)}),back='/session/'+encodeURIComponent(data.session.id)+suffix;
++ const update=(next:Cached)=>{current.current=next;drafts.set(key,next);setCache(next)};
++ const change=(plan:MatchPlanRecord)=>{if(operation.current||current.current.stale)return;update({...current.current,plan});setNotice('');setError('')};
++ const stopDrag=()=>{pointer.current=null;setDrag(null);if(frame.current!==null){cancelAnimationFrame(frame.current);frame.current=null}};
++ useEffect(()=>()=>{if(frame.current!==null)cancelAnimationFrame(frame.current)},[]);
++ const name=(id:string,rookie:boolean)=>rookie?`신입 ${id.slice(1)}팀`:cache.data.teams.find(t=>t.id===id)?.title??'팀 확인 필요';
++ const move=(id:string,to:number)=>{const before=current.current.plan,after=moveMatchTo(before,id,to);if(after!==before){change(after);setAnnouncement(`${to+1}번째로 이동했습니다.`)}};
++ function track(x:number,y:number){const p=pointer.current;if(!p)return;const el=document.elementFromPoint?.(x,y)?.closest<HTMLElement>('[data-match-id]');const next={...p,x,y,overId:el?.dataset.matchId??p.overId};pointer.current=next;setDrag(next)}
++ function scrollDrag(){const p=pointer.current;if(!p)return;const top=document.querySelector('[data-match-actions]')?.getBoundingClientRect().bottom??80;const delta=p.y<top+40?-10:p.y>window.innerHeight-64?10:0;if(delta){window.scrollBy(0,delta);track(p.x,p.y)}frame.current=requestAnimationFrame(scrollDrag)}
++ function startDrag(e:ReactPointerEvent<HTMLButtonElement>,id:string){if(e.button!==0||operation.current||current.current.stale)return;e.preventDefault();e.currentTarget.focus({preventScroll:true});e.currentTarget.setPointerCapture(e.pointerId);const next={id,pointerId:e.pointerId,x:e.clientX,y:e.clientY,overId:id};pointer.current=next;setDrag(next);frame.current=requestAnimationFrame(scrollDrag)}
++ function endDrag(e:ReactPointerEvent<HTMLButtonElement>){if(pointer.current?.pointerId!==e.pointerId)return;track(e.clientX,e.clientY);const p=pointer.current!;stopDrag();move(p.id,current.current.plan.matches.findIndex(m=>m.id===p.overId))}
++ async function save(){
++  if(operation.current||current.current.stale||pointer.current)return;operation.current=true;setBusy(true);setError('');setNotice('');
++  const c=current.current,payload={action:'save' as const,sessionRevision:c.data.sessionRevision,plan:c.plan},signature=JSON.stringify({revision:c.data.rosterRevision,payload}),commandId=c.command?.signature===signature?c.command.id:createCommandId();update({...c,command:{signature,id:commandId}});
++  try{const result=await client.saveMatches(data.session.id,{commandId,expectedRevision:c.data.rosterRevision,payload});update({data:{...c.data,plan:structuredClone(c.plan),rosterRevision:result.revision},plan:c.plan});guard.saved();setNotice('저장했습니다. 계속 수정할 수 있습니다.')}
++  catch(e){setError((e as Error).message);if(e instanceof SideoutClientError){if(e.status===409)update({...current.current,stale:true});if(e.status===401||e.code==='PASSWORD_CHANGE_REQUIRED')void actions.refresh()}}
++  finally{operation.current=false;setBusy(false)}
++ }
++ async function reload(){if(operation.current||dirty&&!window.confirm('작성 중인 경기 순서를 버리고 최신 정보를 불러올까요?'))return;operation.current=true;stopDrag();setBusy(true);setError('');try{const fresh=await client.matchEditor(data.session.id);update({data:fresh,plan:structuredClone(fresh.plan)});guard.saved();setNotice('최신 경기 순서를 불러왔습니다.')}catch(e){setError((e as Error).message)}finally{operation.current=false;setBusy(false)}}
++ const plan=cache.plan,rookies=plan.matches.filter(m=>m.kind==='rookie').length,times=matchTimes(plan,cache.data.session.start);
++ const minutes=(s:string)=>{const [h,m]=s.split(':').map(Number);return h*60+m},overflow=minutes(cache.data.session.start)+plan.matches.length*20>minutes(cache.data.session.end);
++ const locked=busy||cache.stale;
++ return <SideoutShell title={cache.data.club.name} subtitle={dateLabel(cache.data.session.date)+' · 경기 순서 수정'} backHref={back} backLabel="일정 상세로 돌아가기">
++  <section className={styles.editor} aria-label="경기 순서 수정">
++   <header className={styles.actions} data-match-actions><div><h1>경기 순서 수정</h1><small>{dirty?'저장하지 않은 변경':'저장된 경기 순서'}</small></div><div><Button variant="outline" disabled={busy||!!drag} onClick={()=>guard.cancel(back)}>취소</Button><Button disabled={locked||!!drag} onClick={()=>void save()}><Save/>{busy?'처리 중…':'저장'}</Button></div></header>
++   <p className={styles.visibility}>{cache.data.saveVisibility==='attendees'?'저장하면 참석 회원에게 바로 반영됩니다.':'저장한 순서는 팀편성을 공개할 때 함께 반영됩니다.'}</p>
++   {notice&&<p role="status" className={styles.message}>{notice}</p>}
++   {error&&<div role="alert" className={styles.error}><p>{error}</p>{cache.stale&&<Button variant="outline" disabled={busy} onClick={()=>void reload()}>최신 정보 불러오기</Button>}</div>}
++   <fieldset disabled={locked||!!drag} className={styles.settings}>
++    <div className={styles.toggle}><label htmlFor="rookie-games">신입 경기 포함</label><button id="rookie-games" type="button" role="switch" aria-checked={rookies>0} onClick={()=>change(toggleRookieMatches(plan,!rookies))}><span/></button></div>
++    {rookies>0&&<div className={styles.rookieSettings}><label>신입팀 수<select value={plan.rookieTeamCount} onChange={e=>change(setRookieTeamCount(plan,Number(e.target.value)))}>{[2,3,4].map(n=><option value={n} key={n}>{n}팀</option>)}</select></label><Button variant="outline" disabled={plan.matches.length>=100} onClick={()=>change(addRookieMatch(plan))}><Plus/>신입 경기 추가</Button></div>}
++   </fieldset>
++   <div className={styles.summary}><strong>{plan.teamCount}팀 · 일반 {plan.matches.length-rookies}경기 · 신입 {rookies}경기</strong><span>경기당 20분 · 손잡이를 끌어 순서 변경</span></div>
++   <p id="match-drag-help" className={styles.srOnly}>순서 이동 버튼에 초점을 두고 위 또는 아래 화살표 키를 눌러 이동할 수 있습니다. 드래그 중 Escape를 누르면 취소합니다.</p><p role="status" className={styles.srOnly}>{announcement}</p>
++   <ol className={styles.list} aria-label="경기 순서 편집">{plan.matches.map((game,index)=><li key={game.id} data-match-id={game.id} data-kind={game.kind} className={`${styles.row} ${game.kind==='rookie'?styles.rookie:''} ${drag?.id===game.id?styles.dragging:''} ${drag?.overId===game.id&&drag.id!==game.id?styles.target:''}`}>
++    <div className={styles.number}><strong>{index+1}</strong><span>{times[index].start}–{times[index].end}</span></div>
++    <div className={styles.pair}><small>{game.kind==='rookie'?'신입 경기':'일반 경기'}</small>{game.kind==='regular'?<strong>{name(game.home,false)} <span>vs</span> {name(game.away,false)}</strong>:<select disabled={locked||!!drag} aria-label={`${index+1}번째 신입 경기 대진`} value={`${game.home}|${game.away}`} onChange={e=>{const [home,away]=e.target.value.split('|');change(setRookieMatchPair(plan,game.id,home,away))}}>{rookiePairOptions(plan.rookieTeamCount).map(([home,away])=><option key={home+away} value={home+'|'+away}>{name(home,true)} vs {name(away,true)}</option>)}</select>}</div>
++    <div className={styles.rowActions}><Button className={styles.handle} variant="ghost" size="icon" disabled={locked} aria-label={`${index+1}번째 경기 순서 이동`} aria-describedby="match-drag-help" aria-keyshortcuts="ArrowUp ArrowDown" onPointerDown={e=>startDrag(e,game.id)} onPointerMove={e=>{if(pointer.current?.pointerId===e.pointerId)track(e.clientX,e.clientY)}} onPointerUp={endDrag} onPointerCancel={stopDrag} onLostPointerCapture={()=>{if(pointer.current)stopDrag()}} onKeyDown={e=>{if(e.key==='Escape'){stopDrag();return}if(!pointer.current&&(e.key==='ArrowUp'||e.key==='ArrowDown')){e.preventDefault();move(game.id,index+(e.key==='ArrowUp'?-1:1))}}}><GripVertical/></Button>{game.kind==='rookie'&&<Button variant="ghost" size="icon" disabled={locked||!!drag} aria-label={`${index+1}번째 신입 경기 삭제`} onClick={()=>change(removeRookieMatch(plan,game.id))}><Trash2/></Button>}</div>
++   </li>)}</ol>
++   {overflow&&<p role="alert" className={styles.warning}>마지막 경기 종료는 {times.at(-1)?.end}입니다. 운동 종료 시각({cache.data.session.end})을 넘습니다. 경기 수를 확인해 주세요.</p>}
++  </section>
++ </SideoutShell>;
++}
++export function MatchEditorScreen({id}:{id:string}){
++ const {client,actions}=useSideout(),params=useSearchParams(),load=useCallback((signal:AbortSignal)=>client.matchEditor(id,signal),[client,id]),auth=useCallback(()=>void actions.refresh(),[actions.refresh]),{data,error,retry}=useRead(load,auth);
++ const q=new URLSearchParams();for(const key of ['weekStart','filter']){const v=params.get(key);if(v)q.set(key,v)}
++ if(!data)return <SideoutShell title="경기 순서 수정" backHref={'/session/'+encodeURIComponent(id)+(q.size?'?'+q:'')} backLabel="일정 상세로 돌아가기"><ReadState error={error} retry={retry}/></SideoutShell>;
++ return <Editor key={id} data={data} suffix={q.size?'?'+q:''}/>;
++}
+--- before/web/components/sideout/match-editor.module.css
++++ after/web/components/sideout/match-editor.module.css
+@@ -0,0 +1,6 @@
++.editor{max-width:760px;margin:0 auto;padding-bottom:max(24px,env(safe-area-inset-bottom));color:#193047}
++.actions{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;background:#f5f7fa;border-bottom:1px solid #d8e3ee}.actions h1{font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1.4}.actions small{font-size:12px;color:#61768c}.actions>div:last-child{display:flex;gap:8px}.actions button{min-height:44px;min-width:76px}
++.visibility{font-size:13px;color:#50687e;margin:12px 0 16px}.settings{border:1px solid #d8e3ee;border-radius:12px;padding:14px 16px;background:#fff;min-width:0}.toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;font-weight:600}.toggle button{display:flex;align-items:center;width:52px;height:44px;padding:0 5px;background:#e8edf2;border:1px solid #aebecd;border-radius:24px;cursor:pointer}.toggle button span{display:block;width:22px;height:22px;background:#fff;border:1px solid #aebecd;border-radius:50%}.toggle button[aria-checked=true]{background:var(--primary);border-color:var(--primary);justify-content:flex-end}.toggle button:focus-visible,.editor select:focus-visible{outline:2px solid var(--primary);outline-offset:3px}.editor button:disabled{cursor:default;opacity:.5}.rookieSettings{display:flex;gap:12px;align-items:end;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid #edf1f5}.rookieSettings label{display:flex;align-items:center;gap:12px;font-size:13px}.editor select{min-height:44px;border:1px solid #cad8e5;background:#fff;border-radius:7px;padding:6px 8px;max-width:100%;font-size:16px;color:#193047}.rookieSettings button{min-height:44px}
++.summary{display:flex;flex-wrap:wrap;justify-content:space-between;gap:5px;margin:20px 0 10px;font-size:13px}.summary span{color:#61768c;font-size:12px}.list{padding:0;margin:0;list-style:none;border:1px solid #d8e3ee;border-radius:12px;overflow:hidden;background:white}.row{display:grid;grid-template-columns:96px minmax(0,1fr) 92px;align-items:center;gap:10px;padding:12px 10px;min-height:88px;border-bottom:1px solid #e1e8ef;scroll-margin:150px}.row:last-child{border-bottom:0}.rookie{background:#eef5f2}.number{display:flex;flex-direction:column;gap:4px;font-variant-numeric:tabular-nums}.number strong{font-size:16px}.number span{font-size:11px;color:#50687e}.pair{display:flex;min-width:0;flex-direction:column;gap:4px}.pair small{font-size:11px;color:#61768c}.rookie .pair small{color:#426657}.pair strong{font-size:15px;overflow-wrap:anywhere}.pair strong span{font-weight:400;font-size:12px;color:#61768c}.rowActions{display:flex;justify-content:flex-end;align-items:center;gap:2px}.rowActions button{width:44px;height:44px}.handle{touch-action:none;cursor:grab;user-select:none}.handle:active{cursor:grabbing}.dragging{background:#e3edf6}.target{box-shadow:inset 0 3px 0 var(--primary);background:#f0f5fa}.warning{margin-top:16px;padding:12px 14px;background:#fff5df;border-radius:8px;color:#78501b;font-size:13px}.message{padding:10px 0;font-size:13px;color:#356449}.error{padding:12px;background:#fff1ed;color:#8e3b29;border-radius:8px;margin:12px 0}.error button{margin-top:8px}.srOnly{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
++@media(max-width:760px){.actions{top:64px}.actions h1{font-size:18px}.actions button{min-width:66px;padding-inline:10px}.row{grid-template-columns:76px minmax(0,1fr) 44px;gap:8px;padding:10px}.rowActions{flex-direction:column}.pair strong{font-size:14px}.pair select{width:100%;padding-inline:4px;font-size:14px}.rookieSettings{gap:8px}.rookieSettings label{gap:6px}.rookieSettings button{font-size:12px;padding-inline:8px}}
++@media(max-width:360px){.actions{gap:5px}.actions h1{font-size:16px}.actions button{min-width:57px}.actions>div:last-child{gap:5px}.row{grid-template-columns:66px minmax(0,1fr) 44px;gap:5px}.number span{font-size:10px}.pair select{font-size:13px}.rookieSettings label{font-size:12px}}
+--- before/web/tests/sideout-match-plan.test.ts
++++ after/web/tests/sideout-match-plan.test.ts
+@@ -0,0 +1,33 @@
++import {it,expect} from 'vitest';
++import {generateTeamMatches,toggleRookieMatches,setRookieTeamCount,addRookieMatch,setRookieMatchPair,moveMatchTo,removeRookieMatch,matchTimes,validateMatchPlan} from '../lib/sideout/match-plan';
++it('keeps every regular game when toggling rookies and places defaults between rounds or around four teams',()=>{
++ const three=generateTeamMatches(['x','y','z'])!,four=generateTeamMatches(['x','y','z','q'])!;
++ expect(three.matches.map(m=>m.kind)).toEqual(['regular','regular','regular','rookie','regular','regular','regular','rookie','regular','regular','regular']);
++ expect(four.matches.map(m=>m.kind)).toEqual(['rookie','regular','regular','regular','regular','regular','regular','rookie']);
++ const moved=moveMatchTo(three,'regular-1',10),off=toggleRookieMatches(moved,false);
++ expect(off.matches.map(m=>m.id)).toEqual(['regular-2','regular-3','regular-4','regular-5','regular-6','regular-7','regular-8','regular-9','regular-1']);
++ expect(toggleRookieMatches(off,true).matches.filter(m=>m.kind==='regular')).toEqual(off.matches);
++ expect(validateMatchPlan(off,['x','y','z'])).toBe('');
++});
++it('cycles rookie opponents for 2–4 teams without changing regular opponents; add/delete and explicit pair work',()=>{
++ let p=setRookieTeamCount(generateTeamMatches(['x','y','z'])!,4);p=addRookieMatch(p);
++ expect(p.matches.filter(m=>m.kind==='rookie').map(m=>[m.home,m.away])).toEqual([['R1','R2'],['R3','R4'],['R1','R3']]);
++ p=setRookieMatchPair(p,'rookie-3','R2','R4');expect(p.matches.at(-1)).toMatchObject({home:'R2',away:'R4'});
++ expect(removeRookieMatch(p,'regular-1').matches).toHaveLength(12);
++ expect(removeRookieMatch(p,'rookie-3').matches).toHaveLength(11);
++ expect(setRookieTeamCount(p,2).matches.filter(m=>m.kind==='rookie').every(m=>m.home==='R1'&&m.away==='R2')).toBe(true);
++});
++it('rejects malformed schedules, missing regular games, duplicates and wrong teams; accepts reordered complete plan',()=>{
++ const p=generateTeamMatches(['x','y','z'])!;
++ expect(validateMatchPlan(moveMatchTo(p,'regular-1',5),['z','x','y'])).toBe('');
++ for(const bad of [{...p,matches:p.matches.slice(1)},{...p,matches:[...p.matches,p.matches[0]]},{...p,teamCount:4},{...p,rookieTeamCount:5},{...p,matches:p.matches.map((m,i)=>i?m:{...m,home:'alien'})},{...p,matches:p.matches.map((m,i)=>i?m:{...m,away:m.home})}])expect(validateMatchPlan(bad,['x','y','z'])).not.toBe('');
++ expect(validateMatchPlan(p,['x','y'])).not.toBe('');
++});
++it('recomputes twenty minute times after moving games and reports next day explicitly',()=>{
++ expect(matchTimes(generateTeamMatches(['x','y','z'])!,'08:30')[1]).toEqual({start:'08:50',end:'09:10'});
++ expect(matchTimes(generateTeamMatches(['x','y','z'])!,'23:50')[0]).toEqual({start:'23:50',end:'다음날 00:10'});
++});
++it.each([3,4])('restores sequential rookie opponents for %i rookie teams around the four-team round',count=>{
++ const configured=setRookieTeamCount(generateTeamMatches(['a','b','c','d'])!,count),on=toggleRookieMatches(toggleRookieMatches(configured,false),true);
++ expect(on.matches.filter(m=>m.kind==='rookie').map(m=>[m.home,m.away])).toEqual(count===3?[['R1','R2'],['R2','R3']]:[['R1','R2'],['R3','R4']]);
++});
+--- before/web/tests/sideout-match-storage.test.ts
++++ after/web/tests/sideout-match-storage.test.ts
+@@ -0,0 +1,48 @@
++import {it,expect} from 'vitest';
++import {queryFixture} from './helpers/sideout-fixture';
++import {makeSideoutWriteStore} from '../lib/server/sideout-write-store';
++import {handleMatchOrder} from '../lib/server/sideout-matches';
++import {generateTeamMatches,toggleRookieMatches} from '../lib/sideout/match-plan';
++import {requireBusinessPrincipal} from '../lib/server/business-principal';
++import {getSessionView} from '../lib/server/sideout-query';
++import {session,roster,ids} from './fixtures/sideout';
++const teams=[{id:'A',title:'A팀',players:roster.published!.teams[0].players},{id:'B',title:'B팀',players:[]},{id:'C',title:'C팀',players:[]}];
++async function fixture(){const f=await queryFixture(),deps={...f.deps,writeStore:makeSideoutWriteStore(f.db)},plan=generateTeamMatches(['A','B','C'])!;
++ f.put('roster',session.id,{...roster,draft:{teams},published:{teams},draftMatches:plan,publishedMatches:plan});
++ const requests=new Map<string|null,Request>();
++ async function call(actor:string|null,payload?:unknown,revision=1,key=crypto.randomUUID(),origin='http://local'){
++ if(!requests.has(actor))requests.set(actor,await f.request(actor));const req=requests.get(actor)!;return handleMatchOrder(payload===undefined?req:new Request(req.url,{method:'POST',headers:{...Object.fromEntries(req.headers),origin,'content-type':'application/json'},body:JSON.stringify({commandId:key,expectedRevision:revision,payload})}),session.id,deps)}
++ const payload={action:'save',sessionRevision:1,plan:toggleRookieMatches(plan,false)};
++ return {...f,deps,plan,payload,call};
++}
++it('authorized save updates only match snapshots, replay is idempotent and attendees read the result',async()=>{
++ const f=await fixture();try{
++ const before=(await f.deps.store.getRoster(session.id))!,key=crypto.randomUUID();
++ const read=await f.call(ids.operator);expect(read.status).toBe(200);expect((await read.json() as any).data.saveVisibility).toBe('attendees');
++ expect((await f.call(ids.master,f.payload,1,key)).status).toBe(200);expect((await f.call(ids.master,f.payload,1,key)).status).toBe(200);
++ const after=(await f.deps.store.getRoster(session.id))!;expect(after.revision).toBe(2);expect(after.value.draftMatches!.matches).toHaveLength(9);expect(after.value.publishedMatches).toEqual(after.value.draftMatches);
++ expect(after.value.participants).toEqual(before.value.participants);expect(after.value.published).toEqual(before.value.published);expect(after.value.draft).toEqual(before.value.draft);
++ const view=await getSessionView(await requireBusinessPrincipal(await f.request(ids.applicant),f.deps.authRepo,f.now),session.id,f.deps);expect(view.publishedMatches!.matches).toHaveLength(9);
++ expect((await f.call(ids.master,{...f.payload,plan:f.plan},1,key)).status).toBe(409);expect((await f.call(ids.master,f.payload,1)).status).toBe(409);
++ }finally{f.close()}
++});
++it('different draft team IDs keep the public matches intact and never expose draft teams to attendees',async()=>{
++ const f=await fixture();try{
++ const old=(await f.deps.store.getRoster(session.id))!;const draft={teams:teams.map(t=>({...t,id:t.id+'new'}))};f.put('roster',session.id,{...old.value,draft,draftMatches:generateTeamMatches(draft.teams.map(t=>t.id))});
++ const read=await f.call(ids.master);expect((await read.json() as any).data.saveVisibility).toBe('draft');
++ expect((await f.call(ids.master,{...f.payload,plan:toggleRookieMatches(generateTeamMatches(['Anew','Bnew','Cnew'])!,false)})).status).toBe(200);
++ const next=(await f.deps.store.getRoster(session.id))!;expect(next.value.publishedMatches).toEqual(old.value.publishedMatches);expect(next.value.published).toEqual(old.value.published);
++ }finally{f.close()}
++});
++it('draft player edits with same team IDs are never published by a match save',async()=>{
++ const f=await fixture();try{const old=(await f.deps.store.getRoster(session.id))!;f.put('roster',session.id,{...old.value,draft:{teams:teams.map(t=>({...t,players:[]}))}});expect((await f.call(ids.master,f.payload)).status).toBe(200);expect((await f.deps.store.getRoster(session.id))!.value.published).toEqual(old.value.published)}finally{f.close()}
++});
++it('anonymous, members, foreign club staff and cross-origin posts cannot edit',async()=>{
++ const f=await fixture();try{for(const actor of [null,ids.applicant,ids.waiter]){expect((await f.call(actor)).status).toBe(actor?403:401);expect((await f.call(actor,f.payload)).status).toBe(actor?403:401)}expect((await f.call(ids.master,f.payload,1,crypto.randomUUID(),'http://evil')).status).toBe(403);f.put('session',session.id,{...session,clubId:'club-test-heroes'});expect((await f.call(ids.operator)).status).toBe(403)}finally{f.close()}
++});
++it.each(['roster','session','actor'] as const)('rejects concurrent %s changes atomically',async change=>{
++ const f=await fixture();try{const commit=f.deps.writeStore.commit.bind(f.deps.writeStore);f.deps.writeStore.commit=async input=>{if(change==='actor')f.sqlite.prepare('UPDATE auth_members SET active=0,auth_version=auth_version+1 WHERE id=?').run(ids.master);else if(change==='session')f.put('session',session.id,session,2);else f.put('roster',session.id,(await f.deps.store.getRoster(session.id))!.value,2);return commit(input)};expect((await f.call(ids.master,f.payload)).status).toBe(409);expect((await f.deps.store.getRoster(session.id))!.value.draftMatches).toEqual(f.plan)}finally{f.close()}
++});
++it.each(['started','draft','two','bad-games'] as const)('rejects %s edit without mutation',async state=>{
++ const f=await fixture();try{if(state==='started')f.now.setTime(Date.parse(session.date+'T'+session.start+':00+09:00'));if(state==='draft')f.put('session',session.id,{...session,phase:'draft'});if(state==='two')f.put('roster',session.id,{...roster,draft:{teams:teams.slice(0,2)}});const payload=structuredClone(f.payload);if(state==='bad-games')payload.plan.matches.pop();expect((await f.call(ids.master,payload)).status).toBe(400);expect((await f.deps.store.getRoster(session.id))!.revision).toBe(1)}finally{f.close()}
++});
+--- before/web/tests/sideout-match-editor.test.tsx
++++ after/web/tests/sideout-match-editor.test.tsx
+@@ -0,0 +1,37 @@
++// @vitest-environment jsdom
++import React from 'react';
++import {it,expect,vi,afterEach} from 'vitest';
++import {render,screen,fireEvent,waitFor,cleanup} from '@testing-library/react';
++import {SideoutAccess} from '../components/sideout/access';
++import {MatchEditorScreen} from '../components/sideout/match-editor';
++import {createMemberAccessClient} from '../lib/member-access-client';
++import {createSideoutClient} from '../lib/sideout-client';
++import {generateTeamMatches} from '../lib/sideout/match-plan';
++import {safeReturnPath} from '../lib/sideout/navigation';
++import {clubs,ids,session} from './fixtures/sideout';
++vi.mock('next/navigation',()=>({usePathname:()=>'/session/test/matches/edit',useSearchParams:()=>new URLSearchParams('filter=favorites')}));
++afterEach(()=>{cleanup();vi.restoreAllMocks()});
++function setup(){
++ vi.spyOn(window,'scrollTo').mockImplementation(()=>{});let mode='ok',revision=1;
++ const auth={...createMemberAccessClient(),session:async()=>({state:'active' as const,me:{memberId:ids.master,loginId:'시험',displayName:'마스터',homeClubId:null},authorizationVersion:1})};
++ let plan=generateTeamMatches(['A','B','C'])!;const writes:any[]=[];
++ const client=createSideoutClient(async(path,options)=>{if(options?.method==='POST'){const body=JSON.parse(options.body as string);writes.push(body);if(mode==='offline')throw Error();if(mode==='conflict')return Response.json({ok:false,error:{code:'CONFLICT',message:'최신 정보를 확인해 주세요.'}},{status:409});plan=body.payload.plan;revision++;return Response.json({ok:true,data:{resourceId:session.id,revision}})}return Response.json({ok:true,data:String(path).includes('/api/clubs')?{clubs,serverNow:'2026-10-02T00:00:00Z',capabilities:{canManageMembers:true,managedClubIds:[clubs[0].id]}}:{session:{...session,end:'09:00'},club:clubs[0],sessionRevision:1,rosterRevision:revision,teams:['A','B','C'].map(id=>({id,title:id+'팀'})),plan,saveVisibility:'attendees'}})});
++ render(<SideoutAccess authClient={auth} client={client}><MatchEditorScreen id={session.id}/></SideoutAccess>);return {writes,setMode:(v:string)=>mode=v};
++}
++it('reorders with keyboard, controls rookie groups, recalculates times and saves while staying in editor',async()=>{
++ const f=setup();await screen.findByRole('switch',{name:'신입 경기 포함'});
++ fireEvent.keyDown(screen.getByRole('button',{name:'1번째 경기 순서 이동'}),{key:'ArrowDown'});
++ fireEvent.change(screen.getByLabelText('신입팀 수'),{target:{value:'4'}});fireEvent.click(screen.getByRole('button',{name:'신입 경기 추가'}));
++ expect(screen.getByText(/운동 종료 시각/)).toBeTruthy();fireEvent.click(screen.getByRole('button',{name:'저장'}));await screen.findByText('저장했습니다. 계속 수정할 수 있습니다.');
++ expect(f.writes[0].payload.plan.matches[0]).toMatchObject({home:'B',away:'C'});expect(f.writes[0].payload.plan.rookieTeamCount).toBe(4);expect(f.writes[0].payload.plan.matches).toHaveLength(12);
++ fireEvent.click(screen.getByRole('switch',{name:'신입 경기 포함'}));expect(screen.queryByLabelText('신입팀 수')).toBeNull();fireEvent.click(screen.getByRole('button',{name:'저장'}));await waitFor(()=>expect(f.writes).toHaveLength(2));expect(f.writes[1].expectedRevision).toBe(2);expect(f.writes[1].payload.plan.matches).toHaveLength(9);
++});
++it('preserves edits on network failure and retries with the same idempotency key',async()=>{
++ const f=setup();await screen.findByRole('switch',{name:'신입 경기 포함'});fireEvent.click(screen.getByRole('switch',{name:'신입 경기 포함'}));f.setMode('offline');fireEvent.click(screen.getByRole('button',{name:'저장'}));await screen.findByText('연결을 확인하고 다시 시도해 주세요.');f.setMode('ok');fireEvent.click(screen.getByRole('button',{name:'저장'}));await screen.findByText('저장했습니다. 계속 수정할 수 있습니다.');expect(f.writes[0].commandId).toBe(f.writes[1].commandId);expect(f.writes[1].payload.plan.matches).toHaveLength(9);
++});
++it('locks stale edits after conflict and explicitly reloads the authoritative plan',async()=>{
++ const f=setup();await screen.findByRole('switch',{name:'신입 경기 포함'});fireEvent.click(screen.getByRole('switch',{name:'신입 경기 포함'}));f.setMode('conflict');fireEvent.click(screen.getByRole('button',{name:'저장'}));await screen.findByText('최신 정보를 확인해 주세요.');expect((screen.getByRole('button',{name:'저장'}) as HTMLButtonElement).disabled).toBe(true);vi.spyOn(window,'confirm').mockReturnValue(true);fireEvent.click(screen.getByRole('button',{name:'최신 정보 불러오기'}));await waitFor(()=>expect(screen.getByRole('switch',{name:'신입 경기 포함'}).getAttribute('aria-checked')).toBe('true'));expect((screen.getByRole('button',{name:'저장'}) as HTMLButtonElement).disabled).toBe(false);
++});
++it('keeps dirty edits when cancel is dismissed; login return retains matches route context',async()=>{
++ setup();await screen.findByRole('switch',{name:'신입 경기 포함'});fireEvent.click(screen.getByRole('switch',{name:'신입 경기 포함'}));vi.spyOn(window,'confirm').mockReturnValue(false);fireEvent.click(screen.getByRole('button',{name:'취소'}));expect(screen.getByRole('switch',{name:'신입 경기 포함'}).getAttribute('aria-checked')).toBe('false');expect(safeReturnPath('/session/id/matches/edit?filter=favorites')).toBe('/session/id/matches/edit?filter=favorites');
++});

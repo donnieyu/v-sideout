@@ -1,0 +1,26 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "emptyTilesHidden": true,
+      "extraSectionHidden": true,
+      "semanticPositionPreserved": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "emptyTilesHidden": true,
+      "extraSectionHidden": true,
+      "semanticPositionPreserved": true,
+      "noOverflow": true
+    },
+    {
+      "withdrawnNoticeRemoved": true,
+      "editableEmptySlotsRestored": true,
+      "republishHidesEmptySlots": true,
+      "userDataPreserved": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false
+}

@@ -1,0 +1,60 @@
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-query.test.ts (27 tests | 7 failed) 71ms
+   × past weeks list only the actual participation of waiter 3ms
+   × past weeks list only the actual participation of cancelled 1ms
+   × past weeks list only the actual participation of outsider 1ms
+   × past weeks list only the actual participation of master 1ms
+   × past weeks list only the actual participation of operator 1ms
+   × registration opportunity uses the exact server start boundary 2026-09-30T01:00:00Z 1ms
+   × registration opportunity uses the exact server start boundary 2026-09-30T01:00:01Z 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-query.test.ts > past weeks list only the actual participation of waiter
+ FAIL  tests/sideout-query.test.ts > past weeks list only the actual participation of cancelled
+ FAIL  tests/sideout-query.test.ts > past weeks list only the actual participation of outsider
+ FAIL  tests/sideout-query.test.ts > past weeks list only the actual participation of master
+ FAIL  tests/sideout-query.test.ts > past weeks list only the actual participation of operator
+AssertionError: expected [ 'past-open' ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "past-open",
++ ]
+
+ ❯ tests/sideout-query.test.ts:27:42
+     25|  const f=await fixture(),id='past-open';f.put('session',id,{...session…
+     26|  const {data}=await (await handleSideoutRead(await f.request(ids[role]…
+     27|  expect(data.cards.map(c=>c.session.id)).toEqual(['applicant','guest']…
+       |                                          ^
+     28| });
+     29| it('past published participation includes an assigned waiting member b…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/sideout-query.test.ts > registration opportunity uses the exact server start boundary 2026-09-30T01:00:00Z
+ FAIL  tests/sideout-query.test.ts > registration opportunity uses the exact server start boundary 2026-09-30T01:00:01Z
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/sideout-query.test.ts:35:222
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  7 failed | 20 passed (27)
+   Start at  16:21:17
+   Duration  250ms (tests 48%, transform 38%, import 12%, worker 1%)
+

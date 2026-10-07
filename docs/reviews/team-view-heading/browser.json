@@ -1,0 +1,36 @@
+{
+  "verifiedAt": "2026-10-06T01:00:09.558Z",
+  "id": "30e24320-0faa-4437-9dee-88778dd02d67",
+  "results": [
+    {
+      "check": "single header row and 44px targets",
+      "width": 320
+    },
+    {
+      "width": 320,
+      "togglePreservesMembers": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "check": "single header row and 44px targets",
+      "width": 390
+    },
+    {
+      "width": 390,
+      "togglePreservesMembers": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "check": "single header row and 44px targets",
+      "width": 1024
+    },
+    {
+      "width": 1024,
+      "togglePreservesMembers": true,
+      "noHorizontalOverflow": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false,
+  "dataWrites": false
+}

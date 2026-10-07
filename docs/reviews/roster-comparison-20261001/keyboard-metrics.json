@@ -1,0 +1,234 @@
+[
+  {
+    "kind": "baseline",
+    "width": 390,
+    "states": [
+      {
+        "label": "initial",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "참가자 추가",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "initial PageDown",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "참가자 추가",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "Tab 1",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "닫기",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "PageDown 1",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "닫기",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "Tab 2",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "닫기",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "PageDown 2",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "닫기",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "Tab 3",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "참가자 추가",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "PageDown 3",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "참가자 추가",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "Tab 4",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "닫기",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "PageDown 4",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "닫기",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "click region then PageDown",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "DIV",
+          "text": "함께하는 회원뉴배동 · 시험 · 10월 4일 운동소속 회원18명강현우김도",
+          "role": "dialog",
+          "tabindex": "-1"
+        }
+      }
+    ]
+  },
+  {
+    "kind": "current",
+    "width": 390,
+    "states": [
+      {
+        "label": "initial",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "확인",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "initial PageDown",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "확인",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "Tab 1",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "닫기",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "PageDown 1",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "닫기",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "Tab 2",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "확인",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "PageDown 2",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "확인",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "Tab 3",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "닫기",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "PageDown 3",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "닫기",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "Tab 4",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "확인",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "PageDown 4",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "BUTTON",
+          "text": "확인",
+          "role": null,
+          "tabindex": null
+        }
+      },
+      {
+        "label": "click region then PageDown",
+        "scrollTop": 0,
+        "focus": {
+          "tag": "DIV",
+          "text": "함께하는 회원뉴배동 · 시험 · 2026-10-04 운동소속 회원18명강",
+          "role": "dialog",
+          "tabindex": "-1"
+        }
+      }
+    ]
+  }
+]

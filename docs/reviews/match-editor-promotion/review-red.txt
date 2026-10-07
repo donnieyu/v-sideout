@@ -1,0 +1,76 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-match-plan.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-match-plan.test.ts (6 tests | 2 failed) 7ms
+   × restores sequential rookie opponents for 3 rookie teams around the four-team round 3ms
+   × restores sequential rookie opponents for 4 rookie teams around the four-team round 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-match-plan.test.ts > restores sequential rookie opponents for 3 rookie teams around the four-team round
+AssertionError: expected [ [ 'R1', 'R2' ], [ 'R1', 'R2' ] ] to deeply equal [ [ 'R1', 'R2' ], [ 'R2', 'R3' ] ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    [
+      "R1",
+      "R2",
+    ],
+    [
++     "R1",
+      "R2",
+-     "R3",
+    ],
+  ]
+
+ ❯ tests/sideout-match-plan.test.ts:32:74
+     30| it.each([3,4])('restores sequential rookie opponents for %i rookie tea…
+     31|  const configured=setRookieTeamCount(generateTeamMatches(['a','b','c',…
+     32|  expect(on.matches.filter(m=>m.kind==='rookie').map(m=>[m.home,m.away]…
+       |                                                                          ^
+     33| });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/sideout-match-plan.test.ts > restores sequential rookie opponents for 4 rookie teams around the four-team round
+AssertionError: expected [ [ 'R1', 'R2' ], [ 'R1', 'R2' ] ] to deeply equal [ [ 'R1', 'R2' ], [ 'R3', 'R4' ] ]
+
+- Expected
++ Received
+
+@@ -2,9 +2,9 @@
+    [
+      "R1",
+      "R2",
+    ],
+    [
+-     "R3",
+-     "R4",
++     "R1",
++     "R2",
+    ],
+  ]
+
+ ❯ tests/sideout-match-plan.test.ts:32:74
+     30| it.each([3,4])('restores sequential rookie opponents for %i rookie tea…
+     31|  const configured=setRookieTeamCount(generateTeamMatches(['a','b','c',…
+     32|  expect(on.matches.filter(m=>m.kind==='rookie').map(m=>[m.home,m.away]…
+       |                                                                          ^
+     33| });
+     34|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 4 passed (6)
+   Start at  08:57:06
+   Duration  138ms (transform 57%, tests 18%, import 18%, worker 7%)
+

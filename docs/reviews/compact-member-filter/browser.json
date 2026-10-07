@@ -1,0 +1,56 @@
+{
+  "id": "c598144c-1cbd-40dc-ad6d-70ff9352073b",
+  "results": [
+    {
+      "width": 320,
+      "height": 844,
+      "searchAndFilterSameRow": true,
+      "touchSize": 44,
+      "panelInViewport": true,
+      "multipleClubsAndPositions": true,
+      "searchCombined": true,
+      "resetPreservesSearch": true,
+      "escapeReturnsFocus": true,
+      "listHeight": 326.25
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "searchAndFilterSameRow": true,
+      "touchSize": 44,
+      "panelInViewport": true,
+      "multipleClubsAndPositions": true,
+      "searchCombined": true,
+      "resetPreservesSearch": true,
+      "escapeReturnsFocus": true,
+      "listHeight": 326.25
+    },
+    {
+      "width": 1024,
+      "height": 844,
+      "searchAndFilterSameRow": true,
+      "touchSize": 44,
+      "panelInViewport": true,
+      "multipleClubsAndPositions": true,
+      "searchCombined": true,
+      "resetPreservesSearch": true,
+      "escapeReturnsFocus": true,
+      "listHeight": 414.25
+    },
+    {
+      "width": 390,
+      "height": 480,
+      "searchAndFilterSameRow": true,
+      "touchSize": 44,
+      "panelInViewport": true,
+      "multipleClubsAndPositions": true,
+      "searchCombined": true,
+      "resetPreservesSearch": true,
+      "escapeReturnsFocus": true,
+      "listHeight": 79.5
+    }
+  ],
+  "errors": [],
+  "noWrites": true,
+  "physicalIPhone": false
+}

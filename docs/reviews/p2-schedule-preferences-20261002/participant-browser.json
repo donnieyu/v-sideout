@@ -1,0 +1,19 @@
+{
+  "results": [
+    {
+      "check": "priority guest waiting and home member applied",
+      "id": "74d41d18-91e4-466c-bf14-e42412da0906",
+      "date": "2026-10-18"
+    },
+    {
+      "check": "timed promotion visible in two accounts and persisted roster"
+    },
+    {
+      "check": "manager add at capacity -> wait, cancellation -> oldest waiter promotion"
+    },
+    {
+      "check": "ordinary guest cannot fetch manager candidate list"
+    }
+  ],
+  "errors": []
+}

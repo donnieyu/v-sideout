@@ -5,3 +5,5 @@ it.each(['https://evil.example','//evil.example','/session/%','/session/%2F%2Fev
 it('preserves opaque IDs and allowed query context only',()=>expect(safeReturnPath('/session/opaque-id?weekStart=2026-09-28&filter=favorites&role=master')).toBe('/session/opaque-id?weekStart=2026-09-28&filter=favorites'));
 it('converts legacy week and edit URL using server date',()=>expect(legacyHashToPath('#/session/opaque-id/teams/edit?week=1&filter=all',now)).toBe('/session/opaque-id?weekStart=2026-10-05&filter=all'));
 it('invalid legacy date falls back safely',()=>expect(legacyHashToPath('#/home?week=1000',now)).toBe('/home'));
+
+it('retains schedule editor routes and registration context through login',()=>{expect(safeReturnPath('/session/id/schedule/edit?filter=all')).toBe('/session/id/schedule/edit?filter=all');expect(safeReturnPath('/session/new?clubId=nb&date=2026-10-04')).toBe('/session/new?clubId=nb&date=2026-10-04');expect(safeReturnPath('/session/new?date=invalid')).toBe('/home')});

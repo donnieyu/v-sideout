@@ -1,0 +1,13 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-query.test.ts tests/sideout-read-parity.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+
+ Test Files  2 passed (2)
+      Tests  36 passed (36)
+   Start at  16:08:40
+   Duration  1.28s (environment 42%, tests 24%, import 19%, transform 15%)
+

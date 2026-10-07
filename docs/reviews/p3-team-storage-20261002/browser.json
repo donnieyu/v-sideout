@@ -1,0 +1,13 @@
+{
+  "results": [
+    {
+      "check": "D1 save, replay, stale rejection, actual-ID match generation",
+      "id": "099fec8e-a8e5-4d0b-b58b-866d6b1fb55a",
+      "date": "2026-12-13"
+    },
+    {
+      "check": "normal member cannot fetch draft"
+    }
+  ],
+  "errors": []
+}

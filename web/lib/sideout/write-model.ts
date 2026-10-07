@@ -1,0 +1,11 @@
+import {z} from 'zod';
+import {validDate} from './calendar';
+const id=z.string().min(1).max(128);
+const time=z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/);
+const timestamp=z.string().datetime({offset:true}).refine(value=>Number.isFinite(Date.parse(value)));
+export const scheduleInput=z.object({clubId:id,date:z.string().refine(validDate),entry:time,start:time,end:time,place:z.string().trim().min(1).max(100),notice:z.string().trim().max(2000),phase:z.enum(['draft','open']),deadline:timestamp,priorityUntil:timestamp.nullable(),cap:z.number().int().min(1).max(200).nullable()}).strict();
+export const preferencesInput=z.object({favoriteClubIds:z.array(id).max(100).refine(a=>new Set(a).size===a.length)}).strict();
+export const writeEnvelope=z.object({commandId:z.string().uuid(),expectedRevision:z.number().int().min(0).max(Number.MAX_SAFE_INTEGER),payload:z.unknown()}).strict();
+export type ScheduleInput=z.infer<typeof scheduleInput>;
+export type WriteResult={resourceId:string;revision:number};
+export type WriteEnvelope<T>={commandId:string;expectedRevision:number;payload:T};

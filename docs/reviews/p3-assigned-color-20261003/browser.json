@@ -1,0 +1,70 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "filledStyle": {
+        "bg": "rgb(231, 242, 235)",
+        "border": "rgb(165, 195, 176)",
+        "height": 72,
+        "name": "rgb(25, 46, 67)",
+        "label": "rgb(71, 102, 85)"
+      },
+      "selectedStyle": {
+        "bg": "rgb(231, 239, 248)",
+        "border": "rgb(53, 106, 150)",
+        "height": 72,
+        "name": "rgb(25, 46, 67)",
+        "label": "rgb(97, 116, 136)"
+      },
+      "emptyStyle": {
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(212, 225, 216)",
+        "height": 72,
+        "name": "rgb(25, 46, 67)",
+        "label": "rgb(97, 116, 136)"
+      },
+      "extraStyle": {
+        "bg": "rgb(231, 242, 235)",
+        "border": "rgb(165, 195, 176)",
+        "height": 48,
+        "name": "rgb(25, 46, 67)",
+        "label": "rgb(71, 102, 85)"
+      }
+    },
+    {
+      "width": 1024,
+      "filledStyle": {
+        "bg": "rgb(231, 242, 235)",
+        "border": "rgb(165, 195, 176)",
+        "height": 72,
+        "name": "rgb(25, 46, 67)",
+        "label": "rgb(71, 102, 85)"
+      },
+      "selectedStyle": {
+        "bg": "rgb(231, 239, 248)",
+        "border": "rgb(53, 106, 150)",
+        "height": 72,
+        "name": "rgb(25, 46, 67)",
+        "label": "rgb(97, 116, 136)"
+      },
+      "emptyStyle": {
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(212, 225, 216)",
+        "height": 72,
+        "name": "rgb(25, 46, 67)",
+        "label": "rgb(97, 116, 136)"
+      },
+      "extraStyle": {
+        "bg": "rgb(231, 242, 235)",
+        "border": "rgb(165, 195, 176)",
+        "height": 48,
+        "name": "rgb(25, 46, 67)",
+        "label": "rgb(71, 102, 85)"
+      }
+    },
+    {
+      "check": "release restores empty color; saved user data unchanged"
+    }
+  ],
+  "errors": []
+}

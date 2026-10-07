@@ -1,0 +1,56 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-team-editor.test.tsx tests/sideout-team-storage.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-team-storage.test.ts (15 tests | 1 failed) 47ms
+   × retains inactive assigned identities for display without exposing inactive unassigned candidates 4ms
+ ❯ tests/sideout-team-editor.test.tsx (4 tests | 1 failed) 510ms
+   × locks parent refresh while a save is pending and keeps the same editor after completion 51ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-team-editor.test.tsx > locks parent refresh while a save is pending and keeps the same editor after completion
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/sideout-team-editor.test.tsx:49:138
+     47| it('locks parent refresh while a save is pending and keeps the same ed…
+     48|  const f=setup();await screen.findByRole('button',{name:'배정으로'});f.hol…
+     49|  await screen.findByRole('button',{name:'처리 중…'});expect((screen.getBy…
+       |                                                                                                                                          ^
+     50|  f.releaseSave();await screen.findByText('저장됨');expect((screen.getByRo…
+     51| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/sideout-team-storage.test.ts > retains inactive assigned identities for display without exposing inactive unassigned candidates
+AssertionError: expected undefined to match object { …(2) }
+
+- Expected:
+{
+  "active": false,
+  "id": "00000000-0000-4000-8000-000000000004",
+}
+
++ Received:
+undefined
+
+ ❯ tests/sideout-team-storage.test.ts:106:58
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 17 passed (19)
+   Start at  15:51:59
+   Duration  1.51s (environment 36%, tests 35%, import 16%, transform 13%)
+

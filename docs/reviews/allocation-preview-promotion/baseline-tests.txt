@@ -1,0 +1,16 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+
+ Test Files  21 passed (21)
+      Tests  214 passed (214)
+   Start at  08:25:36
+   Duration  2.53s (environment 41%, tests 36%, import 13%, transform 10%, worker 1%)
+
+    Isolate  21 workers spawned · ~465ms startup each (spawn + environment, per file)
+             at least ~511ms faster with isolate: false — reuses workers across files instead of one per file
+

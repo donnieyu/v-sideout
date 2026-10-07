@@ -1,0 +1,13 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-candidate-groups.test.ts tests/sideout-allocation-ui.test.tsx tests/sideout-extra-capacity.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+
+ Test Files  3 passed (3)
+      Tests  19 passed (19)
+   Start at  08:26:25
+   Duration  1.29s (tests 43%, environment 32%, import 15%, transform 9%)
+

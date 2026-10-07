@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "check": "18 auto allocate/save/detail parity",
+      "id": "bd680c8e-02b2-4cd8-86a4-25c398e554f6",
+      "date": "2026-11-22"
+    },
+    {
+      "check": "28 allocate, 4 teams, draft after publication, detail parity",
+      "id": "bd680c8e-02b2-4cd8-86a4-25c398e554f6",
+      "date": "2026-11-22"
+    },
+    {
+      "check": "user practice preserved",
+      "sessionId": "session-allocation-practice-20261003",
+      "applicants": 18,
+      "pool": 28,
+      "date": "2026-11-08"
+    }
+  ],
+  "errors": []
+}

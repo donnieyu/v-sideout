@@ -1,0 +1,19 @@
+{
+  "results": [
+    {
+      "check": "18 auto allocate/save/detail parity",
+      "id": "8944f42b-aebf-435c-b84b-0abff0f80346",
+      "date": "2026-11-29"
+    },
+    {
+      "check": "28 allocate, 4 teams, draft after publication, detail parity",
+      "id": "8944f42b-aebf-435c-b84b-0abff0f80346",
+      "date": "2026-11-29"
+    },
+    {
+      "check": "user practice was not modified",
+      "sessionId": "session-allocation-practice-20261003"
+    }
+  ],
+  "errors": []
+}

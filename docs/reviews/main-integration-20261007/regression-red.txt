@@ -1,0 +1,49 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-match-storage.test.ts tests/sideout-team-publish.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+(node:43451) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ tests/sideout-team-publish.test.ts (14 tests | 1 failed) 10ms
+   × retires an unplaced inactive applicant before first publication without blocking active applicants 4ms
+ ❯ tests/sideout-match-storage.test.ts (12 tests | 1 failed) 42ms
+   × saving a published-only legacy lineup keeps the roster readable and creates a matching draft 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-match-storage.test.ts > saving a published-only legacy lineup keeps the roster readable and creates a matching draft
+SideoutError: 정보를 불러오지 못했습니다. 다시 시도해 주세요.
+ ❯ unavailable lib/sideout/errors.ts:6:30
+      4| }
+      5| export const invalid=()=>new SideoutError('INVALID_INPUT',400,'날짜와 모임 …
+      6| export const unavailable=()=>new SideoutError('STORAGE_UNAVAILABLE',50…
+       |                              ^
+      7|
+ ❯ validateLineup lib/server/sideout-store.ts:30:39
+ ❯ Object.getRoster lib/server/sideout-store.ts:77:122
+ ❯ tests/sideout-match-storage.test.ts:43:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/sideout-team-publish.test.ts > retires an unplaced inactive applicant before first publication without blocking active applicants
+SideoutError: 모든 신청자를 배정한 뒤 공개해 주세요.
+ ❯ invalid lib/sideout/team-publish.ts:9:34
+      7| export function publishTeams(session:SessionRecord,roster:RosterRecord…
+      8|  const next=saveTeamDraft(session,roster,lineup,confirmedMemberIds,mem…
+      9|  const invalid=(message:string)=>new SideoutError('INVALID_INPUT',400,…
+       |                                  ^
+     10|  if(next.draft.teams.length<3)throw invalid('팀편성은 3~4팀일 때 공개할 수 있습니다.'…
+     11|  if(next.draft.teams.some(t=>t.players.length===0))throw invalid('빈 팀을…
+ ❯ publishTeams lib/sideout/team-publish.ts:13:99
+ ❯ tests/sideout-team-publish.test.ts:15:13
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 24 passed (26)
+   Start at  23:46:30
+   Duration  257ms (transform 57%, tests 21%, import 20%, worker 2%)

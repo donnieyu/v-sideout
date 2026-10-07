@@ -1,0 +1,782 @@
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-roster-write.test.tsx (6 tests | 3 failed) 3354ms
+   × adds participants on an HTTP LAN origin without crypto.randomUUID 1047ms
+   × restores only the opened responsive roster after auth revalidation (surface 0) 1074ms
+   × restores only the opened responsive roster after auth revalidation (surface 1) 1057ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-roster-write.test.tsx > adds participants on an HTTP LAN origin without crypto.randomUUID
+TestingLibraryElementError: Unable to find role="heading" and name "함께하는 회원"
+
+Ignored nodes: comments, script, style
+[36m<body[39m
+  [33mdata-scroll-locked[39m=[32m"1"[39m
+  [33mstyle[39m=[32m"pointer-events: none;"[39m
+[36m>[39m
+  [36m<span[39m
+    [33maria-hidden[39m=[32m"true"[39m
+    [33mdata-aria-hidden[39m=[32m"true"[39m
+    [33mdata-radix-focus-guard[39m=[32m""[39m
+    [33mstyle[39m=[32m"outline: none; opacity: 0; position: fixed; pointer-events: none;"[39m
+    [33mtabindex[39m=[32m"0"[39m
+  [36m/>[39m
+  [36m<div[39m
+    [33maria-hidden[39m=[32m"true"[39m
+    [33mdata-aria-hidden[39m=[32m"true"[39m
+  [36m>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_app_1314d5"[39m
+    [36m>[39m
+      [36m<button[39m
+        [33maria-controls[39m=[32m"radix-_r_6_"[39m
+        [33maria-expanded[39m=[32m"true"[39m
+        [33maria-haspopup[39m=[32m"dialog"[39m
+        [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 text-primary underline-offset-4 hover:underline h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _rosterTrigger_1314d5"[39m
+        [33mdata-size[39m=[32m"sm"[39m
+        [33mdata-slot[39m=[32m"dialog-trigger"[39m
+        [33mdata-state[39m=[32m"open"[39m
+        [33mdata-variant[39m=[32m"link"[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0m명단 확인[0m
+      [36m</button>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+  [36m<div[39m
+    [33maria-hidden[39m=[32m"true"[39m
+    [33mclass[39m=[32m"fixed inset-0 z-50 bg-black/50 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"[39m
+    [33mdata-aria-hidden[39m=[32m"true"[39m
+    [33mdata-slot[39m=[32m"dialog-overlay"[39m
+    [33mdata-state[39m=[32m"open"[39m
+    [33mstyle[39m=[32m"pointer-events: auto;"[39m
+  [36m/>[39m
+  [36m<div[39m
+    [33maria-describedby[39m=[32m"radix-_r_8_"[39m
+    [33maria-labelledby[39m=[32m"radix-_r_7_"[39m
+    [33mclass[39m=[32m"fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 sm:max-w-lg _rosterDialog_1314d5"[39m
+    [33mdata-slot[39m=[32m"dialog-content"[39m
+    [33mdata-state[39m=[32m"open"[39m
+    [33mid[39m=[32m"radix-_r_6_"[39m
+    [33mrole[39m=[32m"dialog"[39m
+    [33mstyle[39m=[32m"pointer-events: auto;"[39m
+    [33mtabindex[39m=[32m"-1"[39m
+  [36m>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"flex flex-col gap-2 text-center sm:text-left"[39m
+      [33mdata-slot[39m=[32m"dialog-header"[39m
+    [36m>[39m
+      [36m<h2[39m
+        [33mclass[39m=[32m"text-lg leading-none font-semibold"[39m
+        [33mdata-slot[39m=[32m"dialog-title"[39m
+        [33mid[39m=[32m"radix-_r_7_"[39m
+      [36m>[39m
+        [0m참가자 추가[0m
+      [36m</h2>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"text-sm text-muted-foreground"[39m
+        [33mdata-slot[39m=[32m"dialog-description"[39m
+        [33mid[39m=[32m"radix-_r_8_"[39m
+      [36m>[39m
+        [0m뉴배동 · 시험[0m
+        [0m · [0m
+        [0m10월 4일[0m
+        [0m 운동[0m
+        [0m · 참가 의사를 확인한 회원을 선택하세요.[0m
+      [36m</p>[39m
+    [36m</div>[39m
+    [0m [0m
+    [36m<input[39m
+      [33maria-label[39m=[32m"회원 이름 또는 소속 검색"[39m
+      [33mclass[39m=[32m"h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:bg-input/30 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40"[39m
+      [33mdata-slot[39m=[32m"input"[39m
+      [33mdisabled[39m=[32m""[39m
+      [33mplaceholder[39m=[32m"이름 또는 소속 검색"[39m
+      [33mvalue[39m=[32m""[39m
+    [36m/>[39m
+    [36m<div[39m
+      [33maria-label[39m=[32m"추가 가능한 회원"[39m
+      [33mclass[39m=[32m"_rosterScroll_1314d5"[39m
+      [33mrole[39m=[32m"region"[39m
+      [33mtabindex[39m=[32m"0"[39m
+    [36m>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"_muted_1314d5"[39m
+      [36m>[39m
+        [0m2[0m
+        [0m명 · [0m
+        [0m1[0m
+        [0m명 선택[0m
+      [36m</p>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_rosterPeople_1314d5"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"_rosterSelect_1314d5"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"한회원 · 뉴배동 · 시험"[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [36m<span>[39m
+            [36m<strong>[39m
+              [0m한회원[0m
+            [36m</strong>[39m
+            [36m<small>[39m
+              [0m뉴배동 · 시험[0m
+            [36m</small>[39m
+          [36m</span>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"_rosterSelect_1314d5"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"게스트회원 · 히어로즈 · 시험"[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [36m<span>[39m
+            [36m<strong>[39m
+              [0m게스트회원[0m
+            [36m</strong>[39m
+            [36m<small>[39m
+              [0m히어로즈 · 시험[0m
+            [36m</small>[39m
+          [36m</span>[39m
+        [36m</label>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"flex flex-col-reverse gap-2 sm:flex-row sm:justify-end _rosterFooter_1314d5"[39m
+      [33mdata-slot[39m=[32m"dialog-footer"[39m
+    [36m>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+        [33mdata-size[39m=[32m"default"[39m
+        [33mdata-slot[39m=[32m"button"[39m
+        [33mdata-variant[39m=[32m"outline"[39m
+        [33mdisabled[39m=[32m""[39m
+      [36m>[39m
+        [0m취소[0m
+      [36m</button>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+        [33mdata-size[39m=[32m"default"[39m
+        [33mdata-slot[39m=[32m"button"[39m
+        [33mdata-variant[39m=[32m"default"[39m
+        [33mdisabled[39m=[32m""[39m
+      [36m>[39m
+        [0m추가 중…[0m
+      [36m</button>[39m
+    [36m</div>[39m
+    [36m<button[39m
+      [33mclass[39m=[32m"absolute top-2 right-2 flex size-11 items-center justify-center rounded-md opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"[39m
+      [33mdata-slot[39m=[32m"dialog-close"[39m
+      [33mtype[39m=[32m"button"[39m
+    [36m>[39m
+      [36m<svg[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"lucide lucide-x"[39m
+        [33mfill[39m=[32m"none"[39m
+        [33mheight[39m=[32m"24"[39m
+        [33mstroke[39m=[32m"currentColor"[39m
+        [33mstroke-linecap[39m=[32m"round"[39m
+        [33mstroke-linejoin[39m=[32m"round"[39m
+        [33mstroke-width[39m=[32m"2"[39m
+        [33mviewBox[39m=[32m"0 0 24 24"[39m
+        [33mwidth[39m=[32m"24"[39m
+        [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+      [36m>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M18 6 6 18"[39m
+        [36m/>[39m
+        [36m<path[39m
+          [33md[39m=[32m"m6 6 12 12"[39m
+        [36m/>[39m
+      [36m</svg>[39m
+      [36m<span[39m
+        [33mclass[39m=[32m"sr-only"[39m
+      [36m>[39m
+        [0m닫기[0m
+      [36m</span>[39m
+    [36m</button>[39m
+  [36m</div>[39m
+  [36m<span[39m
+    [33maria-hidden[39m=[32m"true"[39m
+    [33mdata-aria-hidden[39m=[32m"true"[39m
+    [33mdata-radix-focus-guard[39m=[32m""[39m
+    [33mstyle[39m=[32m"outline: none; opacity: 0; position: fixed; pointer-events: none;"[39m
+    [33mtabindex[39m=[32m"0"[39m
+  [36m/>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<body[39m
+  [33mdata-scroll-locked[39m=[32m"1"[39m
+  [33mstyle[39m=[32m"pointer-events: none;"[39m
+[36m>[39m
+  [36m<span[39m
+    [33maria-hidden[39m=[32m"true"[39m
+    [33mdata-aria-hidden[39m=[32m"true"[39m
+    [33mdata-radix-focus-guard[39m=[32m""[39m
+    [33mstyle[39m=[32m"outline: none; opacity: 0; position: fixed; pointer-events: none;"[39m
+    [33mtabindex[39m=[32m"0"[39m
+  [36m/>[39m
+  [36m<div[39m
+    [33maria-hidden[39m=[32m"true"[39m
+    [33mdata-aria-hidden[39m=[32m"true"[39m
+  [36m>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_app_1314d5"[39m
+    [36m>[39m
+      [36m<button[39m
+        [33maria-controls[39m=[32m"radix-_r_6_"[39m
+        [33maria-expanded[39m=[32m"true"[39m
+        [33maria-haspopup[39m=[32m"dialog"[39m
+        [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 text-primary underline-offset-4 hover:underline h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _rosterTrigger_1314d5"[39m
+        [33mdata-size[39m=[32m"sm"[39m
+        [33mdata-slot[39m=[32m"dialog-trigger"[39m
+        [33mdata-state[39m=[32m"open"[39m
+        [33mdata-variant[39m=[32m"link"[39m
+        [33mtype[39m=[32m"button"[39m
+      [36m>[39m
+        [0m명단 확인[0m
+      [36m</button>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+  [36m<div[39m
+    [33maria-hidden[39m=[32m"true"[39m
+    [33mclass[39m=[32m"fixed inset-0 z-50 bg-black/50 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"[39m
+    [33mdata-aria-hidden[39m=[32m"true"[39m
+    [33mdata-slot[39m=[32m"dialog-overlay"[39m
+    [33mdata-state[39m=[32m"open"[39m
+    [33mstyle[39m=[32m"pointer-events: auto;"[39m
+  [36m/>[39m
+  [36m<div[39m
+    [33maria-describedby[39m=[32m"radix-_r_8_"[39m
+    [33maria-labelledby[39m=[32m"radix-_r_7_"[39m
+    [33mclass[39m=[32m"fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 sm:max-w-lg _rosterDialog_1314d5"[39m
+    [33mdata-slot[39m=[32m"dialog-content"[39m
+    [33mdata-state[39m=[32m"open"[39m
+    [33mid[39m=[32m"radix-_r_6_"[39m
+    [33mrole[39m=[32m"dialog"[39m
+    [33mstyle[39m=[32m"pointer-events: auto;"[39m
+    [33mtabindex[39m=[32m"-1"[39m
+  [36m>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"flex flex-col gap-2 text-center sm:text-left"[39m
+      [33mdata-slot[39m=[32m"dialog-header"[39m
+    [36m>[39m
+      [36m<h2[39m
+        [33mclass[39m=[32m"text-lg leading-none font-semibold"[39m
+        [33mdata-slot[39m=[32m"dialog-title"[39m
+        [33mid[39m=[32m"radix-_r_7_"[39m
+      [36m>[39m
+        [0m참가자 추가[0m
+      [36m</h2>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"text-sm text-muted-foreground"[39m
+        [33mdata-slot[39m=[32m"dialog-description"[39m
+        [33mid[39m=[32m"radix-_r_8_"[39m
+      [36m>[39m
+        [0m뉴배동 · 시험[0m
+        [0m · [0m
+        [0m10월 4일[0m
+        [0m 운동[0m
+        [0m · 참가 의사를 확인한 회원을 선택하세요.[0m
+      [36m</p>[39m
+    [36m</div>[39m
+    [0m [0m
+    [36m<input[39m
+      [33maria-label[39m=[32m"회원 이름 또는 소속 검색"[39m
+      [33mclass[39m=[32m"h-9 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:bg-input/30 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40"[39m
+      [33mdata-slot[39m=[32m"input"[39m
+      [33mdisabled[39m=[32m""[39m
+      [33mplaceholder[39m=[32m"이름 또는 소속 검색"[39m
+      [33mvalue[39m=[32m""[39m
+    [36m/>[39m
+    [36m<div[39m
+      [33maria-label[39m=[32m"추가 가능한 회원"[39m
+      [33mclass[39m=[32m"_rosterScroll_1314d5"[39m
+      [33mrole[39m=[32m"region"[39m
+      [33mtabindex[39m=[32m"0"[39m
+    [36m>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"_muted_1314d5"[39m
+      [36m>[39m
+        [0m2[0m
+        [0m명 · [0m
+        [0m1[0m
+        [0m명 선택[0m
+      [36m</p>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_rosterPeople_1314d5"[39m
+      [36m>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"_rosterSelect_1314d5"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"한회원 · 뉴배동 · 시험"[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [36m<span>[39m
+            [36m<strong>[39m
+              [0m한회원[0m
+            [36m</strong>[39m
+            [36m<small>[39m
+              [0m뉴배동 · 시험[0m
+            [36m</small>[39m
+          [36m</span>[39m
+        [36m</label>[39m
+        [36m<label[39m
+          [33mclass[39m=[32m"_rosterSelect_1314d5"[39m
+        [36m>[39m
+          [36m<input[39m
+            [33maria-label[39m=[32m"게스트회원 · 히어로즈 · 시험"[39m
+            [33mdisabled[39m=[32m""[39m
+            [33mtype[39m=[32m"checkbox"[39m
+          [36m/>[39m
+          [36m<span>[39m
+            [36m<strong>[39m
+              [0m게스트회원[0m
+            [36m</strong>[39m
+            [36m<small>[39m
+              [0m히어로즈 · 시험[0m
+            [36m</small>[39m
+          [36m</span>[39m
+        [36m</label>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"flex flex-col-reverse gap-2 sm:flex-row sm:justify-end _rosterFooter_1314d5"[39m
+      [33mdata-slot[39m=[32m"dialog-footer"[39m
+    [36m>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+        [33mdata-size[39m=[32m"default"[39m
+        [33mdata-slot[39m=[32m"button"[39m
+        [33mdata-variant[39m=[32m"outline"[39m
+        [33mdisabled[39m=[32m""[39m
+      [36m>[39m
+        [0m취소[0m
+      [36m</button>[39m
+      [36m<button[39m
+        [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+        [33mdata-size[39m=[32m"default"[39m
+        [33mdata-slot[39m=[32m"button"[39m
+        [33mdata-variant[39m=[32m"default"[39m
+        [33mdisabled[39m=[32m""[39m
+      [36m>[39m
+        [0m추가 중…[0m
+      [36m</button>[39m
+    [36m</div>[39m
+    [36m<button[39m
+      [33mclass[39m=[32m"absolute top-2 right-2 flex size-11 items-center justify-center rounded-md opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"[39m
+      [33mdata-slot[39m=[32m"dialog-close"[39m
+      [33mtype[39m=[32m"button"[39m
+    [36m>[39m
+      [36m<svg[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"lucide lucide-x"[39m
+        [33mfill[39m=[32m"none"[39m
+        [33mheight[39m=[32m"24"[39m
+        [33mstroke[39m=[32m"currentColor"[39m
+        [33mstroke-linecap[39m=[32m"round"[39m
+        [33mstroke-linejoin[39m=[32m"round"[39m
+        [33mstroke-width[39m=[32m"2"[39m
+        [33mviewBox[39m=[32m"0 0 24 24"[39m
+        [33mwidth[39m=[32m"24"[39m
+        [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+      [36m>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M18 6 6 18"[39m
+        [36m/>[39m
+        [36m<path[39m
+          [33md[39m=[32m"m6 6 12 12"[39m
+        [36m/>[39m
+      [36m</svg>[39m
+      [36m<span[39m
+        [33mclass[39m=[32m"sr-only"[39m
+      [36m>[39m
+        [0m닫기[0m
+      [36m</span>[39m
+    [36m</button>[39m
+  [36m</div>[39m
+  [36m<span[39m
+    [33maria-hidden[39m=[32m"true"[39m
+    [33mdata-aria-hidden[39m=[32m"true"[39m
+    [33mdata-radix-focus-guard[39m=[32m""[39m
+    [33mstyle[39m=[32m"outline: none; opacity: 0; position: fixed; pointer-events: none;"[39m
+    [33mtabindex[39m=[32m"0"[39m
+  [36m/>[39m
+[36m</body>[39m
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ tests/sideout-roster-write.test.tsx:43:15
+     41|  const f=setup();fireEvent.click(await screen.findByRole('button',{nam…
+     42|  fireEvent.click(await screen.findByRole('checkbox',{name:/한회원/}));fir…
+     43|  await screen.findByRole('heading',{name:'함께하는 회원'});expect(screen.get…
+       |               ^
+     44|  expect(f.writes[0].commandId).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9…
+     45| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/sideout-roster-write.test.tsx > restores only the opened responsive roster after auth revalidation (surface 0)
+AssertionError: expected [ …(2) ] to have a length of 1 but got 2
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body[39m
+    [33mdata-scroll-locked[39m=[32m"2"[39m
+    [33mstyle[39m=[32m"pointer-events: none;"[39m
+  [36m>[39m
+    [36m<span[39m
+      [33maria-hidden[39m=[32m"true"[39m
+      [33mdata-aria-hidden[39m=[32m"true"[39m
+      [33mdata-radix-focus-guard[39m=[32m""[39m
+      [33mstyle[39m=[32m"outline: none; opacity: 0; position: fixed; pointer-events: none;"[39m
+      [33mtabindex[39m=[32m"0"[39m
+    [36m/>[39m
+    [36m<div[39m
+      [33maria-hidden[39m=[32m"true"[39m
+      [33mdata-aria-hidden[39m=[32m"true"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_app_1314d5"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33maria-label[39m=[32m"요일과 시간대별 일정"[39m
+          [33mclass[39m=[32m"_weekBoard_1314d5 _oneDay_1314d5"[39m
+          [33mstyle[39m=[32m"--schedule-days: 1;"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_boardHeading_1314d5"[39m
+          [36m>[39m
+            [36m<span />[39m
+            [36m<h2>[39m
+              [0m10월 4일 일요일[0m
+            [36m</h2>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_timeBand_1314d5"[39m
+          [36m>[39m
+            [36m<h3>[39m
+              [0m오전[0m
+            [36m</h3>[39m
+            [36m<section[39m
+              [33maria-label[39m=[32m"10월 4일 일요일 오전"[39m
+              [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"_eventRow_1314d5"[39m
+              [36m>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"_entryTime_1314d5"[39m
+                [36m>[39m
+                  [0m08:00[0m
+                  [36m<small>[39m
+                    [0m입장 가능[0m
+                  [36m</small>[39m
+                [36m</p>[39m
+                [36m<button[39m
+                  [33maria-controls[39m=[32m"radix-_r_f_"[39m
+                  [33maria-expanded[39m=[32m"true"[39m
+                  [33maria-haspopup[39m=[32m"dialog"[39m
+                  [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 text-primary underline-offset-4 hover:underline h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _rosterTrigger_1314d5"[39m
+                  [33mdata-size[39m=[32m"sm"[39m
+                  [33mdata-slot[39m=[32m"dialog-trigger"[39m
+                  [33mdata-state[39m=[32m"open"[39m
+                  [33mdata-variant[39m=[32m"link"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0m명단 확인[0m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33maria-label[39m=[32m"날짜별 일정"[39m
+          [33mclass[39m=[32m"_mobileAgenda_1314d5"[39m
+        [36m>[39m
+          [36m<section>[39m
+            [36m<h2>[39m
+              [0m10월 4일 일요일[0m
+            [36m</h2>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"_eventRow_1314d5"[39m
+            [36m>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"_entryTime_1314d5"[39m
+              [36m>[39m
+                [0m08:00[0m
+                [36m<small>[39m
+                  [0m입장 가능[0m
+                [36m</small>[39m
+              [36m</p>[39m
+              [36m<button[39m
+                [33maria-controls[39m=[32m"radix-_r_i_"[39m
+                [33maria-expanded[39m=[32m"true"[39m
+                [33maria-haspopup[39m=[32m"dialog"[39m
+                [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 text-primary underline-offset-4 hover:underline h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _rosterTrigger_1314d5"[39m
+                [33mdata-size[39m=[32m"sm"[39m
+                [33mdata-slot[39m=[32m"dialog-trigger"[39m
+                [33mdata-state[39m=[32m"open"[39m
+                [33mdata-variant[39m=[32m"link"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0m명단 확인[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</section>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+    [36m<div[39m
+      [33maria-hidden[39m=[32m"true"[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-black/50 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"[39m
+      [33mdata-aria-hidden[39m=[32m"true"[39m
+      [33mdata-slot[39m=[32m"dialog-overlay"[39m
+      [33mdata-state[39m=[32m"open"[39m
+      [33mstyle[39m=[32m"pointer-events: auto;"[39m
+    [36m/>[39m
+    [36m<div[39m
+      [33maria-describedby[39m=[32m"radix-_r_h_"[39m
+      [33maria-labelledby[39m=[32m"radix-_r_g_"[39m
+      [33mclass[39m=[32m"fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 sm:max-w-lg _rosterDialog_1314d5"[39m
+      [33mdata-slot[39m=[32m"dialog-content"[39m
+      [33mdata-state[39m=[32m"open"[39m
+      [33mid[39m=[32m"radix-_r_f_"[39m
+      [33mrole[39m=[32m"dialog"[39m
+      [33mstyle[39m=[32m"pointer-events: none;"[39m
+      [33mtabindex[39m=[32m"-1"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"flex flex-col gap-2 text-center sm:text-left"[39m
+        [33mdata-aria-hidden[39m=[32m"true"[39m
+        [33mdata-slot[39m=[32m"dialog-header"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mclass[39m=[32m"text-lg leading-none font-semibold"[39m
+          [33mdata-slot[39m=[32m"dialog-title"[39m
+          [33mid[39m=[32m"radix-_r_g_"...
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ tests/sideout-roster-write.test.tsx:51:58
+     49|  fireEvent.change(screen.getByLabelText('회원 이름 또는 소속 검색'),{target:{val…
+     50|  fireEvent(window,new Event('focus'));
+     51|  await waitFor(()=>expect(screen.getAllByRole('dialog')).toHaveLength(…
+       |                                                          ^
+     52|  await waitFor(()=>expect(screen.getAllByRole('checkbox',{name:/한회원/})…
+     53|  expect((screen.getByRole('checkbox',{name:/한회원/}) as HTMLInputElement…
+ ❯ runWithExpensiveErrorDiagnosticsDisabled node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/sideout-roster-write.test.tsx > restores only the opened responsive roster after auth revalidation (surface 1)
+AssertionError: expected [ …(2) ] to have a length of 1 but got 2
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body[39m
+    [33mdata-scroll-locked[39m=[32m"2"[39m
+    [33mstyle[39m=[32m"pointer-events: none;"[39m
+  [36m>[39m
+    [36m<span[39m
+      [33maria-hidden[39m=[32m"true"[39m
+      [33mdata-aria-hidden[39m=[32m"true"[39m
+      [33mdata-radix-focus-guard[39m=[32m""[39m
+      [33mstyle[39m=[32m"outline: none; opacity: 0; position: fixed; pointer-events: none;"[39m
+      [33mtabindex[39m=[32m"0"[39m
+    [36m/>[39m
+    [36m<div[39m
+      [33maria-hidden[39m=[32m"true"[39m
+      [33mdata-aria-hidden[39m=[32m"true"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_app_1314d5"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33maria-label[39m=[32m"요일과 시간대별 일정"[39m
+          [33mclass[39m=[32m"_weekBoard_1314d5 _oneDay_1314d5"[39m
+          [33mstyle[39m=[32m"--schedule-days: 1;"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_boardHeading_1314d5"[39m
+          [36m>[39m
+            [36m<span />[39m
+            [36m<h2>[39m
+              [0m10월 4일 일요일[0m
+            [36m</h2>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_timeBand_1314d5"[39m
+          [36m>[39m
+            [36m<h3>[39m
+              [0m오전[0m
+            [36m</h3>[39m
+            [36m<section[39m
+              [33maria-label[39m=[32m"10월 4일 일요일 오전"[39m
+              [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"_eventRow_1314d5"[39m
+              [36m>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"_entryTime_1314d5"[39m
+                [36m>[39m
+                  [0m08:00[0m
+                  [36m<small>[39m
+                    [0m입장 가능[0m
+                  [36m</small>[39m
+                [36m</p>[39m
+                [36m<button[39m
+                  [33maria-controls[39m=[32m"radix-_r_r_"[39m
+                  [33maria-expanded[39m=[32m"true"[39m
+                  [33maria-haspopup[39m=[32m"dialog"[39m
+                  [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 text-primary underline-offset-4 hover:underline h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _rosterTrigger_1314d5"[39m
+                  [33mdata-size[39m=[32m"sm"[39m
+                  [33mdata-slot[39m=[32m"dialog-trigger"[39m
+                  [33mdata-state[39m=[32m"open"[39m
+                  [33mdata-variant[39m=[32m"link"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0m명단 확인[0m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</section>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33maria-label[39m=[32m"날짜별 일정"[39m
+          [33mclass[39m=[32m"_mobileAgenda_1314d5"[39m
+        [36m>[39m
+          [36m<section>[39m
+            [36m<h2>[39m
+              [0m10월 4일 일요일[0m
+            [36m</h2>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"_eventRow_1314d5"[39m
+            [36m>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"_entryTime_1314d5"[39m
+              [36m>[39m
+                [0m08:00[0m
+                [36m<small>[39m
+                  [0m입장 가능[0m
+                [36m</small>[39m
+              [36m</p>[39m
+              [36m<button[39m
+                [33maria-controls[39m=[32m"radix-_r_u_"[39m
+                [33maria-expanded[39m=[32m"true"[39m
+                [33maria-haspopup[39m=[32m"dialog"[39m
+                [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 text-primary underline-offset-4 hover:underline h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _rosterTrigger_1314d5"[39m
+                [33mdata-size[39m=[32m"sm"[39m
+                [33mdata-slot[39m=[32m"dialog-trigger"[39m
+                [33mdata-state[39m=[32m"open"[39m
+                [33mdata-variant[39m=[32m"link"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0m명단 확인[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</section>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+    [36m<div[39m
+      [33maria-hidden[39m=[32m"true"[39m
+      [33mclass[39m=[32m"fixed inset-0 z-50 bg-black/50 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"[39m
+      [33mdata-aria-hidden[39m=[32m"true"[39m
+      [33mdata-slot[39m=[32m"dialog-overlay"[39m
+      [33mdata-state[39m=[32m"open"[39m
+      [33mstyle[39m=[32m"pointer-events: auto;"[39m
+    [36m/>[39m
+    [36m<div[39m
+      [33maria-describedby[39m=[32m"radix-_r_t_"[39m
+      [33maria-labelledby[39m=[32m"radix-_r_s_"[39m
+      [33mclass[39m=[32m"fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 sm:max-w-lg _rosterDialog_1314d5"[39m
+      [33mdata-slot[39m=[32m"dialog-content"[39m
+      [33mdata-state[39m=[32m"open"[39m
+      [33mid[39m=[32m"radix-_r_r_"[39m
+      [33mrole[39m=[32m"dialog"[39m
+      [33mstyle[39m=[32m"pointer-events: none;"[39m
+      [33mtabindex[39m=[32m"-1"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"flex flex-col gap-2 text-center sm:text-left"[39m
+        [33mdata-aria-hidden[39m=[32m"true"[39m
+        [33mdata-slot[39m=[32m"dialog-header"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mclass[39m=[32m"text-lg leading-none font-semibold"[39m
+          [33mdata-slot[39m=[32m"dialog-title"[39m
+          [33mid[39m=[32m"radix-_r_s_"...
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ tests/sideout-roster-write.test.tsx:51:58
+     49|  fireEvent.change(screen.getByLabelText('회원 이름 또는 소속 검색'),{target:{val…
+     50|  fireEvent(window,new Event('focus'));
+     51|  await waitFor(()=>expect(screen.getAllByRole('dialog')).toHaveLength(…
+       |                                                          ^
+     52|  await waitFor(()=>expect(screen.getAllByRole('checkbox',{name:/한회원/})…
+     53|  expect((screen.getByRole('checkbox',{name:/한회원/}) as HTMLInputElement…
+ ❯ runWithExpensiveErrorDiagnosticsDisabled node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+TypeError: crypto.randomUUID is not a function
+ ❯ mutate components/sideout/roster-dialog.tsx:27:160
+
+ ❯ onClick components/sideout/roster-dialog.tsx:37:2325
+ ❯ executeDispatch node_modules/react-dom/cjs/react-dom-client.development.js:19116:9
+ ❯ runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ❯ processDispatchQueue node_modules/react-dom/cjs/react-dom-client.development.js:19166:19
+ ❯ node_modules/react-dom/cjs/react-dom-client.development.js:19767:9
+ ❯ batchedUpdates$1 node_modules/react-dom/cjs/react-dom-client.development.js:3255:40
+ ❯ dispatchEventForPluginEventSystem node_modules/react-dom/cjs/react-dom-client.development.js:19320:7
+ ❯ dispatchEvent node_modules/react-dom/cjs/react-dom-client.development.js:23585:11
+ ❯ dispatchDiscreteEvent node_modules/react-dom/cjs/react-dom-client.development.js:23553:11
+
+This error originated in "tests/sideout-roster-write.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The last test to run before this error was "adds participants on an HTTP LAN origin without crypto.randomUUID". This means either:
+- the error was thrown while Vitest was running this test, or
+- the error was thrown after the test completed, and this was the most recent test at that point.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 3 passed (6)
+     Errors  1 error
+   Start at  23:15:05
+   Duration  4.33s (tests 79%, environment 13%, import 6%, transform 2%)
+

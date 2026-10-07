@@ -1,0 +1,93 @@
+{
+  "verifiedAt": "2026-10-06T01:41:58.546Z",
+  "id": "30e24320-0faa-4437-9dee-88778dd02d67",
+  "results": [
+    {
+      "check": "status line count",
+      "width": 320,
+      "lines": 2,
+      "height": 36,
+      "overflow": false
+    },
+    {
+      "check": "title and two status lines beside controls",
+      "width": 320,
+      "copyHeight": 67.890625
+    },
+    {
+      "check": "single header row and 44px targets",
+      "width": 320
+    },
+    {
+      "width": 320,
+      "togglePreservesMembers": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "check": "status line count",
+      "width": 390,
+      "lines": 2,
+      "height": 36,
+      "overflow": false
+    },
+    {
+      "check": "title and two status lines beside controls",
+      "width": 390,
+      "copyHeight": 67.890625
+    },
+    {
+      "check": "single header row and 44px targets",
+      "width": 390
+    },
+    {
+      "width": 390,
+      "togglePreservesMembers": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "check": "status line count",
+      "width": 430,
+      "lines": 2,
+      "height": 36,
+      "overflow": false
+    },
+    {
+      "check": "title and two status lines beside controls",
+      "width": 430,
+      "copyHeight": 67.890625
+    },
+    {
+      "check": "single header row and 44px targets",
+      "width": 430
+    },
+    {
+      "width": 430,
+      "togglePreservesMembers": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "check": "status line count",
+      "width": 1024,
+      "lines": 2,
+      "height": 36,
+      "overflow": false
+    },
+    {
+      "check": "title and two status lines beside controls",
+      "width": 1024,
+      "copyHeight": 67.890625
+    },
+    {
+      "check": "single header row and 44px targets",
+      "width": 1024
+    },
+    {
+      "width": 1024,
+      "togglePreservesMembers": true,
+      "noHorizontalOverflow": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false,
+  "dataWrites": false
+}

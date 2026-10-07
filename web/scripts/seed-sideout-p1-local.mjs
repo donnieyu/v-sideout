@@ -18,7 +18,7 @@ async function main(){
  const proxy=await getPlatformProxy({configPath:resolve('dist/server/wrangler.json'),persist:{path:join(target,'v3')},remoteBindings:false,envFiles:[]});
  try{
   const db=proxy.env.DB;if(!db)throw Error('로컬 D1 바인딩이 없습니다.');
-  for(const name of ['0000_windy_omega_red','0001_glamorous_iron_lad','0002_modern_triathlon']){
+  for(const name of ['0000_windy_omega_red','0001_glamorous_iron_lad','0002_modern_triathlon','0003_milky_night_thrasher']){
    const sql=await readFile(`drizzle/${name}.sql`,'utf8');
    for(const statement of sql.split('--> statement-breakpoint').map(s=>s.trim()).filter(Boolean))await db.prepare(statement).run();
   }

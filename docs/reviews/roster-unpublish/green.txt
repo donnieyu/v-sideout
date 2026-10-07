@@ -1,0 +1,13 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-roster-write.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+
+ Test Files  1 passed (1)
+      Tests  14 passed (14)
+   Start at  14:41:50
+   Duration  1.53s (tests 43%, environment 35%, import 15%, transform 7%)
+

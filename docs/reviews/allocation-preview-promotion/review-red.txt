@@ -1,0 +1,37 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-edit-guard.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-edit-guard.test.tsx (3 tests | 1 failed) 20ms
+   × restores dirty-navigation protection after BFCache return for editors without an onLeave callback 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-edit-guard.test.tsx > restores dirty-navigation protection after BFCache return for editors without an onLeave callback
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/sideout-edit-guard.test.tsx:24:119
+     22|  const initial=new Event('beforeunload',{cancelable:true});dispatchEve…
+     23|  dispatchEvent(new Event('pagehide'));dispatchEvent(new PageTransition…
+     24|  const restored=new Event('beforeunload',{cancelable:true});dispatchEv…
+       |                                                                                                                       ^
+     25| });
+     26|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  08:37:38
+   Duration  702ms (environment 80%, import 13%, transform 3%, tests 3%)
+

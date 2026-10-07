@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-06",
+  "source": "user physical iPhone confirmation",
+  "answer": "세 항목 모두 정상",
+  "passed": [
+    "검색 키보드 상태 후보 선택",
+    "배정과 미리보기 이동",
+    "저장 후 편집 유지"
+  ],
+  "notSeparatelyConfirmed": [
+    "safe area",
+    "후보 내부 스크롤",
+    "브라우저 뒤로가기 보호"
+  ]
+}

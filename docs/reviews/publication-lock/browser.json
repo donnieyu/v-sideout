@@ -1,0 +1,33 @@
+{
+  "id": "a1186a54-187a-48d9-8ab3-1a5c222d7f35",
+  "results": [
+    {
+      "width": 320,
+      "readonly": true,
+      "noMutationControls": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "readonly": true,
+      "noMutationControls": true,
+      "noOverflow": true
+    },
+    {
+      "serverSaveWhilePublished": "rejected without write"
+    },
+    {
+      "withdrawCancelNoWrite": true,
+      "networkFailureRemainsLocked": true,
+      "withdrawHidesTeamsAndMatches": true,
+      "participationStillClosed": true,
+      "staleSaveRejected": true,
+      "matchSaveStaysPrivate": true,
+      "saveKeepsEditing": true,
+      "republishLocks": true,
+      "userPracticePreserved": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false
+}

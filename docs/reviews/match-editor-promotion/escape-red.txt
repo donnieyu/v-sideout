@@ -1,0 +1,88 @@
+뉴배동 · 시험
+1월 31일 일요일 · 경기 순서 수정
+
+실제 계정 연결 시험 · 일정·참가 명단 저장 가능
+
+경기 순서 수정
+저장하지 않은 변경
+취소
+저장
+
+저장한 순서는 팀편성을 공개할 때 함께 반영됩니다.
+
+신입 경기 포함
+4팀 · 일반 6경기 · 신입 0경기
+경기당 20분 · 손잡이를 끌어 순서 변경
+
+순서 이동 버튼에 초점을 두고 위 또는 아래 화살표 키를 눌러 이동할 수 있습니다. 드래그 중 Escape를 누르면 취소합니다.
+
+2번째로 이동했습니다.
+
+1
+08:30–08:50
+일반 경기
+C팀 vs D팀
+2
+08:50–09:10
+일반 경기
+A팀 vs B팀
+3
+09:10–09:30
+일반 경기
+A팀 vs C팀
+4
+09:30–09:50
+일반 경기
+B팀 vs D팀
+5
+09:50–10:10
+일반 경기
+A팀 vs D팀
+6
+10:10–10:30
+일반 경기
+B팀 vs C팀
+[]
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Escape must cancel without changing order
++ actual - expected
+
+  [
++   'regular-2',
+    'regular-1',
+-   'regular-2',
+    'regular-3',
+    'regular-4',
+    'regular-5',
+    'regular-6'
+  ]
+
+    at file:///Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/docs/reviews/match-editor-promotion/verify-escape.mjs:13:268
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at process.processImmediate (node:internal/timers:472:9) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [
+    'regular-2',
+    'regular-1',
+    'regular-3',
+    'regular-4',
+    'regular-5',
+    'regular-6'
+  ],
+  expected: [
+    'regular-1',
+    'regular-2',
+    'regular-3',
+    'regular-4',
+    'regular-5',
+    'regular-6'
+  ],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0

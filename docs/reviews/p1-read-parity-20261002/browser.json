@@ -1,0 +1,122 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "scenario": "home",
+      "overflow": false,
+      "cards": [
+        {
+          "name": "히어로즈",
+          "height": 198,
+          "width": 240
+        },
+        {
+          "name": "뉴배동",
+          "height": 198,
+          "width": 240
+        },
+        {
+          "name": "아스팍",
+          "height": 198,
+          "width": 240
+        }
+      ],
+      "board": false,
+      "agenda": true
+    },
+    {
+      "width": 320,
+      "scenario": "pre",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "published",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "past",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "home",
+      "overflow": false,
+      "cards": [
+        {
+          "name": "히어로즈",
+          "height": 198,
+          "width": 300
+        },
+        {
+          "name": "뉴배동",
+          "height": 198,
+          "width": 300
+        },
+        {
+          "name": "아스팍",
+          "height": 198,
+          "width": 300
+        }
+      ],
+      "board": false,
+      "agenda": true
+    },
+    {
+      "width": 390,
+      "scenario": "pre",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "published",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "past",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "scenario": "home",
+      "overflow": false,
+      "cards": [
+        {
+          "name": "히어로즈",
+          "height": 204,
+          "width": 445
+        },
+        {
+          "name": "뉴배동",
+          "height": 204,
+          "width": 445
+        },
+        {
+          "name": "아스팍",
+          "height": 204,
+          "width": 445
+        }
+      ],
+      "board": true,
+      "agenda": false
+    },
+    {
+      "width": 1280,
+      "scenario": "pre",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "scenario": "published",
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "scenario": "past",
+      "overflow": false
+    }
+  ],
+  "errors": []
+}

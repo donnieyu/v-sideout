@@ -1,0 +1,98 @@
+[
+  {
+    width: 320,
+    pre: false,
+    variant: 'restored',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 320,
+    pre: false,
+    variant: 'compact',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 320,
+    pre: true,
+    variant: 'restored',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 320,
+    pre: true,
+    variant: 'compact',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 390,
+    pre: false,
+    variant: 'restored',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 390,
+    pre: false,
+    variant: 'compact',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 390,
+    pre: true,
+    variant: 'restored',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 390,
+    pre: true,
+    variant: 'compact',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 1280,
+    pre: false,
+    variant: 'restored',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 1280,
+    pre: false,
+    variant: 'compact',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 1280,
+    pre: true,
+    variant: 'restored',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 1280,
+    pre: true,
+    variant: 'compact',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  }
+]

@@ -1,0 +1,55 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-team-publication.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-team-publication.test.ts (11 tests | 6 failed) 36ms
+   × publishes once, preserves replay semantics and visibility, closes registration/cancellation 24ms
+   × rejects concurrent cancel with no partial publication or promotion 1ms
+   × rejects concurrent new-applicant with no partial publication or promotion 1ms
+   × rejects concurrent session with no partial publication or promotion 1ms
+   × rejects concurrent member with no partial publication or promotion 1ms
+   × rejects concurrent actor with no partial publication or promotion 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-team-publication.test.ts > publishes once, preserves replay semantics and visibility, closes registration/cancellation
+AssertionError: expected 400 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 400
+
+ ❯ tests/sideout-team-publication.test.ts:20:109
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  tests/sideout-team-publication.test.ts > rejects concurrent cancel with no partial publication or promotion
+ FAIL  tests/sideout-team-publication.test.ts > rejects concurrent new-applicant with no partial publication or promotion
+ FAIL  tests/sideout-team-publication.test.ts > rejects concurrent session with no partial publication or promotion
+ FAIL  tests/sideout-team-publication.test.ts > rejects concurrent member with no partial publication or promotion
+ FAIL  tests/sideout-team-publication.test.ts > rejects concurrent actor with no partial publication or promotion
+AssertionError: expected 400 to be 409 // Object.is equality
+
+- Expected
++ Received
+
+- 409
++ 400
+
+ ❯ tests/sideout-team-publication.test.ts:47:45
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 5 passed (11)
+   Start at  15:30:51
+   Duration  222ms (transform 56%, tests 27%, import 16%, worker 2%)
+

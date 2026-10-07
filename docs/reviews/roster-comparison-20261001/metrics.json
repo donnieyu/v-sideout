@@ -1,0 +1,3272 @@
+[
+  {
+    "kind": "baseline",
+    "width": 320,
+    "before": {
+      "dialog": {
+        "x": 16,
+        "y": 97,
+        "width": 273,
+        "height": 650
+      },
+      "region": {
+        "x": 36,
+        "y": 189.15625,
+        "width": 233,
+        "height": 478.84375,
+        "clientHeight": 479,
+        "scrollHeight": 1860,
+        "scrollTop": 0
+      },
+      "footer": {
+        "x": 36,
+        "y": 682,
+        "width": 233,
+        "height": 45
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "227px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 39,
+              "y": 229.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 39,
+              "y": 286.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 39,
+              "y": 343.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 39,
+              "y": 400.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 39,
+              "y": 457.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 39,
+              "y": 514.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 39,
+              "y": 571.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 39,
+              "y": 628.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 39,
+              "y": 685.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 39,
+              "y": 742.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 39,
+              "y": 799.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 39,
+              "y": 856.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 39,
+              "y": 913.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 39,
+              "y": 970.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 39,
+              "y": 1027.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 39,
+              "y": 1084.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 39,
+              "y": 1141.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 39,
+              "y": 1198.953125,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "227px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 39,
+              "y": 1299.75,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 39,
+              "y": 1370.75,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 39,
+              "y": 1441.75,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 39,
+              "y": 1512.75,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 39,
+              "y": 1583.75,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 39,
+              "y": 1654.75,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "227px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 39,
+              "y": 1769.546875,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 39,
+              "y": 1840.546875,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 39,
+              "y": 1911.546875,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 39,
+              "y": 1982.546875,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "afterWheel": {
+      "dialog": {
+        "x": 16,
+        "y": 97,
+        "width": 273,
+        "height": 650
+      },
+      "region": {
+        "x": 36,
+        "y": 189.15625,
+        "width": 233,
+        "height": 478.84375,
+        "clientHeight": 479,
+        "scrollHeight": 1860,
+        "scrollTop": 1381
+      },
+      "footer": {
+        "x": 36,
+        "y": 682,
+        "width": 233,
+        "height": 45
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "227px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 39,
+              "y": -1151.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 39,
+              "y": -1094.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 39,
+              "y": -1037.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 39,
+              "y": -980.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 39,
+              "y": -923.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 39,
+              "y": -866.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 39,
+              "y": -809.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 39,
+              "y": -752.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 39,
+              "y": -695.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 39,
+              "y": -638.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 39,
+              "y": -581.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 39,
+              "y": -524.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 39,
+              "y": -467.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 39,
+              "y": -410.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 39,
+              "y": -353.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 39,
+              "y": -296.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 39,
+              "y": -239.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 39,
+              "y": -182.046875,
+              "width": 227,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "227px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 39,
+              "y": -81.25,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 39,
+              "y": -10.25,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 39,
+              "y": 60.75,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 39,
+              "y": 131.75,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 39,
+              "y": 202.75,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 39,
+              "y": 273.75,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "227px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 39,
+              "y": 388.546875,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 39,
+              "y": 459.546875,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 39,
+              "y": 530.546875,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 39,
+              "y": 601.546875,
+              "width": 227,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "focus": {
+      "tag": "BUTTON",
+      "text": "참가자 추가"
+    },
+    "errors": []
+  },
+  {
+    "kind": "current",
+    "width": 320,
+    "before": {
+      "dialog": {
+        "x": 16,
+        "y": 97,
+        "width": 288,
+        "height": 650
+      },
+      "region": {
+        "x": 37,
+        "y": 196,
+        "width": 246,
+        "height": 472,
+        "clientHeight": 472,
+        "scrollHeight": 1815,
+        "scrollTop": 0
+      },
+      "footer": {
+        "x": 37,
+        "y": 682,
+        "width": 246,
+        "height": 44
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "240px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 40,
+              "y": 227.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 40,
+              "y": 284.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 40,
+              "y": 341.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 40,
+              "y": 398.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 40,
+              "y": 455.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 40,
+              "y": 512.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 40,
+              "y": 569.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 40,
+              "y": 626.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 40,
+              "y": 683.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 40,
+              "y": 740.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 40,
+              "y": 797.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 40,
+              "y": 854.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 40,
+              "y": 911.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 40,
+              "y": 968.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 40,
+              "y": 1025.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 40,
+              "y": 1082.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 40,
+              "y": 1139.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 40,
+              "y": 1196.796875,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "240px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 40,
+              "y": 1293.59375,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 40,
+              "y": 1361.78125,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 40,
+              "y": 1429.96875,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 40,
+              "y": 1498.15625,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 40,
+              "y": 1566.34375,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 40,
+              "y": 1634.53125,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "240px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 40,
+              "y": 1742.515625,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 40,
+              "y": 1810.703125,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 40,
+              "y": 1878.890625,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 40,
+              "y": 1947.078125,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "afterWheel": {
+      "dialog": {
+        "x": 16,
+        "y": 97,
+        "width": 288,
+        "height": 650
+      },
+      "region": {
+        "x": 37,
+        "y": 196,
+        "width": 246,
+        "height": 472,
+        "clientHeight": 472,
+        "scrollHeight": 1815,
+        "scrollTop": 1343
+      },
+      "footer": {
+        "x": 37,
+        "y": 682,
+        "width": 246,
+        "height": 44
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "240px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 40,
+              "y": -1115.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 40,
+              "y": -1058.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 40,
+              "y": -1001.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 40,
+              "y": -944.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 40,
+              "y": -887.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 40,
+              "y": -830.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 40,
+              "y": -773.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 40,
+              "y": -716.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 40,
+              "y": -659.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 40,
+              "y": -602.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 40,
+              "y": -545.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 40,
+              "y": -488.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 40,
+              "y": -431.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 40,
+              "y": -374.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 40,
+              "y": -317.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 40,
+              "y": -260.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 40,
+              "y": -203.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 40,
+              "y": -146.203125,
+              "width": 240,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "240px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 40,
+              "y": -49.40625,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 40,
+              "y": 18.78125,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 40,
+              "y": 86.96875,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 40,
+              "y": 155.15625,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 40,
+              "y": 223.34375,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 40,
+              "y": 291.53125,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "240px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 40,
+              "y": 399.515625,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 40,
+              "y": 467.703125,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 40,
+              "y": 535.890625,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 40,
+              "y": 604.078125,
+              "width": 240,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "focus": {
+      "tag": "BUTTON",
+      "text": "확인"
+    },
+    "errors": []
+  },
+  {
+    "kind": "baseline",
+    "width": 390,
+    "before": {
+      "dialog": {
+        "x": 16,
+        "y": 97,
+        "width": 343,
+        "height": 650
+      },
+      "region": {
+        "x": 36,
+        "y": 189.15625,
+        "width": 303,
+        "height": 478.84375,
+        "clientHeight": 479,
+        "scrollHeight": 992,
+        "scrollTop": 0
+      },
+      "footer": {
+        "x": 36,
+        "y": 682,
+        "width": 303,
+        "height": 45
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "145px 145px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 39,
+              "y": 229.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 191,
+              "y": 229.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 39,
+              "y": 286.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 191,
+              "y": 286.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 39,
+              "y": 343.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 191,
+              "y": 343.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 39,
+              "y": 400.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 191,
+              "y": 400.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 39,
+              "y": 457.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 191,
+              "y": 457.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 39,
+              "y": 514.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 191,
+              "y": 514.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 39,
+              "y": 571.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 191,
+              "y": 571.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 39,
+              "y": 628.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 191,
+              "y": 628.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 39,
+              "y": 685.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 191,
+              "y": 685.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "145px 145px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 39,
+              "y": 786.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 191,
+              "y": 786.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 39,
+              "y": 857.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 191,
+              "y": 857.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 39,
+              "y": 928.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 191,
+              "y": 928.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "145px 145px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 39,
+              "y": 1043.546875,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 191,
+              "y": 1043.546875,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 39,
+              "y": 1114.546875,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 191,
+              "y": 1114.546875,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "afterWheel": {
+      "dialog": {
+        "x": 16,
+        "y": 97,
+        "width": 343,
+        "height": 650
+      },
+      "region": {
+        "x": 36,
+        "y": 189.15625,
+        "width": 303,
+        "height": 478.84375,
+        "clientHeight": 479,
+        "scrollHeight": 992,
+        "scrollTop": 513
+      },
+      "footer": {
+        "x": 36,
+        "y": 682,
+        "width": 303,
+        "height": 45
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "145px 145px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 39,
+              "y": -283.046875,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 191,
+              "y": -283.046875,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 39,
+              "y": -226.046875,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 191,
+              "y": -226.046875,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 39,
+              "y": -169.046875,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 191,
+              "y": -169.046875,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 39,
+              "y": -112.046875,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 191,
+              "y": -112.046875,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 39,
+              "y": -55.046875,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 191,
+              "y": -55.046875,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 39,
+              "y": 1.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 191,
+              "y": 1.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 39,
+              "y": 58.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 191,
+              "y": 58.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 39,
+              "y": 115.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 191,
+              "y": 115.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 39,
+              "y": 172.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 191,
+              "y": 172.953125,
+              "width": 145,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "145px 145px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 39,
+              "y": 273.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 191,
+              "y": 273.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 39,
+              "y": 344.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 191,
+              "y": 344.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 39,
+              "y": 415.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 191,
+              "y": 415.75,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "145px 145px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 39,
+              "y": 530.546875,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 191,
+              "y": 530.546875,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 39,
+              "y": 601.546875,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 191,
+              "y": 601.546875,
+              "width": 145,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "focus": {
+      "tag": "BUTTON",
+      "text": "참가자 추가"
+    },
+    "errors": []
+  },
+  {
+    "kind": "current",
+    "width": 390,
+    "before": {
+      "dialog": {
+        "x": 16,
+        "y": 97,
+        "width": 358,
+        "height": 650
+      },
+      "region": {
+        "x": 37,
+        "y": 196,
+        "width": 316,
+        "height": 472,
+        "clientHeight": 472,
+        "scrollHeight": 961,
+        "scrollTop": 0
+      },
+      "footer": {
+        "x": 37,
+        "y": 682,
+        "width": 316,
+        "height": 44
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "151.5px 151.5px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 40,
+              "y": 227.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 198.5,
+              "y": 227.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 40,
+              "y": 284.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 198.5,
+              "y": 284.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 40,
+              "y": 341.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 198.5,
+              "y": 341.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 40,
+              "y": 398.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 198.5,
+              "y": 398.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 40,
+              "y": 455.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 198.5,
+              "y": 455.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 40,
+              "y": 512.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 198.5,
+              "y": 512.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 40,
+              "y": 569.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 198.5,
+              "y": 569.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 40,
+              "y": 626.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 198.5,
+              "y": 626.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 40,
+              "y": 683.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 198.5,
+              "y": 683.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "151.5px 151.5px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 40,
+              "y": 780.59375,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 198.5,
+              "y": 780.59375,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 40,
+              "y": 848.78125,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 198.5,
+              "y": 848.78125,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 40,
+              "y": 916.96875,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 198.5,
+              "y": 916.96875,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "151.5px 151.5px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 40,
+              "y": 1024.953125,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 198.5,
+              "y": 1024.953125,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 40,
+              "y": 1093.140625,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 198.5,
+              "y": 1093.140625,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "afterWheel": {
+      "dialog": {
+        "x": 16,
+        "y": 97,
+        "width": 358,
+        "height": 650
+      },
+      "region": {
+        "x": 37,
+        "y": 196,
+        "width": 316,
+        "height": 472,
+        "clientHeight": 472,
+        "scrollHeight": 961,
+        "scrollTop": 489
+      },
+      "footer": {
+        "x": 37,
+        "y": 682,
+        "width": 316,
+        "height": 44
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "151.5px 151.5px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 40,
+              "y": -261.203125,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 198.5,
+              "y": -261.203125,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 40,
+              "y": -204.203125,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 198.5,
+              "y": -204.203125,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 40,
+              "y": -147.203125,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 198.5,
+              "y": -147.203125,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 40,
+              "y": -90.203125,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 198.5,
+              "y": -90.203125,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 40,
+              "y": -33.203125,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 198.5,
+              "y": -33.203125,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 40,
+              "y": 23.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 198.5,
+              "y": 23.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 40,
+              "y": 80.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 198.5,
+              "y": 80.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 40,
+              "y": 137.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 198.5,
+              "y": 137.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 40,
+              "y": 194.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 198.5,
+              "y": 194.796875,
+              "width": 151.5,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "151.5px 151.5px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 40,
+              "y": 291.59375,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 198.5,
+              "y": 291.59375,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 40,
+              "y": 359.78125,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 198.5,
+              "y": 359.78125,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 40,
+              "y": 427.96875,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 198.5,
+              "y": 427.96875,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "151.5px 151.5px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 40,
+              "y": 535.953125,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 198.5,
+              "y": 535.953125,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 40,
+              "y": 604.140625,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 198.5,
+              "y": 604.140625,
+              "width": 151.5,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "focus": {
+      "tag": "BUTTON",
+      "text": "확인"
+    },
+    "errors": []
+  },
+  {
+    "kind": "baseline",
+    "width": 1280,
+    "before": {
+      "dialog": {
+        "x": 392.5,
+        "y": 97,
+        "width": 480,
+        "height": 650
+      },
+      "region": {
+        "x": 412.5,
+        "y": 189.15625,
+        "width": 440,
+        "height": 478.84375,
+        "clientHeight": 479,
+        "scrollHeight": 750,
+        "scrollTop": 0
+      },
+      "footer": {
+        "x": 412.5,
+        "y": 682,
+        "width": 440,
+        "height": 45
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "140px 140px 140px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 415.5,
+              "y": 229.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 562.5,
+              "y": 229.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 709.5,
+              "y": 229.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 415.5,
+              "y": 286.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 562.5,
+              "y": 286.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 709.5,
+              "y": 286.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 415.5,
+              "y": 343.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 562.5,
+              "y": 343.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 709.5,
+              "y": 343.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 415.5,
+              "y": 400.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 562.5,
+              "y": 400.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 709.5,
+              "y": 400.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 415.5,
+              "y": 457.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 562.5,
+              "y": 457.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 709.5,
+              "y": 457.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 415.5,
+              "y": 514.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 562.5,
+              "y": 514.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 709.5,
+              "y": 514.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "140px 140px 140px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 415.5,
+              "y": 615.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 562.5,
+              "y": 615.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 709.5,
+              "y": 615.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 415.5,
+              "y": 686.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 562.5,
+              "y": 686.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 709.5,
+              "y": 686.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "140px 140px 140px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 415.5,
+              "y": 801.546875,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 562.5,
+              "y": 801.546875,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 709.5,
+              "y": 801.546875,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 415.5,
+              "y": 872.546875,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "afterWheel": {
+      "dialog": {
+        "x": 392.5,
+        "y": 97,
+        "width": 480,
+        "height": 650
+      },
+      "region": {
+        "x": 412.5,
+        "y": 189.15625,
+        "width": 440,
+        "height": 478.84375,
+        "clientHeight": 479,
+        "scrollHeight": 750,
+        "scrollTop": 271
+      },
+      "footer": {
+        "x": 412.5,
+        "y": 682,
+        "width": 440,
+        "height": 45
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "140px 140px 140px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 415.5,
+              "y": -41.046875,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 562.5,
+              "y": -41.046875,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 709.5,
+              "y": -41.046875,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 415.5,
+              "y": 15.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 562.5,
+              "y": 15.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 709.5,
+              "y": 15.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 415.5,
+              "y": 72.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 562.5,
+              "y": 72.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 709.5,
+              "y": 72.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 415.5,
+              "y": 129.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 562.5,
+              "y": 129.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 709.5,
+              "y": 129.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 415.5,
+              "y": 186.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 562.5,
+              "y": 186.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 709.5,
+              "y": 186.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 415.5,
+              "y": 243.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 562.5,
+              "y": 243.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 709.5,
+              "y": 243.953125,
+              "width": 140,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "140px 140px 140px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 415.5,
+              "y": 344.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 562.5,
+              "y": 344.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 709.5,
+              "y": 344.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 415.5,
+              "y": 415.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 562.5,
+              "y": 415.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 709.5,
+              "y": 415.75,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "140px 140px 140px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 415.5,
+              "y": 530.546875,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 562.5,
+              "y": 530.546875,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 709.5,
+              "y": 530.546875,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 415.5,
+              "y": 601.546875,
+              "width": 140,
+              "height": 64,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "focus": {
+      "tag": "BUTTON",
+      "text": "참가자 추가"
+    },
+    "errors": []
+  },
+  {
+    "kind": "current",
+    "width": 1280,
+    "before": {
+      "dialog": {
+        "x": 400,
+        "y": 97,
+        "width": 480,
+        "height": 650
+      },
+      "region": {
+        "x": 421,
+        "y": 196,
+        "width": 438,
+        "height": 472,
+        "clientHeight": 472,
+        "scrollHeight": 722,
+        "scrollTop": 0
+      },
+      "footer": {
+        "x": 421,
+        "y": 682,
+        "width": 438,
+        "height": 44
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "139.328px 139.328px 139.328px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 424,
+              "y": 227.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 570.328125,
+              "y": 227.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 716.65625,
+              "y": 227.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 424,
+              "y": 284.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 570.328125,
+              "y": 284.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 716.65625,
+              "y": 284.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 424,
+              "y": 341.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 570.328125,
+              "y": 341.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 716.65625,
+              "y": 341.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 424,
+              "y": 398.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 570.328125,
+              "y": 398.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 716.65625,
+              "y": 398.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 424,
+              "y": 455.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 570.328125,
+              "y": 455.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 716.65625,
+              "y": 455.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 424,
+              "y": 512.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 570.328125,
+              "y": 512.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 716.65625,
+              "y": 512.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "139.328px 139.328px 139.328px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 424,
+              "y": 609.59375,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 570.328125,
+              "y": 609.59375,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 716.65625,
+              "y": 609.59375,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 424,
+              "y": 677.78125,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 570.328125,
+              "y": 677.78125,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 716.65625,
+              "y": 677.78125,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "139.328px 139.328px 139.328px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 424,
+              "y": 785.765625,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 570.328125,
+              "y": 785.765625,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 716.65625,
+              "y": 785.765625,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 424,
+              "y": 853.953125,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "afterWheel": {
+      "dialog": {
+        "x": 400,
+        "y": 97,
+        "width": 480,
+        "height": 650
+      },
+      "region": {
+        "x": 421,
+        "y": 196,
+        "width": 438,
+        "height": 472,
+        "clientHeight": 472,
+        "scrollHeight": 722,
+        "scrollTop": 250
+      },
+      "footer": {
+        "x": 421,
+        "y": 682,
+        "width": 438,
+        "height": 44
+      },
+      "groups": [
+        {
+          "title": "소속 회원",
+          "columns": "139.328px 139.328px 139.328px",
+          "rows": [
+            {
+              "name": "강현우",
+              "x": 424,
+              "y": -22.203125,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김도윤",
+              "x": 570.328125,
+              "y": -22.203125,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "남지안",
+              "x": 716.65625,
+              "y": -22.203125,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박지훈",
+              "x": 424,
+              "y": 34.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "서유진",
+              "x": 570.328125,
+              "y": 34.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "신하은",
+              "x": 716.65625,
+              "y": 34.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "오수빈",
+              "x": 424,
+              "y": 91.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "윤지호",
+              "x": 570.328125,
+              "y": 91.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이서준",
+              "x": 716.65625,
+              "y": 91.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "임건우",
+              "x": 424,
+              "y": 148.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "장준서",
+              "x": 570.328125,
+              "y": 148.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "정하준",
+              "x": 716.65625,
+              "y": 148.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "조시우",
+              "x": 424,
+              "y": 205.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "최민준",
+              "x": 570.328125,
+              "y": 205.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "김가나다라",
+              "x": 716.65625,
+              "y": 205.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "이알렉산더",
+              "x": 424,
+              "y": 262.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "박서준",
+              "x": 570.328125,
+              "y": 262.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            },
+            {
+              "name": "한지우",
+              "x": 716.65625,
+              "y": 262.796875,
+              "width": 139.328125,
+              "height": 50,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "게스트",
+          "columns": "139.328px 139.328px 139.328px",
+          "rows": [
+            {
+              "name": "강현우\n히어로즈",
+              "x": 424,
+              "y": 359.59375,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "김도윤\n아주긴소속모임이름테스트",
+              "x": 570.328125,
+              "y": 359.59375,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "남지안\n무소속",
+              "x": 716.65625,
+              "y": 359.59375,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "박지훈\n히어로즈",
+              "x": 424,
+              "y": 427.78125,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "서유진\n아주긴소속모임이름테스트",
+              "x": 570.328125,
+              "y": 427.78125,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "신하은\n무소속",
+              "x": 716.65625,
+              "y": 427.78125,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "title": "대기자",
+          "columns": "139.328px 139.328px 139.328px",
+          "rows": [
+            {
+              "name": "오수빈\n히어로즈",
+              "x": 424,
+              "y": 535.765625,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "윤지호\n히어로즈",
+              "x": 570.328125,
+              "y": 535.765625,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "이서준\n히어로즈",
+              "x": 716.65625,
+              "y": 535.765625,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            },
+            {
+              "name": "임건우\n히어로즈",
+              "x": 424,
+              "y": 603.953125,
+              "width": 139.328125,
+              "height": 61.1875,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "viewportOverflow": false
+    },
+    "focus": {
+      "tag": "BUTTON",
+      "text": "확인"
+    },
+    "errors": []
+  }
+]

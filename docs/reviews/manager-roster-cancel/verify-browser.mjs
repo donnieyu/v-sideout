@@ -1,0 +1,18 @@
+import {chromium} from '/Users/donnieyu/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import {readFile,writeFile} from 'node:fs/promises';import assert from 'node:assert/strict';
+const root='/Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1',out=root+'/docs/reviews/manager-roster-cancel',origin='http://127.0.0.1:4180',id=JSON.parse(await readFile(root+'/docs/reviews/manager-roster-add/browser.json','utf8')).id,api='/api/sessions/'+id;
+const creds=JSON.parse(await readFile(root+'/web/.wrangler/sideout-p1/credentials.json','utf8')),master=creds.find(c=>c.loginId==='시험master'),targets=['시험applicant','시험guest'].map(login=>creds.find(c=>c.loginId===login).memberId);
+const browser=await chromium.launch({channel:'chrome'}),context=await browser.newContext({viewport:{width:390,height:844}}),page=await context.newPage(),results=[],errors=[];page.on('pageerror',e=>errors.push(e.message));
+async function get(path){const r=await context.request.get(origin+path);assert.equal(r.status(),200);return(await r.json()).data}
+try{
+ assert.equal((await context.request.post(origin+'/api/auth/login',{headers:{Origin:origin},data:{loginId:master.loginId,password:master.password}})).status(),200);
+ const protectedIds=['session-allocation-practice-20261003','4a03a759-7ec2-4a7f-a584-f63c0ac74f60'],protectedBefore=await Promise.all(protectedIds.map(id=>get('/api/sessions/'+id+'/teams')));
+ const before=await get(api),teamBefore=await get(api+'/teams');assert.equal(before.teamPublished,false);assert.equal(before.publicationWithdrawn,true);assert(before.capabilities.canCancelRoster);assert(targets.every(id=>before.visibleApplicants.some(p=>p.memberId===id)));
+ await page.goto(origin+'/session/'+id);await page.getByRole('button',{name:'명단 확인',exact:true}).click();await page.getByRole('heading',{name:'게스트',exact:true}).waitFor();await page.screenshot({path:out+'/before-390.png',animations:'disabled'});
+ const own=page.getByRole('heading',{name:'소속 회원',exact:true}).locator('..').locator('..'),guest=page.getByRole('heading',{name:'게스트',exact:true}).locator('..').locator('..');
+ page.once('dialog',d=>d.dismiss());await own.getByRole('button',{name:'동명이인 참가 취소',exact:true}).click();assert.deepEqual((await get(api)).counts,before.counts);results.push('취소 확인창에서 취소하면 명단 유지');
+ page.once('dialog',d=>d.accept());await own.getByRole('button',{name:'동명이인 참가 취소',exact:true}).click();await own.getByRole('button',{name:'동명이인 참가 취소',exact:true}).waitFor({state:'detached'});assert(await page.getByRole('dialog').isVisible());
+ page.once('dialog',d=>d.accept());await guest.getByRole('button',{name:'동명이인 참가 취소',exact:true}).click();await guest.getByRole('button',{name:'동명이인 참가 취소',exact:true}).waitFor({state:'detached'});assert(await page.getByRole('dialog').isVisible());await page.screenshot({path:out+'/after-390.png',animations:'disabled'});
+ const after=await get(api),teamAfter=await get(api+'/teams');assert.equal(after.counts.applicants,before.counts.applicants-2);assert(targets.every(id=>!after.visibleApplicants.some(p=>p.memberId===id)));assert(targets.every(id=>!teamAfter.draft.teams.some(t=>t.players.some(p=>p.memberId===id))));assert.deepEqual(teamAfter.publishedLineup,teamBefore.publishedLineup);results.push('미공개 상태에서 소속·게스트 연속 취소, 모달 유지, 인원·명단·초안 배정 일치, 이전 공개본 보존');
+ assert.deepEqual(await Promise.all(protectedIds.map(id=>get('/api/sessions/'+id+'/teams'))),protectedBefore);assert.deepEqual(errors,[]);
+}catch(e){await page.screenshot({path:out+'/failure.png'});throw e}finally{await writeFile(out+'/browser.json',JSON.stringify({id,results,errors,physicalIPhone:false},null,2));await browser.close();console.log(JSON.stringify(results))}

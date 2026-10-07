@@ -1,0 +1,251 @@
+[
+  {
+    "width": 390,
+    "pre": false,
+    "variant": "compact",
+    "keyboardReachable": true,
+    "clientHeight": 476,
+    "scrollHeight": 801,
+    "rows": [
+      {
+        "group": "소속 회원",
+        "count": 18,
+        "height": 40,
+        "visible": 18,
+        "overflow": false
+      },
+      {
+        "group": "게스트",
+        "count": 6,
+        "height": 48,
+        "visible": 0,
+        "overflow": false
+      },
+      {
+        "group": "대기자",
+        "count": 4,
+        "height": 48,
+        "visible": 0,
+        "overflow": false
+      }
+    ],
+    "buttons": [],
+    "pageOverflow": false,
+    "footer": {
+      "x": 37,
+      "y": 682,
+      "width": 316,
+      "height": 44
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "pre": true,
+    "variant": "compact",
+    "keyboardReachable": true,
+    "clientHeight": 476,
+    "scrollHeight": 940,
+    "rows": [
+      {
+        "group": "소속 회원",
+        "count": 18,
+        "height": 52,
+        "visible": 14,
+        "overflow": false
+      },
+      {
+        "group": "게스트",
+        "count": 6,
+        "height": 57.578125,
+        "visible": 0,
+        "overflow": false
+      },
+      {
+        "group": "대기자",
+        "count": 4,
+        "height": 52,
+        "visible": 0,
+        "overflow": false
+      }
+    ],
+    "buttons": [
+      {
+        "x": 143,
+        "y": 230.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 230.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 288.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 288.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 346.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 346.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 404.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 404.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 462.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 462.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 520.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 520.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 578.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 578.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 636.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 636.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 694.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 694.15625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 797.9375,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 797.9375,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 858.734375,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 858.734375,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 919.515625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 919.515625,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 1023.3125,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 1023.3125,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 143,
+        "y": 1081.3125,
+        "width": 44,
+        "height": 44
+      },
+      {
+        "x": 301,
+        "y": 1081.3125,
+        "width": 44,
+        "height": 44
+      }
+    ],
+    "pageOverflow": false,
+    "footer": {
+      "x": 37,
+      "y": 682,
+      "width": 316,
+      "height": 44
+    },
+    "errors": []
+  }
+]

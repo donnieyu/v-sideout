@@ -1,0 +1,85 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-participation.test.ts tests/sideout-team-publication.test.ts tests/sideout-roster-write.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-participation.test.ts (27 tests | 4 failed) 80ms
+   × allows manager 00000000-0000-4000-8000-000000000001 to add and cancel from a withdrawn roster while self actions remain locked 4ms
+   × allows manager 00000000-0000-4000-8000-000000000002 to add and cancel from a withdrawn roster while self actions remain locked 2ms
+   × withdrawn manager cancellation removes the current draft and attendance but preserves the previous public snapshot 1ms
+   × withdrawn manager cancellation checks the exact start boundary (-1 ms) 1ms
+ ❯ tests/sideout-team-publication.test.ts (19 tests | 1 failed) 78ms
+   × locks published saves, withdraws visibility atomically and only reopens manager roster edits 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-participation.test.ts > allows manager 00000000-0000-4000-8000-000000000001 to add and cancel from a withdrawn roster while self actions remain locked
+ FAIL  tests/sideout-participation.test.ts > allows manager 00000000-0000-4000-8000-000000000002 to add and cancel from a withdrawn roster while self actions remain locked
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/sideout-participation.test.ts:129:164
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/sideout-participation.test.ts > withdrawn manager cancellation removes the current draft and attendance but preserves the previous public snapshot
+AssertionError: expected 400 to be 200 // Object.is equality
+
+- Expected
++ Received
+
+- 200
++ 400
+
+ ❯ tests/sideout-participation.test.ts:156:87
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/sideout-participation.test.ts > withdrawn manager cancellation checks the exact start boundary (-1 ms)
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/sideout-participation.test.ts:166:113
+    164|  const f=await httpFixture();try{
+    165|   f.put('roster',session.id,{...roster,publicationState:'withdrawn'});…
+    166|   const detail=(await(await f.read(ids.master)).json() as any).data;ex…
+       |                                                                                                                 ^
+    167|   expect((await f.write(ids.master,{action:'remove',memberId:ids.appli…
+    168|  }finally{f.close()}
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  tests/sideout-team-publication.test.ts > locks published saves, withdraws visibility atomically and only reopens manager roster edits
+SideoutError: 팀편성 공개 후에는 참가를 취소할 수 없습니다.
+ ❯ invalid lib/sideout/participation.ts:4:33
+      2| import {SideoutError} from './errors';
+      3| export type ParticipationMember={memberId:string;homeClubId:string|nul…
+      4| const invalid=(message:string)=>new SideoutError('INVALID_INPUT',400,m…
+       |                                 ^
+      5| export const isPublished=(roster:RosterRecord)=>roster.published!==nul…
+      6| export const hasPublished=(roster:RosterRecord)=>!!roster.firstPublish…
+ ❯ cancelParticipant lib/sideout/participation.ts:43:50
+ ❯ tests/sideout-team-publication.test.ts:72:10
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+
+ Test Files  2 failed | 1 passed (3)
+      Tests  5 failed | 52 passed (57)
+   Start at  14:34:36
+   Duration  1.56s (tests 38%, environment 30%, import 16%, transform 15%)
+

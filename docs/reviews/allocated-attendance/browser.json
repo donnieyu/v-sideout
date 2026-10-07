@@ -1,0 +1,24 @@
+{
+  "id": "c16837a0-af11-46b6-82f6-cdaa5522dfc4",
+  "results": [
+    {
+      "width": 320,
+      "attendanceCount": 5,
+      "waitingCount": 1,
+      "assignedOwnAndGuestListed": true
+    },
+    {
+      "width": 390,
+      "attendanceCount": 5,
+      "waitingCount": 1,
+      "assignedOwnAndGuestListed": true
+    },
+    {
+      "savedBeforePublication": true,
+      "unassignedWaiterPreserved": true,
+      "userDataPreserved": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false
+}

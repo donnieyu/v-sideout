@@ -1,0 +1,40 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-participation.test.ts tests/sideout-roster-write.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-participation.test.ts (23 tests | 3 failed) 66ms
+   × manager additions bypass priority while ordinary members retain the waiting rule 3ms
+   × manager additions bypass full while ordinary members retain the waiting rule 0ms
+   × manager additions bypass closed while ordinary members retain the waiting rule 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-participation.test.ts > manager additions bypass priority while ordinary members retain the waiting rule
+ FAIL  tests/sideout-participation.test.ts > manager additions bypass full while ordinary members retain the waiting rule
+ FAIL  tests/sideout-participation.test.ts > manager additions bypass closed while ordinary members retain the waiting rule
+AssertionError: expected [ 'waiting', 'waiting' ] to deeply equal [ 'applied', 'applied' ]
+
+- Expected
++ Received
+
+  [
+-   "applied",
+-   "applied",
++   "waiting",
++   "waiting",
+  ]
+
+ ❯ tests/sideout-participation.test.ts:138:149
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  3 failed | 31 passed (34)
+   Start at  14:29:39
+   Duration  1.58s (tests 42%, environment 30%, import 17%, transform 11%)
+

@@ -1,0 +1,24 @@
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-team-draft.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-team-draft.test.ts [ tests/sideout-team-draft.test.ts ]
+Error: Cannot find module '../lib/sideout/team-draft' imported from /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web/tests/sideout-team-draft.test.ts
+ ❯ tests/sideout-team-draft.test.ts:2:1
+      1| import {it,expect} from 'vitest';
+      2| import {saveTeamDraft,teamDraftInput} from '../lib/sideout/team-draft';
+       | ^
+      3| import {generateTeamMatches} from '../lib/sideout/match-plan';
+      4| import {session,roster,ids} from './fixtures/sideout';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  23:47:42
+   Duration  107ms (worker 97%, environment 3%)
+

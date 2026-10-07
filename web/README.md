@@ -1,8 +1,8 @@
-# SIDEOUT web — P1 인증·조회 통합
+# SIDEOUT web — 승인 UI와 실제 운영 기능 통합
 
-현재 기본 진입점은 실제 로컬 인증과 D1 조회를 사용하는 승인 UI입니다. 이전 역할 전환 데모는 기본 화면에서 분리했고 `/api/workspace`는 410으로 폐쇄했습니다. 이 브랜치는 읽기 통합 단계이며 신청·편성·경기 순서 수정 기능은 아직 연결하지 않았습니다.
+현재 기본 진입점은 실제 인증과 D1 원본을 사용하는 승인 UI입니다. 홈·일정 상세, 일정/즐겨찾기 저장, 참가/명단 관리, 코트·행 통합 팀편성, 공개/공개 취소, 경기 순서 저장을 연결했습니다. 역할 전환 데모는 기본 화면에서 분리했고 `/api/workspace`는 410으로 폐쇄했습니다.
 
-자세한 범위, 검증, 인수 기준은 [P1 인계 기록](../docs/reviews/PROMOTION_P1_HANDOFF.md)을 확인하세요. 인증은 `a1ed430`(M1–M3)에 고정했고 진행 중인 가입·승인 작업은 포함하지 않았습니다.
+현재 범위와 남은 인수는 [메인 통합 기록](../docs/reviews/main-integration-20261007/REPORT.md)과 [이전 대응표](../docs/reviews/MOCKUP_PROMOTION_PARITY.md)를 확인하세요. 인증 기반은 기존 인수한 M1–M3이며, 포지션 조회용 스키마만 추가 인수했습니다. 별도 가입·승인·발송·요청 제한기 작업과 운영 배포는 포함하지 않았습니다.
 
 ## 격리된 P1 합성 시험
 
@@ -36,25 +36,26 @@ node web/scripts/verify-sideout-browser.mjs
 node web/scripts/verify-sideout-boundaries.mjs
 ```
 
-이하 최초 마스터 절차는 빈 스키마를 직접 준비할 때 사용하는 별도 방법입니다. P1 seed를 사용했다면 반복하지 않습니다. 하단 시제품 설명은 과거 구현 기록으로, 현재 P1에서 쓰기 기능이 운영 가능하다는 뜻이 아닙니다.
+이하 최초 마스터 절차는 빈 스키마를 직접 준비할 때 사용하는 별도 방법입니다. P1 seed를 사용했다면 반복하지 않습니다. 하단 시제품 설명은 과거 구현 기록입니다. 현행 동작과 충돌하면 상단 통합 기록과 최신 대응표가 우선합니다.
 
 ---
 
 ## 새 checkout의 로컬 DB
 
-`web/`에서 `npm ci`와 `npm run build`를 실행하면 `dist/server/wrangler.json`이 생성됩니다. 저장소의 `vite.config.ts`에 있는 로컬 `DB` 바인딩이 이 설정에 포함됩니다. **새 로컬 DB에 한 번만** 다음 세 SQL을 순서대로 적용합니다.
+`web/`에서 `npm ci`와 `npm run build`를 실행하면 `dist/server/wrangler.json`이 생성됩니다. 저장소의 `vite.config.ts`에 있는 로컬 `DB` 바인딩이 이 설정에 포함됩니다. **새 로컬 DB에 한 번만** 다음 네 SQL을 순서대로 적용합니다.
 
 ```sh
 ./node_modules/.bin/wrangler d1 execute DB --config dist/server/wrangler.json --local --persist-to .wrangler/state --file drizzle/0000_windy_omega_red.sql
 ./node_modules/.bin/wrangler d1 execute DB --config dist/server/wrangler.json --local --persist-to .wrangler/state --file drizzle/0001_glamorous_iron_lad.sql
 ./node_modules/.bin/wrangler d1 execute DB --config dist/server/wrangler.json --local --persist-to .wrangler/state --file drizzle/0002_modern_triathlon.sql
+./node_modules/.bin/wrangler d1 execute DB --config dist/server/wrangler.json --local --persist-to .wrangler/state --file drizzle/0003_milky_night_thrasher.sql
 ```
 
 `--local`을 유지하고 운영 D1에는 실행하지 않습니다. `.wrangler/`는 Git에서 제외됩니다. 기존 원본 DB·실회원·계정은 복사하지 않았으며, 이 SQL은 스키마만 생성합니다. 이후 `npm run dev`(개발) 또는 `npm run start`(빌드 기반 로컬 Worker)를 사용합니다. 소스가 변경되면 다시 빌드한 후 start를 실행합니다.
 
 ### 합성 로컬 DB의 최초 마스터 설정
 
-위 세 migration을 적용한 **빈 로컬 DB**에서만 다음 명령을 한 번 실행합니다. `--state-path`는 Wrangler의 `--persist-to`와 같은 경로입니다.
+위 네 migration을 적용한 **빈 로컬 DB**에서만 다음 명령을 한 번 실행합니다. `--state-path`는 Wrangler의 `--persist-to`와 같은 경로입니다.
 
 ```sh
 node scripts/bootstrap-first-master-local.mjs --login-id 테스트마스터 --display-name 테스트마스터 --state-path .wrangler/state
@@ -64,7 +65,7 @@ node scripts/bootstrap-first-master-local.mjs --login-id 테스트마스터 --di
 
 ---
 
-# SIDEOUT / 사이드아웃
+# 과거 시제품 기록 — SIDEOUT / 사이드아웃
 
 뉴배동·히어로즈 예시 모임의 주간 신청·후보 접수·수동 팀 편성 시제품. 실제 계정 운영 전, 샘플 모임에서 핵심 흐름을 검토하는 1차 구현이다.
 

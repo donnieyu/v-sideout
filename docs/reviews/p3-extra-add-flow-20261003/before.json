@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "style": {
+        "justify": "center",
+        "iconWidth": 27,
+        "iconHeight": 27,
+        "iconMargin": "0px 95.1875px 12px 95.2031px",
+        "height": 44
+      }
+    },
+    {
+      "width": 320,
+      "style": {
+        "justify": "center",
+        "iconWidth": 27,
+        "iconHeight": 27,
+        "iconMargin": "0px 60.1875px 12px 60.2031px",
+        "height": 44
+      }
+    },
+    {
+      "width": 1024,
+      "style": {
+        "justify": "center",
+        "iconWidth": 27,
+        "iconHeight": 27,
+        "iconMargin": "0px 40.5156px 12px 40.5312px",
+        "height": 44
+      }
+    }
+  ],
+  "errors": []
+}

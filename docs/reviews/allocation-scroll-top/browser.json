@@ -1,0 +1,28 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "previewTop": true,
+      "courtRowsTop": true,
+      "pickerTop": true,
+      "selectionPreserved": "C팀 세터 박시우 선택"
+    },
+    {
+      "width": 390,
+      "previewTop": true,
+      "courtRowsTop": true,
+      "pickerTop": true,
+      "selectionPreserved": "C팀 세터 박시우 선택"
+    },
+    {
+      "width": 1024,
+      "previewTop": true,
+      "courtRowsTop": true,
+      "pickerTop": true,
+      "selectionPreserved": "C팀 세터 박시우 선택"
+    }
+  ],
+  "errors": [],
+  "savedDataUnchanged": true,
+  "physicalIPhone": false
+}

@@ -1,0 +1,9 @@
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+
+ Test Files  13 passed (13)
+      Tests  125 passed (125)
+   Start at  17:45:14
+   Duration  1.62s (environment 35%, tests 34%, import 17%, transform 14%, worker 1%)
+

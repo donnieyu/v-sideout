@@ -1,0 +1,28 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-team-publish.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-team-publish.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-team-publish.test.ts [ tests/sideout-team-publish.test.ts ]
+Error: Cannot find module '../lib/sideout/team-publish' imported from /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web/tests/sideout-team-publish.test.ts
+ ❯ tests/sideout-team-publish.test.ts:2:1
+      1| import {it,expect} from 'vitest';
+      2| import {publishTeams,teamPublishInput} from '../lib/sideout/team-publi…
+       | ^
+      3| import {saveTeamDraft} from '../lib/sideout/team-draft';
+      4| import {session,roster,ids} from './fixtures/sideout';
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  15:29:05
+   Duration  116ms (worker 97%, environment 3%)
+

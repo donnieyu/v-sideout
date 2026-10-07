@@ -1,0 +1,24 @@
+{
+  "verifiedAt": "2026-10-06T00:27:37.256Z",
+  "id": "30e24320-0faa-4437-9dee-88778dd02d67",
+  "results": [
+    {
+      "width": 320,
+      "togglePreservesMembers": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 390,
+      "togglePreservesMembers": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 1024,
+      "togglePreservesMembers": true,
+      "noHorizontalOverflow": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false,
+  "dataWrites": false
+}

@@ -1,0 +1,18 @@
+[
+  {
+    width: 390,
+    pre: false,
+    variant: 'compact',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  },
+  {
+    width: 390,
+    pre: true,
+    variant: 'compact',
+    rows: [ [Object], [Object], [Object] ],
+    keyboard: true,
+    errors: []
+  }
+]

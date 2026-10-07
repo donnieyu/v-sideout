@@ -1,0 +1,38 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "style": {
+        "justify": "center",
+        "iconWidth": 16,
+        "iconHeight": 16,
+        "iconMargin": "0px",
+        "height": 44
+      }
+    },
+    {
+      "width": 320,
+      "style": {
+        "justify": "center",
+        "iconWidth": 16,
+        "iconHeight": 16,
+        "iconMargin": "0px",
+        "height": 44
+      }
+    },
+    {
+      "width": 1024,
+      "style": {
+        "justify": "center",
+        "iconWidth": 16,
+        "iconHeight": 16,
+        "iconMargin": "0px",
+        "height": 44
+      }
+    },
+    {
+      "check": "add preserves preview and selection; slot click enters assignment; saved data unchanged"
+    }
+  ],
+  "errors": []
+}

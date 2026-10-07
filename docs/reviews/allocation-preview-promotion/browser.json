@@ -1,0 +1,71 @@
+{
+  "verifiedAt": "2026-10-05T23:35:55.272Z",
+  "results": [
+    {
+      "check": "isolated synthetic session",
+      "id": "30e24320-0faa-4437-9dee-88778dd02d67",
+      "date": "2027-01-31"
+    },
+    {
+      "check": "responsive assignment",
+      "width": 320,
+      "content": 320,
+      "pool": 103,
+      "navBottom": 667,
+      "height": 667
+    },
+    {
+      "check": "responsive assignment",
+      "width": 390,
+      "content": 390,
+      "pool": 262,
+      "navBottom": 844,
+      "height": 844
+    },
+    {
+      "check": "responsive assignment",
+      "width": 423,
+      "content": 423,
+      "pool": 262,
+      "navBottom": 844,
+      "height": 844
+    },
+    {
+      "check": "responsive assignment",
+      "width": 1024,
+      "content": 1024,
+      "pool": 342,
+      "navBottom": 844,
+      "height": 844
+    },
+    {
+      "check": "real save/detail roundtrip",
+      "count": 18,
+      "teamCount": 3
+    },
+    {
+      "check": "real save/detail roundtrip",
+      "count": 19,
+      "teamCount": 3
+    },
+    {
+      "check": "real save/detail roundtrip",
+      "count": 21,
+      "teamCount": 3
+    },
+    {
+      "check": "real save/detail roundtrip",
+      "count": 24,
+      "teamCount": 4
+    },
+    {
+      "check": "real save/detail roundtrip",
+      "count": 28,
+      "teamCount": 4
+    },
+    {
+      "check": "publication confirmation/reload/draft separation; registration closed; practice unchanged"
+    }
+  ],
+  "errors": []
+}

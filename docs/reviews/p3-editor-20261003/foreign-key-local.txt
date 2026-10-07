@@ -1,0 +1,13 @@
+
+ ⛅️ wrangler 4.92.0 (update available 4.147.0)
+──────────────────────────────────────────────
+Resource location: local 
+
+Use --remote if you want to access the remote instance.
+
+🌀 Executing on local database DB (00000000-0000-4000-8000-000000000000) from .wrangler/sideout-p1/v3/d1:
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mFOREIGN KEY constraint failed: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_FOREIGNKEY)[0m
+
+

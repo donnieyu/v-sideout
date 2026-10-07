@@ -1,0 +1,98 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-participation.test.ts tests/sideout-roster-write.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-participation.test.ts (24 tests | 6 failed) 69ms
+   × allows manager 00000000-0000-4000-8000-000000000001 to add from a withdrawn roster while self registration and cancellation remain locked 7ms
+   × allows manager 00000000-0000-4000-8000-000000000002 to add from a withdrawn roster while self registration and cancellation remain locked 1ms
+   × manager additions bypass priority while ordinary members retain the waiting rule 1ms
+   × manager additions bypass full while ordinary members retain the waiting rule 0ms
+   × manager additions bypass closed while ordinary members retain the waiting rule 0ms
+   × manager add permission and command share the exact start boundary (-1 ms) 3ms
+ ❯ tests/sideout-roster-write.test.tsx (11 tests | 1 failed) 547ms
+   × allows additions after withdrawal without exposing locked cancellation actions 29ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-participation.test.ts > allows manager 00000000-0000-4000-8000-000000000001 to add from a withdrawn roster while self registration and cancellation remain locked
+ FAIL  tests/sideout-participation.test.ts > allows manager 00000000-0000-4000-8000-000000000002 to add from a withdrawn roster while self registration and cancellation remain locked
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/sideout-participation.test.ts:128:109
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/sideout-participation.test.ts > manager additions bypass priority while ordinary members retain the waiting rule
+ FAIL  tests/sideout-participation.test.ts > manager additions bypass full while ordinary members retain the waiting rule
+ FAIL  tests/sideout-participation.test.ts > manager additions bypass closed while ordinary members retain the waiting rule
+AssertionError: expected [ 'waiting', 'waiting' ] to deeply equal [ 'applied', 'applied' ]
+
+- Expected
++ Received
+
+  [
+-   "applied",
+-   "applied",
++   "waiting",
++   "waiting",
+  ]
+
+ ❯ tests/sideout-participation.test.ts:137:152
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  tests/sideout-participation.test.ts > manager add permission and command share the exact start boundary (-1 ms)
+AssertionError: expected 'waiting' to be 'applied' // Object.is equality
+
+Expected: "applied"
+Received: "waiting"
+
+ ❯ tests/sideout-participation.test.ts:146:104
+    144|   expect((await handleSideoutRead(await f.request(ids.master),'candida…
+    145|   expect((await f.write(ids.master,{action:'add',memberIds:[ids.guest]…
+    146|   if(expected)expect((await f.deps.store.getRoster(session.id))!.value…
+       |                                                                                                        ^
+    147|  }finally{f.close()}
+    148| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  tests/sideout-roster-write.test.tsx > allows additions after withdrawal without exposing locked cancellation actions
+AssertionError: expected <button data-slot="button" …(4)></button> to be null
+
+- Expected:
+null
+
++ Received:
+<button
+  aria-label="한회원 참가 취소"
+  class="inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3"
+  data-size="default"
+  data-slot="button"
+  data-variant="ghost"
+>
+  취소
+</button>
+
+ ❯ tests/sideout-roster-write.test.tsx:90:219
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  7 failed | 28 passed (35)
+   Start at  14:29:06
+   Duration  1.51s (tests 38%, environment 35%, import 16%, transform 10%)
+

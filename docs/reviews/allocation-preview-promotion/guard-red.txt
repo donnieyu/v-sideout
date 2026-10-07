@@ -1,0 +1,43 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-edit-guard.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-edit-guard.test.tsx (2 tests | 2 failed) 18ms
+   × preserves edits on cancelled navigation and discards cached edits only on confirmed departure 16ms
+   × clears cached edits when a native browser navigation actually leaves, not merely when it prompts 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-edit-guard.test.tsx > preserves edits on cancelled navigation and discards cached edits only on confirmed departure
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ tests/sideout-edit-guard.test.tsx:12:86
+     10|  fireEvent.click(screen.getByText('상세'));expect(leave).not.toHaveBeenC…
+     11|  const unload=new Event('beforeunload',{cancelable:true});dispatchEven…
+     12|  confirm.mockReturnValue(true);fireEvent.click(screen.getByText('상세'))…
+       |                                                                                      ^
+     13| });
+     14| it('clears cached edits when a native browser navigation actually leav…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/sideout-edit-guard.test.tsx > clears cached edits when a native browser navigation actually leaves, not merely when it prompts
+AssertionError: expected "vi.fn()" to be called 1 times, but got 0 times
+ ❯ tests/sideout-edit-guard.test.tsx:17:53
+     15|  const leave=vi.fn();render(<Guard leave={leave}/>);
+     16|  dispatchEvent(new Event('beforeunload',{cancelable:true}));expect(lea…
+     17|  dispatchEvent(new Event('pagehide'));expect(leave).toHaveBeenCalledTi…
+       |                                                     ^
+     18| });
+     19|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  08:27:49
+   Duration  585ms (environment 79%, import 14%, transform 4%, tests 3%)
+

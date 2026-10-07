@@ -1,0 +1,36 @@
+.heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:22px 0 12px}.title{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;min-width:0}.title h2{overflow-wrap:anywhere}.title>span{font-size:12px;white-space:nowrap}.controls{display:flex;align-items:center;gap:8px;flex-shrink:0}.switch{display:inline-flex;gap:2px;padding:2px;border:1px solid #d8e3ee;background:#eaf0f5;border-radius:10px}.switch button{min-height:44px;min-width:44px;padding:0 10px;font-size:12px}.headingCopy{min-width:0}.headingCopy .status{margin:4px 0 0;font-size:12px;line-height:1.5}
+.courtGrid{grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr))}.court{background:#f0f6f3;border:1px solid #d1e2d9;border-radius:10px;padding:12px 8px;margin:14px 0}.net{text-align:center;border-top:2px solid #8caa9a;padding-top:4px;margin-bottom:12px;color:#486956;font-size:11px}.slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.tile{min-width:0;min-height:86px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:4px;padding:9px 4px;border-radius:9px;border:1px solid #c9ddd2}.assigned{background:#e2f0e8}.empty{background:#fff;border-style:dashed;border-color:#cad7cf}.tile small{font-size:11px;color:#476958}.tile strong{font-size:14px;line-height:1.35;overflow-wrap:anywhere;width:100%}.tile span{font-size:11px;line-height:1.4;color:#476958;overflow-wrap:anywhere}.tile em{display:inline-block;font-size:10px;font-style:normal;margin-left:3px;color:#245d41}.mine{border:2px solid #467b60}.extras{background:#f4f7fa;border:1px dashed #bdccdb;border-radius:10px;margin:0 0 10px;padding:10px}.extras h4{font-size:11px;font-weight:600;color:#526c85;margin-bottom:6px}.extras>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.extras .tile{min-height:64px}.extras .tile:only-child{grid-column:1/-1}
+@media(max-width:760px){.courtGrid{grid-template-columns:minmax(0,1fr)}}
+.extras .tile{display:grid;grid-template-columns:40px minmax(0,1fr);grid-template-rows:auto auto;column-gap:8px;row-gap:2px;align-content:center;min-height:52px;padding:7px 10px;text-align:left}.extras .tile small{grid-column:1;grid-row:1/3;font-size:11px}.extras .tile strong{grid-column:2;grid-row:1;font-size:13px}.extras .tile span{grid-column:2;grid-row:2;font-size:11px}.extras>div{grid-template-columns:minmax(0,1fr)}
+
+.statusExplanation{display:block}
+/* Published lineups carry the visual focus on the session detail page. */
+.featured{margin-top:24px}
+.heading{align-items:center}
+.publishedHeading{padding:12px 14px;border:1px solid #b9d8c6;border-radius:12px;background:#eaf4ee}
+.headingCopy{display:grid;gap:3px}
+.meta{margin:0;color:#52687b;font-size:12px;line-height:1.4}
+.stateBadge{display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:5px;background:#e8eef5;color:#425a70;font-size:11px;font-weight:700;line-height:1.3;white-space:nowrap}
+.stateBadge svg{width:13px;height:13px}
+.publicBadge{background:#d6eadc;color:#1b5940}
+.featured .teamCard[data-team-tone="A"]{--team-accent:#315f85;--team-soft:#edf3f8}
+.featured .teamCard[data-team-tone="B"]{--team-accent:#2e7562;--team-soft:#edf6f2}
+.featured .teamCard[data-team-tone="C"]{--team-accent:#81622f;--team-soft:#f8f3e9}
+.featured .teamCard[data-team-tone="D"]{--team-accent:#735c89;--team-soft:#f5f1f8}
+.featured .teamCard[data-team-tone]{border-top:3px solid var(--team-accent,#637487)}
+.featured .teamCard[data-team-tone] header{margin:0 -20px;padding:13px 20px 11px;background:var(--team-soft,#f2f5f8);border-bottom-color:#d8e3ee}
+.teamIdentity{display:flex;align-items:center;gap:8px;min-width:0}
+.teamIdentity h3{color:#193047}
+.myTeamBadge{flex-shrink:0;padding:3px 6px;border-radius:5px;background:#d5e8dc;color:#235b42;font-size:10px;font-weight:700}
+.featured .myTeamCard{border-color:#8ebda5}
+.mobileClub{display:none}
+.position{font-weight:600;color:#425a70}
+@media(max-width:760px){
+ .heading{flex-wrap:wrap;gap:8px}.controls{width:auto;margin-left:auto;justify-content:flex-end}
+ .teamCard table th:nth-child(2),.teamCard table td:nth-child(2){display:none}
+ .teamCard table th:first-child{width:72%}.teamCard table th:last-child{width:28%}
+ .teamCard table td{padding:9px 0}.teamCard table td strong{font-size:15px}
+ .mobileClub{display:block;margin-top:2px;font-size:11px;line-height:1.3;color:#61768c}
+}
+
+@media(max-width:760px){.publishedHeading .controls{width:100%;margin-left:0;justify-content:flex-end;flex-wrap:wrap;gap:6px}}

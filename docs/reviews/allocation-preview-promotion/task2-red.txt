@@ -1,0 +1,918 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-allocation-ui.test.tsx tests/sideout-team-storage.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-team-storage.test.ts (16 tests | 1 failed) 67ms
+   × reports saved draft from stored teams rather than participant revision and returns the published baseline 4ms
+ ❯ tests/sideout-allocation-ui.test.tsx (9 tests | 3 failed) 634ms
+   × publishes only from preview and shows completion separately from the team-count restriction 9ms
+   × auto placement with every applicant assigned is a no-op even if waiters remain 31ms
+   × opens optional empty-seat creation without leaving preview or assigning anyone 40ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-allocation-ui.test.tsx > publishes only from preview and shows completion separately from the team-count restriction
+TestingLibraryElementError: Unable to find an element with the text: /신청자 2명 전원 배정/. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<fieldset[39m
+      [33maria-label[39m=[32m"팀편성 편집"[39m
+      [33mclass[39m=[32m"session-allocation"[39m
+      [33mdata-session[39m=[32m"시험"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"allocation-session-header"[39m
+      [36m>[39m
+        [36m<div>[39m
+          [36m<h2[39m
+            [33mid[39m=[32m"allocation-title"[39m
+            [33mtabindex[39m=[32m"-1"[39m
+          [36m>[39m
+            [0m팀편성 수정 [0m
+            [36m<span[39m
+              [33mclass[39m=[32m"allocation-save-feedback"[39m
+              [33mrole[39m=[32m"status"[39m
+            [36m/>[39m
+          [36m</h2>[39m
+          [36m<p[39m
+            [33mid[39m=[32m"allocation-summary"[39m
+          [36m>[39m
+            [0m배정 [0m
+            [0m2[0m
+            [0m명 · 미배정 신청자 [0m
+            [0m0[0m
+            [0m명[0m
+          [36m</p>[39m
+        [36m</div>[39m
+        [36m<div>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+            [33mdata-size[39m=[32m"default"[39m
+            [33mdata-slot[39m=[32m"button"[39m
+            [33mdata-variant[39m=[32m"outline"[39m
+          [36m>[39m
+            [0m취소[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+            [33mdata-size[39m=[32m"default"[39m
+            [33mdata-slot[39m=[32m"button"[39m
+            [33mdata-variant[39m=[32m"secondary"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-save"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M7 3v4a1 1 0 0 0 1 1h7"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0m저장[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-describedby[39m=[32m"allocation-summary"[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+            [33mdata-size[39m=[32m"default"[39m
+            [33mdata-slot[39m=[32m"button"[39m
+            [33mdata-variant[39m=[32m"default"[39m
+            [33mdisabled[39m=[32m""[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-send"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m21.854 2.147-10.94 10.939"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0m공개[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"allocation-session-body"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"allocation-overview"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"ab-board-toolbar"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33maria-label[39m=[32m"팀 보기 방식"[39m
+              [33mclass[39m=[32m"allocation-view-switch"[39m
+              [33mrole[39m=[32m"group"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33maria-pressed[39m=[32m"true"[39m
+                [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/sideout-allocation-ui.test.tsx:54:16
+     52|  const filled={teams:[{id:'A',title:'A팀',players:[{memberId:'a',slotId…
+     53|  const view=render(<SessionAllocation title="시험" baseline={filled} peo…
+     54|  expect(screen.getByText(/신청자 2명 전원 배정/)).toBeTruthy();expect(screen.g…
+       |                ^
+     55|  expect((screen.getByRole('button',{name:'공개'}) as HTMLButtonElement).…
+     56|  expect(view.container.querySelector('.allocation-session-header')?.te…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/sideout-allocation-ui.test.tsx > auto placement with every applicant assigned is a no-op even if waiters remain
+TestingLibraryElementError: Unable to find an element with the text: 신청자를 모두 배정했어요. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body[39m
+  [33mdata-scroll-locked[39m=[32m"1"[39m
+  [33mstyle[39m=[32m"pointer-events: none;"[39m
+[36m>[39m
+  [36m<span[39m
+    [33maria-hidden[39m=[32m"true"[39m
+    [33mdata-aria-hidden[39m=[32m"true"[39m
+    [33mdata-radix-focus-guard[39m=[32m""[39m
+    [33mstyle[39m=[32m"outline: none; opacity: 0; position: fixed; pointer-events: none;"[39m
+    [33mtabindex[39m=[32m"0"[39m
+  [36m/>[39m
+  [36m<div[39m
+    [33maria-hidden[39m=[32m"true"[39m
+    [33mdata-aria-hidden[39m=[32m"true"[39m
+  [36m>[39m
+    [36m<fieldset[39m
+      [33maria-label[39m=[32m"팀편성 편집"[39m
+      [33mclass[39m=[32m"session-allocation"[39m
+      [33mdata-session[39m=[32m"시험"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"allocation-session-header"[39m
+      [36m>[39m
+        [36m<div>[39m
+          [36m<h2[39m
+            [33mid[39m=[32m"allocation-title"[39m
+            [33mtabindex[39m=[32m"-1"[39m
+          [36m>[39m
+            [0m팀편성 수정 [0m
+            [36m<span[39m
+              [33mclass[39m=[32m"allocation-save-feedback"[39m
+              [33mrole[39m=[32m"status"[39m
+            [36m/>[39m
+          [36m</h2>[39m
+          [36m<p[39m
+            [33mid[39m=[32m"allocation-summary"[39m
+          [36m>[39m
+            [0m배정 [0m
+            [0m2[0m
+            [0m명 · 미배정 신청자 [0m
+            [0m0[0m
+            [0m명[0m
+          [36m</p>[39m
+        [36m</div>[39m
+        [36m<div>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+            [33mdata-size[39m=[32m"default"[39m
+            [33mdata-slot[39m=[32m"button"[39m
+            [33mdata-variant[39m=[32m"outline"[39m
+          [36m>[39m
+            [0m취소[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+            [33mdata-size[39m=[32m"default"[39m
+            [33mdata-slot[39m=[32m"button"[39m
+            [33mdata-variant[39m=[32m"secondary"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-save"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M7 3v4a1 1 0 0 0 1 1h7"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0m저장[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-describedby[39m=[32m"allocation-summary"[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+            [33mdata-size[39m=[32m"default"[39m
+            [33mdata-slot[39m=[32m"button"[39m
+            [33mdata-variant[39m=[32m"default"[39m
+            [33mdisabled[39m=[32m""[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-send"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m21.854 2.147-10.94 10.939"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0m공개[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"allocation-session-body"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"allocation-overview"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"ab-board-toolbar"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33maria-label[39m=[32m"팀 보기 방식"[39m
+              [33mclass[39m=[32m"allocation-view-switch"[39m
+              [33mrole[39m=[32m"group"[39m
+            [36m>[39m
+              [36m<button[39m
+               ...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/sideout-allocation-ui.test.tsx:63:75
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/sideout-allocation-ui.test.tsx > opens optional empty-seat creation without leaving preview or assigning anyone
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name "추가 인원"
+
+Here are the accessible roles:
+
+  group:
+
+  Name "팀편성 편집":
+  [36m<fieldset[39m
+    [33maria-label[39m=[32m"팀편성 편집"[39m
+    [33mclass[39m=[32m"session-allocation"[39m
+    [33mdata-session[39m=[32m"시험"[39m
+  [36m/>[39m
+
+  Name "팀 보기 방식":
+  [36m<div[39m
+    [33maria-label[39m=[32m"팀 보기 방식"[39m
+    [33mclass[39m=[32m"allocation-view-switch"[39m
+    [33mrole[39m=[32m"group"[39m
+  [36m/>[39m
+
+  Name "A팀 코트":
+  [36m<div[39m
+    [33maria-label[39m=[32m"A팀 코트"[39m
+    [33mclass[39m=[32m"allocation-court"[39m
+    [33mrole[39m=[32m"group"[39m
+  [36m/>[39m
+
+  Name "A팀 추가 선수":
+  [36m<div[39m
+    [33maria-label[39m=[32m"A팀 추가 선수"[39m
+    [33mclass[39m=[32m"allocation-reserve no-extras"[39m
+    [33mrole[39m=[32m"group"[39m
+  [36m/>[39m
+
+  Name "B팀 코트":
+  [36m<div[39m
+    [33maria-label[39m=[32m"B팀 코트"[39m
+    [33mclass[39m=[32m"allocation-court"[39m
+    [33mrole[39m=[32m"group"[39m
+  [36m/>[39m
+
+  Name "B팀 추가 선수":
+  [36m<div[39m
+    [33maria-label[39m=[32m"B팀 추가 선수"[39m
+    [33mclass[39m=[32m"allocation-reserve no-extras"[39m
+    [33mrole[39m=[32m"group"[39m
+  [36m/>[39m
+
+  Name "C팀 코트":
+  [36m<div[39m
+    [33maria-label[39m=[32m"C팀 코트"[39m
+    [33mclass[39m=[32m"allocation-court"[39m
+    [33mrole[39m=[32m"group"[39m
+  [36m/>[39m
+
+  Name "C팀 추가 선수":
+  [36m<div[39m
+    [33maria-label[39m=[32m"C팀 추가 선수"[39m
+    [33mclass[39m=[32m"allocation-reserve no-extras"[39m
+    [33mrole[39m=[32m"group"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  banner:
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"allocation-session-header"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"allocation-team-heading "[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"allocation-team-heading "[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"allocation-team-heading "[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "팀편성 수정":
+  [36m<h2[39m
+    [33mid[39m=[32m"allocation-title"[39m
+    [33mtabindex[39m=[32m"-1"[39m
+  [36m/>[39m
+
+  Name "A팀 1명":
+  [36m<h2 />[39m
+
+  Name "B팀 1명":
+  [36m<h2 />[39m
+
+  Name "C팀 1명":
+  [36m<h2 />[39m
+
+  --------------------------------------------------
+  status:
+
+  Name "":
+  [36m<span[39m
+    [33mclass[39m=[32m"allocation-save-feedback"[39m
+    [33mrole[39m=[32m"status"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  paragraph:
+
+  Name "":
+  [36m<p[39m
+    [33mid[39m=[32m"allocation-summary"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "취소":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "저장":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"secondary"[39m
+  [36m/>[39m
+
+  Name "공개":
+  [36m<button[39m
+    [33maria-describedby[39m=[32m"allocation-summary"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"default"[39m
+  [36m/>[39m
+
+  Name "코트":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"true"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"default"[39m
+  [36m/>[39m
+
+  Name "행":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"ghost"[39m
+  [36m/>[39m
+
+  Name "자동 배치":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-auto-button"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "A팀 레프트 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"A팀 레프트 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "A팀 센터 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"A팀 센터 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "A팀 세터 김도윤 뉴배동":
+  [36m<button[39m
+    [33maria-label[39m=[32m"A팀 세터 김도윤 뉴배동"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"true"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "A팀 레프트 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"A팀 레프트 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "A팀 센터 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"A팀 센터 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "A팀 라이트 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"A팀 라이트 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "추가 선수 자리":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-add-extra"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "B팀 레프트 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"B팀 레프트 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "B팀 센터 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"B팀 센터 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "B팀 세터 이서준 히어로즈":
+  [36m<button[39m
+    [33maria-label[39m=[32m"B팀 세터 이서준 히어로즈"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"true"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "B팀 레프트 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"B팀 레프트 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "B팀 센터 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"B팀 센터 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "B팀 라이트 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"B팀 라이트 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "추가 선수 자리":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-add-extra"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "C팀 레프트 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"C팀 레프트 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "C팀 센터 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"C팀 센터 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "C팀 세터 세번째 뉴배동":
+  [36m<button[39m
+    [33maria-label[39m=[32m"C팀 세터 세번째 뉴배동"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"true"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "C팀 레프트 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"C팀 레프트 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "C팀 센터 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"C팀 센터 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "C팀 라이트 배정":
+  [36m<button[39m
+    [33maria-label[39m=[32m"C팀 라이트 배정"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-preview-slot"[39m
+    [33mdata-assigned[39m=[32m"false"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "추가 선수 자리":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-add-extra"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "팀 추가":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 allocation-add-team"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "배정으로":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"default"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  strong:
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  --------------------------------------------------
+  navigation:
+
+  Name "팀 배정 내비게이션":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"팀 배정 내비게이션"[39m
+    [33mclass[39m=[32m"allocation-session-nav "[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body[39m
+  [33mstyle[39m=[32m""[39m
+[36m>[39m
+  [36m<div>[39m
+    [36m<fieldset[39m
+      [33maria-label[39m=[32m"팀편성 편집"[39m
+      [33mclass[39m=[32m"session-allocation"[39m
+      [33mdata-session[39m=[32m"시험"[39m
+    [36m>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"allocation-session-header"[39m
+      [36m>[39m
+        [36m<div>[39m
+          [36m<h2[39m
+            [33mid[39m=[32m"allocation-title"[39m
+            [33mtabindex[39m=[32m"-1"[39m
+          [36m>[39m
+            [0m팀편성 수정 [0m
+            [36m<span[39m
+              [33mclass[39m=[32m"allocation-save-feedback"[39m
+              [33mrole[39m=[32m"status"[39m
+            [36m/>[39m
+          [36m</h2>[39m
+          [36m<p[39m
+            [33mid[39m=[32m"allocation-summary"[39m
+          [36m>[39m
+            [0m배정 [0m
+            [0m3[0m
+            [0m명 · 미배정 신청자 [0m
+            [0m0[0m
+            [0m명[0m
+          [36m</p>[39m
+        [36m</div>[39m
+        [36m<div>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+            [33mdata-size[39m=[32m"default"[39m
+            [33mdata-slot[39m=[32m"button"[39m
+            [33mdata-variant[39m=[32m"outline"[39m
+          [36m>[39m
+            [0m취소[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+            [33mdata-size[39m=[32m"default"[39m
+            [33mdata-slot[39m=[32m"button"[39m
+            [33mdata-variant[39m=[32m"secondary"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-save"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M7 3v4a1 1 0 0 0 1 1h7"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0m저장[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33maria-describedby[39m=[32m"allocation-summary"[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+            [33mdata-size[39m=[32m"default"[39m
+            [33mdata-slot[39m=[32m"button"[39m
+            [33mdata-variant[39m=[32m"default"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-send"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m21.854 2.147-10.94 10.939"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0m공개[0m
+          [36m</button>[39m
+        [36m</div>[39m
+      [36m</header>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"allocation-session-body"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"allocation-overview"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"ab-board-toolbar"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33maria-label[39m=[32m"팀 보기 방식"[39m
+              [33mclass[39m=[32m"allocation-view-switch"[39m
+              [33mrole[39m=[32m"group"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33maria-pressed[39m=[32m"true"[39m
+                [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 ...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/sideout-allocation-ui.test.tsx:69:25
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/sideout-team-storage.test.ts > reports saved draft from stored teams rather than participant revision and returns the published baseline
+AssertionError: expected undefined to be false // Object.is equality
+
+- Expected:
+false
+
++ Received:
+undefined
+
+ ❯ tests/sideout-team-storage.test.ts:112:86
+    110|  const f=await fixture();try{
+    111|   f.put('roster',session.id,{...roster,draft:{teams:[]}},9);
+    112|   let data=(await (await f.call(ids.master)).json()).data;expect(data.…
+       |                                                                                      ^
+    113|   expect((await f.call(ids.master,command(),9)).status).toBe(200);
+    114|   data=(await (await f.call(ids.master)).json()).data;expect(data.hasS…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  4 failed | 21 passed (25)
+   Start at  08:27:35
+   Duration  1.27s (tests 51%, environment 23%, transform 13%, import 13%)
+

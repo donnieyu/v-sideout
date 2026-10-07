@@ -1,0 +1,5 @@
+crypto { secure: false, uuid: 'undefined', random: 'function' }
+picker opens 1
+LAN failure recovered, retry enabled
+focus restored exactly one dialog with selection
+close and UI recovered

@@ -1,0 +1,144 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "editStyles": {
+        "width": 68,
+        "height": 44,
+        "font": "12px",
+        "background": "rgb(243, 246, 250)",
+        "border": "9.6px"
+      },
+      "editorResults": [
+        {
+          "kind": "schedule",
+          "saveStyle": {
+            "width": 68,
+            "height": 44,
+            "font": "12px",
+            "background": "rgb(35, 78, 121)",
+            "border": "9.6px"
+          }
+        },
+        {
+          "kind": "teams",
+          "saveStyle": {
+            "width": 68,
+            "height": 44,
+            "font": "12px",
+            "background": "rgb(35, 78, 121)",
+            "border": "9.6px"
+          }
+        },
+        {
+          "kind": "matches",
+          "saveStyle": {
+            "width": 68,
+            "height": 44,
+            "font": "12px",
+            "background": "rgb(35, 78, 121)",
+            "border": "9.6px"
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "editStyles": {
+        "width": 68,
+        "height": 44,
+        "font": "12px",
+        "background": "rgb(243, 246, 250)",
+        "border": "9.6px"
+      },
+      "editorResults": [
+        {
+          "kind": "schedule",
+          "saveStyle": {
+            "width": 68,
+            "height": 44,
+            "font": "12px",
+            "background": "rgb(35, 78, 121)",
+            "border": "9.6px"
+          }
+        },
+        {
+          "kind": "teams",
+          "saveStyle": {
+            "width": 68,
+            "height": 44,
+            "font": "12px",
+            "background": "rgb(35, 78, 121)",
+            "border": "9.6px"
+          }
+        },
+        {
+          "kind": "matches",
+          "saveStyle": {
+            "width": 68,
+            "height": 44,
+            "font": "12px",
+            "background": "rgb(35, 78, 121)",
+            "border": "9.6px"
+          }
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "editStyles": {
+        "width": 68,
+        "height": 44,
+        "font": "12px",
+        "background": "rgb(243, 246, 250)",
+        "border": "9.6px"
+      },
+      "editorResults": [
+        {
+          "kind": "schedule",
+          "saveStyle": {
+            "width": 68,
+            "height": 44,
+            "font": "12px",
+            "background": "rgb(35, 78, 121)",
+            "border": "9.6px"
+          }
+        },
+        {
+          "kind": "teams",
+          "saveStyle": {
+            "width": 68,
+            "height": 44,
+            "font": "12px",
+            "background": "rgb(35, 78, 121)",
+            "border": "9.6px"
+          }
+        },
+        {
+          "kind": "matches",
+          "saveStyle": {
+            "width": 68,
+            "height": 44,
+            "font": "12px",
+            "background": "rgb(35, 78, 121)",
+            "border": "9.6px"
+          }
+        }
+      ]
+    },
+    {
+      "check": "dirty cancel dismiss retains editor; confirm returns to detail",
+      "kind": "schedule"
+    },
+    {
+      "check": "dirty cancel dismiss retains editor; confirm returns to detail",
+      "kind": "teams"
+    },
+    {
+      "check": "dirty cancel dismiss retains editor; confirm returns to detail",
+      "kind": "matches"
+    }
+  ],
+  "errors": [],
+  "dataWrites": false
+}

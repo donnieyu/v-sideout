@@ -1,0 +1,28 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-allocation-adapter.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-allocation-adapter.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-allocation-adapter.test.ts [ tests/sideout-allocation-adapter.test.ts ]
+Error: Cannot find module '../lib/sideout/allocation-adapter' imported from /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web/tests/sideout-allocation-adapter.test.ts
+ ❯ tests/sideout-allocation-adapter.test.ts:2:1
+      1| import {it,expect} from 'vitest';
+      2| import {toBoard,fromBoard} from '../lib/sideout/allocation-adapter';
+       | ^
+      3| import type {LineupRecord} from '../lib/sideout/read-model';
+      4| it('roundtrips every fixed and extra slot, IDs and assigned position w…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  15:38:56
+   Duration  113ms (worker 97%, environment 3%)
+

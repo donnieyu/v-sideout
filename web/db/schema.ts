@@ -52,3 +52,11 @@ export const joinRequests=sqliteTable('join_requests',{
  createdAt:text('created_at').notNull(),
  decidedAt:text('decided_at'),
 },table=>[uniqueIndex('join_requests_approved_member_unique').on(table.approvedMemberId)]);
+
+// Account identity and a player's preferred positions have different lifetimes.
+export const memberPositionProfiles=sqliteTable('member_position_profiles',{
+ memberId:text('member_id').primaryKey().references(()=>authMembers.id),
+ mainPosition:text('main_position').notNull(),
+ subPosition:text('sub_position').notNull(),
+ createdAt:text('created_at').notNull(),
+});

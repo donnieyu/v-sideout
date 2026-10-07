@@ -1,0 +1,14 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-match-storage.test.ts tests/sideout-team-publish.test.ts tests/sideout-team-publication.test.ts tests/sideout-team-storage.test.ts tests/sideout-team-draft.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+(node:43783) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ Test Files  5 passed (5)
+      Tests  82 passed (82)
+   Start at  23:46:51
+   Duration  312ms (transform 55%, tests 29%, import 15%, worker 1%)

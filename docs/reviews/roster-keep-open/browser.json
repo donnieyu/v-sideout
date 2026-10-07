@@ -1,0 +1,22 @@
+{
+  "fixture": {
+    "id": "0056c312-87fa-485e-acd8-7a6f16c839a6",
+    "date": "2027-02-14"
+  },
+  "results": [
+    {
+      "name": "강도윤",
+      "cancelled": true,
+      "dialogOpen": true
+    },
+    {
+      "name": "김서준",
+      "cancelled": true,
+      "dialogOpen": true
+    }
+  ],
+  "finalApplicants": 0,
+  "explicitCloseStaysClosed": true,
+  "userPracticePreserved": true,
+  "errors": []
+}

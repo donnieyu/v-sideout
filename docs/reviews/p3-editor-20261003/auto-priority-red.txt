@@ -1,0 +1,29 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-allocation-adapter.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-allocation-adapter.test.ts (4 tests | 1 failed) 5ms
+   × auto allocation prioritizes an applicant over a primary-position waiter and ignores unknown profiles 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-allocation-adapter.test.ts > auto allocation prioritizes an applicant over a primary-position waiter and ignores unknown profiles
+AssertionError: expected 'waiting' to be 'applicant' // Object.is equality
+
+Expected: "applicant"
+Received: "waiting"
+
+ ❯ tests/sideout-allocation-adapter.test.ts:20:59
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  15:47:09
+   Duration  114ms (transform 66%, import 17%, tests 12%, worker 5%)
+

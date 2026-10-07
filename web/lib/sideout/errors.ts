@@ -1,4 +1,4 @@
-export type SideoutErrorCode='INVALID_INPUT'|'UNAUTHENTICATED'|'PASSWORD_CHANGE_REQUIRED'|'FORBIDDEN'|'NOT_FOUND'|'STORAGE_UNAVAILABLE'|'LEGACY_API_DISABLED';
+export type SideoutErrorCode='INVALID_INPUT'|'UNAUTHENTICATED'|'PASSWORD_CHANGE_REQUIRED'|'FORBIDDEN'|'NOT_FOUND'|'STORAGE_UNAVAILABLE'|'LEGACY_API_DISABLED'|'CONFLICT';
 export class SideoutError extends Error {
  constructor(readonly code:SideoutErrorCode,readonly status:number,message:string){super(message);this.name='SideoutError'}
 }

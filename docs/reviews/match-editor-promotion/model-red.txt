@@ -1,0 +1,64 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-match-plan.test.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-match-plan.test.ts (4 tests | 4 failed) 3ms
+   × keeps every regular game when toggling rookies and places defaults between rounds or around four teams 2ms
+   × cycles rookie opponents for 2–4 teams without changing regular opponents; add/delete and explicit pair work 0ms
+   × rejects malformed schedules, missing regular games, duplicates and wrong teams; accepts reordered complete plan 0ms
+   × recomputes twenty minute times after moving games and reports next day explicitly 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-match-plan.test.ts > keeps every regular game when toggling rookies and places defaults between rounds or around four teams
+TypeError: moveMatchTo is not a function
+ ❯ tests/sideout-match-plan.test.ts:7:14
+      5|  expect(three.matches.map(m=>m.kind)).toEqual(['regular','regular','re…
+      6|  expect(four.matches.map(m=>m.kind)).toEqual(['rookie','regular','regu…
+      7|  const moved=moveMatchTo(three,'regular-1',10),off=toggleRookieMatches…
+       |              ^
+      8|  expect(off.matches.map(m=>m.id)).toEqual(['regular-2','regular-3','re…
+      9|  expect(toggleRookieMatches(off,true).matches.filter(m=>m.kind==='regu…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/sideout-match-plan.test.ts > cycles rookie opponents for 2–4 teams without changing regular opponents; add/delete and explicit pair work
+TypeError: setRookieTeamCount is not a function
+ ❯ tests/sideout-match-plan.test.ts:13:8
+     11| });
+     12| it('cycles rookie opponents for 2–4 teams without changing regular opp…
+     13|  let p=setRookieTeamCount(generateTeamMatches(['x','y','z'])!,4);p=add…
+       |        ^
+     14|  expect(p.matches.filter(m=>m.kind==='rookie').map(m=>[m.home,m.away])…
+     15|  p=setRookieMatchPair(p,'rookie-3','R2','R4');expect(p.matches.at(-1))…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/sideout-match-plan.test.ts > rejects malformed schedules, missing regular games, duplicates and wrong teams; accepts reordered complete plan
+TypeError: moveMatchTo is not a function
+ ❯ tests/sideout-match-plan.test.ts:22:27
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/sideout-match-plan.test.ts > recomputes twenty minute times after moving games and reports next day explicitly
+TypeError: matchTimes is not a function
+ ❯ tests/sideout-match-plan.test.ts:27:9
+     25| });
+     26| it('recomputes twenty minute times after moving games and reports next…
+     27|  expect(matchTimes(generateTeamMatches(['x','y','z'])!,'08:30')[1]).to…
+       |         ^
+     28|  expect(matchTimes(generateTeamMatches(['x','y','z'])!,'23:50')[0]).to…
+     29| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  08:49:46
+   Duration  115ms (transform 62%, import 19%, tests 11%, worker 7%)
+

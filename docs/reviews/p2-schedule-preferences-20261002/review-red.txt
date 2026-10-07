@@ -1,0 +1,480 @@
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-write.test.ts (15 tests | 2 failed) 37ms
+   × rejects invalid schedule {"deadline":"2026-10-10T18:00:00+99:99"} 4ms
+   × rejects invalid schedule {"priorityUntil":"2026-10-09T18:00:00+24:00"} 1ms
+ ❯ tests/sideout-editor.test.tsx (6 tests | 1 failed) 1343ms
+   × continues editing a newly saved schedule after the canonical URL changes and focus remounts 1026ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-editor.test.tsx > continues editing a newly saved schedule after the canonical URL changes and focus remounts
+TestingLibraryElementError: Unable to find a label with the text of: 장소
+
+Ignored nodes: comments, script, style
+[36m<body[39m
+  [33mstyle[39m=[32m""[39m
+[36m>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_app_1314d5"[39m
+    [36m>[39m
+      [36m<aside[39m
+        [33mclass[39m=[32m"_sidebar_1314d5"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33mclass[39m=[32m"_brand_1314d5"[39m
+          [33mhref[39m=[32m"/home"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-volleyball"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"24"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"24"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M11 7a16 16 20 0 1 10.98 4.362"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M12 12a13 13 0 0 1-8.66 5"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M16.83 13.634a16 16 0 0 1-9.267 7.328"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M20.66 17A13 13 0 0 0 12 12a13 13 0 0 1 0-10"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M8.17 15.366a16 16 0 0 1-1.713-11.69"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mcx[39m=[32m"12"[39m
+              [33mcy[39m=[32m"12"[39m
+              [33mr[39m=[32m"10"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+          [36m<span>[39m
+            [0mSIDEOUT[0m
+            [36m<small>[39m
+              [0m사이드아웃[0m
+            [36m</small>[39m
+          [36m</span>[39m
+        [36m</a>[39m
+        [36m<nav[39m
+          [33maria-label[39m=[32m"주 메뉴"[39m
+        [36m>[39m
+          [36m<a[39m
+            [33mclass[39m=[32m"_navLink_1314d5"[39m
+            [33mhref[39m=[32m"/home"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-house"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0m모임 홈[0m
+          [36m</a>[39m
+        [36m</nav>[39m
+        [36m<a[39m
+          [33maria-label[39m=[32m"마스터, 계정 정보"[39m
+          [33mclass[39m=[32m"_profile_1314d5"[39m
+          [33mhref[39m=[32m"/account"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_avatar_1314d5"[39m
+          [36m>[39m
+            [0m스터[0m
+          [36m</span>[39m
+          [36m<span>[39m
+            [36m<strong>[39m
+              [0m마스터[0m
+            [36m</strong>[39m
+            [36m<small>[39m
+              [0m소속 없음[0m
+            [36m</small>[39m
+          [36m</span>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-settings"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mcx[39m=[32m"12"[39m
+              [33mcy[39m=[32m"12"[39m
+              [33mr[39m=[32m"3"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</a>[39m
+      [36m</aside>[39m
+      [36m<header[39m
+        [33mclass[39m=[32m"_mobileHeader_1314d5"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33maria-label[39m=[32m"모임 홈으로 돌아가기"[39m
+          [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9"[39m
+          [33mdata-size[39m=[32m"icon"[39m
+          [33mdata-slot[39m=[32m"button"[39m
+          [33mdata-variant[39m=[32m"ghost"[39m
+          [33mhref[39m=[32m"/home"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-chevron-left"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"24"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"24"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m15 18-6-6 6-6"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</a>[39m
+        [36m<div>[39m
+          [36m<strong>[39m
+            [0m일정 수정[0m
+          [36m</strong>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"false"[39m
+          [33maria-haspopup[39m=[32m"dialog"[39m
+          [33maria-label[39m=[32m"메뉴 열기"[39m
+          [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9"[39m
+          [33mdata-size[39m=[32m"icon"[39m
+          [33mdata-slot[39m=[32m"sheet-trigger"[39m
+          [33mdata-state[39m=[32m"closed"[39m
+          [33mdata-variant[39m=[32m"ghost"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-menu"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"24"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"24"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M4 5h16"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M4 12h16"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M4 19h16"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</button>[39m
+      [36m</header>[39m
+      [36m<main[39m
+        [33mclass[39m=[32m"_main_1314d5"[39m
+      [36m>[39m
+        [36m<p[39m
+          [33mclass[39m=[32m"_trial_1314d5"[39m
+        [36m>[39m
+          [0m실제 계정 연결 시험 · 일정·즐겨찾기 저장 가능[0m
+        [36m</p>[39m
+        [36m<p[39m
+          [33mrole[39m=[32m"alert"[39m
+        [36m>[39m
+          [0m수정할 수 있는 일정이 아닙니다.[0m
+        [36m</p>[39m
+      [36m</main>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body[39m
+    [33mstyle[39m=[32m""[39m
+  [36m>[39m
+    [36m<div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_app_1314d5"[39m
+      [36m>[39m
+        [36m<aside[39m
+          [33mclass[39m=[32m"_sidebar_1314d5"[39m
+        [36m>[39m
+          [36m<a[39m
+            [33mclass[39m=[32m"_brand_1314d5"[39m
+            [33mhref[39m=[32m"/home"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-volleyball"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M11 7a16 16 20 0 1 10.98 4.362"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M12 12a13 13 0 0 1-8.66 5"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M16.83 13.634a16 16 0 0 1-9.267 7.328"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M20.66 17A13 13 0 0 0 12 12a13 13 0 0 1 0-10"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M8.17 15.366a16 16 0 0 1-1.713-11.69"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcx[39m=[32m"12"[39m
+                [33mcy[39m=[32m"12"[39m
+                [33mr[39m=[32m"10"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [36m<span>[39m
+              [0mSIDEOUT[0m
+              [36m<small>[39m
+                [0m사이드아웃[0m
+              [36m</small>[39m
+            [36m</span>[39m
+          [36m</a>[39m
+          [36m<nav[39m
+            [33maria-label[39m=[32m"주 메뉴"[39m
+          [36m>[39m
+            [36m<a[39m
+              [33mclass[39m=[32m"_navLink_1314d5"[39m
+              [33mhref[39m=[32m"/home"[39m
+            [36m>[39m
+              [36m<svg[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"lucide lucide-house"[39m
+                [33mfill[39m=[32m"none"[39m
+                [33mheight[39m=[32m"18"[39m
+                [33mstroke[39m=[32m"currentColor"[39m
+                [33mstroke-linecap[39m=[32m"round"[39m
+                [33mstroke-linejoin[39m=[32m"round"[39m
+                [33mstroke-width[39m=[32m"2"[39m
+                [33mviewBox[39m=[32m"0 0 24 24"[39m
+                [33mwidth[39m=[32m"18"[39m
+                [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+              [36m>[39m
+                [36m<path[39m
+                  [33md[39m=[32m"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"[39m
+                [36m/>[39m
+                [36m<path[39m
+                  [33md[39m=[32m"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"[39m
+                [36m/>[39m
+              [36m</svg>[39m
+              [0m모임 홈[0m
+            [36m</a>[39m
+          [36m</nav>[39m
+          [36m<a[39m
+            [33maria-label[39m=[32m"마스터, 계정 정보"[39m
+            [33mclass[39m=[32m"_profile_1314d5"[39m
+            [33mhref[39m=[32m"/account"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"_avatar_1314d5"[39m
+            [36m>[39m
+              [0m스터[0m
+            [36m</span>[39m
+            [36m<span>[39m
+              [36m<strong>[39m
+                [0m마스터[0m
+              [36m</strong>[39m
+              [36m<small>[39m
+                [0m소속 없음[0m
+              [36m</small>[39m
+            [36m</span>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-settings"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"18"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"18"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcx[39m=[32m"12"[39m
+                [33mcy[39m=[32m"12"[39m
+                [33mr[39m=[32m"3"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</a>[39m
+        [36m</aside>[39m
+        [36m<header[39m
+          [33mclass[39m=[32m"_mobileHeader_1314d5"[39m
+        [36m>[39m
+          [36m<a[39m
+            [33maria-label[39m=[32m"모임 홈으로 돌아가기"[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9"[39m
+            [33mdata-size[39m=[32m"icon"[39m
+            [33mdata-slot[39m=[32m"button"[39m
+            [33mdata-variant[39m=[32m"ghost"[39m
+            [33mhref[39m=[32m"/home"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-left"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m15 18-6-6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</a>[39m
+          [36m<div>[39m
+            [36m<strong>[39m
+              [0m일정 수정[0m
+            [36m</strong>[39m
+          [36m</div>[39m
+          [36m<button[39m
+            [33maria-expanded[39m=[32m"false"[39m
+            [33maria-haspopup[39m=[32m"dialog"[39m
+            [33maria-label[39m=[32m"메뉴 열기"[39m
+            [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9"[39m
+            [33mdata-size[39m=[32m"icon"[39m
+            [33mdata-slot[39m=[32m"sheet-trigger"[39m
+            [33mdata-state[39m=[32m"closed"[39m
+            [33mdata-variant[39m=[32m"ghost"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-menu"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M4 5h16"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M4 12h16"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M4 19h16"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</button>[39m
+        [36m</header>[39m
+        [36m<main[39m
+          [33mclass[39m=[32m"_main_1314d5"[39m
+        [36m>[39m
+          [36m<p[39m
+            [33mclass[39m=[32m"_trial_1314d5"[39m
+          [36m>[39m
+            [0m실제 계정 연결 시험 · 일정·즐겨찾기 저장 가능[0m
+          [36m</p>[39m
+          [36m<p[39m
+            [33mrole[39m=[32m"alert"[39m
+          [36m>[39m
+            [0m수정할 수 있는 일정이 아닙니다.[0m
+          [36m</p>[39m
+        [36m</main>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</body>[39m
+[36m</html>[39m
+ ❯ Proxy.waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ tests/sideout-editor.test.tsx:70:32
+     68|  fireEvent.click(screen.getByRole('button',{name:'준비로 저장'}));await wai…
+     69|  await waitFor(()=>expect(location.pathname).toContain('/schedule/edit…
+     70|  fireEvent.focus(window);await waitFor(()=>expect((screen.getByLabelTe…
+       |                                ^
+     71|  expect(screen.queryByText('수정할 수 있는 일정이 아닙니다.')).toBeNull();
+     72|  history.replaceState(null,'','/home');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/sideout-write.test.ts > rejects invalid schedule {"deadline":"2026-10-10T18:00:00+99:99"}
+ FAIL  tests/sideout-write.test.ts > rejects invalid schedule {"priorityUntil":"2026-10-09T18:00:00+24:00"}
+AssertionError: expected 200 to be 400 // Object.is equality
+
+- Expected
++ Received
+
+- 400
++ 200
+
+ ❯ tests/sideout-write.test.ts:28:163
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  3 failed | 18 passed (21)
+   Start at  17:17:11
+   Duration  2.35s (tests 58%, environment 23%, import 11%, transform 8%)
+

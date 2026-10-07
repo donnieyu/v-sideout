@@ -1,0 +1,15 @@
+
+> site-creator-vinext-starter@0.1.0 test:member-ui
+> vitest run --config vitest.member.config.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+(node:3578) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  21:51:10
+   Duration  1.31s (environment 43%, tests 33%, import 15%, transform 9%)
+

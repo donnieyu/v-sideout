@@ -1,0 +1,28 @@
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-pages.test.tsx (12 tests | 1 failed) 245ms
+   × opens the shared roster overlay from detail and restores focus on closing 48ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-pages.test.tsx > opens the shared roster overlay from detail and restores focus on closing
+AssertionError: expected -1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ -1
+
+ ❯ tests/sideout-pages.test.tsx:57:82
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  1 failed | 73 passed (74)
+   Start at  15:49:19
+   Duration  1.31s (tests 38%, environment 28%, transform 19%, import 14%, worker 1%)
+

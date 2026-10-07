@@ -1,0 +1,71 @@
+{
+  "verifiedAt": "2026-10-06T05:20:11.582Z",
+  "id": "8a8e9ada-a1c3-4979-84e9-8bd4f3aedc64",
+  "results": [
+    {
+      "check": "compact extras",
+      "width": 320,
+      "extras": [
+        {
+          "height": 52,
+          "width": 224,
+          "text": "라이트\n시험 waiter\n뉴배동 · 시험",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "check": "compact extras",
+      "width": 390,
+      "extras": [
+        {
+          "height": 52,
+          "width": 294,
+          "text": "라이트\n시험 waiter\n뉴배동 · 시험",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "check": "compact extras",
+      "width": 1024,
+      "extras": [
+        {
+          "height": 52,
+          "width": 311.5,
+          "text": "라이트\n시험 waiter\n뉴배동 · 시험",
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "check": "mouse downward matches insertion line",
+      "passed": true
+    },
+    {
+      "check": "upward drop animation lands on actual final row",
+      "animated": true,
+      "endY": 189.656005859375,
+      "rowY": 189.65625
+    },
+    {
+      "check": "native touch upward reorder",
+      "passed": true
+    },
+    {
+      "check": "Escape and touch cancel preserve order",
+      "passed": true
+    },
+    {
+      "check": "edge autoscroll without mutation on cancel",
+      "passed": true
+    },
+    {
+      "check": "reduced motion and keyboard",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false,
+  "dataWrites": false
+}

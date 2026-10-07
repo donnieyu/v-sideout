@@ -1,0 +1,193 @@
+{
+  "time": "2026-10-06T23:22:15.031Z",
+  "origin": "http://127.0.0.1:4180",
+  "results": [
+    {
+      "path": "/session/4a03a759-7ec2-4a7f-a584-f63c0ac74f60/teams/edit",
+      "board": 1,
+      "published": 0
+    },
+    {
+      "viewport": 320,
+      "document": 320,
+      "board": 274,
+      "header": 42,
+      "teamButtons": [
+        {
+          "width": 64.328125,
+          "height": 44
+        },
+        {
+          "width": 64.328125,
+          "height": 44
+        },
+        {
+          "width": 64.34375,
+          "height": 44
+        }
+      ],
+      "extraLabels": [
+        {
+          "label": {
+            "x": 30,
+            "y": 691.5,
+            "width": 55,
+            "height": 59,
+            "top": 691.5,
+            "right": 85,
+            "bottom": 750.5,
+            "left": 30
+          },
+          "button": {
+            "x": 30,
+            "y": 695.5,
+            "width": 55,
+            "height": 50,
+            "top": 695.5,
+            "right": 85,
+            "bottom": 745.5,
+            "left": 30
+          }
+        }
+      ]
+    },
+    {
+      "viewport": 390,
+      "document": 390,
+      "board": 344,
+      "header": 42,
+      "teamButtons": [
+        {
+          "width": 86.65625,
+          "height": 44
+        },
+        {
+          "width": 86.671875,
+          "height": 44
+        },
+        {
+          "width": 86.65625,
+          "height": 44
+        }
+      ],
+      "extraLabels": [
+        {
+          "label": {
+            "x": 30,
+            "y": 691.5,
+            "width": 58,
+            "height": 59,
+            "top": 691.5,
+            "right": 88,
+            "bottom": 750.5,
+            "left": 30
+          },
+          "button": {
+            "x": 30,
+            "y": 695.5,
+            "width": 58,
+            "height": 50,
+            "top": 695.5,
+            "right": 88,
+            "bottom": 745.5,
+            "left": 30
+          }
+        }
+      ]
+    },
+    {
+      "viewport": 423,
+      "document": 423,
+      "board": 377,
+      "header": 42,
+      "teamButtons": [
+        {
+          "width": 97.65625,
+          "height": 44
+        },
+        {
+          "width": 97.671875,
+          "height": 44
+        },
+        {
+          "width": 97.65625,
+          "height": 44
+        }
+      ],
+      "extraLabels": [
+        {
+          "label": {
+            "x": 30,
+            "y": 691.5,
+            "width": 58,
+            "height": 59,
+            "top": 691.5,
+            "right": 88,
+            "bottom": 750.5,
+            "left": 30
+          },
+          "button": {
+            "x": 30,
+            "y": 695.5,
+            "width": 58,
+            "height": 50,
+            "top": 695.5,
+            "right": 88,
+            "bottom": 745.5,
+            "left": 30
+          }
+        }
+      ]
+    },
+    {
+      "threeTeamDeleteDisabled": true
+    },
+    {
+      "rowCountBefore": 1,
+      "rowCountAdded": 2
+    },
+    {
+      "rowCountRemoved": 1
+    },
+    {
+      "previewSeatOpensBoardPicker": true
+    },
+    {
+      "dialog": {
+        "rect": {
+          "x": 0,
+          "y": 84.40625,
+          "width": 390,
+          "height": 759.59375,
+          "top": 84.40625,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        },
+        "className": "fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border bg-background p-6 shadow-lg duration-200 outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 sm:max-w-lg real-board-picker",
+        "style": {
+          "left": "0px",
+          "top": "84.4062px",
+          "bottom": "0px",
+          "translate": "0px",
+          "transform": "none",
+          "width": "390px"
+        }
+      }
+    },
+    {
+      "dialogVisible": true
+    },
+    {
+      "releaseAndReassign": true
+    },
+    {
+      "candidateFallback": "true"
+    },
+    {
+      "fourTeam": "4",
+      "horizontalScroll": true
+    }
+  ],
+  "failures": []
+}

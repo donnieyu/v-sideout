@@ -1,0 +1,12 @@
+{
+  results: [
+    { width: 320, viewport: 320, content: 320, pool: 239 },
+    { width: 1280, viewport: 1280, content: 1280, pool: 361 },
+    {
+      check: 'actual UI edit entry, manual allocation, save-stay, publication cancel/confirm, reload',
+      id: 'd1d7e7df-ed9f-41b7-968e-e470d7b20d56',
+      date: '2027-01-03'
+    }
+  ],
+  errors: []
+}

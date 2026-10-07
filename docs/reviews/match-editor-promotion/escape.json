@@ -1,0 +1,12 @@
+{
+  "verifiedAt": "2026-10-06T00:00:20.252Z",
+  "id": "30e24320-0faa-4437-9dee-88778dd02d67",
+  "results": [
+    {
+      "check": "mouse drag Escape cancels without changing order",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false
+}

@@ -1,0 +1,34 @@
+{
+  "id": "c598144c-1cbd-40dc-ad6d-70ff9352073b",
+  "results": [
+    {
+      "width": 320,
+      "allUnregisteredInitiallyShown": true,
+      "uncountedTab": true,
+      "multipleClubsAndPositionAndName": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "allUnregisteredInitiallyShown": true,
+      "uncountedTab": true,
+      "multipleClubsAndPositionAndName": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1024,
+      "allUnregisteredInitiallyShown": true,
+      "uncountedTab": true,
+      "multipleClubsAndPositionAndName": true,
+      "noOverflow": true
+    },
+    {
+      "cancelNoWrite": true,
+      "withdrawnReenrollmentSaved": true,
+      "publicSnapshotPreserved": true,
+      "userDataPreserved": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false
+}

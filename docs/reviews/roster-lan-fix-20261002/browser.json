@@ -1,0 +1,34 @@
+{
+  "results": [
+    {
+      "check": "create draft with roster and remain in editor",
+      "id": "e0537f69-1de0-4010-bc0f-45f5084c5400",
+      "date": "2026-11-14"
+    },
+    {
+      "check": "editor layout and one action group",
+      "width": 320
+    },
+    {
+      "check": "editor layout and one action group",
+      "width": 390
+    },
+    {
+      "check": "editor layout and one action group",
+      "width": 1280
+    },
+    {
+      "check": "dirty cancel and browser back rejected; form retained"
+    },
+    {
+      "check": "actual D1 replay and stale edit conflict"
+    },
+    {
+      "check": "favorites save and reload"
+    },
+    {
+      "check": "member UI and write API deny schedule edit"
+    }
+  ],
+  "errors": []
+}

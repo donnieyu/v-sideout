@@ -1,0 +1,13 @@
+
+> site-creator-vinext-starter@0.1.0 test:member-ui
+> vitest run --config vitest.member.config.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  14:29:56
+   Duration  3.95s (tests 61%, environment 25%, import 7%, transform 6%, worker 1%)
+

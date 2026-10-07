@@ -1,0 +1,7 @@
+PASS mouse Escape cancels
+[
+  {
+    "check": "mouse drag Escape cancels without changing order",
+    "passed": true
+  }
+]

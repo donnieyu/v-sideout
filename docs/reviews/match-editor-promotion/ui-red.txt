@@ -1,0 +1,37 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-match-editor.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-match-editor.test.tsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-match-editor.test.tsx [ tests/sideout-match-editor.test.tsx ]
+Error: Failed to resolve import "../components/sideout/match-editor" from "tests/sideout-match-editor.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web/tests/sideout-match-editor.test.tsx:6:0
+  6  |  const __vi_import_1__ = await import("@testing-library/react");
+  7  |  const __vi_import_2__ = await import("../components/sideout/access");
+  8  |  const __vi_import_3__ = await import("../components/sideout/match-editor");
+     |                                       ^
+  9  |  const __vi_import_4__ = await import("../lib/member-access-client");
+  10 |  const __vi_import_5__ = await import("../lib/sideout-client");
+ ❯ TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/node.js:30486:39
+ ❯ TransformPluginContext.error node_modules/vite/dist/node/chunks/node.js:30483:14
+ ❯ normalizeUrl node_modules/vite/dist/node/chunks/node.js:27725:18
+ ❯ node_modules/vite/dist/node/chunks/node.js:27788:30
+ ❯ TransformPluginContext.transform node_modules/vite/dist/node/chunks/node.js:27756:4
+ ❯ EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/node.js:30271:14
+ ❯ loadAndTransform node_modules/vite/dist/node/chunks/node.js:24532:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  08:52:32
+   Duration  749ms (environment 100%)
+

@@ -1,0 +1,7 @@
+{
+  results: [
+    'published roster hides add, candidate/self/manager APIs reject; roster unchanged',
+    'home and detail expose the same closed capability'
+  ],
+  errors: []
+}

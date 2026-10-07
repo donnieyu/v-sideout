@@ -1,0 +1,33 @@
+{
+  "results": [
+    {
+      "width": 320,
+      "publishedHeight": 46,
+      "draftHeight": 46,
+      "renameTouchTarget": "44x44"
+    },
+    {
+      "width": 390,
+      "publishedHeight": 46,
+      "draftHeight": 46,
+      "renameTouchTarget": "44x44"
+    },
+    {
+      "width": 1024,
+      "publishedHeight": 46,
+      "draftHeight": 46,
+      "renameTouchTarget": "44x44"
+    },
+    {
+      "cancel": true,
+      "longNameNoOverflow": true,
+      "savedAndReloaded": true,
+      "detailAndMatchLabels": true,
+      "playersAndMatchOrderPreserved": true,
+      "fixtureRestored": true,
+      "userDataPreserved": true
+    }
+  ],
+  "errors": [],
+  "physicalIPhone": false
+}

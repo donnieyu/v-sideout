@@ -1,0 +1,29 @@
+import {chromium} from '/Users/donnieyu/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import {readFile,writeFile} from 'node:fs/promises';
+import {randomUUID} from 'node:crypto';
+import assert from 'node:assert/strict';
+const root='/Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1',out=root+'/docs/reviews/p3-editor-20261003',origin='http://192.168.219.173:4180';
+const creds=JSON.parse(await readFile(root+'/web/.wrangler/sideout-p1/credentials.json','utf8'));
+const browser=await chromium.launch({channel:'chrome'}),page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'}),results=[],errors=[];page.on('pageerror',e=>errors.push(e.message));
+const get=async path=>{const r=await page.request.get(origin+path);assert.equal(r.status(),200,await r.text());return(await r.json()).data};
+const post=async(path,payload,expectedRevision,commandId=randomUUID())=>page.request.post(origin+path,{headers:{Origin:origin},data:{commandId,expectedRevision,payload}});
+try{
+ const c=creds.find(c=>c.loginId==='시험master');await page.goto(origin+'/home');await page.getByLabel('로그인 아이디',{exact:true}).fill(c.loginId);await page.getByLabel('비밀번호',{exact:true}).fill(c.password);await page.getByRole('button',{name:'로그인',exact:true}).click();await page.getByRole('button',{name:'즐겨찾기 관리'}).waitFor();
+ const directory=await get('/api/clubs'),club=directory.clubs.find(c=>c.id==='club-test-nb'),day=new Date(directory.serverNow);day.setUTCDate(day.getUTCDate()+70);while(day.getUTCDay()!==0)day.setUTCDate(day.getUTCDate()+1);let date;
+ for(let i=0;i<20;i++){date=day.toISOString().slice(0,10);const monday=new Date(day);monday.setUTCDate(day.getUTCDate()-6);const week=await get('/api/sessions?weekStart='+monday.toISOString().slice(0,10)+'&filter=all');if(!week.cards.some(c=>c.session.clubId===club.id&&c.session.date===date))break;day.setUTCDate(day.getUTCDate()+7)}
+ const created=await post('/api/sessions',{clubId:club.id,date,entry:club.entry,start:club.start,end:club.end,place:'팀편성 편집 화면 검증',notice:'합성 자료',phase:'open',deadline:new Date(day.getTime()-86400000).toISOString(),priorityUntil:null,cap:24},0);assert.equal(created.status(),200,await created.text());const id=(await created.json()).data.resourceId,path='/api/sessions/'+id;
+ const members=['시험applicant','시험guest','시험waiter'].map(login=>creds.find(c=>c.loginId===login));
+ const added=await post(path+'/participants',{action:'add',sessionRevision:1,memberIds:members.map(m=>m.memberId)},1);assert.equal(added.status(),200,await added.text());
+ await page.goto(origin+'/session/'+id);await page.getByRole('link',{name:'팀편성 수정'}).click();await page.getByRole('button',{name:'배정으로',exact:true}).waitFor();assert(page.url().includes('/teams/edit'));
+ if(!process.env.P3_SKIP_SCREENSHOTS)await page.screenshot({path:out+'/preview-390.png',fullPage:true});
+ await page.getByRole('button',{name:'A팀 세터 배정',exact:true}).click();
+ await page.getByRole('button',{name:'동명이인 배정',exact:true}).first().click();await page.getByRole('button',{name:'동명이인 배정',exact:true}).click();await page.getByRole('button',{name:'시험 waiter 배정',exact:true}).click();
+ await page.getByRole('button',{name:'A팀 세터 동명이인 선택',exact:true}).click();const matrix390=await page.locator('.ab-position-matrix').evaluate(el=>({width:el.clientWidth,content:el.scrollWidth}));assert.equal(matrix390.width,matrix390.content);results.push({check:'390 all teams fit',...matrix390});if(!process.env.P3_SKIP_SCREENSHOTS)await page.screenshot({path:out+'/allocation-390.png',fullPage:true});
+ await page.getByRole('button',{name:'저장',exact:true}).click();await page.getByText('저장됨',{exact:true}).waitFor();assert(page.url().includes('/teams/edit'));assert.equal((await get(path+'/teams')).draft.teams.flatMap(t=>t.players).length,3);
+ await page.getByRole('button',{name:'공개',exact:true}).click();await page.getByText('공개하면 참석 회원에게 팀편성과 경기 순서가 함께 노출됩니다.',{exact:true}).waitFor();await page.getByRole('dialog').getByRole('button',{name:'취소',exact:true}).click();assert.equal((await get(path+'/teams')).teamPublished,false);
+ await page.getByRole('button',{name:'공개',exact:true}).click();await page.getByRole('button',{name:'확인',exact:true}).click();await page.getByText('공개됨',{exact:true}).waitFor();assert.equal((await get(path)).teamPublished,true);
+ for(const width of [320,1280]){await page.setViewportSize({width,height:844});await page.getByRole('button',{name:'센터',exact:true}).click();await page.getByRole('button',{name:'C팀 센터 1 선택',exact:true}).click();const activeVisible=await page.locator('.ab-position-matrix').evaluate(el=>{const box=el.getBoundingClientRect(),active=el.querySelector('.active').getBoundingClientRect();return active.left>=box.left-1&&active.right<=box.right+1});assert(activeVisible);const size=await page.evaluate(()=>({viewport:innerWidth,content:document.documentElement.scrollWidth,pool:document.querySelector('.ab-candidate-list').clientHeight}));assert.equal(size.viewport,size.content);assert(size.pool>100);if(!process.env.P3_SKIP_SCREENSHOTS)await page.screenshot({path:out+'/allocation-'+width+'.png',fullPage:true});results.push({width,...size})}
+ await page.reload();await page.getByRole('button',{name:'배정으로',exact:true}).waitFor();assert.equal((await get(path+'/teams')).draft.teams.flatMap(t=>t.players).length,3);
+ const editorData=await get(path+'/teams');assert.equal(editorData.people.find(p=>p.id===members[0].memberId).position,'S');assert.equal(editorData.people.find(p=>p.id===members[0].memberId).secondary,'S');const publicData=await get(path);assert(!JSON.stringify(publicData).includes('secondary'));
+ results.push({check:'actual UI edit entry, manual allocation, save-stay, publication cancel/confirm, reload',id,date});assert.deepEqual(errors,[]);
+}finally{await writeFile(out+'/browser.json',JSON.stringify({results,errors},null,2));await browser.close();console.log({results,errors})}

@@ -1,0 +1,92 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-query.test.ts tests/sideout-read-parity.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+ ❯ tests/sideout-query.test.ts (30 tests | 1 failed) 86ms
+   × includes stable home club IDs in roster labels despite duplicate club names, renames, or no affiliation 5ms
+ ❯ tests/sideout-read-parity.test.tsx (8 tests | 1 failed) 335ms
+   × groups roster members by club ID rather than equal or outdated club labels 47ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-query.test.ts > includes stable home club IDs in roster labels despite duplicate club names, renames, or no affiliation
+AssertionError: expected [ { …(2) }, { …(2) } ] to deeply equal [ { …(2) }, { …(2) } ]
+
+- Expected
++ Received
+
+  [
+    {
+-     "clubId": "club-test-nb",
++     "clubId": undefined,
+      "id": "00000000-0000-4000-8000-000000000004",
+    },
+    {
+-     "clubId": "club-test-heroes",
++     "clubId": undefined,
+      "id": "00000000-0000-4000-8000-000000000007",
+    },
+  ]
+
+ ❯ tests/sideout-query.test.ts:52:79
+     50|  f.put('club',clubs[1].id,{...clubs[1],name:clubs[0].name});
+     51|  let {data}=await (await handleSideoutRead(request,'session',f.deps,se…
+     52|  expect(data.visibleApplicants.map(m=>({id:m.memberId,clubId:m.homeClu…
+       |                                                                               ^
+     53|  expect(data.visibleWaiters![0].homeClubId).toBe(clubs[0].id);expect(d…
+     54|  f.put('club',clubs[0].id,{...clubs[0],name:'변경한 이름'});
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/sideout-read-parity.test.tsx > groups roster members by club ID rather than equal or outdated club labels
+TestingLibraryElementError: Unable to find an element with the text: 우리회원. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<section[39m
+  [33mclass[39m=[32m"_rosterGroup_1314d5"[39m
+[36m>[39m
+  [36m<div[39m
+    [33mclass[39m=[32m"_rosterLabel_1314d5"[39m
+  [36m>[39m
+    [36m<h3>[39m
+      [0m소속 회원[0m
+    [36m</h3>[39m
+    [36m<span[39m
+      [33mclass[39m=[32m"_rosterCount_1314d5"[39m
+    [36m>[39m
+      [0m1[0m
+      [0m명[0m
+    [36m</span>[39m
+  [36m</div>[39m
+  [36m<div[39m
+    [33mclass[39m=[32m"_rosterPeople_1314d5"[39m
+  [36m>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_rosterPerson_1314d5"[39m
+    [36m>[39m
+      [36m<div>[39m
+        [36m<strong>[39m
+          [0m동명모임회원[0m
+        [36m</strong>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</section>[39m
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/sideout-read-parity.test.tsx:69:13
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 36 passed (38)
+   Start at  14:11:43
+   Duration  1.59s (environment 36%, tests 26%, import 21%, transform 16%, worker 1%)
+

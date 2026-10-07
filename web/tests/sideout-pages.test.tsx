@@ -33,11 +33,11 @@ it.each(['anonymous','password_change_required','active'] as const)('preserves %
  expect((screen.getByLabelText(state==='anonymous'?'비밀번호':state==='active'?'현재 비밀번호':'현재 임시 비밀번호',{exact:true}) as HTMLInputElement).value).toBe('Remembered123');
  if(state==='active'){who=active('계정 B',ids.guest);fireEvent.click(screen.getByText('돌아가기'));expect(screen.queryByText('계정 A')).toBeNull();await screen.findByText('계정 B')}
 });
-it('shows the approved detail roster with name, club and position instead of editor preview controls',()=>{
- const player={memberId:'viewer',slotId:'s',assignedPosition:'S' as const,displayName:'시험회원',clubName:'시험 모임'};
+it('shows the detail roster with name, club and position and read-only view controls',()=>{
+ const player={memberId:'viewer',slotId:'s',assignedPosition:'S' as const,displayName:'시험회원',homeClubId:'club',clubName:'시험 모임'};
  render(<PublishedTeams memberId="viewer" teams={[{id:'a',title:'A팀',players:[player]}]}/>);
  expect(screen.getByRole('columnheader',{name:'이름'})).toBeTruthy();expect(screen.getByRole('columnheader',{name:'소속'})).toBeTruthy();expect(screen.getByRole('columnheader',{name:'포지션'})).toBeTruthy();
- expect(screen.getByRole('cell',{name:'세터'})).toBeTruthy();expect(screen.getByText('나')).toBeTruthy();expect(screen.queryByRole('button',{name:'코트'})).toBeNull();
+ expect(screen.getByRole('cell',{name:'세터'})).toBeTruthy();expect(screen.getByText('나')).toBeTruthy();expect(screen.getByRole('button',{name:'코트'}).getAttribute('aria-pressed')).toBe('false');
 });
 it('leaves the old route only after a successful explicit logout',async()=>{
  let fail=true;const signedOut=vi.fn();
@@ -47,13 +47,14 @@ it('leaves the old route only after a successful explicit logout',async()=>{
  fail=false;fireEvent.click(screen.getByText('로그아웃'));await screen.findByRole('button',{name:'로그인'});expect(signedOut).toHaveBeenCalledTimes(1);
 });
 it('opens the shared roster overlay from detail and restores focus on closing',async()=>{
-  const member=(memberId:string,clubName:string)=>({memberId,displayName:memberId,clubName});
-  const data={session:fixtureSession,club:clubs[0],sessionRevision:1,rosterRevision:1,counts:{applicants:2,waiting:1},selfStatus:null,teamPublished:false,canViewPublishedTeams:false,canManage:true,visibleApplicants:[member('소속선수',clubs[0].name),member('게스트선수',clubs[1].name)],visibleWaiters:[member('대기선수',clubs[1].name)],guestCount:1,publishedTeams:null,publishedMatches:null,capabilities:{canEditSchedule:false,canManageRoster:false,canEditTeams:false,canEditMatches:false,canPublish:false,canCancelSelf:false}};
+  const member=(memberId:string,clubName:string)=>({memberId,displayName:memberId,homeClubId:clubs.find(c=>c.name===clubName)!.id,clubName});
+  const data={session:fixtureSession,club:clubs[0],sessionRevision:1,rosterRevision:1,counts:{applicants:2,waiting:1},selfStatus:null,teamPublished:false,canViewPublishedTeams:false,canManage:true,visibleApplicants:[member('소속선수',clubs[0].name),member('게스트선수',clubs[1].name)],visibleWaiters:[member('대기선수',clubs[1].name)],guestCount:1,publishedTeams:null,publishedMatches:null,capabilities:{canEditSchedule:false,canManageRoster:false,canCancelRoster:false,canEditTeams:false,canEditMatches:false,canPublish:false,canCancelSelf:false}};
   const auth=createMemberAccessClient(async()=>Response.json(active('시험마스터',ids.master)));
   const client=createSideoutClient(async path=>Response.json({ok:true,data:String(path).startsWith('/api/clubs')?{serverNow:'2026-09-30T00:00:00Z',clubs,capabilities:{canManageMembers:true}}:data}));
   render(<SideoutAccess authClient={auth} client={client}><SessionDetailScreen id="session-test-open"/></SideoutAccess>);
   const button=await screen.findByRole('button',{name:'명단 확인'});button.focus();fireEvent.click(button);
   await screen.findByRole('dialog',{name:'함께하는 회원'});expect(screen.getByRole('heading',{name:'소속 회원'})).toBeTruthy();expect(screen.getByRole('heading',{name:'게스트'})).toBeTruthy();expect(screen.getByRole('heading',{name:'대기자'})).toBeTruthy();
+  const roster=screen.getByRole('region',{name:'참가 명단'});expect(roster.tabIndex).toBe(0);roster.focus();expect(document.activeElement).toBe(roster);
   fireEvent.click(screen.getByRole('button',{name:'확인'}));await waitFor(()=>expect(screen.queryByRole('dialog')).toBeNull());expect(document.activeElement).toBe(button);
 });
 it('login and first password change gate business content',async()=>{
@@ -76,7 +77,7 @@ it('home uses server clubs and shows an honest read-only empty state',async()=>{
  const client=createMemberAccessClient(async()=>Response.json(active('시험회원')));
  const data=createSideoutClient(async path=>Response.json({ok:true,data:String(path).startsWith('/api/clubs')?{serverNow:'2026-09-30T00:00:00Z',clubs,capabilities:{canManageMembers:false}}:{serverNow:'2026-09-30T00:00:00Z',weekStart:'2026-09-28',cards:[],registrationOpportunities:[]}}));
  render(<SideoutAccess authClient={client} client={data}><HomeScreen/></SideoutAccess>);
- await screen.findByText('이 주에는 등록된 운동이 없어요.');expect(screen.getByText('실제 계정 연결 시험 · 조회만 제공')).toBeTruthy();expect(screen.queryByText('김나래')).toBeNull();
+ await screen.findByText('이 주에는 등록된 운동이 없어요.');expect(screen.queryByText('김나래')).toBeNull();
 });
 it('an account switch cannot display a delayed prior account home response',async()=>{
  let who=active('계정 A'),resolveA:((r:Response)=>void)|undefined,homes=0;
