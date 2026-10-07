@@ -1,6 +1,6 @@
 'use client';
 import {useEffect,useLayoutEffect,useRef,useState} from 'react'
-import {Plus,Send,Sparkles,Trash2} from 'lucide-react'
+import {Plus,Send,Sparkles,Trash2,TriangleAlert} from 'lucide-react'
 import {Button} from '@/components/ui/button'
 import {Dialog,DialogContent,DialogHeader,DialogTitle,DialogDescription} from '@/components/ui/dialog'
 import {TeamNameDialog} from './team-name-dialog'
@@ -113,11 +113,12 @@ export function SessionAllocation({readOnly=false,wasPublished=false,hasSavedCha
  const deletingPlayerCount=deletingTeam?.slots.filter(slot=>slot.playerId).length??0
  const deletingRowPlayerCount=rowToDelete===null?0:state.board.filter(team=>team.slots[rowToDelete+6]?.playerId).length
  const additional=people.filter(p=>p.status!=='신청자'&&placedIds.has(p.id)).length
- const progress=unassignedApplicants?`신청자 ${attendanceCount-unassignedApplicants}/${attendanceCount}명 배정 · ${unassignedApplicants}명 남음`:`신청자 ${attendanceCount}명 전원 배정`
+ const needsAttention=!readOnly&&!!autoResult?.remaining
+ const progress=needsAttention?`${attendanceCount-unassignedApplicants}/${attendanceCount}명 배정 · ${unassignedApplicants}명 미배정`:unassignedApplicants?`신청자 ${attendanceCount-unassignedApplicants}/${attendanceCount}명 배정 · ${unassignedApplicants}명 남음`:`신청자 ${attendanceCount}명 전원 배정`
  const statusText=readOnly?'공개 중 · 수정하려면 공개를 취소하세요':`${progress}${ready?' · 공개 가능':''}`
  return <fieldset disabled={busy} className="session-allocation" aria-label="팀편성 편집" data-session={title}>
   <header className={controls.header} data-allocation-actions><div><h2 id="allocation-title">팀편성 수정</h2><span className="allocation-save-feedback" role="status">{readOnly?'공개된 편성 · 읽기 전용':saveFeedback||(dirty?'저장하지 않은 변경':saved?'저장된 편성':'아직 저장하지 않음')}</span></div><EditorActions busy={busy} saveDisabled={readOnly} cancelLabel={readOnly?'돌아가기':'취소'} onCancel={onCancel} onSave={()=>unregistered.length?setConfirm('save-unregistered'):commit(false)}/></header>
-  <div id="allocation-summary" className={`allocation-progress ${ready?'ready':''}`} role="status"><div><strong>{statusText}</strong>{!readOnly&&!unassignedApplicants&&publishProblem&&<small>{publishProblem}</small>}{!readOnly&&publishedLineup&&!samePublic&&<small>미공개 변경 있음</small>}{additional>0&&<small>추가 배정 {additional}명</small>}</div>{!readOnly&&autoResult&&autoResult.remaining>0&&<Button variant="ghost" size="sm" onClick={()=>setReasonOpen(true)}>이유 보기</Button>}</div>
+  <div id="allocation-summary" className={`allocation-progress${ready?' ready':''}${needsAttention?' attention':''}`} role="status"><div><span className="allocation-progress-primary">{needsAttention&&<TriangleAlert aria-hidden="true"/>}<strong aria-label={needsAttention?`신청자 ${statusText}`:undefined}>{statusText}</strong></span>{!needsAttention&&!readOnly&&!unassignedApplicants&&publishProblem&&<small>{publishProblem}</small>}{!needsAttention&&!readOnly&&publishedLineup&&!samePublic&&<small>미공개 변경 있음</small>}{!needsAttention&&additional>0&&<small>추가 배정 {additional}명</small>}</div>{needsAttention&&<Button variant="ghost" size="sm" onClick={()=>setReasonOpen(true)}>이유 보기</Button>}</div>
   {error&&<p role="alert" className="allocation-error">{error}</p>}
   {unregistered.length>0&&<p className="allocation-error" role="status">미신청 회원 {unregistered.length}명은 저장 시 참석자로 등록됩니다.</p>}
   {!readOnly&&inactivePlaced&&<p className="allocation-error" role="alert">비활성 회원은 기존 공개 배정만 유지할 수 있습니다. 새로 배정된 자리는 해제해 주세요.</p>}

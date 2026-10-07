@@ -102,8 +102,13 @@ main.team-editor-page{height:calc(100dvh - var(--app-shell-height));max-height:c
 .allocation-save-feedback{display:block;font-size:11px;line-height:1.4;color:var(--muted-foreground);min-height:16px}
 .allocation-progress{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:46px;padding:0 12px;margin:0 0 8px;border:1px solid var(--border);border-radius:10px;background:var(--card);font-size:12px;line-height:1.5}
 .allocation-progress.ready{background:#edf6f0;border-color:#aecbb9;color:#315e45}
+.allocation-progress.attention{background:#fff5df;border-color:#d8b572;color:#6b4716}
 .allocation-progress strong{font-size:12px;font-weight:700}.allocation-progress small{display:block;font-size:11px;color:var(--muted-foreground)}
 .allocation-progress>div{min-width:0;padding-block:6px}.allocation-progress>button{flex-shrink:0;min-height:44px;padding:4px 8px;color:var(--primary);font-size:11px}
+.allocation-progress-primary{display:flex;align-items:center;gap:5px;min-width:0;font-variant-numeric:tabular-nums}
+.allocation-progress-primary svg{width:15px;height:15px;flex:none}
+.allocation-progress.attention>button{background:#f6e5bf;border:1px solid #d3ac6a;border-radius:7px;color:#694317;font-weight:700}
+.allocation-progress.attention>button:hover{background:#f1d99f;color:#57370f}
 .allocation-reason-dialog{width:calc(100% - 24px);max-width:480px;max-height:calc(100dvh - 32px);display:flex;flex-direction:column;gap:12px}
 .allocation-reason-list{min-height:0;overflow-y:auto;display:grid;gap:12px;overscroll-behavior:contain}
 .allocation-reason-list section{border:1px solid var(--border);border-radius:10px;padding:12px;background:var(--card)}

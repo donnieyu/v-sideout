@@ -22,8 +22,11 @@ it('shows a compact reason entry after auto fill skips an applicant without a pr
  const people=[{id:'a',name:'미등록선수',club:'뉴배동',position:'미등록' as const,secondary:'미등록' as const,status:'신청자' as const}];
  render(<SessionAllocation title="시험" baseline={{teams:['A','B','C'].map(id=>({id,title:id+'팀',players:[]}))}} people={people} saved={true} onSave={async()=>{}} onCancel={()=>{}} onDirty={()=>{}}/>);
  expect(screen.queryByRole('button',{name:/이유 보기/})).toBeNull();
+ expect(document.getElementById('allocation-summary')?.classList.contains('attention')).toBe(false);
  fireEvent.click(screen.getByRole('button',{name:'자동 배치'}));
  fireEvent.click(within(screen.getByRole('dialog')).getByRole('button',{name:'자동 배치'}));
+ expect(document.getElementById('allocation-summary')?.classList.contains('attention')).toBe(true);
+ expect(document.getElementById('allocation-summary')?.textContent).toContain('1명 미배정');
  fireEvent.click(screen.getByRole('button',{name:/이유 보기/}));
  const dialog=screen.getByRole('dialog',{name:'미배정 신청자 이유'});
  expect(within(dialog).getByText(/주포지션 미등록 1명/)).toBeTruthy();
@@ -41,4 +44,5 @@ it('explains capacity shortage and invalidates the result after changing the boa
  fireEvent.click(within(screen.getByRole('dialog')).getAllByRole('button',{name:'닫기'})[0]);
  fireEvent.click(screen.getByRole('button',{name:'추가 선수 줄'}));
  expect(screen.queryByRole('button',{name:/이유 보기/})).toBeNull();
+ expect(document.getElementById('allocation-summary')?.classList.contains('attention')).toBe(false);
 });
