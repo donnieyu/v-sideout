@@ -7,6 +7,7 @@ import {sideoutClient,SideoutClientError,type SideoutClient} from '@/lib/sideout
 import type {ClubsView} from '@/lib/sideout/read-model';
 import {Button} from '../ui/button';
 import styles from './sideout.module.css';
+import {AppConfirmProvider} from './confirm-dialog';
 type Active=Extract<SessionView,{state:'active'}>;
 type Actions={changePassword:()=>void;logout:()=>Promise<void>;refresh:()=>Promise<void>};
 type Context={session:Active;actions:Actions;client:SideoutClient;directory:ClubsView;scroll:Map<string,number>;drafts:Map<string,unknown>};
@@ -36,7 +37,7 @@ function ActiveAccess({session,actions,client,children,drafts}:{session:Active;a
  const load=useCallback((signal:AbortSignal)=>client.clubs(signal),[client]);
  const onAuthError=useCallback(()=>void actions.refresh(),[actions.refresh]);
  const {data,error,retry}=useRead(load,onAuthError);const scroll=useRef(new Map<string,number>());
- return <div className={styles.app}>{data?<AccessContext.Provider value={{session,actions,client,directory:data,scroll:scroll.current,drafts}}>{children}</AccessContext.Provider>:<ReadState error={error} retry={retry}/>}</div>;
+ return <div className={styles.app}>{data?<AccessContext.Provider value={{session,actions,client,directory:data,scroll:scroll.current,drafts}}><AppConfirmProvider>{children}</AppConfirmProvider></AccessContext.Provider>:<ReadState error={error} retry={retry}/>}</div>;
 }
 export function SideoutAccess({children,authClient,client=sideoutClient}:{children:ReactNode;authClient?:MemberAccessClient;client?:SideoutClient}){
  const owner=useRef({key:'',drafts:new Map<string,unknown>()});

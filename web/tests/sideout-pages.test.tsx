@@ -53,8 +53,8 @@ it('opens the shared roster overlay from detail and restores focus on closing',a
   const client=createSideoutClient(async path=>Response.json({ok:true,data:String(path).startsWith('/api/clubs')?{serverNow:'2026-09-30T00:00:00Z',clubs,capabilities:{canManageMembers:true}}:data}));
   render(<SideoutAccess authClient={auth} client={client}><SessionDetailScreen id="session-test-open"/></SideoutAccess>);
   const button=await screen.findByRole('button',{name:'명단 확인'});button.focus();fireEvent.click(button);
-  await screen.findByRole('dialog',{name:'함께하는 회원'});expect(screen.getByRole('heading',{name:'소속 회원'})).toBeTruthy();expect(screen.getByRole('heading',{name:'게스트'})).toBeTruthy();expect(screen.getByRole('heading',{name:'대기자'})).toBeTruthy();
-  const roster=screen.getByRole('region',{name:'참가 명단'});expect(roster.tabIndex).toBe(0);roster.focus();expect(document.activeElement).toBe(roster);
+  await screen.findByRole('dialog',{name:'명단 확인'});expect(screen.getByRole('heading',{name:'소속 회원'})).toBeTruthy();expect(screen.getByRole('heading',{name:'게스트'})).toBeTruthy();fireEvent.click(screen.getByRole('tab',{name:/대기자/}));expect(screen.getByRole('heading',{name:'대기자'})).toBeTruthy();
+  const roster=screen.getByRole('tabpanel');expect(roster.tabIndex).toBe(0);roster.focus();expect(document.activeElement).toBe(roster);
   fireEvent.click(screen.getByRole('button',{name:'확인'}));await waitFor(()=>expect(screen.queryByRole('dialog')).toBeNull());expect(document.activeElement).toBe(button);
 });
 it('login and first password change gate business content',async()=>{

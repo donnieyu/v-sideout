@@ -1,2 +1,2 @@
-import {ScheduleEditorScreen} from '@/components/sideout/schedule-editor';
-export default function Page(){return <ScheduleEditorScreen/>}
+import {NewSessionScreen} from '@/components/sideout/new-session';
+export default function Page(){return <NewSessionScreen/>}

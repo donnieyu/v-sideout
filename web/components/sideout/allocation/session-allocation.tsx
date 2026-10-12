@@ -1,6 +1,7 @@
 'use client';
+import {EditorActionBar} from '../editor-action-bar';
 import {useEffect,useLayoutEffect,useRef,useState} from 'react'
-import {Plus,Send,Sparkles,Trash2,TriangleAlert} from 'lucide-react'
+import {Plus,Send,Save,Sparkles,Trash2,TriangleAlert} from 'lucide-react'
 import {Button} from '@/components/ui/button'
 import {Dialog,DialogContent,DialogHeader,DialogTitle,DialogDescription} from '@/components/ui/dialog'
 import {TeamNameDialog} from './team-name-dialog'
@@ -13,14 +14,13 @@ import {canRetainInactivePlacement} from '@/lib/sideout/retained-placement'
 import type {LineupRecord as Lineup} from '@/lib/sideout/read-model'
 
 import {PublicationWithdrawDialog} from '../publication-withdraw-dialog'
-import {EditorActions} from '../editor-controls'
 import controls from '../editor-controls.module.css'
 import './allocation-layout.css'
 import './session-allocation.css'
 
 export type EditorSnapshot={state:ReviewState;view:'rows'|'court';manualExtraRows?:boolean;pickerTarget?:Target|null;mode?:'legacy'|'board';boardEntryTarget?:Target|null}
-type Props={readOnly?:boolean;wasPublished?:boolean;hasSavedChanges?:boolean;onUnpublish?:(source:'saved'|'published')=>Promise<void>;initial?:EditorSnapshot;entryMode?:'legacy'|'board';onSnapshot?:(snapshot:EditorSnapshot)=>void;title:string;baseline:Lineup;people:Candidate[];saved:boolean;publishedLineup?:Lineup|null;onSave:(lineup:Lineup,publish:boolean)=>Promise<void>;onCancel:()=>void;onDirty:(dirty:boolean)=>void}
-export function SessionAllocation({readOnly=false,wasPublished=false,hasSavedChanges=false,onUnpublish,title,baseline,people,saved,publishedLineup,onSave,onCancel,onDirty,initial,entryMode='board',onSnapshot}:Props){
+type Props={contextLabel?:string;readOnly?:boolean;wasPublished?:boolean;hasSavedChanges?:boolean;onUnpublish?:(source:'saved'|'published')=>Promise<void>;initial?:EditorSnapshot;entryMode?:'legacy'|'board';onSnapshot?:(snapshot:EditorSnapshot)=>void;title:string;baseline:Lineup;people:Candidate[];saved:boolean;publishedLineup?:Lineup|null;onSave:(lineup:Lineup,publish:boolean)=>Promise<void>;onCancel:()=>void;onDirty:(dirty:boolean)=>void}
+export function SessionAllocation({contextLabel,readOnly=false,wasPublished=false,hasSavedChanges=false,onUnpublish,title,baseline,people,saved,publishedLineup,onSave,onDirty,initial,entryMode='board',onSnapshot}:Props){
  const applicantCount=people.filter(p=>p.status==='신청자'&&p.active!==false).length
  const [manualExtraRows,setManualExtraRows]=useState(initial?.manualExtraRows??(baseline.extraRows!==undefined))
  const fitCapacity=(value:ReviewState,manual=manualExtraRows)=>{if(readOnly)return value;const fitted=manual?value:withApplicantCapacity(value,applicantCount);const board=alignBenchRows(fitted.board);return board===fitted.board?fitted:{...fitted,board}}
@@ -117,7 +117,7 @@ export function SessionAllocation({readOnly=false,wasPublished=false,hasSavedCha
  const progress=needsAttention?`${attendanceCount-unassignedApplicants}/${attendanceCount}명 배정 · ${unassignedApplicants}명 미배정`:unassignedApplicants?`신청자 ${attendanceCount-unassignedApplicants}/${attendanceCount}명 배정 · ${unassignedApplicants}명 남음`:`신청자 ${attendanceCount}명 전원 배정`
  const statusText=readOnly?'공개 중 · 수정하려면 공개를 취소하세요':`${progress}${ready?' · 공개 가능':''}`
  return <fieldset disabled={busy} className="session-allocation" aria-label="팀편성 편집" data-session={title}>
-  <header className={controls.header} data-allocation-actions><div><h2 id="allocation-title">팀편성 수정</h2><span className="allocation-save-feedback" role="status">{readOnly?'공개된 편성 · 읽기 전용':saveFeedback||(dirty?'저장하지 않은 변경':saved?'저장된 편성':'아직 저장하지 않음')}</span></div><EditorActions busy={busy} saveDisabled={readOnly} cancelLabel={readOnly?'돌아가기':'취소'} onCancel={onCancel} onSave={()=>unregistered.length?setConfirm('save-unregistered'):commit(false)}/></header>
+  <header className={controls.header} data-allocation-actions><div><h1 id="allocation-title">팀편성 수정</h1>{contextLabel&&<p className={controls.context}>{contextLabel}</p>}<span className="allocation-save-feedback" role="status">{readOnly?'공개된 편성 · 읽기 전용':saveFeedback||(dirty?'저장하지 않은 변경':saved?'저장된 편성':'아직 저장하지 않음')}</span></div><EditorActionBar busy={busy}>{readOnly?<Button className="allocation-unpublish" variant="outline" onClick={()=>setConfirm('unpublish')}>공개 취소</Button>:<><Button variant="secondary" disabled={busy} onClick={()=>unregistered.length?setConfirm('save-unregistered'):commit(false)}><Save aria-hidden="true"/>{busy?'저장 중…':'저장'}</Button><Button disabled={busy||!ready} aria-describedby="allocation-summary" onClick={()=>setConfirm('publish')}><Send aria-hidden="true"/>{wasPublished?'다시 공개':'공개'}</Button></>}</EditorActionBar></header>
   <div id="allocation-summary" className={`allocation-progress${ready?' ready':''}${needsAttention?' attention':''}`} role="status"><div><span className="allocation-progress-primary">{needsAttention&&<TriangleAlert aria-hidden="true"/>}<strong aria-label={needsAttention?`신청자 ${statusText}`:undefined}>{statusText}</strong></span>{!needsAttention&&!readOnly&&!unassignedApplicants&&publishProblem&&<small>{publishProblem}</small>}{!needsAttention&&!readOnly&&publishedLineup&&!samePublic&&<small>미공개 변경 있음</small>}{!needsAttention&&additional>0&&<small>추가 배정 {additional}명</small>}</div>{needsAttention&&<Button variant="ghost" size="sm" onClick={()=>setReasonOpen(true)}>이유 보기</Button>}</div>
   {error&&<p role="alert" className="allocation-error">{error}</p>}
   {unregistered.length>0&&<p className="allocation-error" role="status">미신청 회원 {unregistered.length}명은 저장 시 참석자로 등록됩니다.</p>}
@@ -138,7 +138,6 @@ export function SessionAllocation({readOnly=false,wasPublished=false,hasSavedCha
    </section>)}</div>{!readOnly&&<Button variant="outline" className="allocation-add-team" disabled={state.board.length>=4} onClick={addTeam}><Plus aria-hidden="true"/>팀 추가</Button>}</div>}
    <BoardAllocation state={state} people={people} readOnly={readOnly} showGrid={view==='rows'} target={pickerTarget} recentAssignment={recentAssignment} onTargetChange={changePickerTarget} onReturnFocus={returnPickerFocus} onAssign={assignBoard} onRelease={releaseBoard} onAddRow={addRow} onRemoveRow={removeRow} onAddTeam={addTeam} onRemoveTeam={requestTeamDeletion} onRename={(id,title)=>setRenaming({id,title})}/>
   </div>
-  <nav className="allocation-session-nav" aria-label="팀 배정 내비게이션">{readOnly?<Button className="allocation-unpublish" variant="outline" onClick={()=>setConfirm('unpublish')}>공개 취소</Button>:<Button disabled={!ready} aria-describedby="allocation-summary" onClick={()=>setConfirm('publish')}><Send/>{wasPublished?'다시 공개':'공개'}</Button>}</nav>
   {!readOnly&&renaming&&<TeamNameDialog title={renaming.title} onClose={()=>setRenaming(null)} onApply={title=>{setState(previous=>({...previous,board:previous.board.map(team=>team.id===renaming.id?{...team,title}:team),reviewed:false}));setRenaming(null)}}/>}
   <Dialog open={!!deletingTeam} onOpenChange={open=>!open&&setTeamToDelete(null)}><DialogContent><DialogHeader><DialogTitle>{deletingTeam?.title}을 삭제할까요?</DialogTitle><DialogDescription>{deletingPlayerCount?`배정된 선수 ${deletingPlayerCount}명의 배정이 모두 해제되고 각 후보 목록으로 돌아갑니다.`:'빈 팀이 삭제됩니다.'} 저장 전까지 이 변경은 확정되지 않습니다.</DialogDescription></DialogHeader><div className="ab-confirm-actions"><Button variant="outline" onClick={()=>setTeamToDelete(null)}>취소</Button><Button variant="destructive" onClick={confirmTeamDeletion}>팀 삭제</Button></div></DialogContent></Dialog>
   <Dialog open={rowToDelete!==null} onOpenChange={open=>!open&&setRowToDelete(null)}><DialogContent><DialogHeader><DialogTitle>추가 선수 {(rowToDelete??0)+1}줄을 삭제할까요?</DialogTitle><DialogDescription>모든 팀에서 이 줄이 삭제됩니다. {deletingRowPlayerCount?`배정된 선수 ${deletingRowPlayerCount}명의 배정이 모두 해제되고 각 후보 목록으로 돌아갑니다.`:'빈 추가 선수 줄입니다.'} 저장 전까지 이 변경은 확정되지 않습니다.</DialogDescription></DialogHeader><div className="ab-confirm-actions"><Button variant="outline" onClick={()=>setRowToDelete(null)}>취소</Button><Button variant="destructive" onClick={confirmRowDeletion}>줄 삭제</Button></div></DialogContent></Dialog>

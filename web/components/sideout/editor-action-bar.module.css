@@ -1,0 +1,20 @@
+.bar{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-left:auto}
+.bar[hidden]{display:none}
+.bar button,.bar a{height:44px;min-width:68px;padding:0 12px;gap:6px;font-size:12px}
+.bar svg{width:14px;height:14px;flex:none}
+@media(max-width:760px){
+ .bar{position:fixed;z-index:35;left:12px;right:12px;bottom:calc(16px + env(safe-area-inset-bottom) + var(--keyboard-offset,0px));display:flex;flex-wrap:nowrap;justify-content:center;margin:0;pointer-events:none}
+ /* Feather only the backdrop; button labels remain fully opaque. */
+ .bar::before{content:"";position:absolute;z-index:-1;inset:-20px -12px calc(-16px - env(safe-area-inset-bottom));background:var(--floating-control-fade);pointer-events:none}
+ .bar[data-keyboard]::before{bottom:-8px}
+ .bar[hidden]{display:none}
+ .bar>button,.bar>a{pointer-events:auto;flex:0 1 auto;min-width:44px;height:44px;padding:8px 18px;gap:4px;border-radius:24px;font-size:13px;font-weight:400;line-height:1.55;box-shadow:0 3px 12px #24354414;white-space:nowrap}
+ .bar[data-floating-editor-actions]>[data-slot=button]{font-weight:400}
+ .bar svg{width:16px;height:16px}
+ .bar>.returnButton{background:var(--card,#fff);color:var(--foreground);border:1px solid var(--input)}
+ .bar[data-keyboard]{bottom:calc(8px + var(--keyboard-offset,0px))}
+ :global(body:has([data-slot="dialog-content"][data-state="open"])) .bar,
+ :global(body:has([data-slot="sheet-content"][data-state="open"])) .bar,
+ :global(body:has([data-slot="alert-dialog-content"][data-state="open"])) .bar{visibility:hidden;pointer-events:none}
+}
+@media(max-width:360px){.bar{gap:6px}.bar>button,.bar>a{padding-inline:12px}}

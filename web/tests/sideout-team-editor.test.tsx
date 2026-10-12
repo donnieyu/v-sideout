@@ -29,7 +29,7 @@ it('retries failed save with same command and advances revision without leaving 
 });
 it('confirms attendee-only publication, cancel does not post, confirm posts distinct publish action',async()=>{
  const f=setup();await screen.findByRole('region',{name:'팀별 포지션 배정표'});fireEvent.click(screen.getByRole('button',{name:'공개'}));await screen.findByText('공개하면 참석 회원에게 팀편성과 경기 순서가 함께 노출됩니다.');const dialog=screen.getByRole('dialog');fireEvent.click(dialog.querySelector('button')!);expect(f.writes).toHaveLength(0);
- if(!screen.queryByRole('dialog'))fireEvent.click(screen.getByRole('button',{name:'공개'}));fireEvent.click(screen.getByRole('button',{name:'확인'}));await screen.findByRole('button',{name:'공개 취소'});expect((screen.getByRole('button',{name:'저장'}) as HTMLButtonElement).disabled).toBe(true);expect(f.writes[0].payload.action).toBe('publish');expect(f.writes[0].payload.confirmed).toBe(true);
+ if(!screen.queryByRole('dialog'))fireEvent.click(screen.getByRole('button',{name:'공개'}));fireEvent.click(screen.getByRole('button',{name:'확인'}));await screen.findByRole('button',{name:'공개 취소'});expect(screen.queryByRole('button',{name:'저장'})).toBeNull();expect(f.writes[0].payload.action).toBe('publish');expect(f.writes[0].payload.confirmed).toBe(true);
 });
 
 it('restores an unsaved board and selected slot after same-account focus revalidation, but drops another account cache',async()=>{
@@ -46,13 +46,13 @@ it('restores an unsaved board and selected slot after same-account focus revalid
 
 it('omits routine refresh and locks cancellation while a save is pending and keeps the same editor after completion',async()=>{
  const f=setup();await screen.findByRole('region',{name:'팀별 포지션 배정표'});f.holdSave();fireEvent.click(screen.getByRole('button',{name:'저장'}));
- await screen.findByRole('button',{name:'저장 중…'});expect((screen.getByRole('button',{name:'취소'}) as HTMLButtonElement).disabled).toBe(true);expect(screen.queryByRole('button',{name:'최신 정보 불러오기'})).toBeNull();
+ await screen.findByRole('button',{name:'저장 중…'});expect(screen.queryByRole('button',{name:'취소'})).toBeNull();expect(screen.queryByRole('link',{name:'운동 상세로'})).toBeNull();expect(screen.queryByRole('button',{name:'최신 정보 불러오기'})).toBeNull();
  f.releaseSave();await screen.findByText('저장됨');expect(screen.queryByRole('button',{name:'최신 정보 불러오기'})).toBeNull();
 });
 
 it('locks a restored stale editor after another operator publishes and unlocks only after confirmed withdrawal',async()=>{
  const f=setup();await screen.findByRole('region',{name:'팀별 포지션 배정표'});f.publishElsewhere();fireEvent(window,new Event('focus'));
- await screen.findByRole('button',{name:'공개 취소'});expect((screen.getByRole('button',{name:'저장'}) as HTMLButtonElement).disabled).toBe(true);expect(screen.queryByRole('button',{name:'자동 배치'})).toBeNull();
+ await screen.findByRole('button',{name:'공개 취소'});expect(screen.queryByRole('button',{name:'저장'})).toBeNull();expect(screen.queryByRole('button',{name:'자동 배치'})).toBeNull();
  fireEvent.click(screen.getByRole('button',{name:'공개 취소'}));const dialog=await screen.findByRole('dialog');fireEvent.click(dialog.querySelector('button:last-child')!);
  await screen.findByRole('button',{name:'다시 공개'});expect((screen.getByRole('button',{name:'저장'}) as HTMLButtonElement).disabled).toBe(false);expect(f.writes[0].payload).toMatchObject({action:'unpublish',confirmed:true});expect(screen.queryByText('공개를 취소했습니다. 수정 후 다시 공개해 주세요.')).toBeNull();
  fireEvent.click(screen.getByRole('button',{name:'저장'}));await screen.findByText('저장됨');expect(f.writes[1].payload.action).toBe('save');expect(screen.getByRole('region',{name:'팀별 포지션 배정표'})).toBeTruthy();

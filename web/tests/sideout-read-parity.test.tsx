@@ -23,7 +23,7 @@ function mount(data:HomeView|SessionDetailView,child:React.ReactNode){
 it('renders an upcoming schedule in desktop time bands and mobile date groups, counting only open sessions',async()=>{
  const open=detail(),draft={...detail(),session:{...session,id:'prepared',phase:'draft' as const}};
  const {container}=mount({serverNow:'2026-09-30T00:00:00Z',weekStart:'2026-09-28',cards:[open,draft],registrationOpportunities:[{clubId:clubs[1].id,date:'2026-10-03'}]},<HomeScreen/>);
- await screen.findByText('1개');expect(screen.queryByText('2개')).toBeNull();
+ await screen.findByText('운동 1개');expect(screen.queryByText('운동 2개')).toBeNull();
  expect(container.querySelector('[aria-label="요일과 시간대별 일정"]')).toBeTruthy();
  const mobile=container.querySelector('[aria-label="날짜별 일정"]') as HTMLElement;
  expect(within(mobile).getAllByRole('article')).toHaveLength(3);
@@ -35,9 +35,9 @@ it('shows an attendance archive with no application CTA, preserving the selected
  query='weekStart=2026-09-21&filter=all';
  const past={...detail(),session:{...session,date:'2026-09-27'},teamPublished:true,canViewPublishedTeams:true};
  const {container}=mount({serverNow:'2026-09-30T00:00:00Z',weekStart:'2026-09-21',cards:[past],registrationOpportunities:[]},<HomeScreen/>);
- await screen.findByText('내가 참석한 운동');await screen.findAllByRole('link',{name:'팀편성 확인'});expect(screen.getByRole('heading',{name:'내가 함께했던 운동'})).toBeTruthy();
+ await screen.findByText('내가 참석한 운동');await screen.findAllByRole('link',{name:'팀편성 · 경기 순서'});expect(screen.getByRole('heading',{name:'운동 일정'})).toBeTruthy();
  const mobile=container.querySelector('[aria-label="날짜별 일정"]') as HTMLElement;
- expect(within(mobile).getByRole('link',{name:'팀편성 확인'}).getAttribute('href')).toContain('weekStart=2026-09-21&filter=all#teams');
+ expect(within(mobile).getByRole('link',{name:'팀편성 · 경기 순서'}).getAttribute('href')).toContain('weekStart=2026-09-21&filter=all');
  expect(within(mobile).queryByRole('button',{name:/참석 신청|참석 취소|취소 불가/})).toBeNull();
 });
 it('past detail keeps the published roster and order but removes deadlines and edit/application actions',async()=>{
@@ -52,15 +52,15 @@ it('past detail keeps the published roster and order but removes deadlines and e
  expect(screen.queryByRole('heading',{name:'함께할 인원'})).toBeNull();
  expect(within(container.querySelector('#teams') as HTMLElement).getByRole('button',{name:'명단 확인'})).toBeTruthy();
 });
-it.each([{manager:true,status:null},{manager:false,status:'applied'}] as const)('shows a clearly labelled, anonymous prepublication layout for an authorized viewer %j',async({manager,status})=>{
+it.each([{manager:true,status:null},{manager:false,status:'applied'}] as const)('shows truthful pending information instead of illustrative teams before publication %j',async({manager,status})=>{
  mount({...detail(),canManage:manager,selfStatus:status},<SessionDetailScreen id={session.id}/>);
- await screen.findByText('화면 구성 예시');expect(screen.getAllByRole('heading',{name:'팀 이름'})).toHaveLength(3);
+ await screen.findByText('아직 팀편성이 공개되지 않았어요.');expect(screen.queryByRole('heading',{name:'팀 이름'})).toBeNull();expect(screen.queryByText('화면 구성 예시')).toBeNull();
  expect(screen.queryByText('A팀')).toBeNull();
 });
 it('does not replace restricted published teams with an apparent example roster',async()=>{
  mount({...detail(),canManage:false,selfStatus:'waiting',teamPublished:true},<SessionDetailScreen id={session.id}/>);
  await screen.findByText('참석 회원만 팀편성과 경기 순서를 확인할 수 있어요.');expect(screen.queryByText('화면 구성 예시')).toBeNull();
- expect(screen.getByRole('heading',{name:'함께할 인원'})).toBeTruthy();
+ expect(screen.getByRole('button',{name:'명단 확인'})).toBeTruthy();
 });
 it('keeps schedule first and shows the published roster directly inside the team section',async()=>{
  const data={...detail(),canManage:true,capabilities:{...detail().capabilities,canEditTeams:true},teamPublished:true,canViewPublishedTeams:true,publishedTeams:[{id:'A',title:'A팀',players:[{memberId:ids.master,displayName:'시험 마스터',homeClubId:clubs[0].id,clubName:clubs[0].name,slotId:'s',assignedPosition:'S' as const}]}]};
@@ -83,7 +83,7 @@ it('renders the manager saved preview instead of old published teams and matchin
  const data={...detail(),teamPublished:true,publishedTeams:[{id:'A',title:'이전 공개팀',players:[]}],managerTeamPreview:{teams:[{id:'B',title:'최근 저장팀',players:[{memberId:'x',displayName:'신규 선수',homeClubId:clubs[0].id,clubName:'뉴배동',slotId:'s',assignedPosition:'S' as const}]}],matches:{teamCount:1,rookieTeamCount:2,matches:[]},unpublishedChanges:true}};
  const {container}=mount(data,<SessionDetailScreen id={session.id}/>);await screen.findByRole('heading',{name:'최근 저장팀'});expect(screen.queryByRole('heading',{name:'이전 공개팀'})).toBeNull();expect(screen.getByText('신규 선수')).toBeTruthy();expect(screen.getByText('미공개 변경')).toBeTruthy();expect(screen.queryByText('공개 완료')).toBeNull();expect(screen.getByRole('heading',{name:'경기 순서'})).toBeTruthy();
  expect(screen.getByRole('heading',{name:'일정 정보'}).compareDocumentPosition(container.querySelector('#teams')!)&Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
- expect(screen.getByRole('heading',{name:'함께할 인원'})).toBeTruthy();
+ expect(screen.getAllByRole('button',{name:'명단 확인'})).toHaveLength(1);
 });
 
 it('groups roster members by club ID rather than equal or outdated club labels',async()=>{
@@ -91,4 +91,19 @@ it('groups roster members by club ID rather than equal or outdated club labels',
  mount(data,<SessionDetailScreen id={session.id}/>);fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));await screen.findByText('우리회원');
  const own=within(screen.getByRole('heading',{name:'소속 회원'}).closest('section')!),guest=within(screen.getByRole('heading',{name:'게스트'}).closest('section')!);
  expect(own.getByText('우리회원')).toBeTruthy();expect(own.queryByText('동명모임회원')).toBeNull();expect(guest.getByText('동명모임회원')).toBeTruthy();expect(guest.getByText('무소속회원')).toBeTruthy();expect(guest.getByText('소속 없음')).toBeTruthy();
+});
+
+it('restores only one detail roster after focus revalidation of an unpublished saved preview',async()=>{
+ const data={...detail(),managerTeamPreview:{teams:[{id:'A',title:'저장팀',players:[]}],matches:null,unpublishedChanges:true}};
+ mount(data,<SessionDetailScreen id={session.id}/>);
+ const buttons=await screen.findAllByRole('button',{name:'명단 확인'});fireEvent.click(buttons[0]);const original=await screen.findByRole('dialog',{name:'명단 확인'});
+ fireEvent(window,new Event('focus'));
+ await screen.findByRole('dialog',{name:'명단 확인'});expect(original.isConnected).toBe(false);expect(screen.getAllByRole('dialog',{name:'명단 확인'})).toHaveLength(1);
+});
+
+it('keeps entry time and inline notice visible to a published attendee without management controls',async()=>{
+ const data={...detail(),canManage:false,teamPublished:true,canViewPublishedTeams:true,publishedTeams:[{id:'A',title:'A팀',players:[]}]};
+ mount(data,<SessionDetailScreen id={session.id}/>);await screen.findByRole('heading',{name:'팀편성'});
+ expect(screen.getByText(session.entry)).toBeTruthy();expect(screen.getByRole('heading',{name:'운동 공지'})).toBeTruthy();
+ expect(screen.queryByRole('button',{name:'운동 안내'})).toBeNull();expect(screen.queryByRole('link',{name:'운동 공지 수정'})).toBeNull();
 });

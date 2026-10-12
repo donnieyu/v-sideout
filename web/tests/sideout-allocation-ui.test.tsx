@@ -121,7 +121,7 @@ it('keeps published court and row views read-only and requires confirmation to w
  const onUnpublish=vi.fn().mockResolvedValue(undefined);
  const published={teams:[{id:'A',title:'A팀',players:[{memberId:'a',slotId:'s',assignedPosition:'S' as const}]},...baseline.teams.slice(1)]};
  render(<SessionAllocation {...props} baseline={published} readOnly onUnpublish={onUnpublish}/>);
- expect((screen.getByRole('button',{name:'저장'}) as HTMLButtonElement).disabled).toBe(true);
+ expect(screen.queryByRole('button',{name:'저장'})).toBeNull();
  expect(screen.queryByRole('button',{name:'자동 배치'})).toBeNull();
  expect(screen.queryByRole('button',{name:'팀 추가'})).toBeNull();
  expect(screen.getByRole('button',{name:'A팀 세터 김도윤 뉴배동'}).hasAttribute('disabled')).toBe(true);
@@ -194,10 +194,11 @@ it('offers auto fill to repair an extra assignment while a court position is emp
  expect(screen.getByRole('button',{name:'A팀 세터 김도윤 뉴배동 교체'})).toBeTruthy();
 });
 
-it('cancels without saving',()=>{
- const onCancel=vi.fn(),onSave=vi.fn();
- render(<SessionAllocation {...props} onCancel={onCancel} onSave={onSave}/>);
- fireEvent.click(screen.getByRole('button',{name:'취소'}));
- expect(onCancel).toHaveBeenCalledTimes(1);
- expect(onSave).not.toHaveBeenCalled();
+it('keeps save and publish together at the top with no duplicate cancel or bottom publish navigation',()=>{
+ render(<SessionAllocation {...props}/>);
+ const header=document.querySelector('[data-allocation-actions]') as HTMLElement;
+ expect(within(header).getByRole('button',{name:'저장'})).toBeTruthy();
+ expect(within(header).getByRole('button',{name:'공개'})).toBeTruthy();
+ expect(within(header).queryByRole('button',{name:'취소'})).toBeNull();
+ expect(screen.queryByRole('navigation',{name:'팀 배정 내비게이션'})).toBeNull();
 });

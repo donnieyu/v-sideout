@@ -11,11 +11,11 @@ import {createSideoutClient} from '../lib/sideout-client';
 import {clubs,ids,session} from './fixtures/sideout';
 import type {SessionDetailView} from '../lib/sideout/read-model';
 afterEach(()=>{cleanup();vi.restoreAllMocks();vi.unstubAllGlobals()});
-function setup(published=false,self=false,responsive=false){
- let error=false,holdWrites=false;let releaseWrite:()=>void=()=>{};const writes:any[]=[];
+function setup(published=false,self=false,responsive=false,viewerClub:string|null=null){
+ let error=false,holdWrites=false;let releaseWrite:()=>void=()=>{};const writes:{commandId:string;expectedRevision:number;payload:Record<string,unknown>}[]=[];
  const labels=[{memberId:ids.applicant,displayName:'한회원',homeClubId:clubs[0].id,clubName:clubs[0].name},{memberId:ids.guest,displayName:'게스트회원',homeClubId:clubs[1].id,clubName:clubs[1].name}];
  const data:SessionDetailView={session,club:clubs[0],sessionRevision:1,rosterRevision:1,counts:{applicants:0,waiting:0},selfStatus:null,teamPublished:published,canViewPublishedTeams:false,canManage:true,visibleApplicants:[],visibleWaiters:[],guestCount:0,publishedTeams:null,publishedMatches:null,capabilities:{canEditSchedule:true,canManageRoster:true,canCancelRoster:true,canEditTeams:false,canEditMatches:false,canPublish:false,canCancelSelf:!published},participation:{canRegister:true,canCancel:!published,registerLabel:published?'대기자 등록':'참석 신청'}};
- const auth=createMemberAccessClient(async()=>Response.json({state:'active',me:{memberId:ids.master,loginId:'시험',displayName:'마스터',homeClubId:null},authorizationVersion:1}));
+ const auth=createMemberAccessClient(async()=>Response.json({state:'active',me:{memberId:ids.master,loginId:'시험',displayName:'마스터',homeClubId:viewerClub},authorizationVersion:1}));
  const client=createSideoutClient(async(path,options)=>{
   if(options?.method==='POST'){const command=JSON.parse(options.body as string);writes.push(command);if(holdWrites)await new Promise<void>(resolve=>{releaseWrite=resolve});if(error)throw Error('offline');if(command.payload.action==='add'){data.visibleApplicants=labels.filter(p=>command.payload.memberIds.includes(p.memberId));data.counts.applicants=data.visibleApplicants.length}else if(command.payload.action==='unpublish'){data.teamPublished=false;data.publicationWithdrawn=true;data.capabilities.canManageRoster=true;data.capabilities.canCancelRoster=true}else if(command.payload.action==='remove'){data.visibleApplicants=data.visibleApplicants.filter(p=>p.memberId!==command.payload.memberId)}data.rosterRevision++;return Response.json({ok:true,data:{resourceId:session.id,revision:data.rosterRevision}})}
   return Response.json({ok:true,data:String(path).endsWith('/teams')?{sessionId:session.id,sessionRevision:data.sessionRevision,rosterRevision:data.rosterRevision,teamPublished:data.teamPublished,draft:{teams:[]},publishedLineup:{teams:[]},draftMatches:null,publishedMatches:null,people:[],hasSavedDraft:true}:String(path).includes('/api/clubs')?{clubs,serverNow:'2026-10-02T00:00:00Z',capabilities:{canManageMembers:true}}:String(path).endsWith('/participants')?{members:labels.filter(p=>!data.visibleApplicants.some(x=>x.memberId===p.memberId)),sessionRevision:1,rosterRevision:data.rosterRevision}:data});
@@ -27,7 +27,7 @@ it('retains multi-selection across search and failure, then updates the same ros
  fireEvent.click(await screen.findByRole('checkbox',{name:/한회원/}));fireEvent.change(screen.getByLabelText('회원 이름 또는 소속 검색'),{target:{value:'게스트'}});fireEvent.click(screen.getByRole('checkbox',{name:/게스트회원/}));
  f.setError(true);fireEvent.click(screen.getByRole('button',{name:'2명 추가'}));await screen.findByRole('alert');expect((screen.getByRole('checkbox',{name:/게스트회원/}) as HTMLInputElement).checked).toBe(true);expect(screen.getByRole('button',{name:'2명 추가'})).toBeTruthy();
  f.setError(false);fireEvent.click(screen.getByRole('button',{name:'2명 추가'}));await screen.findByRole('heading',{name:'게스트'});expect(f.writes[0].commandId).toBe(f.writes[1].commandId);expect(screen.getByText('게스트회원')).toBeTruthy();
- vi.spyOn(window,'confirm').mockReturnValue(true);fireEvent.click(screen.getByRole('button',{name:'한회원 참가 취소'}));await waitFor(()=>expect(screen.queryByText('한회원')).toBeNull());expect(f.writes[2].payload.action).toBe('remove');expect(f.writes[2].expectedRevision).toBe(2);
+ vi.spyOn(window,'confirm').mockReturnValue(true);fireEvent.click(screen.getByRole('button',{name:'한회원 참가 취소'}));fireEvent.click(screen.getByRole('button',{name:'신청 취소'}));await waitFor(()=>expect(screen.queryByText('한회원')).toBeNull());expect(f.writes[2].payload.action).toBe('remove');expect(f.writes[2].expectedRevision).toBe(2);
 });
 it('publication hides manager additions and cancellations',async()=>{
  setup(true);fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));await screen.findByRole('heading',{name:'소속 회원'});expect(screen.queryByRole('button',{name:'참가자 추가'})).toBeNull();expect(screen.queryByRole('button',{name:/참가 취소/})).toBeNull();
@@ -38,7 +38,7 @@ it('publication disables self registration even if a stale capability still perm
 it('publication while the picker is open closes the add flow without losing roster access',async()=>{
  const f=setup();fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));fireEvent.click(await screen.findByRole('button',{name:'참가자 추가'}));fireEvent.click(await screen.findByRole('checkbox',{name:/한회원/}));
  f.data.teamPublished=true;fireEvent(window,new Event('sideout:roster'));
- await screen.findByRole('heading',{name:'함께하는 회원'});expect(screen.queryByRole('button',{name:'1명 추가'})).toBeNull();expect(screen.queryByRole('button',{name:'참가자 추가'})).toBeNull();expect(f.writes).toHaveLength(0);
+ await screen.findByRole('heading',{name:'명단 확인'});expect(screen.queryByRole('button',{name:'1명 추가'})).toBeNull();expect(screen.queryByRole('button',{name:'참가자 추가'})).toBeNull();expect(f.writes).toHaveLength(0);
 });
 it('self registration uses the server revision and retains a retry command',async()=>{
  const f=setup(false,true);f.setError(true);fireEvent.click(await screen.findByRole('button',{name:'참석 신청'}));await screen.findByRole('alert');f.setError(false);fireEvent.click(screen.getByRole('button',{name:'참석 신청'}));await waitFor(()=>expect(f.writes).toHaveLength(2));expect(f.writes[0]).toEqual(f.writes[1]);expect(f.writes[1].expectedRevision).toBe(1);
@@ -48,7 +48,7 @@ it('adds participants on an HTTP LAN origin without crypto.randomUUID',async()=>
  vi.stubGlobal('crypto',{getRandomValues:crypto.getRandomValues.bind(crypto)});
  const f=setup();fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));fireEvent.click(await screen.findByRole('button',{name:'참가자 추가'}));
  fireEvent.click(await screen.findByRole('checkbox',{name:/한회원/}));fireEvent.click(screen.getByRole('button',{name:'1명 추가'}));
- await screen.findByRole('heading',{name:'함께하는 회원'});expect(screen.getByText('한회원')).toBeTruthy();
+ await screen.findByRole('heading',{name:'명단 확인'});expect(screen.getByText('한회원')).toBeTruthy();
  expect(f.writes[0].commandId).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
 });
 it.each([0,1])('restores only the opened responsive roster after auth revalidation (surface %s)',async(index)=>{
@@ -70,33 +70,33 @@ it('releases the busy state and allows retry if command generation fails',async(
  expect((await screen.findByRole('alert')).textContent).toContain('난수 생성 실패');
  expect((screen.getByRole('button',{name:'1명 추가'}) as HTMLButtonElement).disabled).toBe(false);expect(f.writes).toHaveLength(0);
  vi.stubGlobal('crypto',{getRandomValues});fireEvent.click(screen.getByRole('button',{name:'1명 추가'}));
- await screen.findByRole('heading',{name:'함께하는 회원'});expect(screen.getByText('한회원')).toBeTruthy();
+ await screen.findByRole('heading',{name:'명단 확인'});expect(screen.getByText('한회원')).toBeTruthy();
 });
 
 it('keeps the roster open across confirmation focus refresh and consecutive cancellations',async()=>{
  const f=setup();fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));fireEvent.click(await screen.findByRole('button',{name:'참가자 추가'}));
  fireEvent.click(await screen.findByRole('checkbox',{name:/한회원/}));fireEvent.click(screen.getByRole('checkbox',{name:/게스트회원/}));fireEvent.click(screen.getByRole('button',{name:'2명 추가'}));await screen.findByRole('button',{name:'한회원 참가 취소'});
- vi.spyOn(window,'confirm').mockReturnValue(true);f.holdWrites();const original=screen.getByRole('dialog');fireEvent.click(screen.getByRole('button',{name:'한회원 참가 취소'}));
+ vi.spyOn(window,'confirm').mockReturnValue(true);f.holdWrites();const original=screen.getByRole('dialog');fireEvent.click(screen.getByRole('button',{name:'한회원 참가 취소'}));fireEvent.click(screen.getByRole('button',{name:'신청 취소'}));await waitFor(()=>expect(f.writes).toHaveLength(2));
  fireEvent(window,new Event('focus'));await waitFor(()=>expect(original.isConnected).toBe(false));await screen.findByRole('dialog');f.releaseWrite();
  await waitFor(()=>expect(screen.queryByText('한회원')).toBeNull());
- // Another native confirmation/focus cycle must restore the still-open roster.
- fireEvent(window,new Event('focus'));const next=await screen.findByRole('button',{name:'게스트회원 참가 취소'});fireEvent.click(next);
+ // Another app confirmation/focus cycle must restore the still-open roster.
+ fireEvent(window,new Event('focus'));const next=await screen.findByRole('button',{name:'게스트회원 참가 취소'});fireEvent.click(next);fireEvent.click(screen.getByRole('button',{name:'신청 취소'}));
  await waitFor(()=>expect(screen.queryByText('게스트회원')).toBeNull());expect(screen.getByRole('dialog')).toBeTruthy();expect(f.writes.slice(1).map(w=>w.expectedRevision)).toEqual([2,3]);
  fireEvent.click(screen.getByRole('button',{name:'확인'}));await waitFor(()=>expect(screen.queryByRole('dialog')).toBeNull());fireEvent(window,new Event('focus'));await screen.findByRole('button',{name:'명단 확인'});expect(screen.queryByRole('dialog')).toBeNull();
 });
 it('allows additions and confirmed cancellation after withdrawal without closing the roster',async()=>{
  const f=setup();f.data.publicationWithdrawn=true;
  fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));fireEvent.click(await screen.findByRole('button',{name:'참가자 추가'}));fireEvent.click(await screen.findByRole('checkbox',{name:/한회원/}));fireEvent.click(screen.getByRole('button',{name:'1명 추가'}));
- await screen.findByRole('heading',{name:'함께하는 회원'});expect(screen.getByText('한회원')).toBeTruthy();expect(screen.getByRole('button',{name:'참가자 추가'})).toBeTruthy();vi.spyOn(window,'confirm').mockReturnValue(true);fireEvent.click(screen.getByRole('button',{name:'한회원 참가 취소'}));await waitFor(()=>expect(screen.queryByText('한회원')).toBeNull());expect(screen.getByRole('dialog')).toBeTruthy();
+ await screen.findByRole('heading',{name:'명단 확인'});expect(screen.getByText('한회원')).toBeTruthy();expect(screen.getByRole('button',{name:'참가자 추가'})).toBeTruthy();vi.spyOn(window,'confirm').mockReturnValue(true);fireEvent.click(screen.getByRole('button',{name:'한회원 참가 취소'}));fireEvent.click(screen.getByRole('button',{name:'신청 취소'}));await waitFor(()=>expect(screen.queryByText('한회원')).toBeNull());expect(screen.getByRole('dialog')).toBeTruthy();
 });
 
 it('withdraws publication from the roster with confirmation, then permits cancellation without closing the modal',async()=>{
  const f=setup(true);f.data.capabilities.canEditTeams=true;f.data.visibleApplicants=[{memberId:ids.applicant,displayName:'한회원',homeClubId:clubs[0].id,clubName:clubs[0].name}];
  fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));fireEvent.click(await screen.findByRole('button',{name:'공개 취소'}));
- let confirm=await screen.findByRole('dialog',{name:'팀편성 공개를 취소할까요?'});fireEvent.click(within(confirm).getByRole('button',{name:'공개 유지'}));expect(f.writes).toHaveLength(0);expect(screen.getByRole('dialog',{name:'함께하는 회원'})).toBeTruthy();
+ let confirm=await screen.findByRole('dialog',{name:'팀편성 공개를 취소할까요?'});fireEvent.click(within(confirm).getByRole('button',{name:'공개 유지'}));expect(f.writes).toHaveLength(0);expect(screen.getByRole('dialog',{name:'명단 확인'})).toBeTruthy();
  fireEvent.click(screen.getByRole('button',{name:'공개 취소'}));confirm=await screen.findByRole('dialog',{name:'팀편성 공개를 취소할까요?'});fireEvent.click(within(confirm).getByRole('button',{name:'공개 취소'}));
  await screen.findByRole('button',{name:'참가자 추가'});expect(f.writes[0].payload).toMatchObject({action:'unpublish',confirmed:true,draftSource:'published'});expect(f.writes[0].expectedRevision).toBe(1);
- vi.spyOn(window,'confirm').mockReturnValue(true);fireEvent.click(screen.getByRole('button',{name:'한회원 참가 취소'}));await waitFor(()=>expect(screen.queryByText('한회원')).toBeNull());expect(f.writes[1].expectedRevision).toBe(2);expect(screen.getByRole('dialog',{name:'함께하는 회원'})).toBeTruthy();
+ vi.spyOn(window,'confirm').mockReturnValue(true);fireEvent.click(screen.getByRole('button',{name:'한회원 참가 취소'}));fireEvent.click(screen.getByRole('button',{name:'신청 취소'}));await waitFor(()=>expect(screen.queryByText('한회원')).toBeNull());expect(f.writes[1].expectedRevision).toBe(2);expect(screen.getByRole('dialog',{name:'명단 확인'})).toBeTruthy();
 });
 it('keeps public roster locked on failed withdrawal and retries the same command',async()=>{
  const f=setup(true);f.data.capabilities.canEditTeams=true;fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));fireEvent.click(await screen.findByRole('button',{name:'공개 취소'}));
@@ -105,4 +105,27 @@ it('keeps public roster locked on failed withdrawal and retries the same command
 });
 it('does not offer withdrawal when the server disallows team editing',async()=>{
  setup(true);fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));await screen.findByRole('heading',{name:'소속 회원'});expect(screen.queryByRole('button',{name:'공개 취소'})).toBeNull();
+});
+
+it('separates applicant groups from waiters and leaves an empty waiter tab selectable',async()=>{
+ const f=setup();f.data.visibleApplicants=[{memberId:ids.applicant,displayName:'참석회원',homeClubId:clubs[0].id,clubName:clubs[0].name}];f.data.counts.applicants=1;f.data.counts.waiting=1;f.data.visibleWaiters=[{memberId:ids.waiter,displayName:'대기회원',homeClubId:clubs[1].id,clubName:clubs[1].name}];
+ fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));await screen.findByText('참석회원');expect(screen.queryByText('대기회원')).toBeNull();fireEvent.click(screen.getByRole('tab',{name:'대기자 1'}));expect(screen.getByText('대기회원')).toBeTruthy();expect(screen.queryByText('참석회원')).toBeNull();
+ f.data.visibleWaiters=[];f.data.counts.waiting=0;fireEvent(window,new Event('sideout:roster'));await screen.findByRole('tab',{name:'대기자 0'});expect(screen.getByText('등록된 인원이 없습니다.')).toBeTruthy();
+});
+it('does not reveal guest or waiter names to a regular member',async()=>{
+ const f=setup(false,false,false,clubs[0].id);f.data.canManage=false;f.data.visibleApplicants=[{memberId:ids.applicant,displayName:'소속회원',homeClubId:clubs[0].id,clubName:clubs[0].name}];f.data.guestCount=3;f.data.counts={applicants:4,waiting:2};f.data.visibleWaiters=undefined;f.data.capabilities.canManageRoster=false;f.data.capabilities.canCancelRoster=false;
+ fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));await screen.findByText('소속회원');expect(screen.queryByRole('tab',{name:/대기자/})).toBeNull();expect(screen.queryByText('게스트회원')).toBeNull();expect(screen.queryByRole('button',{name:'참가자 추가'})).toBeNull();expect(screen.getByText('게스트')).toBeTruthy();
+});
+
+it('provides counts without leaking names when a different club member opens a roster',async()=>{
+ const f=setup(false,false,false,clubs[1].id);f.data.canManage=false;f.data.visibleApplicants=[];f.data.visibleWaiters=undefined;f.data.guestCount=null;f.data.counts={applicants:18,waiting:2};
+ fireEvent.click(await screen.findByRole('button',{name:'명단 확인'}));await screen.findByRole('tab',{name:'신청자 18'});expect(screen.getByText('신청자 명단은 소속 회원과 운영진에게만 표시됩니다.')).toBeTruthy();expect(screen.queryByText('게스트회원')).toBeNull();expect(screen.queryByRole('heading',{name:'소속 회원'})).toBeNull();
+});
+
+it.each(['applied','waiting'] as const)('confirms %s self cancellation in app and keeps registration on dismiss',async status=>{
+ const f=setup(false,true);f.data.selfStatus=status;
+ const trigger=await screen.findByRole('button',{name:status==='waiting'?'대기 취소':'참석 취소'});fireEvent.click(trigger);
+ expect(screen.getByRole('dialog',{name:status==='waiting'?'대기 등록을 취소할까요?':'참석 신청을 취소할까요?'})).toBeTruthy();expect(f.writes).toHaveLength(0);
+ fireEvent.click(screen.getByRole('button',{name:'유지'}));expect(f.writes).toHaveLength(0);
+ fireEvent.click(trigger);fireEvent.click(screen.getByRole('button',{name:'신청 취소'}));await waitFor(()=>expect(f.writes).toHaveLength(1));expect(f.writes[0].payload.action).toBe('cancel');
 });

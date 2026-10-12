@@ -1,4 +1,5 @@
 'use client';
+import {useAppConfirm} from './confirm-dialog';
 import {useCallback,useRef,useState} from 'react';
 import {useSearchParams} from 'next/navigation';
 import {createPortal} from 'react-dom';
@@ -19,10 +20,11 @@ import {EditorActions} from './editor-controls';
 import controls from './editor-controls.module.css';
 type Cached={data:MatchEditorView;plan:MatchPlanRecord;command?:{id:string;signature:string};stale?:boolean};
 function Editor({data,suffix}:{data:MatchEditorView;suffix:string}){
+ const confirm=useAppConfirm();
  const {client,drafts,actions}=useSideout(),key='matches:'+data.session.id;
  const [cache,setCache]=useState<Cached>(()=>drafts.get(key) as Cached??{data,plan:structuredClone(data.plan)}),current=useRef(cache);
  const [busy,setBusy]=useState(false),operation=useRef(false),[error,setError]=useState(''),[notice,setNotice]=useState(''),[announcement,setAnnouncement]=useState('');
- const dirty=JSON.stringify(cache.plan)!==JSON.stringify(cache.data.plan),guard=useEditGuard(dirty||busy,{onLeave:()=>drafts.delete(key)}),back='/session/'+encodeURIComponent(data.session.id)+suffix;
+ const dirty=JSON.stringify(cache.plan)!==JSON.stringify(cache.data.plan),guard=useEditGuard(dirty||busy,{blocked:busy,onLeave:()=>drafts.delete(key)}),back='/session/'+encodeURIComponent(data.session.id)+suffix;
  const update=(next:Cached)=>{current.current=next;drafts.set(key,next);setCache(next)};
  const change=(plan:MatchPlanRecord)=>{if(operation.current||current.current.stale)return;update({...current.current,plan});setNotice('');setError('')};
  const name=(id:string,rookie:boolean)=>rookie?`신입 ${id.slice(1)}팀`:cache.data.teams.find(t=>t.id===id)?.title??'팀 확인 필요';
@@ -35,13 +37,13 @@ function Editor({data,suffix}:{data:MatchEditorView;suffix:string}){
   catch(e){setError((e as Error).message);if(e instanceof SideoutClientError){if(e.status===409)update({...current.current,stale:true});if(e.status===401||e.code==='PASSWORD_CHANGE_REQUIRED')void actions.refresh()}}
   finally{operation.current=false;setBusy(false)}
  }
- async function reload(){if(operation.current||dirty&&!window.confirm('작성 중인 경기 순서를 버리고 최신 정보를 불러올까요?'))return;operation.current=true;dnd.cancel();setBusy(true);setError('');try{const fresh=await client.matchEditor(data.session.id);update({data:fresh,plan:structuredClone(fresh.plan)});guard.saved();setNotice('최신 경기 순서를 불러왔습니다.')}catch(e){setError((e as Error).message)}finally{operation.current=false;setBusy(false)}}
+ async function reload(){if(operation.current||dirty&&!await confirm({title:'최신 경기 순서를 다시 불러올까요?',description:'작성 중인 경기 순서 변경사항은 사라집니다.',confirmLabel:'다시 불러오기'}))return;operation.current=true;dnd.cancel();setBusy(true);setError('');try{const fresh=await client.matchEditor(data.session.id);update({data:fresh,plan:structuredClone(fresh.plan)});guard.saved();setNotice('최신 경기 순서를 불러왔습니다.')}catch(e){setError((e as Error).message)}finally{operation.current=false;setBusy(false)}}
  const plan=cache.plan,rookies=plan.matches.filter(m=>m.kind==='rookie').length,times=matchTimes(plan,cache.data.session.start);
  const minutes=(s:string)=>{const [h,m]=s.split(':').map(Number);return h*60+m},overflow=minutes(cache.data.session.start)+plan.matches.length*20>minutes(cache.data.session.end);
  const locked=busy||cache.stale;
- return <SideoutShell title={cache.data.club.name} subtitle={dateLabel(cache.data.session.date)+' · 경기 순서 수정'} backHref={back} backLabel="일정 상세로 돌아가기">
+ return <SideoutShell actionBar returnHidden={busy||!!drag} contentHeading title={cache.data.club.name} subtitle={dateLabel(cache.data.session.date)+' · 경기 순서 수정'} backHref={back} backLabel="운동 상세로">
   <section className={styles.editor} aria-label="경기 순서 수정">
-   <header className={`${styles.actions} ${controls.header}`} data-match-actions><div><h1>경기 순서 수정</h1><small>{dirty?'저장하지 않은 변경':'저장된 경기 순서'}</small></div><EditorActions busy={busy} cancelDisabled={!!drag} saveDisabled={locked||!!drag} onCancel={()=>guard.cancel(back)} onSave={()=>void save()}/></header>
+   <header className={`${styles.actions} ${controls.header}`} data-match-actions><div><h1>경기 순서 수정</h1><p className={styles.visibility}>{cache.data.club.name} · {dateLabel(cache.data.session.date)}</p><small>{dirty?'저장하지 않은 변경':'저장된 경기 순서'}</small></div><EditorActions floating hidden={!!drag} busy={busy} cancelDisabled={!!drag} saveDisabled={locked||!!drag} onSave={()=>void save()}/></header>
    <p className={styles.visibility}>{cache.data.saveVisibility==='attendees'?'저장하면 참석 회원에게 바로 반영됩니다.':'저장한 순서는 팀편성을 공개할 때 함께 반영됩니다.'}</p>
    {notice&&<p role="status" className={styles.message}>{notice}</p>}
    {error&&<div role="alert" className={styles.error}><p>{error}</p>{cache.stale&&<Button variant="outline" disabled={busy} onClick={()=>void reload()}>최신 정보 불러오기</Button>}</div>}
@@ -64,6 +66,6 @@ function Editor({data,suffix}:{data:MatchEditorView;suffix:string}){
 export function MatchEditorScreen({id}:{id:string}){
  const {client,actions}=useSideout(),params=useSearchParams(),load=useCallback((signal:AbortSignal)=>client.matchEditor(id,signal),[client,id]),auth=useCallback(()=>void actions.refresh(),[actions.refresh]),{data,error,retry}=useRead(load,auth);
  const q=new URLSearchParams();for(const key of ['weekStart','filter']){const v=params.get(key);if(v)q.set(key,v)}
- if(!data)return <SideoutShell title="경기 순서 수정" backHref={'/session/'+encodeURIComponent(id)+(q.size?'?'+q:'')} backLabel="일정 상세로 돌아가기"><ReadState error={error} retry={retry}/></SideoutShell>;
+ if(!data)return <SideoutShell title="경기 순서 수정" backHref={'/session/'+encodeURIComponent(id)+(q.size?'?'+q:'')} backLabel="운동 상세로"><ReadState error={error} retry={retry}/></SideoutShell>;
  return <Editor key={id} data={data} suffix={q.size?'?'+q:''}/>;
 }

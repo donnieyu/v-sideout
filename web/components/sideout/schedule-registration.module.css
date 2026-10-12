@@ -1,0 +1,33 @@
+.editor{display:flex;flex-direction:column;flex:1;min-height:0;min-width:0;width:100%}
+.scroll{flex:1;min-height:0;min-width:0;overflow-y:auto;overscroll-behavior-y:contain;scroll-padding-block:12px;padding:0 2px 20px}
+.sections{display:grid;gap:12px;width:100%;max-width:680px;margin-inline:auto}
+.section{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
+.section h2,.title{font-size:16px!important;font-weight:600;line-height:1.5;margin:0}
+.heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}
+.heading small,.help{font-size:12px;line-height:1.6;color:var(--muted-foreground)}
+.heading button,.setting button{min-height:44px;min-width:44px;padding:0 8px;font-size:12px;flex-shrink:0;gap:6px}
+.heading svg{height:14px;width:14px}
+.place{display:flex;gap:8px;align-items:flex-start;font-size:14px;overflow-wrap:anywhere;margin:8px 0 12px!important}
+.place svg{width:16px;height:20px;flex:none}
+.field{display:grid;grid-template-columns:minmax(0,1fr);gap:7px;min-width:0;margin:12px 0;font-size:13px}
+.field input{width:100%;max-width:100%;min-width:0;min-height:44px;font-size:16px;box-sizing:border-box}
+.times{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.times input{padding-inline:6px}
+.times .field{font-size:12px}
+.setting{display:flex;align-items:center;gap:8px;border-top:1px solid var(--border);min-height:52px;font-size:13px}
+.setting>span{flex:none}.setting small{flex:1;text-align:right;font-size:12px;color:var(--muted-foreground);overflow-wrap:anywhere}
+.settingFields{padding:0 0 12px}
+.check{display:flex;align-items:center;gap:10px;min-height:44px;font-size:13px}
+.check input{width:18px;height:18px;accent-color:var(--primary)}
+.notice{width:100%;min-height:120px;font-size:16px;line-height:1.65;overflow:hidden;resize:none;overflow-wrap:anywhere}
+@media(max-width:360px){.section{padding:12px}.times{grid-template-columns:1fr;gap:0}.times .field{display:grid;grid-template-columns:90px minmax(0,1fr);align-items:center;margin:6px 0}.setting{gap:4px}}
+.formCard{width:100%;max-width:min(680px,100%);margin-inline:auto}
+.formCard .title{font-size:14px!important}
+
+@media(max-width:480px){.times{grid-template-columns:1fr;gap:0}.times .field{grid-template-columns:104px minmax(0,1fr);align-items:center;margin:6px 0}.times input{padding-inline:12px}}
+
+/* Native Safari date controls must size to the form, not their intrinsic content. */
+.scroll>form{width:100%;min-width:0}
+.scroll>form>fieldset{width:100%;min-width:0;margin-inline:0}
+.field input[type=time],.field input[type=datetime-local]{display:block;appearance:none;-webkit-appearance:none}
+.field input::-webkit-date-and-time-value{min-width:0;text-align:left}

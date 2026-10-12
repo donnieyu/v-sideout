@@ -31,7 +31,7 @@ try{
     const body=document.querySelector('.allocation-session-body');
     const bar=body.querySelector(':scope > .ab-board-toolbar');
     const content=body.querySelector(selector);
-    const nav=document.querySelector('.allocation-session-nav');
+    const nav=document.querySelector('[data-return-placement]');
     const before={toolbarTop:bar.getBoundingClientRect().top,navTop:nav.getBoundingClientRect().top};
     content.scrollTop=content.scrollHeight;
     return {before,after:{toolbarTop:bar.getBoundingClientRect().top,navTop:nav.getBoundingClientRect().top},
