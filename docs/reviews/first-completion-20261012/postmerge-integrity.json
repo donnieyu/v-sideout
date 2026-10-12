@@ -1,0 +1,26 @@
+{
+  "promotion": {
+    "protectedFileCount": 133,
+    "changed": [
+      "docs/reviews/cloudflare-personal-preview-20261012/REPORT.md",
+      "web/personal-preview/handler.mjs",
+      "web/personal-preview/handler.test.mjs"
+    ]
+  },
+  "main": {
+    "protectedFileCount": 25,
+    "changed": []
+  },
+  "concurrentChanges": "Personal preview report and handler files are being changed by another task. They were not edited or staged here.",
+  "mainHead": "88a06c4dcbe4b20a422f76ddbb5d33521d00f1f6",
+  "remoteMain": "88a06c4dcbe4b20a422f76ddbb5d33521d00f1f6",
+  "testedCandidateMatch": {
+    "matchedWebFiles": 304,
+    "onlyDifference": [
+      "web/scripts/verify-allocation-toolbar-scroll.mjs"
+    ],
+    "differenceVerification": "Updated verifier passed all four browser conditions; no product code difference."
+  },
+  "serverHttp": 200,
+  "serverProcess": "81052 node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/sideout-p1 --ip 0.0.0.0 --port 4180 --inspector-port 0"
+}

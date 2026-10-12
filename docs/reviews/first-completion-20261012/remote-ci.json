@@ -1,0 +1,18 @@
+{
+  "headSha": "88a06c4dcbe4b20a422f76ddbb5d33521d00f1f6",
+  "url": "https://github.com/donnieyu/v-sideout/actions/runs/38212268035",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "web",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "prototype",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}
