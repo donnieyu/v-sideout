@@ -1,0 +1,34 @@
+{
+  "mobile390": {
+    "controlsHeight": 144,
+    "documentWidth": 390,
+    "height": 844,
+    "regionHeight": 636,
+    "regionTop": 208,
+    "scrollHeight": 1022,
+    "weekHeight": 29,
+    "width": 390,
+    "windowY": 0
+  },
+  "mobile320": {
+    "controlsMinButtonHeight": 44,
+    "documentWidth": 320,
+    "regionHeight": 360,
+    "regionTop": 208,
+    "width": 320
+  },
+  "desktop1024": {
+    "documentWidth": 1024,
+    "regionHeight": 692,
+    "regionTop": 208,
+    "width": 1024,
+    "windowY": 0
+  },
+  "scrollChecks": {
+    "afterPageDown": 385.5,
+    "afterRosterClose": 385.5,
+    "afterDetailBack": 385.5,
+    "afterFilter": 0,
+    "afterWeek": 0
+  }
+}

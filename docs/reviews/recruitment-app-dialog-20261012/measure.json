@@ -1,0 +1,120 @@
+[
+  {
+    "name": "chrome",
+    "viewport": 390,
+    "scrollWidth": 390,
+    "buttonHeight": 44
+  },
+  {
+    "name": "chrome",
+    "label": "saved",
+    "dialog": {
+      "width": 358,
+      "viewport": 390,
+      "buttons": [
+        {
+          "text": "취소",
+          "height": 44
+        },
+        {
+          "text": "확인",
+          "height": 44
+        },
+        {
+          "text": "닫기",
+          "height": 44
+        }
+      ],
+      "floatingHidden": "hidden"
+    }
+  },
+  {
+    "name": "chrome",
+    "label": "new",
+    "dialog": {
+      "width": 358,
+      "viewport": 390,
+      "buttons": [
+        {
+          "text": "취소",
+          "height": 44
+        },
+        {
+          "text": "확인",
+          "height": 44
+        },
+        {
+          "text": "닫기",
+          "height": 44
+        }
+      ],
+      "floatingHidden": "hidden"
+    }
+  },
+  {
+    "name": "chrome",
+    "readOnlyEntry": true,
+    "editSaveReturnStart": true,
+    "directStart": true,
+    "interceptedWrites": 3
+  },
+  {
+    "name": "webkit",
+    "viewport": 390,
+    "scrollWidth": 390,
+    "buttonHeight": 44
+  },
+  {
+    "name": "webkit",
+    "label": "saved",
+    "dialog": {
+      "width": 358,
+      "viewport": 390,
+      "buttons": [
+        {
+          "text": "취소",
+          "height": 44
+        },
+        {
+          "text": "확인",
+          "height": 44
+        },
+        {
+          "text": "닫기",
+          "height": 44
+        }
+      ],
+      "floatingHidden": "hidden"
+    }
+  },
+  {
+    "name": "webkit",
+    "label": "new",
+    "dialog": {
+      "width": 358,
+      "viewport": 390,
+      "buttons": [
+        {
+          "text": "취소",
+          "height": 44
+        },
+        {
+          "text": "확인",
+          "height": 44
+        },
+        {
+          "text": "닫기",
+          "height": 44
+        }
+      ],
+      "floatingHidden": "hidden"
+    }
+  },
+  {
+    "name": "webkit",
+    "readOnlyEntry": true,
+    "editSaveReturnStart": true,
+    "directStart": true,
+    "interceptedWrites": 3
+  }
+]

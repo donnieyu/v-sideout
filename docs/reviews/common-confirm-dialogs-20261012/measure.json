@@ -1,0 +1,188 @@
+[
+  {
+    "name": "chrome",
+    "label": "dirty-navigation",
+    "width": 358,
+    "viewport": 390,
+    "buttons": [
+      {
+        "text": "계속 수정",
+        "height": 44
+      },
+      {
+        "text": "이동",
+        "height": 44
+      },
+      {
+        "text": "닫기",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "chrome",
+    "label": "roster-cancel",
+    "width": 358,
+    "viewport": 390,
+    "buttons": [
+      {
+        "text": "유지",
+        "height": 44
+      },
+      {
+        "text": "신청 취소",
+        "height": 44
+      },
+      {
+        "text": "닫기",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "chrome",
+    "focus": "returned to roster"
+  },
+  {
+    "name": "chrome",
+    "label": "self-cancel",
+    "width": 358,
+    "viewport": 390,
+    "buttons": [
+      {
+        "text": "유지",
+        "height": 44
+      },
+      {
+        "text": "신청 취소",
+        "height": 44
+      },
+      {
+        "text": "닫기",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "chrome",
+    "label": "favorites-discard",
+    "width": 358,
+    "viewport": 390,
+    "buttons": [
+      {
+        "text": "계속 수정",
+        "height": 44
+      },
+      {
+        "text": "변경사항 버리기",
+        "height": 44
+      },
+      {
+        "text": "닫기",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "chrome",
+    "focus": "returned to favorites"
+  },
+  {
+    "name": "chrome",
+    "flows": "passed",
+    "interceptedWrites": 3
+  },
+  {
+    "name": "webkit",
+    "label": "dirty-navigation",
+    "width": 358,
+    "viewport": 390,
+    "buttons": [
+      {
+        "text": "계속 수정",
+        "height": 44
+      },
+      {
+        "text": "이동",
+        "height": 44
+      },
+      {
+        "text": "닫기",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "webkit",
+    "label": "roster-cancel",
+    "width": 358,
+    "viewport": 390,
+    "buttons": [
+      {
+        "text": "유지",
+        "height": 44
+      },
+      {
+        "text": "신청 취소",
+        "height": 44
+      },
+      {
+        "text": "닫기",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "webkit",
+    "focus": "returned to roster"
+  },
+  {
+    "name": "webkit",
+    "label": "self-cancel",
+    "width": 358,
+    "viewport": 390,
+    "buttons": [
+      {
+        "text": "유지",
+        "height": 44
+      },
+      {
+        "text": "신청 취소",
+        "height": 44
+      },
+      {
+        "text": "닫기",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "webkit",
+    "label": "favorites-discard",
+    "width": 358,
+    "viewport": 390,
+    "buttons": [
+      {
+        "text": "계속 수정",
+        "height": 44
+      },
+      {
+        "text": "변경사항 버리기",
+        "height": 44
+      },
+      {
+        "text": "닫기",
+        "height": 44
+      }
+    ]
+  },
+  {
+    "name": "webkit",
+    "focus": "returned to favorites"
+  },
+  {
+    "name": "webkit",
+    "flows": "passed",
+    "interceptedWrites": 3
+  }
+]

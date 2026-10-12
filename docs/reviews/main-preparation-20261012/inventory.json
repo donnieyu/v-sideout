@@ -1,0 +1,2760 @@
+{
+  "head": "9633597f9d04e5873197b4c5ea6350d3c58b7bb9",
+  "main": "06418b7778374b5c9ff40b8f3bf21e8a67ea78b2",
+  "entries": [
+    {
+      "path": "docs/CLOUDFLARE_OPERATIONS.md",
+      "category": "separate-operations",
+      "sha256": "82797170c7edb5124bcc551dfc385e77de3bc213c78f8e9ae3b408d8965b47ba",
+      "bytes": 16326
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/FINALIZATION-20261006.md",
+      "category": "preserved-experiment",
+      "sha256": "d80a03e3c012eb82d3485982f91b547f6827f5c2da4ea0d723c19a36f0e1e930",
+      "bytes": 3798
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/HISTORY.md",
+      "category": "preserved-experiment",
+      "sha256": "380c361dccdc792078159fc453938da6a5d94cf4d39462f4aa04cb6e9499e073",
+      "bytes": 6667
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/README.md",
+      "category": "preserved-experiment",
+      "sha256": "9c9ec528cdcea55f1da0db532c63d34b8becbab89b8eb739c63046d7f931e98e",
+      "bytes": 5453
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/auto-complete-390.png",
+      "category": "preserved-experiment",
+      "sha256": "7bf4fd33739c938e834a638a9b4d7dc96e444bc4d1847309783361bb55b7eba6",
+      "bytes": 54511
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/complete-1024.png",
+      "category": "preserved-experiment",
+      "sha256": "b3fb2852a4120c3c546646d08dc6d82d5eabd4a50ff22e94f86c025d8cfcac2f",
+      "bytes": 64529
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/complete-320.png",
+      "category": "preserved-experiment",
+      "sha256": "2c5aa961a13e280ceb1e8dac55e45ef38009db55800700e6cdf8fbb5aa8d1538",
+      "bytes": 38446
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/complete-423.png",
+      "category": "preserved-experiment",
+      "sha256": "4586ed964e91d598548a3161bc4749b4c11e03ba25ea72d02a4d4ef05930b2be",
+      "bytes": 49606
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/complete-assignment-390.png",
+      "category": "preserved-experiment",
+      "sha256": "99fb985eb0bb180196b5fe6e59b93b70f9152aa5394cb302575d33f2dd7c72e3",
+      "bytes": 48375
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/complete-preview-390.png",
+      "category": "preserved-experiment",
+      "sha256": "e29b77c9ce7f215887382f0e8ffeaea2c07bd64f9c3b2572c13af024f53a5255",
+      "bytes": 50096
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/edge-verification.json",
+      "category": "preserved-experiment",
+      "sha256": "123f40fe172b073f6c718063b558dfb83a9839c1cf125cd20fff33e859b07f9e",
+      "bytes": 383
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/finalization-verification.json",
+      "category": "preserved-experiment",
+      "sha256": "8a488410b5829212314af9efd368a2eb5b5f3315e8f4b93b864e17b8af288c89",
+      "bytes": 1015
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/group-verification.json",
+      "category": "preserved-experiment",
+      "sha256": "50f2c0261b3c945f57588886dbda842baed67ebae27ef019f24f305f5368ef58",
+      "bytes": 269
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/groups-center-390.png",
+      "category": "preserved-experiment",
+      "sha256": "00c587833eb23821603f1ddb49e37e4b2154565e5122fabf741460c9a493d7b9",
+      "bytes": 52308
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/index.html",
+      "category": "preserved-experiment",
+      "sha256": "a045c3ff2419726c154b44b6033960ec9b52451121c1b18e30fa1bbfcc36d221",
+      "bytes": 26989
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/partial-390.png",
+      "category": "preserved-experiment",
+      "sha256": "65586c5a1b7551d1cf059f05350fd19872ca8fdd82a879c4db51203432d70da0",
+      "bytes": 44556
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/status-verification.json",
+      "category": "preserved-experiment",
+      "sha256": "71a6616d452d421e640b473e8d777dfe6854bcbaad9bef380afd98d1a2624882",
+      "bytes": 279
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/vacant-core-390.png",
+      "category": "preserved-experiment",
+      "sha256": "571b79da456ac43a8a6935d29ed90c89f17c2b4661cf6379aa573deecd1a605d",
+      "bytes": 46887
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/vacant-extra-390.png",
+      "category": "preserved-experiment",
+      "sha256": "132e6b8bd43caa78adcb93908e100fa6b3934ab02d465d56327b4a8ea1af2c28",
+      "bytes": 46736
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/verification.json",
+      "category": "preserved-experiment",
+      "sha256": "9dd659314b7e0fb562544d120721beeb5f9341d50fdbb23ad6023919dce240da",
+      "bytes": 379
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/verify-auto.mjs",
+      "category": "preserved-experiment",
+      "sha256": "059d71fd8ff3a473ca2401a887ddc7e14d227558bbfac6ece2cf6de8b8f7338e",
+      "bytes": 2049
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/verify-edges.mjs",
+      "category": "preserved-experiment",
+      "sha256": "aaa8743b8ce271b11ad009a6c0b7e9c8acf8a076e43bcd8cbd9d6e96ec418654",
+      "bytes": 3483
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/verify-groups.mjs",
+      "category": "preserved-experiment",
+      "sha256": "26a3f22807153b40eaa1dcf12d631bba2ed518c9c39f2c5407121bc297a12002",
+      "bytes": 3829
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/verify-status.mjs",
+      "category": "preserved-experiment",
+      "sha256": "ebfdbde4d915adf8aa777053dba156ff7b5282a630aac2e75c63b0b86209285c",
+      "bytes": 2116
+    },
+    {
+      "path": "docs/design-review/allocation-actions-preview/verify.mjs",
+      "category": "preserved-experiment",
+      "sha256": "1c70eac7b256f8405ca47a8707023a749b6c5ca3f0dd8236b3d9f0d43dadada0",
+      "bytes": 3817
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/README.md",
+      "category": "preserved-experiment",
+      "sha256": "5acd7361cd5e85a3f5c162fbcff5d3314b3ce8fbe1fe430b349e7c7e03d33a63",
+      "bytes": 9981
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/allocation-1280.png",
+      "category": "preserved-experiment",
+      "sha256": "a24ee7139f1b5da3b5274c62e96a972e96df2a7f64ac454661077d34621f7929",
+      "bytes": 44228
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/allocation-320.png",
+      "category": "preserved-experiment",
+      "sha256": "20d5882f8561d027db2c6f37d0b9fa21c3e2a4db12bc404a20161386b2a61e3c",
+      "bytes": 24797
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/allocation-390.png",
+      "category": "preserved-experiment",
+      "sha256": "38feaa3b3ff75f5634a54430c5ec6958e7c2fde045e7d46ed753c7c1e18b87d1",
+      "bytes": 28526
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/capture-result.json",
+      "category": "preserved-experiment",
+      "sha256": "4059408f37559fc31dff54404fd23c9284b9ca455e557e9391d6fe1c298ebc96",
+      "bytes": 199
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/capture.mjs",
+      "category": "preserved-experiment",
+      "sha256": "6613e5031f8bec2cc9ac90c0db3eb86771431d56575196ce0a78ce06d9ad7d5f",
+      "bytes": 2694
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/editable-allocation-1280.png",
+      "category": "preserved-experiment",
+      "sha256": "4b78d6b3c28010a8d38154971099baaec27eef3e88cfbab025ef8a694f0c458e",
+      "bytes": 60515
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/editable-allocation-320.png",
+      "category": "preserved-experiment",
+      "sha256": "03b2447bf4d8683a9e770853565fe6b7f21ad9f7bd67e82826e170a8316392a6",
+      "bytes": 42745
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/editable-allocation-390.png",
+      "category": "preserved-experiment",
+      "sha256": "267f99c1fe6eeca49bdc05386159ebd0159680a896e48381b95ad4bb5f47e3cd",
+      "bytes": 45993
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/editable-capture-result.json",
+      "category": "preserved-experiment",
+      "sha256": "b73435c51940ea694d2ea607580adf56f639ae31a5ed478d37d7436d94b916d9",
+      "bytes": 200
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/editable-member-list-390.png",
+      "category": "preserved-experiment",
+      "sha256": "4cd54bdb83aeebce8adf500e102587e47056e3708ada3f5f4360d0d11c547134",
+      "bytes": 55494
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/editable-preview-390.png",
+      "category": "preserved-experiment",
+      "sha256": "f2bcc1178b4aad5bd488c9a81b0b75162f5a455bc89bb3e1c683e0dc8ae2dc66",
+      "bytes": 42574
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/git-status.txt",
+      "category": "preserved-experiment",
+      "sha256": "0d0fac1d87208ddeae561abc852bbb6ec82be6257cb5fae3975473742ea04cad",
+      "bytes": 5776
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/manifest.json",
+      "category": "preserved-experiment",
+      "sha256": "97a40690affc79fc80c7542d4b7eb089c3e49915a3ad6566bf79d1617b38523b",
+      "bytes": 38920
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/preview-390.png",
+      "category": "preserved-experiment",
+      "sha256": "c2c4e231cc9508d1b162272589540fbdc63cdf56e94c9bb04e52bcab8e40fec5",
+      "bytes": 40970
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/baseline/source-baseline.tar.gz",
+      "category": "preserved-experiment",
+      "sha256": "75255ac61cf3404eff4d6d1dac684c40df4fd0c25f9545efc70b964c57738ce2",
+      "bytes": 375179
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/DESIGN.md",
+      "category": "preserved-experiment",
+      "sha256": "19538e41d966d858dc471fa159cd0dcbb77e1d08638093a2e10c660a6a8abe57",
+      "bytes": 2435
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/REPORT.md",
+      "category": "preserved-experiment",
+      "sha256": "0072dc97239b15b467460c747e3beb78a5aa31c43b7f7cf5ed17323e2e1b09d7",
+      "bytes": 4751
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/app.js",
+      "category": "preserved-experiment",
+      "sha256": "751460728248bca89b846f568df5299e648774d8468d0687a29654f8952d934b",
+      "bytes": 20616
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/assigned-picker-390.png",
+      "category": "preserved-experiment",
+      "sha256": "10a2d7f2a30a7c6143ba43447ec16551979daa339e497f7e7e61d56f616cb00a",
+      "bytes": 49425
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/complete-390.png",
+      "category": "preserved-experiment",
+      "sha256": "a637718501c06274089981deba97ab957eb4ece4cbc288a99b3854a97b64738a",
+      "bytes": 65177
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/extra-row-390.png",
+      "category": "preserved-experiment",
+      "sha256": "364345ca65b7783a41365f474c6466d12a2b8924f4b161417b92be1fc94a87dd",
+      "bytes": 55767
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/filter-320.png",
+      "category": "preserved-experiment",
+      "sha256": "da933340f5d46eb44ed88b486303417ec6b94bb42298878bd761fc5f82797e6c",
+      "bytes": 41285
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/four-teams-320-fresh.png",
+      "category": "preserved-experiment",
+      "sha256": "9f0ddb39bc18f05b68e012798411cbbaa09028f054bec38f5169bd60eb99c811",
+      "bytes": 49580
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/four-teams-320.png",
+      "category": "preserved-experiment",
+      "sha256": "5da0e615f62f262b6e1e82e2979c5e87a691ab5474219bd4663c6c0d3905bc2c",
+      "bytes": 50900
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/four-teams-390.png",
+      "category": "preserved-experiment",
+      "sha256": "28b47f996bfa16ba636fc178893ad8c9cbd4c7283b5f363ecf46489e5b505bd7",
+      "bytes": 51369
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/four-teams-end-390.png",
+      "category": "preserved-experiment",
+      "sha256": "6697ff3fd30e25788660cf00397e9f28946d742a8a1a4e3dc72c957efda20fb2",
+      "bytes": 49731
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/picker-390.png",
+      "category": "preserved-experiment",
+      "sha256": "1c38489dac6c832ff64dd2f4e24cfd6ad02d3f59c822da8eb16ecba734199b46",
+      "bytes": 49817
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/result.json",
+      "category": "preserved-experiment",
+      "sha256": "91d2c3c0c26fccbaafc1d37e4ed47fab7fba1f527f76682714d02c1e4de63f93",
+      "bytes": 867
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/three-teams-320.png",
+      "category": "preserved-experiment",
+      "sha256": "14a56ca146ffbbafe9e6d656945994af5d23a8f1bec1265070af8c86b94071fb",
+      "bytes": 47508
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/three-teams-390.png",
+      "category": "preserved-experiment",
+      "sha256": "d3c68b54ee6944ec12929882aa78b08bd0acdef328980cbc8e71ac96cfd329ed",
+      "bytes": 57992
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/evidence/twenty-eight-390.png",
+      "category": "preserved-experiment",
+      "sha256": "5f1d45ffa0803b8f79a956411d6645f2c26ba8753e74afe99ba8bf899c264d46",
+      "bytes": 55365
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/index.html",
+      "category": "preserved-experiment",
+      "sha256": "ee0e10ecabdb894005e28259476aabdde8dd27fa53c751f5c1fb22f8d9d60056",
+      "bytes": 2137
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/style.css",
+      "category": "preserved-experiment",
+      "sha256": "b52e2129873667a389a79d70d976345c67d45dbc2d1701126ffa4facfcb175f8",
+      "bytes": 11373
+    },
+    {
+      "path": "docs/design-review/allocation-ui-evolution-20261006/experiment/verify.mjs",
+      "category": "preserved-experiment",
+      "sha256": "2c5e737140d72e619fcc493f649e08d442afb7ab6f3069de744dbc0ab7acdd60",
+      "bytes": 9473
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/01-home-states.png",
+      "category": "approved-evidence",
+      "sha256": "b9995cbd3f1653f098bd9d5a7d5ff23848747ddc202a0a7d286051b84f6f02e9",
+      "bytes": 1569384
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/02-roster-notice-menu.png",
+      "category": "approved-evidence",
+      "sha256": "cf5d5d44db9fd4e631386c82e57d013a3eca00c72aa1cbf8790c0b0ea82aab77",
+      "bytes": 1510423
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/03-team-and-management.png",
+      "category": "approved-evidence",
+      "sha256": "c12ed7c3dc9fc0ab706a9f7b82c7ec69ca6e289acdb14abfcb2e3694251b3b0e",
+      "bytes": 1411773
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/COLOR-IMPLEMENTATION.md",
+      "category": "approved-evidence",
+      "sha256": "4735d6367e5bfcad2b47681b368d83a16c6028a1b93f04bd615f87f0272ae7e1",
+      "bytes": 1908
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/IMPLEMENTATION.md",
+      "category": "approved-evidence",
+      "sha256": "4f7bb8db99e4ade6fd473366046b881f9f33370b477a5a5bff55189f8acff9c4",
+      "bytes": 3350
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/SCROLL-IMPLEMENTATION.md",
+      "category": "approved-evidence",
+      "sha256": "475a8af6ab88afc9b64524b2bbdf3bdda7193f2865fab31a6a56da142fa98c84",
+      "bytes": 2155
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/actual-color-320.jpg",
+      "category": "approved-evidence",
+      "sha256": "c07ca3535a593f568eca2b46db85e4b67d95fdb18c285c6825e914c7561dec98",
+      "bytes": 23991
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/actual-color-390.jpg",
+      "category": "approved-evidence",
+      "sha256": "f0cbb1cd580e4ebf67fd762ca3f76f04c6b2e8022b29ec44f7f1495df3592d47",
+      "bytes": 25990
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/actual-fixed-home-1024.jpg",
+      "category": "approved-evidence",
+      "sha256": "7ef392b1b4cda4765db221e3031b8d78b2208924535be485a004e71e23be7cf5",
+      "bytes": 54389
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/actual-fixed-home-320.jpg",
+      "category": "approved-evidence",
+      "sha256": "88f2bb253be312c514bab12181ae6baabe910643b43cad5cf77187ed5eab5629",
+      "bytes": 21057
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/actual-fixed-home-390.jpg",
+      "category": "approved-evidence",
+      "sha256": "47b3607937f4b73fc00cf390ce2c65436d422b5f4dea3fdf1cd7c74fe11f9673",
+      "bytes": 32164
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/actual-fixed-home-scrolled-390.jpg",
+      "category": "approved-evidence",
+      "sha256": "a8895a15971fde45cf3220ad6d20d76a09ee35e3a3e336aa7577981d986c2a35",
+      "bytes": 31423
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/actual-home-390.jpg",
+      "category": "approved-evidence",
+      "sha256": "80d3218585a0ba12b7115882a671967c1a5cdb9f8e78662697daea859fb76945",
+      "bytes": 24692
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/actual-menu-390.jpg",
+      "category": "approved-evidence",
+      "sha256": "0113eaffa5cffedc7d6686bb91189bbb58e4dc801f67feb9e9de71a9b3c67411",
+      "bytes": 19880
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/actual-roster-390.jpg",
+      "category": "approved-evidence",
+      "sha256": "1758bae3c16c8133019035904702d2647d74178daabcbc08989c0f27cfbad374",
+      "bytes": 31315
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/approved-color-actual-layout.png",
+      "category": "approved-evidence",
+      "sha256": "4455a7ba12e840126b56525809d9bc8fecfea1cf0d4884dc4559e88fa6c9723e",
+      "bytes": 1119525
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/browser-metrics.json",
+      "category": "approved-evidence",
+      "sha256": "45f45b70123d9d527e4412593365a31fd4898bff20e5a3df62b5b66cdebe707e",
+      "bytes": 513
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/build.txt",
+      "category": "approved-evidence",
+      "sha256": "b47589dc7a9f35f66f962f5d0ab53c5622e0071251759230575249b9c4788d87",
+      "bytes": 2308
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/color-browser-metrics.json",
+      "category": "approved-evidence",
+      "sha256": "9473fdd2f776b4f99720012d23350d8ec271a7337e6a2632dadda77abffa3bf8",
+      "bytes": 1417
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/color-build.txt",
+      "category": "approved-evidence",
+      "sha256": "2f5d00c31e34eb7465dded96bf8f6442da76d60caa75b3739f3bad5774611173",
+      "bytes": 2308
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/detector.json",
+      "category": "approved-evidence",
+      "sha256": "7ab7dfc31a623ff9e9cde425a64ffc256a3e646e9e15ce0e9c62736fc38aa613",
+      "bytes": 490
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/guard-red.txt",
+      "category": "approved-evidence",
+      "sha256": "d882ad1f826ea1d50bd49ef681c24677c991e63a02a10803d48be03e02a44dcc",
+      "bytes": 1296
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/lint.txt",
+      "category": "approved-evidence",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/member-tests.txt",
+      "category": "approved-evidence",
+      "sha256": "2e1d0b5b9f065293d5b441a1eb45d79245f98538b6a864ae40b11b108b0a1bd5",
+      "bytes": 528
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/prompts.json",
+      "category": "approved-evidence",
+      "sha256": "f509d1287595e56db3c0915c081d87872f974936953d0ef9ac778a5479f24c3d",
+      "bytes": 14979
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/refinement-prompts.json",
+      "category": "approved-evidence",
+      "sha256": "b41740c9262d7a95bc27aa2e40b4896bb3f06eacd6c08e511ad2491312a8f613",
+      "bytes": 4538
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/review-red.txt",
+      "category": "approved-evidence",
+      "sha256": "afbc65131a9dc8aaf8cda5fbf430b41b0b3e14d1b402bff8ab0217db49789310",
+      "bytes": 29820
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/review.json",
+      "category": "approved-evidence",
+      "sha256": "50580bc82cd498f827ca12fc0b88c096e8d558eba3c3709f52522338e966aca6",
+      "bytes": 3267
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/scroll-browser-metrics.json",
+      "category": "approved-evidence",
+      "sha256": "fb88e639bb93deb821c5563e4654780b92d864b135ba1cecef56561abe4c9dcb",
+      "bytes": 662
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/scroll-build.txt",
+      "category": "approved-evidence",
+      "sha256": "b9d0915a3e66e2c832c430a2834948bfb7b0245501e5f797c456efd98336ae53",
+      "bytes": 2308
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/scroll-red.txt",
+      "category": "approved-evidence",
+      "sha256": "8be8bc25057a2eebb2001081061570cefcafae1f236c68e23d7a35bdd879ae64",
+      "bytes": 76616
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/sideout-tests.txt",
+      "category": "approved-evidence",
+      "sha256": "9cb8cb3c0617c18e3ef9dc13d6b94fa2d4a0d446d21ef36cc8ca3329da136c85",
+      "bytes": 733
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/types.txt",
+      "category": "approved-evidence",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/v3-home.png",
+      "category": "approved-evidence",
+      "sha256": "1a29bdee5b8508503e2859f697c6c1932dfb73c8c5201793f84ea063cda2803c",
+      "bytes": 1438051
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/v3-overlays.png",
+      "category": "approved-evidence",
+      "sha256": "e929fadb51acaf011312844e294d21fc689dcb509f4d50f58f1b3e354ae0ea56",
+      "bytes": 1528917
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/v3-review-and-prompts.json",
+      "category": "approved-evidence",
+      "sha256": "ad6116b76b30ce3e70072075aab6a06c3745e05284c76a3f65e1240e8c437e51",
+      "bytes": 21606
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/v3-subpages.png",
+      "category": "approved-evidence",
+      "sha256": "0f0c56546c87f526414be79095d2fac4c93ffadb9ecfb72201473a29faa0770d",
+      "bytes": 1556970
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/v4-home.png",
+      "category": "approved-evidence",
+      "sha256": "6f16cbc2213c657d80bf0a3976edaa01b539ff0169e21144621062e95d9a9edd",
+      "bytes": 1544170
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/v4-overlays.png",
+      "category": "approved-evidence",
+      "sha256": "7be2b22c29ea21251cd7bff9094c1d4848508105b52d1d7f633877262066fd24",
+      "bytes": 1501102
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/v4-review-and-prompts.json",
+      "category": "approved-evidence",
+      "sha256": "a2568eb8a814135386f998f9b0a65e2b4c075944c46c93ac3b03cf8388ac308f",
+      "bytes": 16793
+    },
+    {
+      "path": "docs/design-review/schedule-home-concepts-20261009/v4-subpages.png",
+      "category": "approved-evidence",
+      "sha256": "45e1fbe0ec2443af2bd5589c031229910191d5f8b05ca3315288698c865c7114",
+      "bytes": 1439901
+    },
+    {
+      "path": "docs/reviews/MOCKUP_PROMOTION_PARITY.md",
+      "category": "approved-evidence",
+      "sha256": "238331ad9ccf1ba18addc9a2ff37960b4f36463b6e2e199b91e96a4cdc0373c2",
+      "bytes": 30202
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "53650c62955f02ddcbb4a7b8a506936303b5446913ddf247556f40707d5efcbf",
+      "bytes": 3897
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/browser.json",
+      "category": "approved-evidence",
+      "sha256": "bafa3fa17da56481d21ba20687df63c2bb106d0f797271371cc2c4f3f3a45d29",
+      "bytes": 5329
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/detail-1280.png",
+      "category": "approved-evidence",
+      "sha256": "245b90ad51bb8ea44305ce49c5f44124b59b2403c5c20c28660d0d72f6aec784",
+      "bytes": 84262
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/detail-320.png",
+      "category": "approved-evidence",
+      "sha256": "b3708e2d9bc1facda59b88566d530f6a8f6e3498193d0c407dcaafe5e49f2524",
+      "bytes": 39709
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/detail-390.png",
+      "category": "approved-evidence",
+      "sha256": "626337a383bf61a2c2e0760c13ca3019cd85630dd190440f34dd94bac31022ad",
+      "bytes": 48387
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/failure.png",
+      "category": "approved-evidence",
+      "sha256": "be7622407ffd8ec9d4390055e54094931ff3870b14a1d3f530a7e2b5832c1c87",
+      "bytes": 51639
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/match-keyboard-reorder-390.png",
+      "category": "approved-evidence",
+      "sha256": "8ab987e3fbdc1af0b731fb377ee19e49a2fad8a6fb84e7cd97eb3c0e96eb6d0f",
+      "bytes": 52807
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/matches-1280.png",
+      "category": "approved-evidence",
+      "sha256": "9f28bffea93253e394710b5eb447b4f08067da90b0c26780e02bc2b1d41dfd0f",
+      "bytes": 64612
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/matches-320.png",
+      "category": "approved-evidence",
+      "sha256": "4e2b875a1c0e79e81a266d5ff2956cd554d46b13254487e78690f8f556a002a6",
+      "bytes": 40442
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/matches-390.png",
+      "category": "approved-evidence",
+      "sha256": "be7622407ffd8ec9d4390055e54094931ff3870b14a1d3f530a7e2b5832c1c87",
+      "bytes": 51639
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/new-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "9d5082dbb29c1b28a610f2714e596ded9a01ec4f3707021022abf0f6c174c23c",
+      "bytes": 56976
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/new-1280.png",
+      "category": "approved-evidence",
+      "sha256": "e764a5f220d94b7860b7f28bebe8ed38415dc396ceafcbbab642bbe9a272efea",
+      "bytes": 57086
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/new-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "2f5ea3fd7a0a249f97f07e7f3bf714226e11f17d67dfc8e2ea5ec43d4be539ad",
+      "bytes": 33960
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/new-320.png",
+      "category": "approved-evidence",
+      "sha256": "aa5fae54213d56abb1ab64f6769ae1293c5e108264334a9481476b777e45fec1",
+      "bytes": 34385
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/new-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "77f6243126c0df750108c7615537d744e6fb3be4ca47c81b9a7826261a784330",
+      "bytes": 44072
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/new-390.png",
+      "category": "approved-evidence",
+      "sha256": "deb33b684f1ea3bac847813b9ab82a74e64ce9124e4edc3c9d990f438d42bce4",
+      "bytes": 45737
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/notice-collapsed-390.png",
+      "category": "approved-evidence",
+      "sha256": "f8c7299195a49e69c278aad359c4ef250d65b7746b026e3ff8b9bf901db6fd37",
+      "bytes": 44429
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/published-1280.png",
+      "category": "approved-evidence",
+      "sha256": "822ba355712441c87b7c3fe2053867cde8b6fed95e9e0f65518cd34fe000489c",
+      "bytes": 76424
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/published-320.png",
+      "category": "approved-evidence",
+      "sha256": "7d94ecc6b78877f9b69e2c3fd19a5b7e0b530c527d58a72b45d2ef7c18f54c44",
+      "bytes": 36118
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/published-390.png",
+      "category": "approved-evidence",
+      "sha256": "c0cdbcd45b69a27d15a3ebfce49955a2821b023f5cb4c6b64bf3dc8a3611d247",
+      "bytes": 39479
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/schedule-1280.png",
+      "category": "approved-evidence",
+      "sha256": "e133dcb024edee36dd657313943a331be42ec77c9da6ae71ee001d93e92bb0c0",
+      "bytes": 59077
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/schedule-320.png",
+      "category": "approved-evidence",
+      "sha256": "72ca9fd4e47105cb3c987f5c4324c2d0a0ebe6b0a293c2d01f2a3c41b553aa2e",
+      "bytes": 30260
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/schedule-390.png",
+      "category": "approved-evidence",
+      "sha256": "4bc69d45b0fb5a051814ec68ed4a603a5cd23fb85a8cfad21d957733f7798f74",
+      "bytes": 40932
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/teams-1280.png",
+      "category": "approved-evidence",
+      "sha256": "72a7716e8ce861892ffc3252725ed0b4a3e7bd7092a562360df876f712d2880e",
+      "bytes": 54342
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/teams-320.png",
+      "category": "approved-evidence",
+      "sha256": "3ae30320efe46177c4f4127138ea5fbab2b570f39895daf6d8daa346d452eaec",
+      "bytes": 35311
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/teams-390.png",
+      "category": "approved-evidence",
+      "sha256": "2a869666afe42dad53f25c60572e6fa2c6a4599ba933c4baf2be9f2f1b6fa842",
+      "bytes": 41368
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/unpublish-confirm-390.png",
+      "category": "approved-evidence",
+      "sha256": "636e151607892e1c8c2d3cd9b0c7224ced220be85c959b3622fe45e3fe2555a6",
+      "bytes": 35987
+    },
+    {
+      "path": "docs/reviews/approved-editors-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "5971766288b4026d789ab096491e3f590abb6becd68ba685f0af59e2edefe295",
+      "bytes": 6931
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "1000212d4a6bd19ecaaa96d3e96447b14fca45fd28ddfcee335768adfb2326e2",
+      "bytes": 3665
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/chrome-dirty-navigation.png",
+      "category": "approved-evidence",
+      "sha256": "d4a87d15a9d4d66187b5f18d2bca404e43c669f67b1fd411620df08a81f6ee9c",
+      "bytes": 38927
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/chrome-favorites-discard.png",
+      "category": "approved-evidence",
+      "sha256": "df0f310fb98b2e103656d07cd37c93dc11b99607e7f18d2896fabe2a04bac68c",
+      "bytes": 45413
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/chrome-roster-cancel.png",
+      "category": "approved-evidence",
+      "sha256": "c0f701bb47dd0a6ca45c48b5b99a878b44c50d61422c879fa68f34c3708bc02a",
+      "bytes": 36013
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/chrome-self-cancel.png",
+      "category": "approved-evidence",
+      "sha256": "b5ebdcace0eaaba31fe7cdd473c317b6f7840d3740d0ce11a6a54ed42f7abec3",
+      "bytes": 39525
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/measure.json",
+      "category": "approved-evidence",
+      "sha256": "6285b3764ff1ff637aa8a317b38d7594fafa13d697f352d44802177e61e07e52",
+      "bytes": 3040
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "baf1b09a5be0abee113c22a588e25905de1a460da94c880f1f01e6f9e76ed4d9",
+      "bytes": 7819
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/webkit-dirty-navigation.png",
+      "category": "approved-evidence",
+      "sha256": "aaf6c0d75a7e584c03f6bbecf422f80f166498b96d37b05dbcfe2bd2d0998d75",
+      "bytes": 50455
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/webkit-favorites-discard.png",
+      "category": "approved-evidence",
+      "sha256": "7a873390b4c4ea49980595296871fe47271872084535a43f90058d3776296168",
+      "bytes": 58337
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/webkit-roster-cancel.png",
+      "category": "approved-evidence",
+      "sha256": "1798b2bfcec6d805aa4edd832f7d91ff5f21ca60f69fa58e05eb85c045993f54",
+      "bytes": 45857
+    },
+    {
+      "path": "docs/reviews/common-confirm-dialogs-20261012/webkit-self-cancel.png",
+      "category": "approved-evidence",
+      "sha256": "aa004734753f92984b69a80ed65a9d9b5235493f570c40073013cb66688e92a4",
+      "bytes": 51025
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "267c28d50d4e7feff97197cbe540c048d4d9884a60033bb52d5821d7e78323c5",
+      "bytes": 1962
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/browser.json",
+      "category": "approved-evidence",
+      "sha256": "4255d8751bcd88f71c543e31d16a639666b1bdd2cc578000c06705bf5b3aad22",
+      "bytes": 5956
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/detail-1280.png",
+      "category": "approved-evidence",
+      "sha256": "cb6e12af69dc91c73852946f5441ae051122e5ee8c81c0d82a93d47a0928d9e5",
+      "bytes": 71235
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/detail-320.png",
+      "category": "approved-evidence",
+      "sha256": "cd9f4c1d329cadf9fb7f077dec6bc98d544c144ed60f629bfc885685209320f8",
+      "bytes": 40221
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/detail-390.png",
+      "category": "approved-evidence",
+      "sha256": "58a0dce26e597f1140406a98b279a59104c7d49b316e94a65f64395f7802348b",
+      "bytes": 50147
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/failure.png",
+      "category": "approved-evidence",
+      "sha256": "10feb4fc490c6cbe9fd6bb61edd3238e0f5b4bfadcfe2b91c5df928f7090b679",
+      "bytes": 32411
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/keyboard-save.json",
+      "category": "approved-evidence",
+      "sha256": "651f5a6bff6aeadf106432c2b2a3d3c70fd22762c64f8818627ec988807248f1",
+      "bytes": 87
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/keyboard-save.mjs",
+      "category": "approved-evidence",
+      "sha256": "cdcd72f98b300b68598624696544829c6c2fe4f55ccbb64f4462225f11bc3dc7",
+      "bytes": 2052
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/keyboard-simulated-390.png",
+      "category": "approved-evidence",
+      "sha256": "559c4ca1a78e85e15e8c66ae9b973557843dc863befaea1af513c228d20c8900",
+      "bytes": 27537
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/match-keyboard-reorder-390.png",
+      "category": "approved-evidence",
+      "sha256": "55043c09949575f1216baa62ba3b08e7247e9c97ff6afc896ba228de7403bae1",
+      "bytes": 50210
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/matches-1280.png",
+      "category": "approved-evidence",
+      "sha256": "a1e051ad904b9c0bbaa8ea3648d44208e4c058c982198f9770646d2f187cdd8e",
+      "bytes": 66485
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/matches-320.png",
+      "category": "approved-evidence",
+      "sha256": "97512d9a4329f7befd57e5b4ee3293abe975f568e8afcd834da87d308056b7eb",
+      "bytes": 38141
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/matches-390.png",
+      "category": "approved-evidence",
+      "sha256": "ca44f5f6a3edf226626366e6ba05cc3756cf379178a7c739251158ad6b4925a7",
+      "bytes": 49096
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/new-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "2b469ffcc9870b7d1f4e6a305c2b6da30ce63485412c4817100aa17c783aa14b",
+      "bytes": 60602
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/new-1280.png",
+      "category": "approved-evidence",
+      "sha256": "b2cfcece827e9350797c7fed5950e51b25369a36ec6d4acea62dad8f9370bc14",
+      "bytes": 61507
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/new-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "4e1cfe07399dffe0d2127254fca6578f34c39d4f09b41896dd3afa2797567c6a",
+      "bytes": 34650
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/new-320.png",
+      "category": "approved-evidence",
+      "sha256": "add8985f53aded6c03b81c8fc506d996f017075a61a0d2f70b9bfa21a32b69da",
+      "bytes": 33104
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/new-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "d139c3798bf500ac0191c8fadce38766c48ccfede60e704babc4001add884ebc",
+      "bytes": 45125
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/new-390.png",
+      "category": "approved-evidence",
+      "sha256": "e900bf1a297da4bf531c44cd0dce98300a19842653c4a4a9b1cb2e16d5633399",
+      "bytes": 45122
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/notice-collapsed-390.png",
+      "category": "approved-evidence",
+      "sha256": "b2dbf90fa7abd0603341688d8eaa6f5fc3fcb532074f621b8697bb8e35cedcdf",
+      "bytes": 38119
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/published-1280.png",
+      "category": "approved-evidence",
+      "sha256": "0ae8e25d83a9d64434c7292286d981b2e52806290851da964812c1727aa07dd7",
+      "bytes": 76470
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/published-320.png",
+      "category": "approved-evidence",
+      "sha256": "b00c6730280a121da35e8b1416cfcb502a46ab886b70963859f065b33fa5825e",
+      "bytes": 36059
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/published-390.png",
+      "category": "approved-evidence",
+      "sha256": "2358d6227dd7d090485e6cd79e7a7d56770fa6e956c439c3abd9b31ad3644252",
+      "bytes": 39306
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/schedule-1280.png",
+      "category": "approved-evidence",
+      "sha256": "17f791615b643570b3cd441441ec09c5938cd32a89151384e28447b5f37ccd88",
+      "bytes": 54918
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/schedule-320.png",
+      "category": "approved-evidence",
+      "sha256": "36938403d76304675818dc310de7945893af01322734512ca74bb365a5373094",
+      "bytes": 32371
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/schedule-390.png",
+      "category": "approved-evidence",
+      "sha256": "eee61fb094b9005f8138c76ea7935952d62c07cec13c166a6bca630567fece89",
+      "bytes": 41353
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/teams-1280.png",
+      "category": "approved-evidence",
+      "sha256": "216c20bfbc319d57485936e6468d8c4d8703c9493083cb19b3a4c2071b021343",
+      "bytes": 54340
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/teams-320.png",
+      "category": "approved-evidence",
+      "sha256": "b4f92e266a643645a7d15ec1092be80c274d349bdfe7918ad41456e649a3fed2",
+      "bytes": 35847
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/teams-390.png",
+      "category": "approved-evidence",
+      "sha256": "403c15ff746c0471a7002852ffc6f1904b600a9f2e2a616505bb5235e346bb6f",
+      "bytes": 42248
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/unpublish-confirm-390.png",
+      "category": "approved-evidence",
+      "sha256": "c4e47ab88c312bec1f819cff021e08a028879eae54653c72fdab1c1d439a4e87",
+      "bytes": 64010
+    },
+    {
+      "path": "docs/reviews/floating-controls-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "77a30f1425fc26ea7e36a007c6a181c2cc8a980c20b329e7de9e71a21181a6ad",
+      "bytes": 8697
+    },
+    {
+      "path": "docs/reviews/floating-fade-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "eab42c092b96b90d87065baf09320e86176eeddf4f1ce23acd5aaea40bac5738",
+      "bytes": 732
+    },
+    {
+      "path": "docs/reviews/floating-fade-20261012/browser.json",
+      "category": "approved-evidence",
+      "sha256": "7ee511beeadc331eb87621e0d49ab95906fe864a7dace86b94b2c559055d0dcb",
+      "bytes": 1265
+    },
+    {
+      "path": "docs/reviews/floating-fade-20261012/schedule-1280.png",
+      "category": "approved-evidence",
+      "sha256": "b95f0c42c2c4e5212b4bea60c480a3be0c3659aa957d6bd0959f01fb3e3cd2bb",
+      "bytes": 52739
+    },
+    {
+      "path": "docs/reviews/floating-fade-20261012/schedule-320.png",
+      "category": "approved-evidence",
+      "sha256": "9a36e342b11c2af93ec95e6eca490f8c7280e6e2c40806f800d9ec97c6ade079",
+      "bytes": 42296
+    },
+    {
+      "path": "docs/reviews/floating-fade-20261012/schedule-390.png",
+      "category": "approved-evidence",
+      "sha256": "40ae85774144a1a3b488ccdeae988c80f5e7983b9c0516f1adb2949014ce04d6",
+      "bytes": 43475
+    },
+    {
+      "path": "docs/reviews/floating-fade-20261012/teams-1280.png",
+      "category": "approved-evidence",
+      "sha256": "4c2c47f181548b79a52276d35863988f8847ffb0b3cdff5b8dcc15ebe1500520",
+      "bytes": 75893
+    },
+    {
+      "path": "docs/reviews/floating-fade-20261012/teams-320.png",
+      "category": "approved-evidence",
+      "sha256": "f1ee895a44932eb8b2fa10a9fb22567c9b684b894c241881a8803ae5c0ab1ab8",
+      "bytes": 44765
+    },
+    {
+      "path": "docs/reviews/floating-fade-20261012/teams-390.png",
+      "category": "approved-evidence",
+      "sha256": "85ac7afa4f1e6dc7e70c91172a1d93548d3e9cb5741dbaab1ba66899298b2697",
+      "bytes": 42239
+    },
+    {
+      "path": "docs/reviews/floating-fade-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "3e9cc071f0a0f4375f1d7d29e7d7a9ef64836ea90fa8d0e43f8bff2d8b8beb3d",
+      "bytes": 2045
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "7da5940beeb5797252015fa56f629f9d3ef15d616fdba015e465853bb9ed9380",
+      "bytes": 778
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/browser.json",
+      "category": "approved-evidence",
+      "sha256": "428a6f75e5f535c6768d26907304c6a20fc5aa32820242aaf89d9670691dbe6e",
+      "bytes": 1859
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/detail-1280.png",
+      "category": "approved-evidence",
+      "sha256": "da05605e297396f205c4e90a7f7c4c3921a6b4a9af5101311a22141982e5bdd7",
+      "bytes": 64672
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/detail-320.png",
+      "category": "approved-evidence",
+      "sha256": "97665e6d04cf7f9f27873c89c498d70fe3a28e173067423b3f9a07175c55de48",
+      "bytes": 50167
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/detail-390.png",
+      "category": "approved-evidence",
+      "sha256": "59e7c8fe39b7a29dc9903ec94eb08507ad08a2db673eb62b7c189883480deb64",
+      "bytes": 52615
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/schedule-1280.png",
+      "category": "approved-evidence",
+      "sha256": "b95f0c42c2c4e5212b4bea60c480a3be0c3659aa957d6bd0959f01fb3e3cd2bb",
+      "bytes": 52739
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/schedule-320.png",
+      "category": "approved-evidence",
+      "sha256": "e556ce4fc9e9978a7169c1b28372d57ff498e674810c314cb51b90e9c281db79",
+      "bytes": 42212
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/schedule-390.png",
+      "category": "approved-evidence",
+      "sha256": "fa02aa962dc25dc7dcc78acee2d40536c20a6b39d6b3461a7560c8f3a59cca36",
+      "bytes": 43429
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/teams-1280.png",
+      "category": "approved-evidence",
+      "sha256": "4c2c47f181548b79a52276d35863988f8847ffb0b3cdff5b8dcc15ebe1500520",
+      "bytes": 75893
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/teams-320.png",
+      "category": "approved-evidence",
+      "sha256": "d372cdd2b5ca0465c97920970963c67b766054b89d0d84f8b3d6a9a1ed4786c4",
+      "bytes": 44913
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/teams-390.png",
+      "category": "approved-evidence",
+      "sha256": "71ba0309d0fc9956ec4cca1902d87ace873ea1e1107d525fac25c17033fbf04d",
+      "bytes": 42551
+    },
+    {
+      "path": "docs/reviews/floating-unified-fade-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "d344593e098645e8ccd245067c1b124e0db130eab71bea692f1aff495c9c30d6",
+      "bytes": 2196
+    },
+    {
+      "path": "docs/reviews/main-integration-20261007/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "6fa73e89e79007bf2d93b2e1e05ed975ec000790ecb7465b6087e0db095a2337",
+      "bytes": 8937
+    },
+    {
+      "path": "docs/reviews/main-preparation-20261012/design-before.md",
+      "category": "preparation",
+      "sha256": "cb89c77d826d3ac482dd09ef90930f816c436795fb2e819a1139788430f822dd",
+      "bytes": 13838
+    },
+    {
+      "path": "docs/reviews/main-preparation-20261012/prepare.py",
+      "category": "preparation",
+      "sha256": "21b8b24d35de8a9cbc092cf28e37f18e0ab181041db7d42d4eaeaef4368e8bd0",
+      "bytes": 3103
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/PLAN.md",
+      "category": "preserved-experiment",
+      "sha256": "b507f966a4136d761b932c259622cececb092d767cf416e05985beacde0278b6",
+      "bytes": 1869
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/REPORT.md",
+      "category": "preserved-experiment",
+      "sha256": "aec0573b228a5d01f242ee7d9cf9dfa1b90bd1c977e4ac05faddde6604af9dfe",
+      "bytes": 2472
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/account-1280.png",
+      "category": "preserved-experiment",
+      "sha256": "9a0eab4bd57543fcb881e48fc78bc7ee1872fff16fc9efea58c2074c0bfce1e5",
+      "bytes": 39462
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/account-320.png",
+      "category": "preserved-experiment",
+      "sha256": "3bdae57d18fc4defa61ebcf645206dd0f8c9adc924cdc2417ddc0efe7a3e18b3",
+      "bytes": 24899
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/account-390.png",
+      "category": "preserved-experiment",
+      "sha256": "e8fe549f68883e4a5e7e5e383305f045bb4c7eb323008757546878e8c5828303",
+      "bytes": 26048
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/browser.json",
+      "category": "preserved-experiment",
+      "sha256": "89bb652d2da7991adce7b065679c547291ab542b65ca834b63f3db14199077e5",
+      "bytes": 4504
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/detail-1280.png",
+      "category": "preserved-experiment",
+      "sha256": "7526f196a05fa94511af412f7a50685ec4d91a94376e537d7437d53340c28493",
+      "bytes": 91897
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/detail-320.png",
+      "category": "preserved-experiment",
+      "sha256": "d84b2f3b26e227dc2c89a28a8b2e90eb5e0e41e75dd952a04e2ea6141c13b01d",
+      "bytes": 40850
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/detail-390.png",
+      "category": "preserved-experiment",
+      "sha256": "190df1815fa9ca5f996b3a41805a392763563164216d4c3d5b6d441857e6a06b",
+      "bytes": 42958
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/editable-allocation-390.png",
+      "category": "preserved-experiment",
+      "sha256": "1a8e998eb6bec932ac24661f04ac1942c2724a43e609335eb8ea92f246fa93c9",
+      "bytes": 28521
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/editable-browser.json",
+      "category": "preserved-experiment",
+      "sha256": "7332464e1de63f1ca1067a8fde93d1222ea924a60dcd4a09defcad9308779102",
+      "bytes": 220
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/editable-teams-1280.png",
+      "category": "preserved-experiment",
+      "sha256": "9bc7af8a122a69e5aae0f9a84e1703eb71f2a977c43a6a4b99799233f3cc06ec",
+      "bytes": 54335
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/editable-teams-320.png",
+      "category": "preserved-experiment",
+      "sha256": "af48ef6216bd93cf22aa0f21e983438cab73891eb9fc61289181447602f8f79e",
+      "bytes": 34023
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/editable-teams-390.png",
+      "category": "preserved-experiment",
+      "sha256": "d526f9ec4fdc2ee80200780d156e6d56516c7ed46667fdff7b8679caf8121f88",
+      "bytes": 39892
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/home-1280.png",
+      "category": "preserved-experiment",
+      "sha256": "905c2484a575422203767ddf8a6b272b3cd8db48ce7ff19dee30ccd25fb6de1d",
+      "bytes": 74536
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/home-320.png",
+      "category": "preserved-experiment",
+      "sha256": "76352e8dd242d019501d36242a15b7545a75001b198dc16b5d0f96b3e91b677f",
+      "bytes": 44474
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/home-390.png",
+      "category": "preserved-experiment",
+      "sha256": "1d2a136051cd7b9b15f0cfe057a2643aafab7cf5929a3cd60f759b71598f42aa",
+      "bytes": 46360
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/lint-comparison.json",
+      "category": "preserved-experiment",
+      "sha256": "e9037e0d2aadf04b97e41b3d65bee78264a0cf3d7b496218373f7eb5911db94c",
+      "bytes": 66
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/matches-1280.png",
+      "category": "preserved-experiment",
+      "sha256": "d99772a15a7e67bb3698f84f83742e655cb55f78498e7547ca60a5fdb2953748",
+      "bytes": 65568
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/matches-320.png",
+      "category": "preserved-experiment",
+      "sha256": "52fd381aa4c60be44292bb2ec31c7a320dbe3ee6b7d4cd87335062d29cdf275d",
+      "bytes": 44949
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/matches-390.png",
+      "category": "preserved-experiment",
+      "sha256": "4d1a1b16fd7f48fdd90483f7584cb22c64fe3a8c41179030e3634b395933ad7c",
+      "bytes": 48482
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/schedule-1280.png",
+      "category": "preserved-experiment",
+      "sha256": "914a742edee82bafcd6b93683f5c45ca36e9b7221ef0606d00ef8865abcca188",
+      "bytes": 59967
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/schedule-320.png",
+      "category": "preserved-experiment",
+      "sha256": "f00c634d0803de1090798e88bf268f3affa7760d90cf5fe75a2f57500ad51455",
+      "bytes": 34787
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/schedule-390.png",
+      "category": "preserved-experiment",
+      "sha256": "96fb8cd93bf7cfb4ae5648119a7039c78aed6176376b9358289970fcda19f4fc",
+      "bytes": 36119
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/teams-1280.png",
+      "category": "preserved-experiment",
+      "sha256": "a8dd038263dedae8702ef7e0b693c9f49ccdc74d348a630fec465314ab8ebf6e",
+      "bytes": 79028
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/teams-320.png",
+      "category": "preserved-experiment",
+      "sha256": "932db432f1c2fa79e50b064a1d0344fc6c09434bdfa693a24dbf9b5c7f7ed7a8",
+      "bytes": 40579
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/teams-390.png",
+      "category": "preserved-experiment",
+      "sha256": "c7150b4ce6cc142187d3eb00069e045636adc98e6eb85512aec9adb546ac1a72",
+      "bytes": 39214
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/verify-browser.mjs",
+      "category": "preserved-experiment",
+      "sha256": "e8f46cac9383b85d493e618a1e38eead9d4c3faec03024f7b7ff021c1d9c31be",
+      "bytes": 5071
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-20261009/verify-editable.mjs",
+      "category": "preserved-experiment",
+      "sha256": "940121847e1083d6d086709635450a193057349eb734c11659c796c8d84d3f47",
+      "bytes": 2260
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/CONTINUE-HERE.md",
+      "category": "approved-evidence",
+      "sha256": "157529a889ef5d09840c88430d92d15003a3a2b4c4556c69dece51240663aec3",
+      "bytes": 16867
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/PLAN.md",
+      "category": "approved-evidence",
+      "sha256": "d6b546449fc2cf92ab5a405b40e7987b9edb39032ac8fb876f50305c3d54b5ac",
+      "bytes": 1754
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "56160c602a1391778b8e33e563a0f273974c646cd443d3dab6e4524f14ab6e08",
+      "bytes": 3848
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/account-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "9a0eab4bd57543fcb881e48fc78bc7ee1872fff16fc9efea58c2074c0bfce1e5",
+      "bytes": 39462
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/account-1280-top.png",
+      "category": "approved-evidence",
+      "sha256": "9a0eab4bd57543fcb881e48fc78bc7ee1872fff16fc9efea58c2074c0bfce1e5",
+      "bytes": 39462
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/account-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "d35aeb4504829eaaf5098dee64d4eec96ffa54c806e5420062eca75c0628e87c",
+      "bytes": 26231
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/account-320-top.png",
+      "category": "approved-evidence",
+      "sha256": "d35aeb4504829eaaf5098dee64d4eec96ffa54c806e5420062eca75c0628e87c",
+      "bytes": 26231
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/account-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "45fa2a81686c4fa81676de7e6a4e4c3582826755147e7fd6ceb7e9fe53846205",
+      "bytes": 28229
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/account-390-top.png",
+      "category": "approved-evidence",
+      "sha256": "45fa2a81686c4fa81676de7e6a4e4c3582826755147e7fd6ceb7e9fe53846205",
+      "bytes": 28229
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/browser.json",
+      "category": "approved-evidence",
+      "sha256": "db836dc547d79ede63f38bec8cbcd1f21e46da69df49fc38c771c0fb5d014263",
+      "bytes": 180013
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/capture.mjs",
+      "category": "approved-evidence",
+      "sha256": "a835149a32fe47b8911dfc4ca84028d9aa0ccb9badefb6c5bdf4f85c65435bdc",
+      "bytes": 6385
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/comparison-desktop.png",
+      "category": "approved-evidence",
+      "sha256": "e86bed2ec318cd9ac5e61c6e7afea933afdeb76261ded00c5778cb8a6250a5fd",
+      "bytes": 171971
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/comparison-editors.png",
+      "category": "approved-evidence",
+      "sha256": "83382638df7ea33f653fd5c617ae44a28caf336777ed8b81674093a9df359d93",
+      "bytes": 224586
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/comparison-mobile.png",
+      "category": "approved-evidence",
+      "sha256": "bcb7bd57d486ee2a4d5da2fdcec2c4f36ad2152f2457122f6260017dc46bfe71",
+      "bytes": 79915
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/detail-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "7123adc5b680442f73f76d07f5b89c625a036d6d68ade42782b5add57560725d",
+      "bytes": 56678
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/detail-1280-top.png",
+      "category": "approved-evidence",
+      "sha256": "7526f196a05fa94511af412f7a50685ec4d91a94376e537d7437d53340c28493",
+      "bytes": 91897
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/detail-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "56b2867cad08fe441b15ebce9f7c4466d7f9e82938aae3f62ba0ccdec5657d96",
+      "bytes": 30054
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/detail-320-top.png",
+      "category": "approved-evidence",
+      "sha256": "c356167a3ce39b76b27c08ef12e663c1cb03cfd5719bed69c1f869e7b603899b",
+      "bytes": 38150
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/detail-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "5818b7fb4af2be23177d8122c2de2bcfa2e9446af238473e4b523dd9f8c4375e",
+      "bytes": 37586
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/detail-390-top.png",
+      "category": "approved-evidence",
+      "sha256": "fb656d4b4e8ef5375d77f86f5d928f903c3b819b911dd59bdb96ea9c2b967262",
+      "bytes": 47245
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/home-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "905c2484a575422203767ddf8a6b272b3cd8db48ce7ff19dee30ccd25fb6de1d",
+      "bytes": 74536
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/home-1280-top.png",
+      "category": "approved-evidence",
+      "sha256": "905c2484a575422203767ddf8a6b272b3cd8db48ce7ff19dee30ccd25fb6de1d",
+      "bytes": 74536
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/home-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "fe964bf2c89ef0a93d01e89d86834bd0e31b4ad791809bee32c7901303150d0b",
+      "bytes": 35536
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/home-320-top.png",
+      "category": "approved-evidence",
+      "sha256": "fe964bf2c89ef0a93d01e89d86834bd0e31b4ad791809bee32c7901303150d0b",
+      "bytes": 35536
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/home-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "1d2a136051cd7b9b15f0cfe057a2643aafab7cf5929a3cd60f759b71598f42aa",
+      "bytes": 46360
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/home-390-top.png",
+      "category": "approved-evidence",
+      "sha256": "a7c4b5f6c1156f11cef7516c3168104bf07fd0dbf2f3999654ee2ee0eb6454b1",
+      "bytes": 21279
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/index.html",
+      "category": "approved-evidence",
+      "sha256": "d1f6253003eac8c3e3b4123560918b0bd02e6e7ebaa4cde1cde02a1692288d73",
+      "bytes": 111126
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/matches-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "4fcd52ca26c4ff126e9c3a43e76ba7da2c70f59b72da3a92e013328e6fd3f712",
+      "bytes": 61755
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/matches-1280-top.png",
+      "category": "approved-evidence",
+      "sha256": "d99772a15a7e67bb3698f84f83742e655cb55f78498e7547ca60a5fdb2953748",
+      "bytes": 65568
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/matches-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "1113ea5961598f23cafe47000ea797a5a5b34571764f16b75ce7501481b8dcdb",
+      "bytes": 30095
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/matches-320-top.png",
+      "category": "approved-evidence",
+      "sha256": "e0a2c120e5091abcb5f8f9931bcf90f19cc40fc61da28e9d24e4a7125eb117e3",
+      "bytes": 36656
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/matches-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "7791b4be60052fc8e788bcb7676cd21110f9df8ffd88b11f93a8269a64fb106c",
+      "bytes": 41348
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/matches-390-top.png",
+      "category": "approved-evidence",
+      "sha256": "4d1a1b16fd7f48fdd90483f7584cb22c64fe3a8c41179030e3634b395933ad7c",
+      "bytes": 48482
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/new-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "a04d550bd2a5ab73c5b20c7d2531b911b05c662680fe6dac92e620bc5006e095",
+      "bytes": 64303
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/new-1280-top.png",
+      "category": "approved-evidence",
+      "sha256": "d70c4e6aa2dd53f3a180d949b016b3ddbf7fc86511788c3d025aa90feef005fe",
+      "bytes": 64281
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/new-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "c657c72ca51dec56f520a676bd6042ce94ddf990396eb76012f7098233bbd694",
+      "bytes": 28894
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/new-320-top.png",
+      "category": "approved-evidence",
+      "sha256": "d8fb47e7a71980bdaaee4c4a5fb87bae030a7aa801974ed8351d5ec0e919d179",
+      "bytes": 26370
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/new-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "08fb9174e931a946d1442cc84191dd42ed63094c32fcd09e376578d301177555",
+      "bytes": 36613
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/new-390-top.png",
+      "category": "approved-evidence",
+      "sha256": "2bbf361d4e155f9bc1ad7f52e509758cc754e5d390ed251f81bf374e5f54097b",
+      "bytes": 36420
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/overlay-메뉴 열기-390.png",
+      "category": "approved-evidence",
+      "sha256": "e490c788f60157e00ce2e038c4916b9479e927f12091906ac53108f09b2dffe2",
+      "bytes": 38924
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/overlay-명단 확인-390.png",
+      "category": "approved-evidence",
+      "sha256": "e6de146d57f56bd8995291b87ca5dd527916be5553c91dc272365e1b0cc62107",
+      "bytes": 35421
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/overlay-운동 안내-390.png",
+      "category": "approved-evidence",
+      "sha256": "6d09039a6aa9570afa617d4c2f0c64f6fbc4dbd5a8cdd956132f8c07970ca1e6",
+      "bytes": 25505
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/published-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "0b4730f370119f8c9c0513e6c5b0844ccd70c3722d7bd8c4b6fe4267f68232a1",
+      "bytes": 79053
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/published-1280-top.png",
+      "category": "approved-evidence",
+      "sha256": "a8dd038263dedae8702ef7e0b693c9f49ccdc74d348a630fec465314ab8ebf6e",
+      "bytes": 79028
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/published-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "2c2cbf5f9028fdb5a6f926547d5c8fbe324611bec9ee9968005cc788aa13ed09",
+      "bytes": 34798
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/published-320-top.png",
+      "category": "approved-evidence",
+      "sha256": "2c2cbf5f9028fdb5a6f926547d5c8fbe324611bec9ee9968005cc788aa13ed09",
+      "bytes": 34798
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/published-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "c7150b4ce6cc142187d3eb00069e045636adc98e6eb85512aec9adb546ac1a72",
+      "bytes": 39214
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/published-390-top.png",
+      "category": "approved-evidence",
+      "sha256": "c7150b4ce6cc142187d3eb00069e045636adc98e6eb85512aec9adb546ac1a72",
+      "bytes": 39214
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/schedule-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "914a742edee82bafcd6b93683f5c45ca36e9b7221ef0606d00ef8865abcca188",
+      "bytes": 59967
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/schedule-1280-top.png",
+      "category": "approved-evidence",
+      "sha256": "914a742edee82bafcd6b93683f5c45ca36e9b7221ef0606d00ef8865abcca188",
+      "bytes": 59967
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/schedule-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "291eaeb6ddd4478e2a785ef1876852025a77b130551c104b0605c8da5e2e9fa9",
+      "bytes": 26624
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/schedule-320-top.png",
+      "category": "approved-evidence",
+      "sha256": "5c62a5ceed9a29c7d6e8a1e526b4f0f98fcfe387885323abebc5fa55cb0fe003",
+      "bytes": 27173
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/schedule-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "1b01e0484ef8479e1269f620eda1c79c950c62837ecbd559757d72c37b184f82",
+      "bytes": 34606
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/schedule-390-top.png",
+      "category": "approved-evidence",
+      "sha256": "96fb8cd93bf7cfb4ae5648119a7039c78aed6176376b9358289970fcda19f4fc",
+      "bytes": 36119
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/teams-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "b2c4b1fa1bce8fe680d1900ba037d505c7a402606b4256fbcc98a78af50db8a2",
+      "bytes": 54363
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/teams-1280-top.png",
+      "category": "approved-evidence",
+      "sha256": "9bc7af8a122a69e5aae0f9a84e1703eb71f2a977c43a6a4b99799233f3cc06ec",
+      "bytes": 54335
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/teams-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "af48ef6216bd93cf22aa0f21e983438cab73891eb9fc61289181447602f8f79e",
+      "bytes": 34023
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/teams-320-top.png",
+      "category": "approved-evidence",
+      "sha256": "af48ef6216bd93cf22aa0f21e983438cab73891eb9fc61289181447602f8f79e",
+      "bytes": 34023
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/teams-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "395eb3616f81b8d79826844eb7af722f185244a04ff6c70dc8ce4217456d70c2",
+      "bytes": 39591
+    },
+    {
+      "path": "docs/reviews/mobile-navigation-phase1-20261010/teams-390-top.png",
+      "category": "approved-evidence",
+      "sha256": "395eb3616f81b8d79826844eb7af722f185244a04ff6c70dc8ce4217456d70c2",
+      "bytes": 39591
+    },
+    {
+      "path": "docs/reviews/new-preparation-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "3b222f5b3c04422ce4807f3b30bc7f2e6a8ae51ac918b8fc18a6603f008bbcc4",
+      "bytes": 2278
+    },
+    {
+      "path": "docs/reviews/new-preparation-20261012/chrome-1024.png",
+      "category": "approved-evidence",
+      "sha256": "beb171dd35a16934c44be2fe60b93b0e1ddb7e618d2a61329cba72a5e0aba3f8",
+      "bytes": 53628
+    },
+    {
+      "path": "docs/reviews/new-preparation-20261012/chrome-320.png",
+      "category": "approved-evidence",
+      "sha256": "aa5446db42b983455864172fa6f6ba76bd6a2a5ae074ff398f55a12a06edcaf6",
+      "bytes": 41379
+    },
+    {
+      "path": "docs/reviews/new-preparation-20261012/chrome-390.png",
+      "category": "approved-evidence",
+      "sha256": "c24b35f28a7ca3b2a97ce355c94cb8c9ec0dc8838b873c042c63df7123857990",
+      "bytes": 43405
+    },
+    {
+      "path": "docs/reviews/new-preparation-20261012/measure.json",
+      "category": "approved-evidence",
+      "sha256": "ce3fc8dd0588419ef34b34028d45c807250c45102bdbe8e5959657ce581e8fec",
+      "bytes": 886
+    },
+    {
+      "path": "docs/reviews/new-preparation-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "345d2d350258f2b430e4eb97ed7f0f15d5a1117e42812794d5a44fd9a366c8a3",
+      "bytes": 5156
+    },
+    {
+      "path": "docs/reviews/new-preparation-20261012/webkit-1024.png",
+      "category": "approved-evidence",
+      "sha256": "1853117539099e581a4fb9b6f7cad6013a777ae6084e7a6604fdf85abc589210",
+      "bytes": 75751
+    },
+    {
+      "path": "docs/reviews/new-preparation-20261012/webkit-320.png",
+      "category": "approved-evidence",
+      "sha256": "ee181c29aa32c3a2eddaf246017589eda964f04aa384c6bd796895b37c9fd6c6",
+      "bytes": 58207
+    },
+    {
+      "path": "docs/reviews/new-preparation-20261012/webkit-390.png",
+      "category": "approved-evidence",
+      "sha256": "794412bddff78aa9e8c05bd3a76a808a109085de21926a50547c11bd9936ae7f",
+      "bytes": 62026
+    },
+    {
+      "path": "docs/reviews/prepared-detail-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "6e595cb06de45efc57d56c04d351b55910b4cd263cca7d5ccf7092fcc7e15cdc",
+      "bytes": 2349
+    },
+    {
+      "path": "docs/reviews/prepared-detail-20261012/chrome-1024.png",
+      "category": "approved-evidence",
+      "sha256": "2162e37ff10c7352a91f1a53c52c1bc687f3ddb2de80d5a072c61b053fb4f3a5",
+      "bytes": 59130
+    },
+    {
+      "path": "docs/reviews/prepared-detail-20261012/chrome-320.png",
+      "category": "approved-evidence",
+      "sha256": "e1dde4a4c1b8f381785fd7d42cd0b441449e3572b3352de80be6a5fa95a2ef93",
+      "bytes": 46010
+    },
+    {
+      "path": "docs/reviews/prepared-detail-20261012/chrome-390.png",
+      "category": "approved-evidence",
+      "sha256": "a3284d5a987cef3bf87e667d1bcfdbbdfb85b0429eb6e87a3410d12376ece42e",
+      "bytes": 48119
+    },
+    {
+      "path": "docs/reviews/prepared-detail-20261012/measure.json",
+      "category": "approved-evidence",
+      "sha256": "614e1349afcbfd3e8818b00ce5baaeb2952cd100ff176fbbee87ca4b1eea80c1",
+      "bytes": 2034
+    },
+    {
+      "path": "docs/reviews/prepared-detail-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "2f8c8bc5ad2c52f128c60ef914eab2b95f07f89d35acea315c4ea8ac18936433",
+      "bytes": 3466
+    },
+    {
+      "path": "docs/reviews/prepared-detail-20261012/webkit-1024.png",
+      "category": "approved-evidence",
+      "sha256": "23870e3b67be2c5ffe0827aa6088146579652501f8afd456de9603e440faaca4",
+      "bytes": 82154
+    },
+    {
+      "path": "docs/reviews/prepared-detail-20261012/webkit-320.png",
+      "category": "approved-evidence",
+      "sha256": "83e0eca13a6b6ad375191b365fbd99e2972636af03710e7d78e8b7ad5af71666",
+      "bytes": 62929
+    },
+    {
+      "path": "docs/reviews/prepared-detail-20261012/webkit-390.png",
+      "category": "approved-evidence",
+      "sha256": "8dd6ca3dfb6b7091d5624020f519ebb558259f9dab819ef7dd1e196981993ce1",
+      "bytes": 67736
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "a5bfbcd4dde0b7e6eb133823eb4e94ddcd420aba772f05d2f5a2ef66c2aeb363",
+      "bytes": 1368
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/chrome-390.png",
+      "category": "approved-evidence",
+      "sha256": "93c40888d2552848868d57f1742adec86802d7e4ef6c386fe059559b261c7836",
+      "bytes": 45189
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/chrome-editor.png",
+      "category": "approved-evidence",
+      "sha256": "44af07b386d48907c68585443099bf970b9a90cc72703e2240655550844725ba",
+      "bytes": 49993
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/chrome-new-dialog.png",
+      "category": "approved-evidence",
+      "sha256": "59f011e99a886a0d1c3ff59dfcadf3309be8dfa9d55a89b9a85c2ff02f72ec5e",
+      "bytes": 37665
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/chrome-saved-dialog.png",
+      "category": "approved-evidence",
+      "sha256": "59f011e99a886a0d1c3ff59dfcadf3309be8dfa9d55a89b9a85c2ff02f72ec5e",
+      "bytes": 37665
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/measure.json",
+      "category": "approved-evidence",
+      "sha256": "b4ae0d6b8d27b4a6c83527bf2bf58647f3871fd662f5d9ee0ba64260248a7aa7",
+      "bytes": 2058
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "be0c650afa0ff863afec765771ac800eca1d571fce294691d6fc009aa7b682a4",
+      "bytes": 7225
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/webkit-390.png",
+      "category": "approved-evidence",
+      "sha256": "f9a07d4b3db8a9b0e864341fe4b01e42074040412753ebc6e2648c2a534eb903",
+      "bytes": 64626
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/webkit-editor.png",
+      "category": "approved-evidence",
+      "sha256": "d0dd9f8763895450d20d3381f8c4b6d584bca1f78cb66e77993084e7e1a1b3c1",
+      "bytes": 69293
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/webkit-new-dialog.png",
+      "category": "approved-evidence",
+      "sha256": "09a1ef8fabb6857bb9d4c38870104148d38d0bb4bdfe24e47bf0162674a074ec",
+      "bytes": 48397
+    },
+    {
+      "path": "docs/reviews/recruitment-app-dialog-20261012/webkit-saved-dialog.png",
+      "category": "approved-evidence",
+      "sha256": "3825d3cf0ad0e6f8b7253d3ba667bd65dfeca7736c676e3220f1b6442e03b508",
+      "bytes": 48378
+    },
+    {
+      "path": "docs/reviews/recruitment-confirm-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "c012ae173b6310955b5179560b555f598c569f9f546e675352177d829f333cd1",
+      "bytes": 1048
+    },
+    {
+      "path": "docs/reviews/recruitment-confirm-20261012/chrome-390.png",
+      "category": "approved-evidence",
+      "sha256": "c24b35f28a7ca3b2a97ce355c94cb8c9ec0dc8838b873c042c63df7123857990",
+      "bytes": 43405
+    },
+    {
+      "path": "docs/reviews/recruitment-confirm-20261012/chrome-editor.png",
+      "category": "approved-evidence",
+      "sha256": "9a17be2abe30da279c639a91803e7d3b78323810dfc2283d4e78137312ebbf50",
+      "bytes": 49922
+    },
+    {
+      "path": "docs/reviews/recruitment-confirm-20261012/measure.json",
+      "category": "approved-evidence",
+      "sha256": "bd90defac9199acb2b1ac83ace778852ea9f9ec84d0e04021b6b28b7fb2fcfca",
+      "bytes": 534
+    },
+    {
+      "path": "docs/reviews/recruitment-confirm-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "62fd95445c3eb37be4c916ca21191d9a40780f69d72c28bfe0329e71e6751295",
+      "bytes": 6104
+    },
+    {
+      "path": "docs/reviews/recruitment-confirm-20261012/webkit-390.png",
+      "category": "approved-evidence",
+      "sha256": "794412bddff78aa9e8c05bd3a76a808a109085de21926a50547c11bd9936ae7f",
+      "bytes": 62026
+    },
+    {
+      "path": "docs/reviews/recruitment-confirm-20261012/webkit-editor.png",
+      "category": "approved-evidence",
+      "sha256": "d0dd9f8763895450d20d3381f8c4b6d584bca1f78cb66e77993084e7e1a1b3c1",
+      "bytes": 69293
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "e79f302bdca32f7d47c581a0c8812ec103d7480a1ffba557971f59f84312256a",
+      "bytes": 1092
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/before.json",
+      "category": "approved-evidence",
+      "sha256": "deb58c7b9ffc71a537c6f5f360d2c3cdf95a53c25ceb2902435d0d128927fbee",
+      "bytes": 4556
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/chrome-320.png",
+      "category": "approved-evidence",
+      "sha256": "b5b538c81272989b23d43241c938a2c376bc452b2d0ac58ad262e7cc692e7d68",
+      "bytes": 45690
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/chrome-375.png",
+      "category": "approved-evidence",
+      "sha256": "878dee08118b30085b6ad761b700bf3fba32d9145558b1e5913e14c528a1d6bb",
+      "bytes": 46528
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/chrome-390.png",
+      "category": "approved-evidence",
+      "sha256": "9c186703206658afc3ed30c189ec4238e09fd0392851f8e36d456e39346a3109",
+      "bytes": 46884
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/chrome-430.png",
+      "category": "approved-evidence",
+      "sha256": "3398b39178d10659f768324a3056ec0efe1d2c353e6f625b79d0be73740a3309",
+      "bytes": 47782
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/chrome-768.png",
+      "category": "approved-evidence",
+      "sha256": "366d750ee22f6976344d4bac78bb29d8115365bd493197bd6d16ceef834ec193",
+      "bytes": 57837
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/inspect.mjs",
+      "category": "approved-evidence",
+      "sha256": "40673e887520e6a886ccf6214619b5c72443a1185cdc641dd036d0caf941f8ef",
+      "bytes": 2153
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/measure.json",
+      "category": "approved-evidence",
+      "sha256": "deb58c7b9ffc71a537c6f5f360d2c3cdf95a53c25ceb2902435d0d128927fbee",
+      "bytes": 4556
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/webkit-320.png",
+      "category": "approved-evidence",
+      "sha256": "d26c391ec7774bc97ffaf2f537213685a2b1f656c18fd418798955b4d86b2bc9",
+      "bytes": 234412
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/webkit-375.png",
+      "category": "approved-evidence",
+      "sha256": "3ae565aadfcf5e9da438b88ab8991eb019c840492d152cb3316ffea4e6798ed5",
+      "bytes": 247055
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/webkit-390.png",
+      "category": "approved-evidence",
+      "sha256": "f8c9431a6b63a7497d280dbf8e7105324c1cb6429253fc8008393c4531f3427e",
+      "bytes": 252912
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/webkit-430.png",
+      "category": "approved-evidence",
+      "sha256": "90f4a3d6d55286146146f3021d93e4e234058f4887ebe6f078c514edfd3183b1",
+      "bytes": 266492
+    },
+    {
+      "path": "docs/reviews/registration-width-20261012/webkit-768.png",
+      "category": "approved-evidence",
+      "sha256": "0535cf5da7c860989c3d5c29264979c1197176dc2863aaf9d1937bc9c6855b0f",
+      "bytes": 294494
+    },
+    {
+      "path": "docs/reviews/schedule-save-only-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "c9daca771978c60ff1bb5472300e5a9d96e3dd925fef14c34eafd73085967fee",
+      "bytes": 1191
+    },
+    {
+      "path": "docs/reviews/schedule-save-only-20261012/chrome-390.png",
+      "category": "approved-evidence",
+      "sha256": "c24b35f28a7ca3b2a97ce355c94cb8c9ec0dc8838b873c042c63df7123857990",
+      "bytes": 43405
+    },
+    {
+      "path": "docs/reviews/schedule-save-only-20261012/chrome-editor.png",
+      "category": "approved-evidence",
+      "sha256": "9a17be2abe30da279c639a91803e7d3b78323810dfc2283d4e78137312ebbf50",
+      "bytes": 49922
+    },
+    {
+      "path": "docs/reviews/schedule-save-only-20261012/measure.json",
+      "category": "approved-evidence",
+      "sha256": "f6a3bc7df980516fa172884d9cb72c81524f4fde6b9fef9144ec40cf6a2632f2",
+      "bytes": 486
+    },
+    {
+      "path": "docs/reviews/schedule-save-only-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "a71f632794522ab914c08b7a126927f023998a562ad646f9764c05daff7a3c07",
+      "bytes": 5392
+    },
+    {
+      "path": "docs/reviews/schedule-save-only-20261012/webkit-390.png",
+      "category": "approved-evidence",
+      "sha256": "794412bddff78aa9e8c05bd3a76a808a109085de21926a50547c11bd9936ae7f",
+      "bytes": 62026
+    },
+    {
+      "path": "docs/reviews/schedule-save-only-20261012/webkit-editor.png",
+      "category": "approved-evidence",
+      "sha256": "84c1f6613d64c641254528e6e912f0563bc335ef47a02756e6274c70109df4b6",
+      "bytes": 69293
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/REPORT.md",
+      "category": "hosting-auth",
+      "sha256": "ea2cfb6cfcc874bd6d5dc068f28b2cafb9c3de532441c07f5baa11967532ad68",
+      "bytes": 4903
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/account-mobile.png",
+      "category": "hosting-auth",
+      "sha256": "47fe6d71d34ac3f4148beb5e65033b6ce6051f275076cc68b98e40c8b1fe27c0",
+      "bytes": 30583
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/browser-verification.json",
+      "category": "hosting-auth",
+      "sha256": "407a1a4daf5d5dc4ec1436213643c41698965b9a20a5ed1544cb42e23c459fb6",
+      "bytes": 812
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/detail-mobile.png",
+      "category": "hosting-auth",
+      "sha256": "fe965dffc9eb8549d403c22596f92e406a093865c19b7b0501b7f5f3d06c72f3",
+      "bytes": 50711
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/home-desktop.png",
+      "category": "hosting-auth",
+      "sha256": "7d5f481cf25c9cab8c717ef4e6687f4445b5e67ee29681e5db7d6d4a1282e640",
+      "bytes": 78832
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/home-mobile.png",
+      "category": "hosting-auth",
+      "sha256": "6811226df01bc6ad57f5095d21f73515a70cd8cecb07eeab3bb76861eefb03e9",
+      "bytes": 47441
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/login-mobile.png",
+      "category": "hosting-auth",
+      "sha256": "da1f8242efc4aaec00d239e0afaa9868a4402b6266412da40b1ed631fc9b1e6b",
+      "bytes": 30542
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/matches-mobile.png",
+      "category": "hosting-auth",
+      "sha256": "5a7c8e342d01f9922f2453c0e49f0ef44fb32874db627158f065f7966aeb0ab5",
+      "bytes": 51448
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/remote-verification.json",
+      "category": "hosting-auth",
+      "sha256": "72aec8e4d4ca90039e9ca10fea245a32f549498df6b46443786e9365edc08d40",
+      "bytes": 1224
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/schedule-mobile.png",
+      "category": "hosting-auth",
+      "sha256": "fda1b8411ea8f9e1666cc8bd5bff89a80dea05ed46aa98ff6a6c302ba7b1858a",
+      "bytes": 42951
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/teams-mobile.png",
+      "category": "hosting-auth",
+      "sha256": "25c242a725fd5fdd55e6274335b322be912ab92c7d01a397bde71f10bdd8b079",
+      "bytes": 46496
+    },
+    {
+      "path": "docs/reviews/sites-test-deployment-20261012/verification-state.png",
+      "category": "hosting-auth",
+      "sha256": "6811226df01bc6ad57f5095d21f73515a70cd8cecb07eeab3bb76861eefb03e9",
+      "bytes": 47441
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/REPORT.md",
+      "category": "approved-evidence",
+      "sha256": "78026420f01af096b24312a705c1b55b36d76f3dca88d4df35281762cd12423c",
+      "bytes": 4055
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/browser.json",
+      "category": "approved-evidence",
+      "sha256": "a9bfb8861289c34fee3f9f0e9d442a7205dd34e164bf16fac01c35cfd575e68b",
+      "bytes": 5956
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/detail-1280.png",
+      "category": "approved-evidence",
+      "sha256": "cb6e12af69dc91c73852946f5441ae051122e5ee8c81c0d82a93d47a0928d9e5",
+      "bytes": 71235
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/detail-320.png",
+      "category": "approved-evidence",
+      "sha256": "cd9f4c1d329cadf9fb7f077dec6bc98d544c144ed60f629bfc885685209320f8",
+      "bytes": 40221
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/detail-390.png",
+      "category": "approved-evidence",
+      "sha256": "58a0dce26e597f1140406a98b279a59104c7d49b316e94a65f64395f7802348b",
+      "bytes": 50147
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/failure.png",
+      "category": "approved-evidence",
+      "sha256": "58cdae1d6f01376a46375a13a92b95293aef5760a4e1d130896a4a9be4ed36a1",
+      "bytes": 35801
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/keyboard-save.json",
+      "category": "approved-evidence",
+      "sha256": "651f5a6bff6aeadf106432c2b2a3d3c70fd22762c64f8818627ec988807248f1",
+      "bytes": 87
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/keyboard-save.mjs",
+      "category": "approved-evidence",
+      "sha256": "e708a17831f78c8e8dc139b9a49b1c3569a68d00ec2ba196243114067b081ca7",
+      "bytes": 2051
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/keyboard-simulated-390.png",
+      "category": "approved-evidence",
+      "sha256": "405d3952ceb291174d27a2a7ac70f3b6d5e033f831ebe1d9154715c7c89ea0d6",
+      "bytes": 24975
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/match-keyboard-reorder-390.png",
+      "category": "approved-evidence",
+      "sha256": "8eab9d905d8c2f9c7650665943f091ef1c0aeca963f54e1cd2743e0cc5ca261d",
+      "bytes": 48890
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/matches-1280.png",
+      "category": "approved-evidence",
+      "sha256": "a1e051ad904b9c0bbaa8ea3648d44208e4c058c982198f9770646d2f187cdd8e",
+      "bytes": 66485
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/matches-320.png",
+      "category": "approved-evidence",
+      "sha256": "e107c88d86ba648922607945697cce9f6df61f06c1ddef5bf18a4d67c48fe6fe",
+      "bytes": 36858
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/matches-390.png",
+      "category": "approved-evidence",
+      "sha256": "9925b3b518b5d1851c94819eee2c02fb5b7b25505213dea6c21767a380069e33",
+      "bytes": 47866
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/new-1280-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "d6222158473515fe067b900e52c73bde88c5d8d2aae58846a484ee20bda38e63",
+      "bytes": 60599
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/new-1280.png",
+      "category": "approved-evidence",
+      "sha256": "b2cfcece827e9350797c7fed5950e51b25369a36ec6d4acea62dad8f9370bc14",
+      "bytes": 61507
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/new-320-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "510928ba69aa1be4f894537aa58ba4d14938dcc33a283535eab281144cfad909",
+      "bytes": 34501
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/new-320.png",
+      "category": "approved-evidence",
+      "sha256": "deef4b51ba136ef09668f87cb0a78ab7bfc9838001d7d869ae1cb531b95a6aec",
+      "bytes": 31834
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/new-390-bottom.png",
+      "category": "approved-evidence",
+      "sha256": "1f94598b4e8eb7800a86fa572e6ec376d93d1cfd2c74b0605f0cdf0063e50f2d",
+      "bytes": 45029
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/new-390.png",
+      "category": "approved-evidence",
+      "sha256": "6d6be9ee75631c3a5f4bd768cf29fc85c37e9314c7c977b0ae1bed60e3b0e8f3",
+      "bytes": 44430
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/notice-collapsed-390.png",
+      "category": "approved-evidence",
+      "sha256": "b2dbf90fa7abd0603341688d8eaa6f5fc3fcb532074f621b8697bb8e35cedcdf",
+      "bytes": 38119
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/published-1280.png",
+      "category": "approved-evidence",
+      "sha256": "0ae8e25d83a9d64434c7292286d981b2e52806290851da964812c1727aa07dd7",
+      "bytes": 76470
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/published-320.png",
+      "category": "approved-evidence",
+      "sha256": "9a057e90bb47d2acb2f029e6a69a8fb93d4ea12faa96e17b15b5adb960dc8e2b",
+      "bytes": 34416
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/published-390.png",
+      "category": "approved-evidence",
+      "sha256": "0be5bc147021dfca3f65e64346b0ab86103097b7f2f8dc06fe5a72f217c7842d",
+      "bytes": 37799
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/schedule-1280.png",
+      "category": "approved-evidence",
+      "sha256": "17f791615b643570b3cd441441ec09c5938cd32a89151384e28447b5f37ccd88",
+      "bytes": 54918
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/schedule-320.png",
+      "category": "approved-evidence",
+      "sha256": "d364f6d3002ae593439bd2d5b931e5364960a5cbe50bde42294295ef88d53791",
+      "bytes": 30460
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/schedule-390.png",
+      "category": "approved-evidence",
+      "sha256": "087e2db077a9983c268590aefbfd7ac2e13d72fc87031bd5d8481b55ec6fba24",
+      "bytes": 39265
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/teams-1280.png",
+      "category": "approved-evidence",
+      "sha256": "216c20bfbc319d57485936e6468d8c4d8703c9493083cb19b3a4c2071b021343",
+      "bytes": 54340
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/teams-320.png",
+      "category": "approved-evidence",
+      "sha256": "e7511bd58aadb584881de7077a6d288d685741bf1103df2c1eee8adc06fd2b1a",
+      "bytes": 34282
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/teams-390.png",
+      "category": "approved-evidence",
+      "sha256": "86d74c79432d802ebc591b08e865391766aaae785420bc20b58d68ba3eeffca8",
+      "bytes": 40519
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/unpublish-confirm-390.png",
+      "category": "approved-evidence",
+      "sha256": "0be5bc147021dfca3f65e64346b0ab86103097b7f2f8dc06fe5a72f217c7842d",
+      "bytes": 37799
+    },
+    {
+      "path": "docs/reviews/unified-schedule-20261012/verify.mjs",
+      "category": "approved-evidence",
+      "sha256": "c4be383e65e0de7a770be70c769dcb7976bdc8f7d247ca44f7b2fdec77f11d14",
+      "bytes": 8280
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-09-schedule-v4.md",
+      "category": "approved-evidence",
+      "sha256": "017c20acd15888289de65da057036c6d4c7279511435ead667f536d354e5928d",
+      "bytes": 2570
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-12-approved-editors-notice.md",
+      "category": "approved-evidence",
+      "sha256": "e465afa38da699fa19a7731f5c8e04a8c60def84f0279856ec71fc7fe5304747",
+      "bytes": 4659
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-12-approved-main-preparation.md",
+      "category": "approved-evidence",
+      "sha256": "29a148358fa55b1a90e7cb6bdc75d12489422f612a820fc8e10da9a4ae4d14f8",
+      "bytes": 3293
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-12-unified-schedule-floating-actions.md",
+      "category": "approved-evidence",
+      "sha256": "24c452788649b5cb6ec412b4bb3659cc329ff62bbf96a3154f2b1a8803540aa0",
+      "bytes": 1527
+    },
+    {
+      "path": "web/DESIGN.md",
+      "category": "approved-evidence",
+      "sha256": "72ebe7877e90c8b50a412d50e51c879f7b9f8f3aff0864e0c600d9de1b3e0bc5",
+      "bytes": 8927
+    },
+    {
+      "path": "web/app/layout.tsx",
+      "category": "hosting-auth",
+      "sha256": "b2451b58a7e34d969867a8b834c167807888bc0c9cea54b9e32af8c8a9020558",
+      "bytes": 641
+    },
+    {
+      "path": "web/app/session/new/page.tsx",
+      "category": "approved-ui",
+      "sha256": "cf1ae64f022fce2c8dde0ed436a28ca84137bd244addd2b91a76b52d3f1f9de5",
+      "bytes": 126
+    },
+    {
+      "path": "web/components/sideout/access.tsx",
+      "category": "approved-ui",
+      "sha256": "6d7b86ab1dcf316aa1be8949337681f5c3eaeb5a469bec443fd3b9481eafd480",
+      "bytes": 4862
+    },
+    {
+      "path": "web/components/sideout/account.tsx",
+      "category": "approved-ui",
+      "sha256": "6f6bb4b4af73d6c7b487602bacd2686a57def16f4aa599632ab3285ee7cedb91",
+      "bytes": 1192
+    },
+    {
+      "path": "web/components/sideout/allocation/session-allocation.css",
+      "category": "approved-ui",
+      "sha256": "c17a3613cd2880b0d0c4891980d4d257be80c46c35f8835a0e365e3fa49a6350",
+      "bytes": 28216
+    },
+    {
+      "path": "web/components/sideout/allocation/session-allocation.tsx",
+      "category": "approved-ui",
+      "sha256": "e65689ca712b68f63d2c995bc637ab2246cdee1d404943f9d052b49b90d525bd",
+      "bytes": 26195
+    },
+    {
+      "path": "web/components/sideout/confirm-dialog.tsx",
+      "category": "approved-ui",
+      "sha256": "0cab23e47653ff0a7b3148113041f0610bebdc63c8787552742fa4814160a417",
+      "bytes": 2692
+    },
+    {
+      "path": "web/components/sideout/editor-action-bar.module.css",
+      "category": "approved-ui",
+      "sha256": "597b7c82675e812ccd4ffa71b6af0dba1eeb4ae941e173c4d56004f3963ba916",
+      "bytes": 1657
+    },
+    {
+      "path": "web/components/sideout/editor-action-bar.tsx",
+      "category": "approved-ui",
+      "sha256": "2e639b78328ee13b42fb6c54b6222cbb2d8a814eb55bac5e7b9e541e1ed6b8e6",
+      "bytes": 3005
+    },
+    {
+      "path": "web/components/sideout/editor-controls.module.css",
+      "category": "approved-ui",
+      "sha256": "645198d926c90355bb75d5d906959b3bbef906f695b57842af57fada1487a85e",
+      "bytes": 1026
+    },
+    {
+      "path": "web/components/sideout/editor-controls.tsx",
+      "category": "approved-ui",
+      "sha256": "0eca7a72e17e355930fe597ae526db5eabf21920364281a41a8fb62402ce9bed",
+      "bytes": 1399
+    },
+    {
+      "path": "web/components/sideout/enrollment-progress.ts",
+      "category": "approved-ui",
+      "sha256": "3c0c9d6021ce6ba6d2b29368e0e2e4d64d967acf5ff8b72f6f7445c1ef4b0e16",
+      "bytes": 298
+    },
+    {
+      "path": "web/components/sideout/favorite-editor.tsx",
+      "category": "approved-ui",
+      "sha256": "7817c3b102402850b6cef76bbe75dc8dc06b9094f83a740d0c9d27f3765799b9",
+      "bytes": 3993
+    },
+    {
+      "path": "web/components/sideout/home.tsx",
+      "category": "approved-ui",
+      "sha256": "f0de00422322c28cdbfc3f4caa60c95643fea2e3e8319d72e6c670544ffc6fc3",
+      "bytes": 11360
+    },
+    {
+      "path": "web/components/sideout/match-editor.tsx",
+      "category": "approved-ui",
+      "sha256": "0006397a5ff6cbf2e0d82123dbf6202a132f18cd9fbd5529419743dcd7f45d4a",
+      "bytes": 10724
+    },
+    {
+      "path": "web/components/sideout/new-session.tsx",
+      "category": "approved-ui",
+      "sha256": "24ed3c6b856cfb5434e67c41eaf8d741262b1a122fadbff936f47e3ead07a277",
+      "bytes": 3101
+    },
+    {
+      "path": "web/components/sideout/notice-dialog.tsx",
+      "category": "approved-ui",
+      "sha256": "05129f55bfb6c4241dd426b5d270ba6138febee1a0756d4f39fd0e5c541b0b96",
+      "bytes": 3821
+    },
+    {
+      "path": "web/components/sideout/notice.module.css",
+      "category": "approved-ui",
+      "sha256": "910aedb3bafc7e3b45ec6e44e279eb378492d15e5bbd007ac000660450b3faae",
+      "bytes": 840
+    },
+    {
+      "path": "web/components/sideout/participation-button.tsx",
+      "category": "approved-ui",
+      "sha256": "d60c0463a867e9bb112a47eeb7dcdec2154b1748737715ab16597d3ba1a3b0bd",
+      "bytes": 2434
+    },
+    {
+      "path": "web/components/sideout/prepared-session-detail.module.css",
+      "category": "approved-ui",
+      "sha256": "96987e3b9bc4bc237cb5504b5cbc0d1f0ae015938d4e41e64c9e65f2cd27ea1f",
+      "bytes": 209
+    },
+    {
+      "path": "web/components/sideout/prepared-session-detail.tsx",
+      "category": "approved-ui",
+      "sha256": "0891df133b82dc64a7d7a08251d664ef54f943657615fc7f52db60721c02629b",
+      "bytes": 5142
+    },
+    {
+      "path": "web/components/sideout/roster-dialog.tsx",
+      "category": "approved-ui",
+      "sha256": "60479f1524282eb9e901f2d3ed9451b38a7c4849b79d763b05530cfdd741bc7d",
+      "bytes": 13312
+    },
+    {
+      "path": "web/components/sideout/schedule-deadline.tsx",
+      "category": "approved-ui",
+      "sha256": "686c3239299b507d589693ede2fbf1cd1e980e6abd12cd72ef5355bf464062a6",
+      "bytes": 1429
+    },
+    {
+      "path": "web/components/sideout/schedule-editor.tsx",
+      "category": "approved-ui",
+      "sha256": "109f957e4f2ee21be22b646e832d42199f43a5d970b27b8edaaa35eea7fb32b3",
+      "bytes": 7647
+    },
+    {
+      "path": "web/components/sideout/schedule-information.module.css",
+      "category": "approved-ui",
+      "sha256": "62910534141f5344c756e0e4f9b735b8c51c8f8ba09aaf431e583328a6661b1a",
+      "bytes": 1648
+    },
+    {
+      "path": "web/components/sideout/schedule-information.tsx",
+      "category": "approved-ui",
+      "sha256": "d2d0980c59a000d1a2843da11073d5b4c1fd55842e2770340198db22d782c7a6",
+      "bytes": 1735
+    },
+    {
+      "path": "web/components/sideout/schedule-registration.module.css",
+      "category": "approved-ui",
+      "sha256": "824b969ca1d82d142fa88b7de74cd411f62ee227b8e78a82bf556bd17a2c5d2e",
+      "bytes": 2744
+    },
+    {
+      "path": "web/components/sideout/schedule-registration.tsx",
+      "category": "approved-ui",
+      "sha256": "55344253c01a8f8dd4ef7d39f1157893dff6f4dcb4d8947027084ec3ad43158d",
+      "bytes": 4443
+    },
+    {
+      "path": "web/components/sideout/session-detail.tsx",
+      "category": "approved-ui",
+      "sha256": "938e5c660cb3eb63a53968b3f9e2d7a63ceebf8cff78da72a75d0865be53f71d",
+      "bytes": 4608
+    },
+    {
+      "path": "web/components/sideout/session-timeline.tsx",
+      "category": "approved-ui",
+      "sha256": "34ef26499732b1312ad2d631d32e80ef476814806ec8c997cca73036ed0eb816",
+      "bytes": 481
+    },
+    {
+      "path": "web/components/sideout/shell.tsx",
+      "category": "approved-ui",
+      "sha256": "51e2b851bb100a0951cc164ce3f8c0adeea8c9c747744965bf3439032ae5531c",
+      "bytes": 4195
+    },
+    {
+      "path": "web/components/sideout/sideout.module.css",
+      "category": "approved-ui",
+      "sha256": "b87eefc8dea0e5f5d38305a7a119c57f1f7243982692e0db3f568768ba2de44e",
+      "bytes": 39783
+    },
+    {
+      "path": "web/components/sideout/team-editor.tsx",
+      "category": "approved-ui",
+      "sha256": "30e478edb3d8ca6d587622df9a94f7b58cdb2e9ff090a339d0967d3c45b10605",
+      "bytes": 9002
+    },
+    {
+      "path": "web/components/sideout/team-views.module.css",
+      "category": "approved-ui",
+      "sha256": "ef58fb55e25e2c0b4f73ae54d9265c56145270a4a25d665953d296c00f3bab83",
+      "bytes": 6237
+    },
+    {
+      "path": "web/components/sideout/use-edit-guard.ts",
+      "category": "approved-ui",
+      "sha256": "8e1f77a8db6e0e0524de4227b5b76c5aa24685627a502d7bdd27aa11bc7c1830",
+      "bytes": 2745
+    },
+    {
+      "path": "web/components/sideout/week-schedule.tsx",
+      "category": "approved-ui",
+      "sha256": "4f555ac32058919897d2e7b013c3ed1476b3f658fd82d9d4e70c563ab7d1f070",
+      "bytes": 2259
+    },
+    {
+      "path": "web/lib/auth/credentials.ts",
+      "category": "hosting-auth",
+      "sha256": "6b2fd69d3bca8f75a775cb9101fa1692c28bddc2d815b197804ddcb59f9360a8",
+      "bytes": 2711
+    },
+    {
+      "path": "web/lib/sideout/schedule-defaults.ts",
+      "category": "approved-ui",
+      "sha256": "1ed206bc6379ddda1cc1928ea68d05b7d9ca7dbc6f81103768cf327ad03d23ca",
+      "bytes": 728
+    },
+    {
+      "path": "web/package-lock.json",
+      "category": "hosting-auth",
+      "sha256": "6a3f1b67a7296161d6834171f73ac46a1a62825b9c05f79f963e8a07e6fddc63",
+      "bytes": 530430
+    },
+    {
+      "path": "web/package.json",
+      "category": "hosting-auth",
+      "sha256": "0d4602806e85f9061b66d83e817bdc57267dcb8f1a48feff68b6e5c3207317aa",
+      "bytes": 2222
+    },
+    {
+      "path": "web/scripts/verify-allocation-toolbar-scroll.mjs",
+      "category": "approved-ui",
+      "sha256": "1a0712b3e9c952289446a3619efb8ba1680504c6f8635791319c1597bf9fb242",
+      "bytes": 3655
+    },
+    {
+      "path": "web/tests/account-state.mjs",
+      "category": "hosting-auth",
+      "sha256": "e5abba3ad71b2d3f42887f16491e07e580d89c6ba6bd871f71667afeb12c3673",
+      "bytes": 3037
+    },
+    {
+      "path": "web/tests/auth-contract.mjs",
+      "category": "hosting-auth",
+      "sha256": "da53feb1c8947d02534ac0a5ad9e3ba01e1976ba891b7d8370eec253ff7df45d",
+      "bytes": 6202
+    },
+    {
+      "path": "web/tests/auth-failures.mjs",
+      "category": "hosting-auth",
+      "sha256": "b6660d0f15b8c26c4ff2368eb7d70132e9eccd9975df68400f9c35f367f6541e",
+      "bytes": 5844
+    },
+    {
+      "path": "web/tests/auth-http.mjs",
+      "category": "hosting-auth",
+      "sha256": "dfcd50363684a6a764cd724a4ad63999c97a47d85d1d05fc85ecad8d7769b6d7",
+      "bytes": 6408
+    },
+    {
+      "path": "web/tests/auth-policy.mjs",
+      "category": "hosting-auth",
+      "sha256": "d05a0837310dd7a657753336caa4fd65b24b388b1054740123e55e7f82729514",
+      "bytes": 2712
+    },
+    {
+      "path": "web/tests/auth-service.mjs",
+      "category": "hosting-auth",
+      "sha256": "29fe22e8839e075eb91af79d8bba250606a5dd36f284cb43f496afc4a81cd077",
+      "bytes": 4268
+    },
+    {
+      "path": "web/tests/credentials.mjs",
+      "category": "hosting-auth",
+      "sha256": "3bb0b277f01314cf168ee02f3811d3c4e42f380e1530238851819a4a57c81f8c",
+      "bytes": 2265
+    },
+    {
+      "path": "web/tests/member-http.mjs",
+      "category": "hosting-auth",
+      "sha256": "bad040948d5b6e559118f2889f4cfe3b2d88a73b2b6dfb66fc00468d90148500",
+      "bytes": 10073
+    },
+    {
+      "path": "web/tests/member-management.mjs",
+      "category": "hosting-auth",
+      "sha256": "19151b3982c66635cf8b0dc6f9768c4ae66230e0aa922cee5fc90ea01532d118",
+      "bytes": 5258
+    },
+    {
+      "path": "web/tests/sideout-action-bar.test.tsx",
+      "category": "approved-ui",
+      "sha256": "d482e9ec0f68ed5d5c9d92905424e4441373b3638fa898c200e564e5c7f2872b",
+      "bytes": 2155
+    },
+    {
+      "path": "web/tests/sideout-allocation-ui.test.tsx",
+      "category": "approved-ui",
+      "sha256": "6dc99d0501d3df04c2a909d225aa2d653a2914fa3a26e5e3d9629ce3cc36805c",
+      "bytes": 13928
+    },
+    {
+      "path": "web/tests/sideout-confirm-dialog.test.tsx",
+      "category": "approved-ui",
+      "sha256": "e418352999ad6bc2c261f3ab0857b62462dd94176efb69eea3621dde6dc828ec",
+      "bytes": 2332
+    },
+    {
+      "path": "web/tests/sideout-credentials-runtime.test.ts",
+      "category": "hosting-auth",
+      "sha256": "ee43aaaefeff9a32f43c6cb85dc15d3d479415febf78b0439f5dfedaec69cc1f",
+      "bytes": 1546
+    },
+    {
+      "path": "web/tests/sideout-deadline.test.ts",
+      "category": "approved-ui",
+      "sha256": "1bcfb1d8497374359c83bfd8cbf9250e17dd664c66df6e4dae570c0feba29443",
+      "bytes": 840
+    },
+    {
+      "path": "web/tests/sideout-draft-detail.test.tsx",
+      "category": "approved-ui",
+      "sha256": "32dce7ce070b0d06a12d3b97c86ad4afe9ecd6cc7d43b27d5257c8f78c018fa6",
+      "bytes": 6332
+    },
+    {
+      "path": "web/tests/sideout-edit-guard.test.tsx",
+      "category": "approved-ui",
+      "sha256": "46eb3833cd347aff95f9d397712d5d83f02f4d0b1b4f59043ca7d6a3ab6e7f30",
+      "bytes": 3805
+    },
+    {
+      "path": "web/tests/sideout-editor.test.tsx",
+      "category": "approved-ui",
+      "sha256": "3e006e78488c9598b27d1be597fb93614db241200d2531543fd398a38af088bf",
+      "bytes": 13581
+    },
+    {
+      "path": "web/tests/sideout-home-scroll.test.tsx",
+      "category": "approved-ui",
+      "sha256": "8f884e4b91e293cb99a0ddb88c08af2643a9e1a4c02144bb710e58e5b421808b",
+      "bytes": 3555
+    },
+    {
+      "path": "web/tests/sideout-match-editor.test.tsx",
+      "category": "approved-ui",
+      "sha256": "654c6a5eab97602ff93496a8f8853cf63fde45fe10701838c20a74e45388f082",
+      "bytes": 8937
+    },
+    {
+      "path": "web/tests/sideout-new-session.test.tsx",
+      "category": "approved-ui",
+      "sha256": "17e917b0a8dc6aadc0a65eb98ecc29ffe7467050d5521517f559f81ee1d63e1d",
+      "bytes": 5707
+    },
+    {
+      "path": "web/tests/sideout-notice.test.tsx",
+      "category": "approved-ui",
+      "sha256": "331d8f96b6db8209d5a63f8df2b3d2f08872be9ea9a12c37377398708103e690",
+      "bytes": 2542
+    },
+    {
+      "path": "web/tests/sideout-pages.test.tsx",
+      "category": "approved-ui",
+      "sha256": "e7638fc852e97f6b5194cbbe8b4957075d80ebfb7c0bf86cb2972a520b5bead4",
+      "bytes": 11625
+    },
+    {
+      "path": "web/tests/sideout-read-parity.test.tsx",
+      "category": "approved-ui",
+      "sha256": "be8e3f5776cfa98817f4db49fc774313239fff9123b5b51e31fbc4f2742b9c76",
+      "bytes": 11279
+    },
+    {
+      "path": "web/tests/sideout-roster-write.test.tsx",
+      "category": "approved-ui",
+      "sha256": "77cba1180fa8af8078d1ecca4c8e9ec866681a3c4a30d4094c767a920339e7cc",
+      "bytes": 18640
+    },
+    {
+      "path": "web/tests/sideout-schedule-v4.test.tsx",
+      "category": "approved-ui",
+      "sha256": "c8cf9ffaaa597fb3ef6a309137f0b19a1da5086d2dc590130fad2ccff656456c",
+      "bytes": 6110
+    },
+    {
+      "path": "web/tests/sideout-shell.test.tsx",
+      "category": "approved-ui",
+      "sha256": "8fddee38406f7f9564f543bf94e72951bc40b1c7f3a3bf54751bc66e59c5a141",
+      "bytes": 3918
+    },
+    {
+      "path": "web/tests/sideout-team-editor.test.tsx",
+      "category": "approved-ui",
+      "sha256": "7ec320b9727c6756ef5efe60525b67f432c7b91fd030e2bbb36ffa30e5708174",
+      "bytes": 8466
+    },
+    {
+      "path": "web/wrangler.production.json",
+      "category": "separate-operations",
+      "sha256": "862a71d0373dcfaaef9c8b6c1402e9b56def6dd279c115b3c5be81b51f9ccc95",
+      "bytes": 720
+    }
+  ]
+}

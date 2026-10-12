@@ -1,0 +1,18 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts
+
+
+ RUN  v5.0.2 /private/var/folders/vj/cv1y1lz53jn60lb1zmfm_bdr0000gn/T/sideout-main-ui-wp847p95/web
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+ Test Files  41 passed (41)
+      Tests  410 passed (410)
+   Start at  15:14:40
+   Duration  7.28s (tests 55%, environment 23%, import 13%, transform 9%)
+
+    Isolate  41 workers spawned · ~450ms startup each (spawn + environment, per file)
+             at least ~1.39s faster with isolate: false — reuses workers across files instead of one per file
+

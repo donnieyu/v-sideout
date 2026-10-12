@@ -1,0 +1,18 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+(node:42776) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+ Test Files  33 passed (33)
+      Tests  361 passed (361)
+   Start at  18:44:15
+   Duration  5.71s (tests 55%, environment 23%, import 13%, transform 9%)
+
+    Isolate  33 workers spawned · ~396ms startup each (spawn + environment, per file)
+             at least ~911ms faster with isolate: false — reuses workers across files instead of one per file
+

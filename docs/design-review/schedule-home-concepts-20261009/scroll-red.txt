@@ -1,0 +1,1605 @@
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+(node:26566) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ tests/sideout-home-scroll.test.tsx (3 tests | 3 failed) 296ms
+   × keeps navigation outside the keyboard-scrollable schedule region 179ms
+   × restores the inner list after navigation/reload, waits for content, and does not jump on polling 62ms
+   × keeps restoration private to the member and selected week/filter 54ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-home-scroll.test.tsx > keeps navigation outside the keyboard-scrollable schedule region
+TestingLibraryElementError: Unable to find an accessible element with the role "region" and name "일정 목록"
+
+Here are the accessible roles:
+
+  link:
+
+  Name "본문으로 이동":
+  [36m<a[39m
+    [33mclass[39m=[32m"_skipLink_1314d5"[39m
+    [33mhref[39m=[32m"#sideout-main"[39m
+  [36m/>[39m
+
+  Name "SIDEOUT":
+  [36m<a[39m
+    [33mclass[39m=[32m"_brand_1314d5"[39m
+    [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "운동 일정":
+  [36m<a[39m
+    [33mclass[39m=[32m"_navLink_1314d5"[39m
+    [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "시험 회원, 계정 정보":
+  [36m<a[39m
+    [33maria-label[39m=[32m"시험 회원, 계정 정보"[39m
+    [33mclass[39m=[32m"_profile_1314d5"[39m
+    [33mhref[39m=[32m"/account?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "SIDEOUT":
+  [36m<a[39m
+    [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "일정 관리":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 _manageLink_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"ghost"[39m
+    [33mhref[39m=[32m"/session/session-test-open?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "일정 관리":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 _manageLink_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"ghost"[39m
+    [33mhref[39m=[32m"/session/session-test-open?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  complementary:
+
+  Name "":
+  [36m<aside[39m
+    [33mclass[39m=[32m"_sidebar_1314d5"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  navigation:
+
+  Name "주 메뉴":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"주 메뉴"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  strong:
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  --------------------------------------------------
+  banner:
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"_mobileHeader_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<header />[39m
+
+  Name "":
+  [36m<header />[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "메뉴 열기":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33maria-label[39m=[32m"메뉴 열기"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 _floatingMenu_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"sheet-trigger"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "전체":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"true"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"secondary"[39m
+  [36m/>[39m
+
+  Name "즐겨찾기":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "즐겨찾기 관리":
+  [36m<button />[39m
+
+  Name "N뉴배동 · 시험":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "H히어로즈 · 시험":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "이전 주":
+  [36m<button[39m
+    [33maria-label[39m=[32m"이전 주"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 size-9"[39m
+    [33mdata-size[39m=[32m"icon"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "이번 주":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 has-[>svg]:px-3 _currentWeek_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"secondary"[39m
+    [33mdisabled[39m=[32m""[39m
+  [36m/>[39m
+
+  Name "다음 주":
+  [36m<button[39m
+    [33maria-label[39m=[32m"다음 주"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 size-9"[39m
+    [33mdata-size[39m=[32m"icon"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "운동 안내":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _noticeTrigger_1314d5"[39m
+    [33mdata-size[39m=[32m"sm"[39m
+    [33mdata-slot[39m=[32m"dialog-trigger"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "명단 확인":
+  [36m<button />[39m
+
+  Name "참석 신청":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"default"[39m
+    [33mdisabled[39m=[32m""[39m
+  [36m/>[39m
+
+  Name "운동 안내":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _noticeTrigger_1314d5"[39m
+    [33mdata-size[39m=[32m"sm"[39m
+    [33mdata-slot[39m=[32m"dialog-trigger"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "명단 확인":
+  [36m<button />[39m
+
+  Name "참석 신청":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"default"[39m
+    [33mdisabled[39m=[32m""[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  main:
+
+  Name "":
+  [36m<main[39m
+    [33mclass[39m=[32m"_main_1314d5 "[39m
+    [33mid[39m=[32m"sideout-main"[39m
+    [33mtabindex[39m=[32m"-1"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "운동 일정":
+  [36m<h1[39m
+    [33mclass[39m=[32m"_srOnly_1314d5"[39m
+  [36m/>[39m
+
+  Name "9월 28일 – 10월 4일":
+  [36m<h2[39m
+    [33maria-live[39m=[32m"polite"[39m
+  [36m/>[39m
+
+  Name "10월 3일 토요일":
+  [36m<h2 />[39m
+
+  Name "10월 4일 일요일":
+  [36m<h2 />[39m
+
+  Name "오전":
+  [36m<h3 />[39m
+
+  Name "뉴배동 · 시험":
+  [36m<h3 />[39m
+
+  Name "오후":
+  [36m<h3 />[39m
+
+  Name "10월 4일 일요일":
+  [36m<h2 />[39m
+
+  Name "뉴배동 · 시험":
+  [36m<h3 />[39m
+
+  --------------------------------------------------
+  region:
+
+  Name "10월 3일 토요일 오전":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 3일 토요일 오전"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  Name "10월 4일 일요일 오전":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 4일 일요일 오전"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  Name "10월 3일 토요일 오후":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 3일 토요일 오후"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  Name "10월 4일 일요일 오후":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 4일 일요일 오후"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  paragraph:
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_blankCell_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_entryTime_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_eventPlace_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_blankCell_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_blankCell_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_entryTime_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_eventPlace_1314d5"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  article:
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"_eventCard_1314d5 "[39m
+    [33mdata-club-id[39m=[32m"club-test-nb"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"_eventCard_1314d5 "[39m
+    [33mdata-club-id[39m=[32m"club-test-nb"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<a[39m
+      [33mclass[39m=[32m"_skipLink_1314d5"[39m
+      [33mhref[39m=[32m"#sideout-main"[39m
+    [36m>[39m
+      [0m본문으로 이동[0m
+    [36m</a>[39m
+    [36m<aside[39m
+      [33mclass[39m=[32m"_sidebar_1314d5"[39m
+    [36m>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"_brand_1314d5"[39m
+        [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+      [36m>[39m
+        [0mSIDEOUT[0m
+      [36m</a>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"주 메뉴"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33mclass[39m=[32m"_navLink_1314d5"[39m
+          [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-house"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"17"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"17"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+          [0m운동 일정[0m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-chevron-right"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"15"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"15"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m9 18 6-6-6-6"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</a>[39m
+      [36m</nav>[39m
+      [36m<a[39m
+        [33maria-label[39m=[32m"시험 회원, 계정 정보"[39m
+        [33mclass[39m=[32m"_profile_1314d5"[39m
+        [33mhref[39m=[32m"/account?weekStart=2026-09-28&filter=all"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"_avatar_1314d5"[39m
+        [36m>[39m
+          [0m회원[0m
+        [36m</span>[39m
+        [36m<span>[39m
+          [36m<strong>[39m
+            [0m시험 회원[0m
+          [36m</strong>[39m
+          [36m<small>[39m
+            [0m뉴배동 · 시험[0m
+          [36m</small>[39m
+        [36m</span>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"_accountLink_1314d5"[39m
+        [36m>[39m
+          [0m계정 보기[0m
+        [36m</span>[39m
+      [36m</a>[39m
+    [36m</aside>[39m
+    [36m<header[39m
+      [33mclass[39m=[32m"_mobileHeader_1314d5"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_headerBrand_1314d5"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+        [36m>[39m
+          [0mSIDEOUT[0m
+        [36m</a>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_headerTitle_1314d5"[39m
+      [36m>[39m
+        [36m<strong>[39m
+          [0m운동 일정[0m
+        [36m</strong>[39m
+      [36m</div>[39m
+    [36m</header>[39m
+    [36m<button[39m
+      [33maria-expanded[39m=[32m"false"[39m
+      [33maria-haspopup[39m=[32m"dialog"[39m
+      [33maria-label[39m=[32m"메뉴 열기"[39m
+      [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 _floatingMenu_1314d5"[39m
+      [33mdata-size[39m=[32m"default"[39m
+      [33mdata-slot[39m=[32m"sheet-trigger"[39m
+      [33mdata-state[39m=[32m"closed"[39m
+      [33mdata-variant[39m=[32m"outline"[39m
+      [33mtype[39m=[32m"button"[39m
+    [36m>[39m
+      [36m<svg[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"lucide lucide-menu"[39m
+        [33mfill[39m=[32m"none"[39m
+        [33mheight[39m=[32m"24"[39m
+        [33mstroke[39m=[32m"currentColor"[39m
+        [33mstroke-linecap[39m=[32m"round"[39m
+        [33mstroke-linejoin[39m=[32m"round"[39m
+        [33mstroke-width[39m=[32m"2"[39m
+        [33mviewBox[39m=[32m"0 0 24 24"[39m
+        [33mwidth[39m=[32m"24"[39m
+        [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+      [36m>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M4 5h16"[39m
+        [36m/>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M4 12h16"[39m
+        [36m/>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M4 19h16"[39m
+        [36m/>[39m
+      [36m</svg>[39m
+      [36m<span>[39m
+        [0m메뉴[0m
+      [36m</span>[39m
+    [36m</button>[39m
+    [36m<main[39m
+      [33mclass[39m=[32m"_main_1314d5 "[39m
+      [33mid[39m=[32m"sideout-main"[39m
+      [33mtabindex[39m=[32m"-1"[39m
+    [36m>[39m
+      [36m<h1[39m
+        [33mclass[39m=[32m"_srOnly_1314d5"[39m
+      [36m>[39m
+        [0m운동 일정[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33maria-label[39m=[32m"모임 필터"[39m
+        [33mclass[39m=[32m"_filters_1314d5"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33maria-pressed[39m=[32m"true"[39m
+          [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/sideout-home-scroll.test.tsx:22:42
+     20|
+     21| it('keeps navigation outside the keyboard-scrollable schedule region',…
+     22|  render(<HomeScreen/>);const list=screen.getByRole('region',{name:'일정 …
+       |                                          ^
+     23|  expect(list.tabIndex).toBe(0);
+     24|  expect(list.contains(screen.getByRole('button',{name:'이전 주'}))).toBe(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/sideout-home-scroll.test.tsx > restores the inner list after navigation/reload, waits for content, and does not jump on polling
+TestingLibraryElementError: Unable to find an accessible element with the role "region" and name "일정 목록"
+
+Here are the accessible roles:
+
+  link:
+
+  Name "본문으로 이동":
+  [36m<a[39m
+    [33mclass[39m=[32m"_skipLink_1314d5"[39m
+    [33mhref[39m=[32m"#sideout-main"[39m
+  [36m/>[39m
+
+  Name "SIDEOUT":
+  [36m<a[39m
+    [33mclass[39m=[32m"_brand_1314d5"[39m
+    [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "운동 일정":
+  [36m<a[39m
+    [33mclass[39m=[32m"_navLink_1314d5"[39m
+    [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "시험 회원, 계정 정보":
+  [36m<a[39m
+    [33maria-label[39m=[32m"시험 회원, 계정 정보"[39m
+    [33mclass[39m=[32m"_profile_1314d5"[39m
+    [33mhref[39m=[32m"/account?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "SIDEOUT":
+  [36m<a[39m
+    [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "일정 관리":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 _manageLink_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"ghost"[39m
+    [33mhref[39m=[32m"/session/session-test-open?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "일정 관리":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 _manageLink_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"ghost"[39m
+    [33mhref[39m=[32m"/session/session-test-open?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  complementary:
+
+  Name "":
+  [36m<aside[39m
+    [33mclass[39m=[32m"_sidebar_1314d5"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  navigation:
+
+  Name "주 메뉴":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"주 메뉴"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  strong:
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  --------------------------------------------------
+  banner:
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"_mobileHeader_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<header />[39m
+
+  Name "":
+  [36m<header />[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "메뉴 열기":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33maria-label[39m=[32m"메뉴 열기"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 _floatingMenu_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"sheet-trigger"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "전체":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"true"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"secondary"[39m
+  [36m/>[39m
+
+  Name "즐겨찾기":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "즐겨찾기 관리":
+  [36m<button />[39m
+
+  Name "N뉴배동 · 시험":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "H히어로즈 · 시험":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "이전 주":
+  [36m<button[39m
+    [33maria-label[39m=[32m"이전 주"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 size-9"[39m
+    [33mdata-size[39m=[32m"icon"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "이번 주":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 has-[>svg]:px-3 _currentWeek_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"secondary"[39m
+    [33mdisabled[39m=[32m""[39m
+  [36m/>[39m
+
+  Name "다음 주":
+  [36m<button[39m
+    [33maria-label[39m=[32m"다음 주"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 size-9"[39m
+    [33mdata-size[39m=[32m"icon"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "운동 안내":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _noticeTrigger_1314d5"[39m
+    [33mdata-size[39m=[32m"sm"[39m
+    [33mdata-slot[39m=[32m"dialog-trigger"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "명단 확인":
+  [36m<button />[39m
+
+  Name "참석 신청":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"default"[39m
+    [33mdisabled[39m=[32m""[39m
+  [36m/>[39m
+
+  Name "운동 안내":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _noticeTrigger_1314d5"[39m
+    [33mdata-size[39m=[32m"sm"[39m
+    [33mdata-slot[39m=[32m"dialog-trigger"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "명단 확인":
+  [36m<button />[39m
+
+  Name "참석 신청":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"default"[39m
+    [33mdisabled[39m=[32m""[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  main:
+
+  Name "":
+  [36m<main[39m
+    [33mclass[39m=[32m"_main_1314d5 "[39m
+    [33mid[39m=[32m"sideout-main"[39m
+    [33mtabindex[39m=[32m"-1"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "운동 일정":
+  [36m<h1[39m
+    [33mclass[39m=[32m"_srOnly_1314d5"[39m
+  [36m/>[39m
+
+  Name "9월 28일 – 10월 4일":
+  [36m<h2[39m
+    [33maria-live[39m=[32m"polite"[39m
+  [36m/>[39m
+
+  Name "10월 3일 토요일":
+  [36m<h2 />[39m
+
+  Name "10월 4일 일요일":
+  [36m<h2 />[39m
+
+  Name "오전":
+  [36m<h3 />[39m
+
+  Name "뉴배동 · 시험":
+  [36m<h3 />[39m
+
+  Name "오후":
+  [36m<h3 />[39m
+
+  Name "10월 4일 일요일":
+  [36m<h2 />[39m
+
+  Name "뉴배동 · 시험":
+  [36m<h3 />[39m
+
+  --------------------------------------------------
+  region:
+
+  Name "10월 3일 토요일 오전":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 3일 토요일 오전"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  Name "10월 4일 일요일 오전":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 4일 일요일 오전"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  Name "10월 3일 토요일 오후":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 3일 토요일 오후"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  Name "10월 4일 일요일 오후":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 4일 일요일 오후"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  paragraph:
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_blankCell_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_entryTime_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_eventPlace_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_blankCell_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_blankCell_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_entryTime_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_eventPlace_1314d5"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  article:
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"_eventCard_1314d5 "[39m
+    [33mdata-club-id[39m=[32m"club-test-nb"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"_eventCard_1314d5 "[39m
+    [33mdata-club-id[39m=[32m"club-test-nb"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<a[39m
+      [33mclass[39m=[32m"_skipLink_1314d5"[39m
+      [33mhref[39m=[32m"#sideout-main"[39m
+    [36m>[39m
+      [0m본문으로 이동[0m
+    [36m</a>[39m
+    [36m<aside[39m
+      [33mclass[39m=[32m"_sidebar_1314d5"[39m
+    [36m>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"_brand_1314d5"[39m
+        [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+      [36m>[39m
+        [0mSIDEOUT[0m
+      [36m</a>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"주 메뉴"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33mclass[39m=[32m"_navLink_1314d5"[39m
+          [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-house"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"17"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"17"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+          [0m운동 일정[0m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-chevron-right"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"15"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"15"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m9 18 6-6-6-6"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</a>[39m
+      [36m</nav>[39m
+      [36m<a[39m
+        [33maria-label[39m=[32m"시험 회원, 계정 정보"[39m
+        [33mclass[39m=[32m"_profile_1314d5"[39m
+        [33mhref[39m=[32m"/account?weekStart=2026-09-28&filter=all"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"_avatar_1314d5"[39m
+        [36m>[39m
+          [0m회원[0m
+        [36m</span>[39m
+        [36m<span>[39m
+          [36m<strong>[39m
+            [0m시험 회원[0m
+          [36m</strong>[39m
+          [36m<small>[39m
+            [0m뉴배동 · 시험[0m
+          [36m</small>[39m
+        [36m</span>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"_accountLink_1314d5"[39m
+        [36m>[39m
+          [0m계정 보기[0m
+        [36m</span>[39m
+      [36m</a>[39m
+    [36m</aside>[39m
+    [36m<header[39m
+      [33mclass[39m=[32m"_mobileHeader_1314d5"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_headerBrand_1314d5"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+        [36m>[39m
+          [0mSIDEOUT[0m
+        [36m</a>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_headerTitle_1314d5"[39m
+      [36m>[39m
+        [36m<strong>[39m
+          [0m운동 일정[0m
+        [36m</strong>[39m
+      [36m</div>[39m
+    [36m</header>[39m
+    [36m<button[39m
+      [33maria-expanded[39m=[32m"false"[39m
+      [33maria-haspopup[39m=[32m"dialog"[39m
+      [33maria-label[39m=[32m"메뉴 열기"[39m
+      [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 _floatingMenu_1314d5"[39m
+      [33mdata-size[39m=[32m"default"[39m
+      [33mdata-slot[39m=[32m"sheet-trigger"[39m
+      [33mdata-state[39m=[32m"closed"[39m
+      [33mdata-variant[39m=[32m"outline"[39m
+      [33mtype[39m=[32m"button"[39m
+    [36m>[39m
+      [36m<svg[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"lucide lucide-menu"[39m
+        [33mfill[39m=[32m"none"[39m
+        [33mheight[39m=[32m"24"[39m
+        [33mstroke[39m=[32m"currentColor"[39m
+        [33mstroke-linecap[39m=[32m"round"[39m
+        [33mstroke-linejoin[39m=[32m"round"[39m
+        [33mstroke-width[39m=[32m"2"[39m
+        [33mviewBox[39m=[32m"0 0 24 24"[39m
+        [33mwidth[39m=[32m"24"[39m
+        [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+      [36m>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M4 5h16"[39m
+        [36m/>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M4 12h16"[39m
+        [36m/>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M4 19h16"[39m
+        [36m/>[39m
+      [36m</svg>[39m
+      [36m<span>[39m
+        [0m메뉴[0m
+      [36m</span>[39m
+    [36m</button>[39m
+    [36m<main[39m
+      [33mclass[39m=[32m"_main_1314d5 "[39m
+      [33mid[39m=[32m"sideout-main"[39m
+      [33mtabindex[39m=[32m"-1"[39m
+    [36m>[39m
+      [36m<h1[39m
+        [33mclass[39m=[32m"_srOnly_1314d5"[39m
+      [36m>[39m
+        [0m운동 일정[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33maria-label[39m=[32m"모임 필터"[39m
+        [33mclass[39m=[32m"_filters_1314d5"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33maria-pressed[39m=[32m"true"[39m
+          [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/sideout-home-scroll.test.tsx:29:49
+     27| });
+     28| it('restores the inner list after navigation/reload, waits for content…
+     29|  let view=render(<HomeScreen/>);let list=screen.getByRole('region',{na…
+       |                                                 ^
+     30|  fireEvent.scroll(list,{target:{scrollTop:260}});view.unmount();state.…
+     31|  view=render(<HomeScreen/>);list=screen.getByRole('region',{name:'일정 목…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/sideout-home-scroll.test.tsx > keeps restoration private to the member and selected week/filter
+TestingLibraryElementError: Unable to find an accessible element with the role "region" and name "일정 목록"
+
+Here are the accessible roles:
+
+  link:
+
+  Name "본문으로 이동":
+  [36m<a[39m
+    [33mclass[39m=[32m"_skipLink_1314d5"[39m
+    [33mhref[39m=[32m"#sideout-main"[39m
+  [36m/>[39m
+
+  Name "SIDEOUT":
+  [36m<a[39m
+    [33mclass[39m=[32m"_brand_1314d5"[39m
+    [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "운동 일정":
+  [36m<a[39m
+    [33mclass[39m=[32m"_navLink_1314d5"[39m
+    [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "시험 회원, 계정 정보":
+  [36m<a[39m
+    [33maria-label[39m=[32m"시험 회원, 계정 정보"[39m
+    [33mclass[39m=[32m"_profile_1314d5"[39m
+    [33mhref[39m=[32m"/account?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "SIDEOUT":
+  [36m<a[39m
+    [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "일정 관리":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 _manageLink_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"ghost"[39m
+    [33mhref[39m=[32m"/session/session-test-open?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  Name "일정 관리":
+  [36m<a[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 h-9 px-4 py-2 has-[>svg]:px-3 _manageLink_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"ghost"[39m
+    [33mhref[39m=[32m"/session/session-test-open?weekStart=2026-09-28&filter=all"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  complementary:
+
+  Name "":
+  [36m<aside[39m
+    [33mclass[39m=[32m"_sidebar_1314d5"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  navigation:
+
+  Name "주 메뉴":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"주 메뉴"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  strong:
+
+  Name "":
+  [36m<strong />[39m
+
+  Name "":
+  [36m<strong />[39m
+
+  --------------------------------------------------
+  banner:
+
+  Name "":
+  [36m<header[39m
+    [33mclass[39m=[32m"_mobileHeader_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<header />[39m
+
+  Name "":
+  [36m<header />[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "메뉴 열기":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33maria-label[39m=[32m"메뉴 열기"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 _floatingMenu_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"sheet-trigger"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "전체":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"true"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"secondary"[39m
+  [36m/>[39m
+
+  Name "즐겨찾기":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "즐겨찾기 관리":
+  [36m<button />[39m
+
+  Name "N뉴배동 · 시험":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "H히어로즈 · 시험":
+  [36m<button[39m
+    [33maria-pressed[39m=[32m"false"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "이전 주":
+  [36m<button[39m
+    [33maria-label[39m=[32m"이전 주"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 size-9"[39m
+    [33mdata-size[39m=[32m"icon"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "이번 주":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 has-[>svg]:px-3 _currentWeek_1314d5"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"secondary"[39m
+    [33mdisabled[39m=[32m""[39m
+  [36m/>[39m
+
+  Name "다음 주":
+  [36m<button[39m
+    [33maria-label[39m=[32m"다음 주"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 size-9"[39m
+    [33mdata-size[39m=[32m"icon"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+  [36m/>[39m
+
+  Name "운동 안내":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _noticeTrigger_1314d5"[39m
+    [33mdata-size[39m=[32m"sm"[39m
+    [33mdata-slot[39m=[32m"dialog-trigger"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "명단 확인":
+  [36m<button />[39m
+
+  Name "참석 신청":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"default"[39m
+    [33mdisabled[39m=[32m""[39m
+  [36m/>[39m
+
+  Name "운동 안내":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"dialog"[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5 _noticeTrigger_1314d5"[39m
+    [33mdata-size[39m=[32m"sm"[39m
+    [33mdata-slot[39m=[32m"dialog-trigger"[39m
+    [33mdata-state[39m=[32m"closed"[39m
+    [33mdata-variant[39m=[32m"outline"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "명단 확인":
+  [36m<button />[39m
+
+  Name "참석 신청":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 has-[>svg]:px-3"[39m
+    [33mdata-size[39m=[32m"default"[39m
+    [33mdata-slot[39m=[32m"button"[39m
+    [33mdata-variant[39m=[32m"default"[39m
+    [33mdisabled[39m=[32m""[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  main:
+
+  Name "":
+  [36m<main[39m
+    [33mclass[39m=[32m"_main_1314d5 "[39m
+    [33mid[39m=[32m"sideout-main"[39m
+    [33mtabindex[39m=[32m"-1"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  heading:
+
+  Name "운동 일정":
+  [36m<h1[39m
+    [33mclass[39m=[32m"_srOnly_1314d5"[39m
+  [36m/>[39m
+
+  Name "9월 28일 – 10월 4일":
+  [36m<h2[39m
+    [33maria-live[39m=[32m"polite"[39m
+  [36m/>[39m
+
+  Name "10월 3일 토요일":
+  [36m<h2 />[39m
+
+  Name "10월 4일 일요일":
+  [36m<h2 />[39m
+
+  Name "오전":
+  [36m<h3 />[39m
+
+  Name "뉴배동 · 시험":
+  [36m<h3 />[39m
+
+  Name "오후":
+  [36m<h3 />[39m
+
+  Name "10월 4일 일요일":
+  [36m<h2 />[39m
+
+  Name "뉴배동 · 시험":
+  [36m<h3 />[39m
+
+  --------------------------------------------------
+  region:
+
+  Name "10월 3일 토요일 오전":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 3일 토요일 오전"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  Name "10월 4일 일요일 오전":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 4일 일요일 오전"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  Name "10월 3일 토요일 오후":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 3일 토요일 오후"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  Name "10월 4일 일요일 오후":
+  [36m<section[39m
+    [33maria-label[39m=[32m"10월 4일 일요일 오후"[39m
+    [33mclass[39m=[32m"_dayEvents_1314d5"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  paragraph:
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_blankCell_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_entryTime_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_eventPlace_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_blankCell_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_blankCell_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_entryTime_1314d5"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"_eventPlace_1314d5"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  article:
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"_eventCard_1314d5 "[39m
+    [33mdata-club-id[39m=[32m"club-test-nb"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<article[39m
+    [33mclass[39m=[32m"_eventCard_1314d5 "[39m
+    [33mdata-club-id[39m=[32m"club-test-nb"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<a[39m
+      [33mclass[39m=[32m"_skipLink_1314d5"[39m
+      [33mhref[39m=[32m"#sideout-main"[39m
+    [36m>[39m
+      [0m본문으로 이동[0m
+    [36m</a>[39m
+    [36m<aside[39m
+      [33mclass[39m=[32m"_sidebar_1314d5"[39m
+    [36m>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"_brand_1314d5"[39m
+        [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+      [36m>[39m
+        [0mSIDEOUT[0m
+      [36m</a>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"주 메뉴"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33mclass[39m=[32m"_navLink_1314d5"[39m
+          [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-house"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"17"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"17"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+          [0m운동 일정[0m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-chevron-right"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"15"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"15"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"m9 18 6-6-6-6"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+        [36m</a>[39m
+      [36m</nav>[39m
+      [36m<a[39m
+        [33maria-label[39m=[32m"시험 회원, 계정 정보"[39m
+        [33mclass[39m=[32m"_profile_1314d5"[39m
+        [33mhref[39m=[32m"/account?weekStart=2026-09-28&filter=all"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"_avatar_1314d5"[39m
+        [36m>[39m
+          [0m회원[0m
+        [36m</span>[39m
+        [36m<span>[39m
+          [36m<strong>[39m
+            [0m시험 회원[0m
+          [36m</strong>[39m
+          [36m<small>[39m
+            [0m뉴배동 · 시험[0m
+          [36m</small>[39m
+        [36m</span>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"_accountLink_1314d5"[39m
+        [36m>[39m
+          [0m계정 보기[0m
+        [36m</span>[39m
+      [36m</a>[39m
+    [36m</aside>[39m
+    [36m<header[39m
+      [33mclass[39m=[32m"_mobileHeader_1314d5"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_headerBrand_1314d5"[39m
+      [36m>[39m
+        [36m<a[39m
+          [33mhref[39m=[32m"/home?weekStart=2026-09-28&filter=all"[39m
+        [36m>[39m
+          [0mSIDEOUT[0m
+        [36m</a>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_headerTitle_1314d5"[39m
+      [36m>[39m
+        [36m<strong>[39m
+          [0m운동 일정[0m
+        [36m</strong>[39m
+      [36m</div>[39m
+    [36m</header>[39m
+    [36m<button[39m
+      [33maria-expanded[39m=[32m"false"[39m
+      [33maria-haspopup[39m=[32m"dialog"[39m
+      [33maria-label[39m=[32m"메뉴 열기"[39m
+      [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 _floatingMenu_1314d5"[39m
+      [33mdata-size[39m=[32m"default"[39m
+      [33mdata-slot[39m=[32m"sheet-trigger"[39m
+      [33mdata-state[39m=[32m"closed"[39m
+      [33mdata-variant[39m=[32m"outline"[39m
+      [33mtype[39m=[32m"button"[39m
+    [36m>[39m
+      [36m<svg[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"lucide lucide-menu"[39m
+        [33mfill[39m=[32m"none"[39m
+        [33mheight[39m=[32m"24"[39m
+        [33mstroke[39m=[32m"currentColor"[39m
+        [33mstroke-linecap[39m=[32m"round"[39m
+        [33mstroke-linejoin[39m=[32m"round"[39m
+        [33mstroke-width[39m=[32m"2"[39m
+        [33mviewBox[39m=[32m"0 0 24 24"[39m
+        [33mwidth[39m=[32m"24"[39m
+        [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+      [36m>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M4 5h16"[39m
+        [36m/>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M4 12h16"[39m
+        [36m/>[39m
+        [36m<path[39m
+          [33md[39m=[32m"M4 19h16"[39m
+        [36m/>[39m
+      [36m</svg>[39m
+      [36m<span>[39m
+        [0m메뉴[0m
+      [36m</span>[39m
+    [36m</button>[39m
+    [36m<main[39m
+      [33mclass[39m=[32m"_main_1314d5 "[39m
+      [33mid[39m=[32m"sideout-main"[39m
+      [33mtabindex[39m=[32m"-1"[39m
+    [36m>[39m
+      [36m<h1[39m
+        [33mclass[39m=[32m"_srOnly_1314d5"[39m
+      [36m>[39m
+        [0m운동 일정[0m
+      [36m</h1>[39m
+      [36m<div[39m
+        [33maria-label[39m=[32m"모임 필터"[39m
+        [33mclass[39m=[32m"_filters_1314d5"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33maria-pressed[39m=[32m"true"[39m
+          [33mclass[39m=[32m"inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-...
+ ❯ Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ tests/sideout-home-scroll.test.tsx:37:57
+     35| });
+     36| it('keeps restoration private to the member and selected week/filter',…
+     37|  let view=render(<HomeScreen/>);fireEvent.scroll(screen.getByRole('reg…
+       |                                                         ^
+     38|  state.memberId=ids.guest;view=render(<HomeScreen/>);expect(screen.get…
+     39|  state.memberId=ids.master;state.query='weekStart=2026-09-28&filter=cl…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  22:51:27
+   Duration  1.31s (environment 46%, tests 24%, import 20%, transform 9%)
+

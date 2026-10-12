@@ -1,0 +1,39 @@
+
+> site-creator-vinext-starter@0.1.0 test:sideout
+> vitest run --config vitest.sideout.config.ts tests/sideout-edit-guard.test.tsx
+
+
+ RUN  v5.0.2 /Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web
+
+(node:39797) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ tests/sideout-edit-guard.test.tsx (4 tests | 1 failed) 28ms
+   × does not discard a draft or disable the guard when following a same-document skip link 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/sideout-edit-guard.test.tsx > does not discard a draft or disable the guard when following a same-document skip link
+AssertionError: expected "bound " to not be called at all, but actually been called 1 times
+
+Received:
+
+  1st bound  call:
+
+    Array [
+      "저장하지 않은 변경사항이 사라집니다. 이동할까요?",
+    ]
+
+
+Number of calls: 1
+
+ ❯ tests/sideout-edit-guard.test.tsx:30:67
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  18:41:01
+   Duration  783ms (environment 79%, import 13%, tests 4%, transform 4%)
+

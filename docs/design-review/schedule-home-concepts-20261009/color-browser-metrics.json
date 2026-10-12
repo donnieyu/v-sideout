@@ -1,0 +1,70 @@
+[
+  {
+    "cards": [
+      {
+        "badge": "참석 신청 완료",
+        "club": "히어로즈 · 시험",
+        "height": 409.0859375,
+        "overlap": false,
+        "statusHeight": 18.59375,
+        "tone": "success",
+        "top": 321.984375
+      },
+      {
+        "badge": "대기 접수",
+        "club": "뉴배동 · 시험",
+        "height": 409.0859375,
+        "overlap": false,
+        "statusHeight": 18.59375,
+        "tone": "waiting",
+        "top": 788.765625
+      }
+    ],
+    "overflow": false,
+    "viewport": 390
+  },
+  {
+    "cards": [
+      {
+        "badge": "참석 신청 완료",
+        "height": 405.0859375,
+        "overlap": false
+      },
+      {
+        "badge": "대기 접수",
+        "height": 405.0859375,
+        "overlap": false
+      }
+    ],
+    "colors": [
+      {
+        "background": "rgb(234, 243, 236)",
+        "label": "참석 신청 완료",
+        "text": "rgb(53, 101, 80)"
+      },
+      {
+        "background": "rgb(248, 241, 229)",
+        "label": "대기 접수",
+        "text": "rgb(138, 98, 41)"
+      }
+    ],
+    "overflow": false,
+    "viewport": 320
+  },
+  {
+    "cards": [
+      {
+        "badge": "참석 신청 완료",
+        "overlap": false,
+        "width": 342.5
+      },
+      {
+        "badge": "대기 접수",
+        "overlap": false,
+        "width": 342.5
+      }
+    ],
+    "overflow": false,
+    "viewport": 1024
+  }
+]

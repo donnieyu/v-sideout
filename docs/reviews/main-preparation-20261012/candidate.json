@@ -1,0 +1,6 @@
+{
+  "path": "/var/folders/vj/cv1y1lz53jn60lb1zmfm_bdr0000gn/T/sideout-main-ui-wp847p95",
+  "base": "9633597f9d04e5873197b4c5ea6350d3c58b7bb9",
+  "overlayCategory": "approved-ui",
+  "excluded": "hosting/auth, experiments, operations, local state"
+}

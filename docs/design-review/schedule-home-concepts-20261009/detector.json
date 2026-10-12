@@ -1,0 +1,12 @@
+[
+  {
+    "antipattern": "border-accent-on-rounded",
+    "name": "Border accent on rounded element",
+    "description": "Thick accent border on a rounded card — the border clashes with the rounded corners. Remove the border or the border-radius.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "/Users/donnieyu/DevSource/Personal/v-sideout/.worktrees/promotion-p1/web/components/sideout/sideout.module.css",
+    "line": 16,
+    "snippet": "border-bottom:3px solid"
+  }
+]

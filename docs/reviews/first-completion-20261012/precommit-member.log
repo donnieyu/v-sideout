@@ -1,0 +1,13 @@
+
+> site-creator-vinext-starter@0.1.0 test:member-ui
+> vitest run --config vitest.member.config.ts
+
+
+ RUN  v5.0.2 /private/var/folders/vj/cv1y1lz53jn60lb1zmfm_bdr0000gn/T/sideout-main-ui-wp847p95/web
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  15:14:47
+   Duration  762ms (tests 44%, environment 35%, import 13%, transform 8%)
+

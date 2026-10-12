@@ -1,0 +1,312 @@
+{
+  "results": [
+    {
+      "key": "schedule",
+      "size": {
+        "width": 320,
+        "height": 667
+      },
+      "width": 320,
+      "scrollWidth": 320,
+      "returnPosition": "fixed",
+      "buttons": [
+        "저장"
+      ],
+      "body": {
+        "x": 12,
+        "y": 146.984375,
+        "width": 296,
+        "height": 444.015625,
+        "top": 146.984375,
+        "right": 308,
+        "bottom": 591,
+        "left": 12
+      }
+    },
+    {
+      "key": "teams",
+      "size": {
+        "width": 320,
+        "height": 667
+      },
+      "width": 320,
+      "scrollWidth": 320,
+      "returnPosition": "fixed",
+      "buttons": [
+        "저장",
+        "다시 공개"
+      ]
+    },
+    {
+      "key": "published",
+      "size": {
+        "width": 320,
+        "height": 667
+      },
+      "width": 320,
+      "scrollWidth": 320,
+      "returnPosition": "fixed",
+      "buttons": [
+        "공개 취소"
+      ]
+    },
+    {
+      "key": "matches",
+      "size": {
+        "width": 320,
+        "height": 667
+      },
+      "width": 320,
+      "scrollWidth": 320,
+      "returnPosition": "fixed",
+      "buttons": [
+        "저장"
+      ]
+    },
+    {
+      "key": "new",
+      "size": {
+        "width": 320,
+        "height": 667
+      },
+      "width": 320,
+      "scrollWidth": 320,
+      "returnPosition": "fixed",
+      "buttons": [
+        "준비로 저장",
+        "모집 시작"
+      ],
+      "body": {
+        "x": 12,
+        "y": 146.984375,
+        "width": 296,
+        "height": 444.015625,
+        "top": 146.984375,
+        "right": 308,
+        "bottom": 591,
+        "left": 12
+      }
+    },
+    {
+      "key": "detail",
+      "size": {
+        "width": 320,
+        "height": 667
+      },
+      "width": 320,
+      "scrollWidth": 320,
+      "returnPosition": "fixed",
+      "buttons": []
+    },
+    {
+      "key": "schedule",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "width": 390,
+      "scrollWidth": 390,
+      "returnPosition": "fixed",
+      "buttons": [
+        "저장"
+      ],
+      "body": {
+        "x": 16,
+        "y": 149.78125,
+        "width": 358,
+        "height": 618.21875,
+        "top": 149.78125,
+        "right": 374,
+        "bottom": 768,
+        "left": 16
+      }
+    },
+    {
+      "key": "teams",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "width": 390,
+      "scrollWidth": 390,
+      "returnPosition": "fixed",
+      "buttons": [
+        "저장",
+        "다시 공개"
+      ]
+    },
+    {
+      "key": "published",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "width": 390,
+      "scrollWidth": 390,
+      "returnPosition": "fixed",
+      "buttons": [
+        "공개 취소"
+      ]
+    },
+    {
+      "key": "matches",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "width": 390,
+      "scrollWidth": 390,
+      "returnPosition": "fixed",
+      "buttons": [
+        "저장"
+      ]
+    },
+    {
+      "key": "new",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "width": 390,
+      "scrollWidth": 390,
+      "returnPosition": "fixed",
+      "buttons": [
+        "준비로 저장",
+        "모집 시작"
+      ],
+      "body": {
+        "x": 16,
+        "y": 149.78125,
+        "width": 358,
+        "height": 618.21875,
+        "top": 149.78125,
+        "right": 374,
+        "bottom": 768,
+        "left": 16
+      }
+    },
+    {
+      "key": "detail",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "width": 390,
+      "scrollWidth": 390,
+      "returnPosition": "fixed",
+      "buttons": []
+    },
+    {
+      "key": "schedule",
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "width": 1280,
+      "scrollWidth": 1280,
+      "returnPosition": "static",
+      "buttons": [
+        "저장"
+      ],
+      "body": {
+        "x": 278,
+        "y": 170.78125,
+        "width": 960,
+        "height": 710.21875,
+        "top": 170.78125,
+        "right": 1238,
+        "bottom": 881,
+        "left": 278
+      }
+    },
+    {
+      "key": "teams",
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "width": 1280,
+      "scrollWidth": 1280,
+      "returnPosition": "static",
+      "buttons": [
+        "저장",
+        "다시 공개"
+      ]
+    },
+    {
+      "key": "published",
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "width": 1280,
+      "scrollWidth": 1280,
+      "returnPosition": "static",
+      "buttons": [
+        "공개 취소"
+      ]
+    },
+    {
+      "key": "matches",
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "width": 1280,
+      "scrollWidth": 1280,
+      "returnPosition": "static",
+      "buttons": [
+        "저장"
+      ]
+    },
+    {
+      "key": "new",
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "width": 1280,
+      "scrollWidth": 1280,
+      "returnPosition": "static",
+      "buttons": [
+        "준비로 저장",
+        "모집 시작"
+      ],
+      "body": {
+        "x": 278,
+        "y": 170.78125,
+        "width": 960,
+        "height": 710.21875,
+        "top": 170.78125,
+        "right": 1238,
+        "bottom": 881,
+        "left": 278
+      }
+    },
+    {
+      "key": "detail",
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "width": 1280,
+      "scrollWidth": 1280,
+      "returnPosition": "static",
+      "buttons": []
+    }
+  ],
+  "errors": [],
+  "checks": [
+    "fixed registration actions",
+    "mobile returns",
+    "no horizontal overflow",
+    "notice deep link",
+    "dirty return dismiss/accept",
+    "unpublish confirmation cancel and overlay return hidden",
+    "one card and whole-card edit link",
+    "pointer drag return hide/restore",
+    "keyboard match reorder and discard"
+  ],
+  "sessionWrites": false,
+  "physicalIPhone": false
+}

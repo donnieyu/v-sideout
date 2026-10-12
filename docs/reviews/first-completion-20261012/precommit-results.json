@@ -1,0 +1,23 @@
+[
+  {
+    "name": "build",
+    "exit": 0
+  },
+  {
+    "name": "ui",
+    "exit": 0
+  },
+  {
+    "name": "member",
+    "exit": 0
+  },
+  {
+    "name": "types",
+    "exit": 0
+  },
+  {
+    "name": "domain",
+    "files": 19,
+    "exit": 0
+  }
+]

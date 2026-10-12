@@ -1,0 +1,114 @@
+[
+  {
+    "name": "chrome",
+    "width": 320,
+    "scroll": 320,
+    "button": {
+      "x": 162.3125,
+      "y": 784,
+      "width": 91.515625,
+      "height": 44,
+      "top": 784,
+      "right": 253.828125,
+      "bottom": 828,
+      "left": 162.3125
+    },
+    "font": "13px",
+    "weight": "400"
+  },
+  {
+    "name": "chrome",
+    "width": 390,
+    "scroll": 390,
+    "button": {
+      "x": 198.3125,
+      "y": 784,
+      "width": 103.515625,
+      "height": 44,
+      "top": 784,
+      "right": 301.828125,
+      "bottom": 828,
+      "left": 198.3125
+    },
+    "font": "13px",
+    "weight": "400"
+  },
+  {
+    "name": "chrome",
+    "width": 1024,
+    "scroll": 1024,
+    "button": {
+      "x": 910.234375,
+      "y": 712.890625,
+      "width": 89.765625,
+      "height": 44,
+      "top": 712.890625,
+      "right": 1000,
+      "bottom": 756.890625,
+      "left": 910.234375
+    },
+    "font": "12px",
+    "weight": "500"
+  },
+  {
+    "name": "chrome",
+    "startFlow": "passed",
+    "writesIntercepted": 1
+  },
+  {
+    "name": "webkit",
+    "width": 320,
+    "scroll": 320,
+    "button": {
+      "x": 162.3125,
+      "y": 784,
+      "width": 91.515625,
+      "height": 44,
+      "top": 784,
+      "right": 253.828125,
+      "bottom": 828,
+      "left": 162.3125
+    },
+    "font": "13px",
+    "weight": "400"
+  },
+  {
+    "name": "webkit",
+    "width": 390,
+    "scroll": 390,
+    "button": {
+      "x": 198.3125,
+      "y": 784,
+      "width": 103.515625,
+      "height": 44,
+      "top": 784,
+      "right": 301.828125,
+      "bottom": 828,
+      "left": 198.3125
+    },
+    "font": "13px",
+    "weight": "400"
+  },
+  {
+    "name": "webkit",
+    "width": 1024,
+    "scroll": 1024,
+    "button": {
+      "x": 910.234375,
+      "y": 712.890625,
+      "width": 89.765625,
+      "height": 44,
+      "top": 712.890625,
+      "right": 1000,
+      "bottom": 756.890625,
+      "left": 910.234375
+    },
+    "font": "12px",
+    "weight": "500"
+  },
+  {
+    "name": "webkit",
+    "startFlow": "passed",
+    "writesIntercepted": 1
+  }
+]

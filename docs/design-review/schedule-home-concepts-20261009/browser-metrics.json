@@ -1,0 +1,31 @@
+{
+  "cancelTarget": {
+    "bottom": 292.49609375,
+    "height": 44,
+    "left": 130.5,
+    "right": 174.5,
+    "top": 248.49609375,
+    "width": 44,
+    "x": 130.5,
+    "y": 248.49609375
+  },
+  "dialogHeight": 776,
+  "menuVisibility": "hidden",
+  "overflow": false,
+  "panelClientHeight": 517,
+  "panelScrollHeight": 701,
+  "rosterNames": [
+    {
+      "fontSize": "13px",
+      "fontWeight": "500"
+    },
+    {
+      "fontSize": "13px",
+      "fontWeight": "500"
+    }
+  ],
+  "viewport": [
+    390,
+    844
+  ]
+}
