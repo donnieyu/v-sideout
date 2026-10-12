@@ -1,0 +1,15 @@
+{
+  "reviewHead": "6025df4549b02ab18e77430560bf196a36a237e0",
+  "committedWebFilesMatchTestedCandidate": 305,
+  "documentationOnlyRefresh": [
+    "web/DESIGN.md"
+  ],
+  "protectedDrift": {
+    "promotion": [
+      "docs/reviews/cloudflare-personal-preview-20261012/REPORT.md"
+    ],
+    "main": []
+  },
+  "externalDriftNote": "Excluded personal-preview report changed concurrently. This task did not edit it and it is not staged.",
+  "mainDirtyOverlap": []
+}

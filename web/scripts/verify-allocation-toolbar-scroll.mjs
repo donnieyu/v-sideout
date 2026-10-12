@@ -31,7 +31,8 @@ try{
     const body=document.querySelector('.allocation-session-body');
     const bar=body.querySelector(':scope > .ab-board-toolbar');
     const content=body.querySelector(selector);
-    const nav=document.querySelector('[data-return-placement]');
+    const nav=document.querySelector('[data-floating-editor-actions]');
+    if(!nav)throw Error('Team editor floating action group is required');
     const before={toolbarTop:bar.getBoundingClientRect().top,navTop:nav.getBoundingClientRect().top};
     content.scrollTop=content.scrollHeight;
     return {before,after:{toolbarTop:bar.getBoundingClientRect().top,navTop:nav.getBoundingClientRect().top},
